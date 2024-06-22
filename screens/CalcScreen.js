@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 // import { StatusBar } from "expo-status-bar";
 import {
   SafeAreaView,
@@ -14,31 +14,28 @@ import {
   PermissionsAndroid,
   Button,
   Alert,
-} from 'react-native';
-import TopBar from '../components/TopBar';
-import TextInputButton from '../components/TextInputButton';
-import TextButton from '../components/TextButton';
-import IconButton from '../components/IconButton';
-import Bmi from './Bmi';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {useDarkMode} from '../components/DarkModeContext';
-import Settings from './Settings';
-import {writeFile, readFile, MainBundlePath, readDir} from 'react-native-fs';
-import XLSX from 'xlsx';
-import RNFS from 'react-native-fs';
-import RNHTMLtoPDF from 'react-native-html-to-pdf';
-import FileViewer from 'react-native-file-viewer';
+  ScrollView,
+} from "react-native";
+import TopBar from "../components/TopBar";
+import TextInputButton from "../components/TextInputButton";
+import TextButton from "../components/TextButton";
+import IconButton from "../components/IconButton";
+import Bmi from "./Bmi";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useDarkMode } from "../components/DarkModeContext";
+import RNHTMLtoPDF from "react-native-html-to-pdf";
+import FileViewer from "react-native-file-viewer";
 
-function CalcScreen({navigation}) {
+function CalcScreen({ navigation }) {
   // Reference dimension : iPhone 14
   // console.log(Dimensions.get("window").width);  390
   // console.log(Dimensions.get("window").height);  844
   const windowWidth = useWindowDimensions().width;
-  const [buttonState, setButtonState] = useState('');
+  const [buttonState, setButtonState] = useState("");
   const [weight, setWeight] = useState(0);
 
-  const scoliosis = async weight => {
+  const scoliosis = async (weight) => {
     try {
       let PDFOptions = {
         html: `<!DOCTYPE html>
@@ -192,20 +189,20 @@ function CalcScreen({navigation}) {
   </body>
 </html>
 `,
-        fileName: 'scoliosis',
-        directory: Platform.OS === 'android' ? 'Downloads' : 'Documents',
+        fileName: "scoliosis",
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
       };
       let file = await RNHTMLtoPDF.convert(PDFOptions);
       if (!file.filePath) return;
-      Alert.alert('File path: ', file.filePath);
-      console.log('successful: ', file.filePath);
+      Alert.alert("File path: ", file.filePath);
+      console.log("successful: ", file.filePath);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log('Failed to generate pdf', error.message);
+      console.log("Failed to generate pdf", error.message);
     }
   };
 
-  const cardiac = async weight => {
+  const cardiac = async (weight) => {
     try {
       let PDFOptions = {
         html: `<!DOCTYPE html>
@@ -1776,19 +1773,19 @@ function CalcScreen({navigation}) {
 </html>
 
 `,
-        fileName: 'cardiac',
-        directory: Platform.OS === 'android' ? 'Downloads' : 'Documents',
+        fileName: "cardiac",
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
       };
       let file = await RNHTMLtoPDF.convert(PDFOptions);
       if (!file.filePath) return;
-      Alert.alert('File path: ', file.filePath);
-      console.log('successful: ', file.filePath);
+      Alert.alert("File path: ", file.filePath);
+      console.log("successful: ", file.filePath);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log('Failed to generate pdf', error.message);
+      console.log("Failed to generate pdf", error.message);
     }
   };
-  const MH = async weight => {
+  const MH = async (weight) => {
     try {
       let PDFOptions = {
         html: `<!DOCTYPE html>
@@ -2291,20 +2288,20 @@ function CalcScreen({navigation}) {
   </body>
 </html>
 `,
-        fileName: 'MH',
-        directory: Platform.OS === 'android' ? 'Downloads' : 'Documents',
+        fileName: "MH",
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
       };
       let file = await RNHTMLtoPDF.convert(PDFOptions);
       if (!file.filePath) return;
-      Alert.alert('File path: ', file.filePath);
-      console.log('successful: ', file.filePath);
+      Alert.alert("File path: ", file.filePath);
+      console.log("successful: ", file.filePath);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log('Failed to generate pdf', error.message);
+      console.log("Failed to generate pdf", error.message);
     }
   };
 
-  const HyperK = async weight => {
+  const HyperK = async (weight) => {
     try {
       let PDFOptions = {
         html: `<!DOCTYPE html>
@@ -3704,20 +3701,20 @@ function CalcScreen({navigation}) {
   </body>
 </html>
 `,
-        fileName: 'HyperK',
-        directory: Platform.OS === 'android' ? 'Downloads' : 'Documents',
+        fileName: "HyperK",
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
       };
       let file = await RNHTMLtoPDF.convert(PDFOptions);
       if (!file.filePath) return;
-      Alert.alert('File path: ', file.filePath);
-      console.log('successful: ', file.filePath);
+      Alert.alert("File path: ", file.filePath);
+      console.log("successful: ", file.filePath);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log('Failed to generate pdf', error.message);
+      console.log("Failed to generate pdf", error.message);
     }
   };
 
-  const LAToxic = async weight => {
+  const LAToxic = async (weight) => {
     try {
       let PDFOptions = {
         html: `<!DOCTYPE html>
@@ -5724,19 +5721,19 @@ function CalcScreen({navigation}) {
   </body>
 </html>
         `,
-        fileName: 'LAToxic',
-        directory: Platform.OS === 'android' ? 'Downloads' : 'Documents',
+        fileName: "LAToxic",
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
       };
       let file = await RNHTMLtoPDF.convert(PDFOptions);
       if (!file.filePath) return;
-      Alert.alert('File path: ', file.filePath);
-      console.log('successful: ', file.filePath);
+      Alert.alert("File path: ", file.filePath);
+      console.log("successful: ", file.filePath);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log('Failed to generate pdf', error.message);
+      console.log("Failed to generate pdf", error.message);
     }
   };
-  const Anaphylaxis = async weight => {
+  const Anaphylaxis = async (weight) => {
     try {
       let PDFOptions = {
         html: `<!DOCTYPE html>
@@ -6677,16 +6674,16 @@ function CalcScreen({navigation}) {
   </body>
 </html>
 `,
-        fileName: 'Anaphylaxis',
-        directory: Platform.OS === 'android' ? 'Downloads' : 'Documents',
+        fileName: "Anaphylaxis",
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
       };
       let file = await RNHTMLtoPDF.convert(PDFOptions);
       if (!file.filePath) return;
-      Alert.alert('File path: ', file.filePath);
-      console.log('successful: ', file.filePath);
+      Alert.alert("File path: ", file.filePath);
+      console.log("successful: ", file.filePath);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log('Failed to generate pdf', error.message);
+      console.log("Failed to generate pdf", error.message);
     }
   };
   /*   async function checkPermissions() {
@@ -6733,65 +6730,68 @@ function CalcScreen({navigation}) {
       height: Platform.isPad ? windowWidth * 0.085 : windowWidth * 0.1,
       width: Platform.isPad ? windowWidth * 0.085 : windowWidth * 0.1,
       borderRadius: (windowWidth * 0.1) / 2,
-      overflow: 'hidden',
-      backgroundColor: 'rgb(49, 49, 53)',
-      justifyContent: 'center',
-      alignItems: 'center',
+      overflow: "hidden",
+      backgroundColor: "rgb(49, 49, 53)",
+      justifyContent: "center",
+      alignItems: "center",
       marginLeft: 5,
     },
     settingIcon: {
-      height: Platform.isPad ? '52.5%' : windowWidth * 0.055,
-      width: Platform.isPad ? '52.5%' : windowWidth * 0.055,
-      tintColor: '#EAEAEB',
+      height: Platform.isPad ? "52.5%" : windowWidth * 0.055,
+      width: Platform.isPad ? "52.5%" : windowWidth * 0.055,
+      tintColor: "#EAEAEB",
     },
     searchContainer: {
-      backgroundColor: 'rgb(49, 49, 53)',
+      backgroundColor: "rgb(49, 49, 53)",
       borderRadius: windowWidth * 0.05,
       marginHorizontal: 7.5,
       width: windowWidth * 0.85,
       height: Platform.isPad ? windowWidth * 0.085 : windowWidth * 0.1,
-      flexDirection: 'row',
-      overflow: 'hidden',
-      justifyContent: 'flex-start',
-      alignItems: 'center',
+      flexDirection: "row",
+      overflow: "hidden",
+      justifyContent: "flex-start",
+      alignItems: "center",
       paddingHorizontal: windowWidth * 0.035,
     },
     searchIcon: {
       height: Platform.isPad ? windowWidth * 0.03 : windowWidth * 0.04,
       width: Platform.isPad ? windowWidth * 0.03 : windowWidth * 0.04,
-      tintColor: '#818188',
+      tintColor: "#818188",
     },
     searchInput: {
       paddingHorizontal: windowWidth * 0.03,
-      fontWeight: '600',
+      fontWeight: "600",
       fontSize: Platform.isPad ? windowWidth * 0.034 : windowWidth * 0.045,
-      color: 'white',
-      width: '100%',
+      color: "white",
+      width: "100%",
     },
   });
-  const {isDarkMode, toggleDarkMode} = useDarkMode();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
     <SafeAreaView
       style={[
         styles.treeTop,
-        {backgroundColor: isDarkMode ? 'rgb(30, 30, 32)' : '#F2EDEB'},
-      ]}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          width: Dimensions.get('window').width,
-          marginTop: 25,
-          alignItems: 'center',
-          alignContent: 'center',
-        }}>
-        {/* <TouchableOpacity style={dynamicStyles.settingsView} onPress={() => navigation.navigate("Settings")}>
+        { backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB" },
+      ]}
+    >
+      <ScrollView style={{ flex: 1, paddingBottom: 20 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-around",
+            width: Dimensions.get("window").width,
+            marginTop: 25,
+            alignItems: "center",
+            alignContent: "center",
+          }}
+        >
+          {/* <TouchableOpacity style={dynamicStyles.settingsView} onPress={() => navigation.navigate("Settings")}>
         <Image
           source={require("../assets/setting.png")}
           style={dynamicStyles.settingIcon}
         />
       </TouchableOpacity> */}
-        {/*       <View style={dynamicStyles.searchContainer}>
+          {/*       <View style={dynamicStyles.searchContainer}>
         <Image
           source={require("../assets/search.png")}
           style={dynamicStyles.searchIcon}
@@ -6803,206 +6803,213 @@ function CalcScreen({navigation}) {
         />
         
       </View> */}
-      </View>
-      {/* <StatusBar style="light" /> */}
-      <View style={styles.contentContainer}>
-        <View style={styles.buttonRow}>
-          <View style={styles.buttonColumn1}>
-            <TextInputButton
-              title="Weight"
-              unit="kg"
-              action={prop => setWeight(prop)}
-              backgroundColor={'#313135'}
-              width={Dimensions.get('window').width * 0.3333333}
-              height={Dimensions.get('window').height * 0.06635071}
-            />
-          </View>
-          <View style={styles.buttonColumn2}>
-            <Text
-              style={[styles.select, {color: isDarkMode ? 'white' : 'black'}]}>
-              Select{' '}
+        </View>
+        {/* <StatusBar style="light" /> */}
+
+        <View style={styles.contentContainer}>
+          <View style={styles.buttonRow}>
+            <View style={styles.buttonColumn1}>
+              <TextInputButton
+                title="Weight"
+                unit="kg"
+                action={(prop) => setWeight(prop)}
+                backgroundColor={"#313135"}
+                width={Dimensions.get("window").width * 0.3333333}
+                height={Dimensions.get("window").height * 0.06635071}
+              />
+            </View>
+            <View style={styles.buttonColumn2}>
               <Text
                 style={[
-                  styles.one,
-                  {
-                    fontWeight: isDarkMode ? '700' : '800',
-                    color: isDarkMode ? '#72A8DA' : '#3289d9',
-                  },
-                ]}>
-                one
+                  styles.select,
+                  { color: isDarkMode ? "white" : "black" },
+                ]}
+              >
+                Select{" "}
+                <Text
+                  style={[
+                    styles.one,
+                    {
+                      fontWeight: isDarkMode ? "700" : "800",
+                      color: isDarkMode ? "#72A8DA" : "#3289d9",
+                    },
+                  ]}
+                >
+                  one
+                </Text>
               </Text>
-            </Text>
-            <TouchableOpacity onPress={() => setButtonState('cardiac')}>
-              <TextButton
-                title="Cardiac"
-                width={Dimensions.get('window').width * 0.46153846}
-                height={Dimensions.get('window').height * 0.06812796}
-                bgHex="#313135"
-                contentHex={'white'}
-                borderRadius={
-                  Dimensions.get('window').height * 0.06812796 * 0.30434783
-                }
-                borderColor={
-                  buttonState === 'cardiac' ? '#72A8DA' : 'transparent'
-                }
-                borderWidth={1}
-                fontWeight={'700'}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get('window').width * 0.46153846 * 0.08
-                    : Dimensions.get('window').width * 0.46153846 * 0.10555556
-                }
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setButtonState('MH')}>
-              <TextButton
-                title="MH"
-                width={Dimensions.get('window').width * 0.46153846}
-                height={Dimensions.get('window').height * 0.06812796}
-                bgHex="#313135"
-                borderColor={buttonState === 'MH' ? '#72A8DA' : 'transparent'}
-                borderWidth={1}
-                contentHex={'white'}
-                borderRadius={
-                  Dimensions.get('window').height * 0.06812796 * 0.30434783
-                }
-                fontWeight={'700'}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get('window').width * 0.46153846 * 0.08
-                    : Dimensions.get('window').width * 0.46153846 * 0.10555556
-                }
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setButtonState('scoliosis')}>
-              <TextButton
-                title="Scoliosis"
-                width={Dimensions.get('window').width * 0.46153846}
-                height={Dimensions.get('window').height * 0.06812796}
-                bgHex="#313135"
-                contentHex={'white'}
-                borderColor={
-                  buttonState === 'scoliosis' ? '#72A8DA' : 'transparent'
-                }
-                borderWidth={1}
-                borderRadius={
-                  Dimensions.get('window').height * 0.06812796 * 0.30434783
-                }
-                fontWeight={'700'}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get('window').width * 0.46153846 * 0.08
-                    : Dimensions.get('window').width * 0.46153846 * 0.10555556
-                }
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setButtonState('HyperK')}>
-              <TextButton
-                title="HyperK"
-                width={Dimensions.get('window').width * 0.46153846}
-                height={Dimensions.get('window').height * 0.06812796}
-                bgHex="#313135"
-                contentHex={'white'}
-                borderColor={
-                  buttonState === 'HyperK' ? '#72A8DA' : 'transparent'
-                }
-                borderWidth={1}
-                borderRadius={
-                  Dimensions.get('window').height * 0.06812796 * 0.30434783
-                }
-                fontWeight={'700'}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get('window').width * 0.46153846 * 0.08
-                    : Dimensions.get('window').width * 0.46153846 * 0.10555556
-                }
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setButtonState('Anaphylaxis')}>
-              <TextButton
-                title="Anaphylaxis"
-                width={Dimensions.get('window').width * 0.46153846}
-                height={Dimensions.get('window').height * 0.06812796}
-                bgHex="#313135"
-                contentHex={'white'}
-                borderColor={
-                  buttonState === 'Anaphylaxis' ? '#72A8DA' : 'transparent'
-                }
-                borderWidth={1}
-                borderRadius={
-                  Dimensions.get('window').height * 0.06812796 * 0.30434783
-                }
-                fontWeight={'700'}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get('window').width * 0.46153846 * 0.08
-                    : Dimensions.get('window').width * 0.46153846 * 0.10555556
-                }
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setButtonState('LA Toxicity')}>
-              <TextButton
-                title="LA Toxicity"
-                width={Dimensions.get('window').width * 0.46153846}
-                height={Dimensions.get('window').height * 0.06812796}
-                bgHex="#313135"
-                contentHex={'white'}
-                borderColor={
-                  buttonState === 'LA Toxicity' ? '#72A8DA' : 'transparent'
-                }
-                borderWidth={1}
-                borderRadius={
-                  Dimensions.get('window').height * 0.06812796 * 0.30434783
-                }
-                fontWeight={'700'}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get('window').width * 0.46153846 * 0.08
-                    : Dimensions.get('window').width * 0.46153846 * 0.10555556
-                }
-              />
-            </TouchableOpacity>
+              <TouchableOpacity onPress={() => setButtonState("cardiac")}>
+                <TextButton
+                  title="Cardiac"
+                  width={Dimensions.get("window").width * 0.46153846}
+                  height={Dimensions.get("window").height * 0.06812796}
+                  bgHex="#313135"
+                  contentHex={"white"}
+                  borderRadius={
+                    Dimensions.get("window").height * 0.06812796 * 0.30434783
+                  }
+                  borderColor={
+                    buttonState === "cardiac" ? "#72A8DA" : "transparent"
+                  }
+                  borderWidth={1}
+                  fontWeight={"700"}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").width * 0.46153846 * 0.08
+                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
+                  }
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setButtonState("MH")}>
+                <TextButton
+                  title="MH"
+                  width={Dimensions.get("window").width * 0.46153846}
+                  height={Dimensions.get("window").height * 0.06812796}
+                  bgHex="#313135"
+                  borderColor={buttonState === "MH" ? "#72A8DA" : "transparent"}
+                  borderWidth={1}
+                  contentHex={"white"}
+                  borderRadius={
+                    Dimensions.get("window").height * 0.06812796 * 0.30434783
+                  }
+                  fontWeight={"700"}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").width * 0.46153846 * 0.08
+                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
+                  }
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setButtonState("scoliosis")}>
+                <TextButton
+                  title="Scoliosis"
+                  width={Dimensions.get("window").width * 0.46153846}
+                  height={Dimensions.get("window").height * 0.06812796}
+                  bgHex="#313135"
+                  contentHex={"white"}
+                  borderColor={
+                    buttonState === "scoliosis" ? "#72A8DA" : "transparent"
+                  }
+                  borderWidth={1}
+                  borderRadius={
+                    Dimensions.get("window").height * 0.06812796 * 0.30434783
+                  }
+                  fontWeight={"700"}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").width * 0.46153846 * 0.08
+                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
+                  }
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setButtonState("HyperK")}>
+                <TextButton
+                  title="HyperK"
+                  width={Dimensions.get("window").width * 0.46153846}
+                  height={Dimensions.get("window").height * 0.06812796}
+                  bgHex="#313135"
+                  contentHex={"white"}
+                  borderColor={
+                    buttonState === "HyperK" ? "#72A8DA" : "transparent"
+                  }
+                  borderWidth={1}
+                  borderRadius={
+                    Dimensions.get("window").height * 0.06812796 * 0.30434783
+                  }
+                  fontWeight={"700"}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").width * 0.46153846 * 0.08
+                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
+                  }
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setButtonState("Anaphylaxis")}>
+                <TextButton
+                  title="Anaphylaxis"
+                  width={Dimensions.get("window").width * 0.46153846}
+                  height={Dimensions.get("window").height * 0.06812796}
+                  bgHex="#313135"
+                  contentHex={"white"}
+                  borderColor={
+                    buttonState === "Anaphylaxis" ? "#72A8DA" : "transparent"
+                  }
+                  borderWidth={1}
+                  borderRadius={
+                    Dimensions.get("window").height * 0.06812796 * 0.30434783
+                  }
+                  fontWeight={"700"}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").width * 0.46153846 * 0.08
+                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
+                  }
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setButtonState("LA Toxicity")}>
+                <TextButton
+                  title="LA Toxicity"
+                  width={Dimensions.get("window").width * 0.46153846}
+                  height={Dimensions.get("window").height * 0.06812796}
+                  bgHex="#313135"
+                  contentHex={"white"}
+                  borderColor={
+                    buttonState === "LA Toxicity" ? "#72A8DA" : "transparent"
+                  }
+                  borderWidth={1}
+                  borderRadius={
+                    Dimensions.get("window").height * 0.06812796 * 0.30434783
+                  }
+                  fontWeight={"700"}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").width * 0.46153846 * 0.08
+                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
+                  }
+                />
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
-        <View style={{top: 50}}>
-          <View style={styles.actionRow}>
-            <TouchableOpacity
-              onPress={() => {
-                if (buttonState === 'scoliosis') {
-                  scoliosis(weight);
-                }
-                if (buttonState === 'cardiac') {
-                  cardiac(weight);
-                }
-                if (buttonState === 'MH') {
-                  MH(weight);
-                }
-                if (buttonState === 'HyperK') {
-                  HyperK(weight);
-                }
-                if (buttonState === 'LA Toxicity') {
-                  LAToxic(weight);
-                }
-                if (buttonState === 'Anaphylaxis') {
-                  Anaphylaxis(weight);
-                }
-              }}>
-              <IconButton
-                bgHex="#72A8DA"
-                title="View"
-                iconPath="folder-outline"
-                contentHex="white"
-                borderColor={'rgb(30, 30, 32)'}
-                borderWidth={0}
-                size={(Dimensions.get('window').height / 844) * 25}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get('window').height * 0.04739336 * 0.45
-                    : 19
-                }
-              />
-            </TouchableOpacity>
-            {/* <IconButton
+          <View style={{ top: 50 }}>
+            <View style={styles.actionRow}>
+              <TouchableOpacity
+                onPress={() => {
+                  if (buttonState === "scoliosis") {
+                    scoliosis(weight);
+                  }
+                  if (buttonState === "cardiac") {
+                    cardiac(weight);
+                  }
+                  if (buttonState === "MH") {
+                    MH(weight);
+                  }
+                  if (buttonState === "HyperK") {
+                    HyperK(weight);
+                  }
+                  if (buttonState === "LA Toxicity") {
+                    LAToxic(weight);
+                  }
+                  if (buttonState === "Anaphylaxis") {
+                    Anaphylaxis(weight);
+                  }
+                }}
+              >
+                <IconButton
+                  bgHex="#72A8DA"
+                  title="View"
+                  iconPath="folder-outline"
+                  contentHex="white"
+                  borderColor={"rgb(30, 30, 32)"}
+                  borderWidth={0}
+                  size={(Dimensions.get("window").height / 844) * 25}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      : 19
+                  }
+                />
+              </TouchableOpacity>
+              {/* <IconButton
             bgHex="#rgb(30, 30, 32)"
             title="Share"
             iconPath="share-variant"
@@ -7016,50 +7023,51 @@ function CalcScreen({navigation}) {
                 : 19
             }
           /> */}
-          </View>
-          <View style={styles.divider} />
-          <View style={styles.selectionRow}>
-            <TouchableOpacity>
-              <TextButton
-                title="Drug"
-                width={Dimensions.get('window').width * 0.4}
-                height={Dimensions.get('window').height * 0.04739336}
-                bgHex="#313135"
-                contentHex={'white'}
-                borderColor={'#72A8DA'}
-                borderWidth={1}
-                borderRadius={
-                  Dimensions.get('window').height * 0.04739336 * 0.94594595
-                }
-                fontWeight={'700'}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get('window').height * 0.04739336 * 0.45
-                    : 19
-                }
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Bmi')}>
-              <TextButton
-                title="BMI"
-                width={Dimensions.get('window').width * 0.4}
-                height={Dimensions.get('window').height * 0.04739336}
-                bgHex="#313135"
-                contentHex={'white'}
-                borderRadius={
-                  Dimensions.get('window').height * 0.04739336 * 0.94594595
-                }
-                fontWeight={'700'}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get('window').height * 0.04739336 * 0.45
-                    : 19
-                }
-              />
-            </TouchableOpacity>
+            </View>
+            <View style={styles.divider} />
+            <View style={styles.selectionRow}>
+              <TouchableOpacity>
+                <TextButton
+                  title="Drug"
+                  width={Dimensions.get("window").width * 0.4}
+                  height={Dimensions.get("window").height * 0.04739336}
+                  bgHex="#313135"
+                  contentHex={"white"}
+                  borderColor={"#72A8DA"}
+                  borderWidth={1}
+                  borderRadius={
+                    Dimensions.get("window").height * 0.04739336 * 0.94594595
+                  }
+                  fontWeight={"700"}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      : 19
+                  }
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Bmi")}>
+                <TextButton
+                  title="BMI"
+                  width={Dimensions.get("window").width * 0.4}
+                  height={Dimensions.get("window").height * 0.04739336}
+                  bgHex="#313135"
+                  contentHex={"white"}
+                  borderRadius={
+                    Dimensions.get("window").height * 0.04739336 * 0.94594595
+                  }
+                  fontWeight={"700"}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      : 19
+                  }
+                />
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -7071,7 +7079,7 @@ function App() {
       <Stack.Screen
         name="Calc"
         component={CalcScreen}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="Bmi"
@@ -7081,16 +7089,17 @@ function App() {
             <View
               style={{
                 flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               {/* <StatusBar style="light" /> */}
             </View>
           ),
           headerStyle: {
-            backgroundColor: 'rgb(30, 30, 32)', // Set the background color of the header
+            backgroundColor: "rgb(30, 30, 32)", // Set the background color of the header
           },
-          headerTintColor: 'white', // Set the color of the back button and title text
+          headerTintColor: "white", // Set the color of the back button and title text
         }}
       />
     </Stack.Navigator>
@@ -7100,45 +7109,45 @@ function App() {
 const styles = StyleSheet.create({
   treeTop: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    height: Dimensions.get('window').height,
-    width: Dimensions.get('window').width,
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    height: Dimensions.get("window").height,
+    width: Dimensions.get("window").width,
     // marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   contentContainer: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     marginHorizontal: 10,
     marginVertical: 20,
     paddingHorizontal: Platform.isPad ? 10 : 5,
-    height: Dimensions.get('window').height * 0.7582984,
+    height: Dimensions.get("window").height * 0.7582984,
     width: Platform.isPad
-      ? Dimensions.get('window').width
-      : Dimensions.get('window').width * 0.925,
+      ? Dimensions.get("window").width
+      : Dimensions.get("window").width * 0.925,
   },
   buttonRow: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "100%",
   },
   buttonColumn1: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     marginRight: 30,
   },
   buttonColumn2: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   },
   select: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: "600",
     marginBottom: 10,
   },
   one: {
@@ -7147,26 +7156,27 @@ const styles = StyleSheet.create({
   },
   actionRow: {
     width: Platform.isPad
-      ? Dimensions.get('window').width
-      : Dimensions.get('window').width * 0.925,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
+      ? Dimensions.get("window").width
+      : Dimensions.get("window").width * 0.925,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
     marginTop: 15,
   },
   divider: {
     height: 1,
-    width: Dimensions.get('window').width - 20,
+    width: Dimensions.get("window").width - 20,
     borderWidth: 1,
-    borderColor: '#6D6D74',
+    borderColor: "#6D6D74",
     marginVertical: 35,
   },
   selectionRow: {
     width: Platform.isPad
-      ? Dimensions.get('window').width
-      : Dimensions.get('window').width * 0.925,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+      ? Dimensions.get("window").width
+      : Dimensions.get("window").width * 0.925,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    paddingBottom: 30,
   },
 });
 

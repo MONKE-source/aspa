@@ -4356,6 +4356,23 @@
                     }
                 },
                 {
+                    "source": "/Users/arthaggarwal/Desktop/aspa/android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
+                    "from": {
+                        "startLines": "6,8",
+                        "startColumns": "4,4",
+                        "startOffsets": "154,258",
+                        "endColumns": "63,68",
+                        "endOffsets": "213,322"
+                    },
+                    "to": {
+                        "startLines": "1848,1849",
+                        "startColumns": "4,4",
+                        "startOffsets": "123259,123323",
+                        "endColumns": "63,68",
+                        "endOffsets": "123318,123387"
+                    }
+                },
+                {
                     "source": "/Users/arthaggarwal/.gradle/caches/transforms-3/0fd1425c12b4ad547fe75169beca3740/transformed/recyclerview-1.1.0/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
@@ -4408,6 +4425,23 @@
                         "endLines": "10905,11954",
                         "endColumns": "22,22",
                         "endOffsets": "711262,755121"
+                    }
+                },
+                {
+                    "source": "/Users/arthaggarwal/Desktop/aspa/android/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "43",
+                        "endOffsets": "55"
+                    },
+                    "to": {
+                        "startLines": "1885",
+                        "startColumns": "4",
+                        "startOffsets": "125905",
+                        "endColumns": "43",
+                        "endOffsets": "125944"
                     }
                 },
                 {
@@ -4502,25 +4536,6 @@
                     }
                 },
                 {
-                    "source": "/Users/arthaggarwal/apsa/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "54",
-                        "endLines": "6",
-                        "endColumns": "12",
-                        "endOffsets": "267"
-                    },
-                    "to": {
-                        "startLines": "2106",
-                        "startColumns": "4",
-                        "startOffsets": "154316",
-                        "endLines": "2109",
-                        "endColumns": "12",
-                        "endOffsets": "154494"
-                    }
-                },
-                {
                     "source": "/Users/arthaggarwal/.gradle/caches/transforms-3/9b7c687cf2ef0cdf849c0c1404623f4f/transformed/drawerlayout-1.1.1/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5",
@@ -4537,23 +4552,6 @@
                         "endLines": "121,124,970,10619",
                         "endColumns": "55,47,51,24",
                         "endOffsets": "6200,6356,58980,702065"
-                    }
-                },
-                {
-                    "source": "/Users/arthaggarwal/apsa/android/app/src/main/res/values/strings.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "16",
-                        "endColumns": "43",
-                        "endOffsets": "55"
-                    },
-                    "to": {
-                        "startLines": "1885",
-                        "startColumns": "4",
-                        "startOffsets": "125905",
-                        "endColumns": "43",
-                        "endOffsets": "125944"
                     }
                 },
                 {
@@ -4590,6 +4588,25 @@
                         "startOffsets": "125822",
                         "endColumns": "82",
                         "endOffsets": "125900"
+                    }
+                },
+                {
+                    "source": "/Users/arthaggarwal/Desktop/aspa/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "54",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "267"
+                    },
+                    "to": {
+                        "startLines": "2106",
+                        "startColumns": "4",
+                        "startOffsets": "154316",
+                        "endLines": "2109",
+                        "endColumns": "12",
+                        "endOffsets": "154494"
                     }
                 },
                 {
@@ -4702,23 +4719,6 @@
                         "endLines": "417,552,553,854,855,963,964,965,966,967,968,969,1629,1630,1631,1632,1633,1634,1635,1636,1637,1638,1639,1640,1641,1642,1643,1654,1655,1656,1660,1661,1662,1663,1664,1665,1666,1667,1668,1669,1670,1671,1672,1673,1674,1675,1676,1677,1678,1679,1680,1681,1682,1683,1684,1685,1686,1687,1688,1689,1690,1691,1712,1713,1744,1745,1746,1747,1748,1749,1750,1751,1752,1753,1754,1755,1756,1757,1758,1766,1851,2072,5986,5990,5991,5995,5996,7195,7196,10124,10474,10735,10756,10938,10944",
                         "endColumns": "59,71,87,68,62,69,67,71,69,60,73,72,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,64,58,58,59,59,59,59,59,59,59,59,59,59,58,59,59,59,59,59,59,59,59,59,59,58,59,59,58,58,58,58,58,58,34,34,54,62,54,57,57,60,62,56,50,49,60,56,65,33,34,34,69,70,116,12,109,12,128,71,66,24,24,24,24,24,24",
                         "endOffsets": "21620,28595,28683,51164,51227,58510,58578,58650,58720,58781,58855,58928,110325,110386,110448,110512,110574,110635,110703,110803,110863,110929,111002,111071,111128,111180,111242,112044,112120,112185,112408,112467,112527,112587,112647,112707,112767,112827,112887,112947,113007,113067,113126,113186,113246,113306,113366,113426,113486,113546,113606,113666,113726,113785,113845,113905,113964,114023,114082,114141,114200,114259,115310,115345,116963,117026,117081,117139,117197,117258,117321,117378,117429,117479,117540,117597,117663,117697,117732,118114,123514,151640,424995,425196,425306,425507,425636,510714,510781,670803,682521,706186,706867,711944,712111"
-                    }
-                },
-                {
-                    "source": "/Users/arthaggarwal/apsa/android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
-                    "from": {
-                        "startLines": "6,8",
-                        "startColumns": "4,4",
-                        "startOffsets": "154,258",
-                        "endColumns": "63,68",
-                        "endOffsets": "213,322"
-                    },
-                    "to": {
-                        "startLines": "1848,1849",
-                        "startColumns": "4,4",
-                        "startOffsets": "123259,123323",
-                        "endColumns": "63,68",
-                        "endOffsets": "123318,123387"
                     }
                 },
                 {
