@@ -2,7 +2,6 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // import { StatusBar } from "expo-status-bar";
 import CalcScreen from './screens/CalcScreen';
-import Basiclifesupport from './screens/Basiclifesupport';
 import Main from './screens/Main';
 import {NavigationContainer} from '@react-navigation/native';
 import CrisisNavigator from './screens/Crisis';

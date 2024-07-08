@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -11,199 +11,221 @@ import {
   Image,
   TextInput,
   Dimensions,
-} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Item from './Item';
-import Pdf from 'react-native-pdf';
-import {useDarkMode} from '../components/DarkModeContext';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+} from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Item from "./Item";
+import Pdf from "react-native-pdf";
+import { useDarkMode } from "../components/DarkModeContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
+import RNFS from "react-native-fs";
+import FileViewer from "react-native-file-viewer";
 
 const data = [
   {
-    id: '1',
-    title: 'Training Programmes',
-    subtitles: [{id: 'sub1', text: 'Training Programmes', isBookmarked: false}],
+    id: "1",
+    title: "Training Programmes",
+    subtitles: [
+      { id: "sub1", text: "Training Programmes", isBookmarked: false },
+    ],
   },
   {
-    id: '2',
-    title: 'Guidelines for Paediatric Anaesthesia',
+    id: "2",
+    title: "Guidelines for Paediatric Anaesthesia",
     subtitles: [
       {
-        id: 'sub2',
-        text: 'Guidelines for the provision of the Anaesthesia for Paediatric patients',
+        id: "sub2",
+        text: "Guidelines for the provision of the Anaesthesia for Paediatric patients",
         isBookmarked: false,
       },
       {
-        id: 'sub3',
-        text: 'Preoperative preparation and induction techniques',
-        isBookmarked: false,
-      },
-    ],
-  },
-  {
-    id: '3',
-    title: 'Paediatric Anaesthesia',
-    subtitles: [
-      {id: 'sub4', text: 'Equipment', isBookmarked: false},
-      {id: 'sub5', text: 'Dental Injury', isBookmarked: false},
-      {id: 'sub6', text: 'Nausea Vomitting', isBookmarked: false},
-      {id: 'sub7', text: 'Common Medical Conditions', isBookmarked: false},
-      {id: 'sub8', text: 'Preoperative Evaluation', isBookmarked: false},
-      {id: 'sub9', text: 'Premedication', isBookmarked: false},
-      {id: 'sub10', text: 'Emergence delirium', isBookmarked: false},
-    ],
-  },
-  {
-    id: '4',
-    title: 'Fluid Guidelines',
-    subtitles: [
-      {id: 'sub11', text: 'Fluid Guidelines in children', isBookmarked: false},
-    ],
-  },
-  {
-    id: '5',
-    title: 'Neonatal Anaesthesia',
-    subtitles: [
-      {id: 'sub12', text: 'Nenotal Anaesthesia', isBookmarked: false},
-    ],
-  },
-  {
-    id: '6',
-    title: 'Cardiac Guidelines',
-    subtitles: [
-      {
-        id: 'sub13',
-        text: 'Prophylaxis for Infective Endocarditis',
-        isBookmarked: false,
-      },
-      {id: 'sub14', text: 'ROTEM Algorithm', isBookmarked: false},
-      {
-        id: 'sub15',
-        text: 'Paediatric Cardiac Anaesthesia',
-        isBookmarked: false,
-      },
-      {id: 'sub16', text: 'Common Cardiac Conditions', isBookmarked: false},
-      {id: 'sub17', text: 'Cardiac Catheterization', isBookmarked: false},
-    ],
-  },
-  {
-    id: '7',
-    title: 'Diagnostic Imaging',
-    subtitles: [{id: 'sub18', text: 'Diagnostic Imaging', isBookmarked: false}],
-  },
-  {
-    id: '8',
-    title: 'Sedation for Oncology Patients',
-    subtitles: [
-      {
-        id: 'sub19',
-        text: 'Sedation for Oncology Children',
+        id: "sub3",
+        text: "Preoperative preparation and induction techniques",
         isBookmarked: false,
       },
     ],
   },
   {
-    id: '9',
-    title: 'Regional Anaesthesia',
+    id: "3",
+    title: "Paediatric Anaesthesia",
     subtitles: [
-      {id: 'sub20', text: 'Central Neraxial Block', isBookmarked: false},
-      {id: 'sub21', text: 'Regional Anaesthesia Workflow', isBookmarked: false},
-      {id: 'sub22', text: 'Current Trends', isBookmarked: false},
-      {id: 'sub23', text: 'Peripheral Nerve Block', isBookmarked: false},
-      {id: 'sub24', text: 'Local Anaesthetic Toxicity', isBookmarked: false},
-      {id: 'sub25', text: 'Ultrasound Guided Blocks', isBookmarked: false},
+      { id: "sub4", text: "Equipment", isBookmarked: false },
+      { id: "sub5", text: "Dental Injury", isBookmarked: false },
+      { id: "sub6", text: "Nausea Vomitting", isBookmarked: false },
+      { id: "sub7", text: "Common Medical Conditions", isBookmarked: false },
+      { id: "sub8", text: "Preoperative Evaluation", isBookmarked: false },
+      { id: "sub9", text: "Premedication", isBookmarked: false },
+      { id: "sub10", text: "Emergence delirium", isBookmarked: false },
     ],
   },
   {
-    id: '10',
-    title: 'Patient Transport',
-    subtitles: [{id: 'sub26', text: 'Patient Transport', isBookmarked: false}],
-  },
-  {
-    id: '11',
-    title: 'Drug Doses in Paediatric Anaesthesia',
-    subtitles: [
-      {id: 'sub27', text: 'Miscellaneous Drugs', isBookmarked: false},
-      {id: 'sub28', text: 'Antibiotics', isBookmarked: false},
-    ],
-  },
-  {
-    id: '12',
-    title: 'Transfusion in Children',
+    id: "4",
+    title: "Fluid Guidelines",
     subtitles: [
       {
-        id: 'sub29',
-        text: 'Paediatric Massive Transfusion Protocol',
-        isBookmarked: false,
-      },
-      {id: 'sub30', text: 'Transfusion Guidelines', isBookmarked: false},
-    ],
-  },
-  {
-    id: '13',
-    title: 'Common Crisis',
-    subtitles: [
-      {
-        id: 'sub31',
-        text: 'Post Adenotonsillectomy Bleeding',
-        isBookmarked: false,
-      },
-      {id: 'sub32', text: 'Latex Allergy', isBookmarked: false},
-      {id: 'sub34', text: 'Suspected Anaphylaxis', isBookmarked: false},
-      {id: 'sub35', text: 'Local Anaesthetic Toxicity', isBookmarked: false},
-      {id: 'sub36', text: 'Laryngospasm', isBookmarked: false},
-      {id: 'sub37', text: 'Acute Epiglottitis', isBookmarked: false},
-      {id: 'sub38', text: 'Malignant Hyperthermia', isBookmarked: false},
-      {id: 'sub39', text: 'Hypercyanotic Tet Spells', isBookmarked: false},
-    ],
-  },
-  {
-    id: '14',
-    title: 'Advance Paediatric Life Support',
-    subtitles: [
-      {
-        id: 'sub40',
-        text: 'Advanced Paediatric Life Support',
+        id: "sub11",
+        text: "Fluid Guidelines in children",
         isBookmarked: false,
       },
     ],
   },
   {
-    id: '15',
-    title: 'Acute Pain Service',
+    id: "5",
+    title: "Neonatal Anaesthesia",
     subtitles: [
-      {id: 'sub41', text: 'Pain Assesment in Children', isBookmarked: false},
-      {
-        id: 'sub42',
-        text: 'Pharmagological Approach To Pain Management',
-        isBookmarked: false,
-      },
-      {id: 'sub43', text: 'Patient Controlled Analgesia', isBookmarked: false},
-      {id: 'sub44', text: 'Post Epidural Care', isBookmarked: false},
-      {id: 'sub45', text: "Children's Pain Service", isBookmarked: false},
+      { id: "sub12", text: "Nenotal Anaesthesia", isBookmarked: false },
     ],
   },
   {
-    id: '16',
-    title: 'Chronic Pain Service',
-    subtitles: [{id: 'sub46', text: 'Chronic Pain', isBookmarked: false}],
+    id: "6",
+    title: "Cardiac Guidelines",
+    subtitles: [
+      {
+        id: "sub13",
+        text: "Prophylaxis for Infective Endocarditis",
+        isBookmarked: false,
+      },
+      { id: "sub14", text: "ROTEM Algorithm", isBookmarked: false },
+      {
+        id: "sub15",
+        text: "Paediatric Cardiac Anaesthesia",
+        isBookmarked: false,
+      },
+      { id: "sub16", text: "Common Cardiac Conditions", isBookmarked: false },
+      { id: "sub17", text: "Cardiac Catheterization", isBookmarked: false },
+    ],
   },
   {
-    id: '17',
-    title: 'Normal Laboratory Data',
-    subtitles: [{id: 'sub47', text: 'Normal Laboratory', isBookmarked: false}],
+    id: "7",
+    title: "Diagnostic Imaging",
+    subtitles: [
+      { id: "sub18", text: "Diagnostic Imaging", isBookmarked: false },
+    ],
+  },
+  {
+    id: "8",
+    title: "Sedation for Oncology Patients",
+    subtitles: [
+      {
+        id: "sub19",
+        text: "Sedation for Oncology Children",
+        isBookmarked: false,
+      },
+    ],
+  },
+  {
+    id: "9",
+    title: "Regional Anaesthesia",
+    subtitles: [
+      { id: "sub20", text: "Central Neraxial Block", isBookmarked: false },
+      {
+        id: "sub21",
+        text: "Regional Anaesthesia Workflow",
+        isBookmarked: false,
+      },
+      { id: "sub22", text: "Current Trends", isBookmarked: false },
+      { id: "sub23", text: "Peripheral Nerve Block", isBookmarked: false },
+      { id: "sub24", text: "Local Anaesthetic Toxicity", isBookmarked: false },
+      { id: "sub25", text: "Ultrasound Guided Blocks", isBookmarked: false },
+    ],
+  },
+  {
+    id: "10",
+    title: "Patient Transport",
+    subtitles: [
+      { id: "sub26", text: "Patient Transport", isBookmarked: false },
+    ],
+  },
+  {
+    id: "11",
+    title: "Drug Doses in Paediatric Anaesthesia",
+    subtitles: [
+      { id: "sub27", text: "Miscellaneous Drugs", isBookmarked: false },
+      { id: "sub28", text: "Antibiotics", isBookmarked: false },
+    ],
+  },
+  {
+    id: "12",
+    title: "Transfusion in Children",
+    subtitles: [
+      {
+        id: "sub29",
+        text: "Paediatric Massive Transfusion Protocol",
+        isBookmarked: false,
+      },
+      { id: "sub30", text: "Transfusion Guidelines", isBookmarked: false },
+    ],
+  },
+  {
+    id: "13",
+    title: "Common Crisis",
+    subtitles: [
+      {
+        id: "sub31",
+        text: "Post Adenotonsillectomy Bleeding",
+        isBookmarked: false,
+      },
+      { id: "sub32", text: "Latex Allergy", isBookmarked: false },
+      { id: "sub34", text: "Suspected Anaphylaxis", isBookmarked: false },
+      { id: "sub35", text: "Local Anaesthetic Toxicity", isBookmarked: false },
+      { id: "sub36", text: "Laryngospasm", isBookmarked: false },
+      { id: "sub37", text: "Acute Epiglottitis", isBookmarked: false },
+      { id: "sub38", text: "Malignant Hyperthermia", isBookmarked: false },
+      { id: "sub39", text: "Hypercyanotic Tet Spells", isBookmarked: false },
+    ],
+  },
+  {
+    id: "14",
+    title: "Advance Paediatric Life Support",
+    subtitles: [
+      {
+        id: "sub40",
+        text: "Advanced Paediatric Life Support",
+        isBookmarked: false,
+      },
+    ],
+  },
+  {
+    id: "15",
+    title: "Acute Pain Service",
+    subtitles: [
+      { id: "sub41", text: "Pain Assesment in Children", isBookmarked: false },
+      {
+        id: "sub42",
+        text: "Pharmagological Approach To Pain Management",
+        isBookmarked: false,
+      },
+      {
+        id: "sub43",
+        text: "Patient Controlled Analgesia",
+        isBookmarked: false,
+      },
+      { id: "sub44", text: "Post Epidural Care", isBookmarked: false },
+      { id: "sub45", text: "Children's Pain Service", isBookmarked: false },
+    ],
+  },
+  {
+    id: "16",
+    title: "Chronic Pain Service",
+    subtitles: [{ id: "sub46", text: "Chronic Pain", isBookmarked: false }],
+  },
+  {
+    id: "17",
+    title: "Normal Laboratory Data",
+    subtitles: [
+      { id: "sub47", text: "Normal Laboratory", isBookmarked: false },
+    ],
   },
 ];
 
-const BookmarkedItemsScreen = ({route, navigation}) => {
-  const {bookmarkedItems} = route.params;
-  const {isDarkMode, toggleDarkMode} = useDarkMode();
+const BookmarkedItemsScreen = ({ route, navigation }) => {
+  const { bookmarkedItems } = route.params;
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const handleItemClick = item => {
+  const handleItemClick = (item) => {
     setSelectedItem(item);
   };
 
@@ -215,85 +237,109 @@ const BookmarkedItemsScreen = ({route, navigation}) => {
     <SafeAreaView
       style={[
         styles.container,
-        {paddingBottom: '16%'},
+        { paddingBottom: "16%" },
         isDarkMode ? styles.darkMode : styles.lightMode,
-      ]}>
+      ]}
+    >
       {/* /* {selectedItem ? ( */}
       <FlatList
         data={bookmarkedItems}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <View>
             <View style={styles.itemContainer}>
               <Text style={styles.title}>{item.title}</Text>
-              {item.subtitles.map(subtitle => (
+              {item.subtitles.map((subtitle) => (
                 <TouchableOpacity
                   key={subtitle.id}
                   style={styles.subtitleContainer}
                   onPress={() =>
-                    navigation.navigate('BookmarkedDetailsScreen', {
+                    navigation.navigate("BookmarkedDetailsScreen", {
                       title: item.title,
                       subtitles: subtitle.text,
                     })
-                  }>
+                  }
+                >
                   <Text style={styles.subtitleText}>{subtitle.text}</Text>
                 </TouchableOpacity>
               ))}
             </View>
           </View>
         )}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         contentContainerStyle={styles.flatList}
       />
     </SafeAreaView>
   );
 };
-
-const BookmarkedDetail = ({route}) => {
+function openGitPDF() {
+  const url =
+    "https://github.com/MONKE-source/aspa/raw/main/assets/kkh-assets/common_crisis/hypercyanotic_tet_spells.pdf";
+  function getUrlExtension(url) {
+    return url.split(/[#?]/)[0].split(".").pop().trim();
+  }
+  const extension = getUrlExtension(url);
+  const localFile = `${RNFS.DocumentDirectoryPath}/pdffile.${extension}`;
+  const options = {
+    fromUrl: url,
+    toFile: localFile,
+  };
+  RNFS.downloadFile(options)
+    .promise.then(() => FileViewer.open(localFile))
+    .then(() => {
+      // success
+    })
+    .catch((error) => {
+      // error
+    });
+}
+const BookmarkedDetail = ({ route }) => {
   function formatFileName(text) {
     const text1 = text.toString();
     const lowercaseText = text1.toLowerCase();
 
-    var words = lowercaseText.split(' ');
-    var result = words.join('_');
+    var words = lowercaseText.split(" ");
+    var result = words.join("_");
     return result;
   }
-  const {title, subtitles} = route.params;
+  const { title, subtitles } = route.params;
   const uri = `file:///Users/calebhan/developer/kkh2/KKH-Paediatrics/assets/kkh-assets/${formatFileName(
-    title,
+    title
   )}/${formatFileName(subtitles)}.pdf`;
   return (
-    <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center'}}>
+    <View
+      style={{ flex: 1, justifyContent: "flex-start", alignItems: "center" }}
+    >
       <Pdf
         // enablePaging={true}
         trustAllCerts={false}
         source={{
           uri: uri,
         }}
-        style={{flex: 1, width: Dimensions.get('window').width}}
+        style={{ flex: 1, width: Dimensions.get("window").width }}
       />
     </View>
   );
 };
 
-const BookmarkSubtitlesFlatList = ({navigation}) => {
+const BookmarkSubtitlesFlatList = ({ navigation }) => {
   const [items, setItems] = useState(data);
-  const {isDarkMode, toggleDarkMode} = useDarkMode();
-  const [searchQuery, setSearchQuery] = useState('');
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState(data);
   const clearSearch = () => {
-    setSearchQuery('');
+    setSearchQuery("");
     setFilteredData([]);
   };
 
   useEffect(() => {
     const loadItems = async () => {
       try {
-        const savedItems = await AsyncStorage.getItem('items');
+        const savedItems = await AsyncStorage.getItem("items");
         if (savedItems !== null) {
           setItems(JSON.parse(savedItems));
         }
       } catch (error) {
-        console.error('Failed to load items from AsyncStorage', error);
+        console.error("Failed to load items from AsyncStorage", error);
       }
     };
 
@@ -303,9 +349,9 @@ const BookmarkSubtitlesFlatList = ({navigation}) => {
   useEffect(() => {
     const saveItems = async () => {
       try {
-        await AsyncStorage.setItem('items', JSON.stringify(items));
+        await AsyncStorage.setItem("items", JSON.stringify(items));
       } catch (error) {
-        console.error('Failed to save items to AsyncStorage', error);
+        console.error("Failed to save items to AsyncStorage", error);
       }
     };
 
@@ -313,65 +359,67 @@ const BookmarkSubtitlesFlatList = ({navigation}) => {
   }, [items]);
 
   const toggleSubtitleBookmark = async (itemId, subtitleId) => {
-    setItems(prevItems =>
-      prevItems.map(item =>
+    setItems((prevItems) =>
+      prevItems.map((item) =>
         item.id === itemId
           ? {
               ...item,
-              subtitles: item.subtitles.map(subtitle =>
+              subtitles: item.subtitles.map((subtitle) =>
                 subtitle.id === subtitleId
-                  ? {...subtitle, isBookmarked: !subtitle.isBookmarked}
-                  : subtitle,
+                  ? { ...subtitle, isBookmarked: !subtitle.isBookmarked }
+                  : subtitle
               ),
             }
-          : item,
-      ),
+          : item
+      )
     );
 
-    setFilteredData(prevFilteredData =>
-      prevFilteredData.map(item =>
+    setFilteredData((prevFilteredData) =>
+      prevFilteredData.map((item) =>
         item.id === itemId
           ? {
               ...item,
-              subtitles: item.subtitles.map(subtitle =>
+              subtitles: item.subtitles.map((subtitle) =>
                 subtitle.id === subtitleId
-                  ? {...subtitle, isBookmarked: !subtitle.isBookmarked}
-                  : subtitle,
+                  ? { ...subtitle, isBookmarked: !subtitle.isBookmarked }
+                  : subtitle
               ),
             }
-          : item,
-      ),
+          : item
+      )
     );
     try {
-      await AsyncStorage.setItem('items', JSON.stringify(items));
+      await AsyncStorage.setItem("items", JSON.stringify(items));
     } catch (error) {
-      console.error('Failed to save items to AsyncStorage', error);
+      console.error("Failed to save items to AsyncStorage", error);
     }
   };
 
-  const [title, setTitle] = useState('');
-  const [subtitle, setsubTitle] = useState('');
-  const renderItem = ({item}) => (
+  const [title, setTitle] = useState("");
+  const [subtitle, setsubTitle] = useState("");
+  const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
       <Text style={styles.title}>{item.title}</Text>
-      {item.subtitles.map(subtitle => (
+      {item.subtitles.map((subtitle) => (
         <TouchableOpacity
           key={subtitle.id}
           style={styles.subtitleContainer}
           onPress={() =>
-            navigation.navigate('ItemRef', {
+            navigation.navigate("ItemRef", {
               itemTitle: subtitle.text,
               itemBigTitle: item.title,
             })
-          }>
+          }
+        >
           <Text style={styles.subtitleText}>{subtitle.text}</Text>
           <TouchableOpacity
             style={styles.bookmarkButton}
-            onPress={() => toggleSubtitleBookmark(item.id, subtitle.id)}>
+            onPress={() => openGitPDF()}
+          >
             <Ionicons
-              name={subtitle.isBookmarked ? 'bookmark' : 'bookmark-outline'}
+              name={subtitle.isBookmarked ? "bookmark" : "bookmark-outline"}
               size={20}
-              color={subtitle.isBookmarked ? 'gold' : 'black'}
+              color={subtitle.isBookmarked ? "gold" : "black"}
             />
           </TouchableOpacity>
         </TouchableOpacity>
@@ -386,39 +434,39 @@ const BookmarkSubtitlesFlatList = ({navigation}) => {
       height: windowWidth * 0.1,
       width: windowWidth * 0.1,
       borderRadius: (windowWidth * 0.1) / 2,
-      overflow: 'hidden',
-      backgroundColor: 'rgb(49, 49, 53)',
-      justifyContent: 'center',
-      alignItems: 'center',
+      overflow: "hidden",
+      backgroundColor: "rgb(49, 49, 53)",
+      justifyContent: "center",
+      alignItems: "center",
       // left: 5,
     },
     settingIcon: {
       height: windowWidth * 0.055,
       width: windowWidth * 0.055,
-      tintColor: '#EAEAEB',
+      tintColor: "#EAEAEB",
     },
     searchContainer: {
-      backgroundColor: 'rgb(49, 49, 53)',
+      backgroundColor: "rgb(49, 49, 53)",
       borderRadius: windowWidth * 0.05,
       marginHorizontal: 7.5,
       width: windowWidth * 0.85,
       height: windowWidth * 0.1,
-      flexDirection: 'row',
-      overflow: 'hidden',
-      justifyContent: 'flex-start',
-      alignItems: 'center',
+      flexDirection: "row",
+      overflow: "hidden",
+      justifyContent: "flex-start",
+      alignItems: "center",
       paddingHorizontal: windowWidth * 0.035,
     },
     searchIcon: {
       height: windowWidth * 0.04,
       width: windowWidth * 0.04,
-      tintColor: '#818188',
+      tintColor: "#818188",
     },
     searchInput: {
       paddingHorizontal: windowWidth * 0.03,
-      fontWeight: '600',
+      fontWeight: "600",
       fontSize: windowWidth * 0.045,
-      color: 'white',
+      color: "white",
     },
     clearButton: {},
   });
@@ -428,26 +476,28 @@ const BookmarkSubtitlesFlatList = ({navigation}) => {
       style={[
         styles.container,
         isDarkMode ? styles.darkMode : styles.lightMode,
-      ]}>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      ]}
+    >
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
         <Text
           style={[
             isDarkMode ? styles.darkModeText : styles.lightModeText,
             {
-              fontWeight: 'bold',
+              fontWeight: "bold",
               fontSize: 40,
               padding: 20,
             },
-          ]}>
+          ]}
+        >
           References
         </Text>
         {/* Touchable Opacity to view bookmarked  */}
         <TouchableOpacity
-          style={{marginLeft: '23%', marginTop: 10, padding: 10}}
+          style={{ marginLeft: "23%", marginTop: 10, padding: 10 }}
           onPress={() => {
             const bookmarkedItems = items.reduce((acc, item) => {
               const bookmarkedSubtitles = item.subtitles.filter(
-                subtitle => subtitle.isBookmarked,
+                (subtitle) => subtitle.isBookmarked
               );
               if (bookmarkedSubtitles.length > 0) {
                 acc.push({
@@ -459,15 +509,16 @@ const BookmarkSubtitlesFlatList = ({navigation}) => {
               return acc;
             }, []);
 
-            navigation.navigate('BookmarkedItemsScreen', {
+            navigation.navigate("BookmarkedItemsScreen", {
               bookmarkedItems,
             });
-          }}>
+          }}
+        >
           <Ionicons name="bookmark" size={28} color="gold" />
         </TouchableOpacity>
         {/*  */}
       </View>
-      <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+      <View style={{ flexDirection: "row", justifyContent: "center" }}>
         {/* <TouchableOpacity
           style={dynamicStyles.settingsView}
           onPress={() => navigation.navigate('Settings')}>
@@ -476,21 +527,22 @@ const BookmarkSubtitlesFlatList = ({navigation}) => {
             style={dynamicStyles.settingIcon}
           />
         </TouchableOpacity> */}
-        <View style={{flexDirection: 'row', gap: 5}}>
+        <View style={{ flexDirection: "row", gap: 5 }}>
           <TouchableOpacity
-            style={{marginTop: 3, marginLeft: 15}}
-            onPress={() => navigation.navigate('Settings')}>
+            style={{ marginTop: 3, marginLeft: 15 }}
+            onPress={() => navigation.navigate("Settings")}
+          >
             <SimpleLineIcons
               name="settings"
               style={{
                 fontSize: 30,
-                color: isDarkMode ? 'white' : 'black',
+                color: isDarkMode ? "white" : "black",
               }}
             />
           </TouchableOpacity>
           <View style={dynamicStyles.searchContainer}>
             <Image
-              source={require('../assets/search.png')}
+              source={require("../assets/search.png")}
               style={dynamicStyles.searchIcon}
             />
             <TextInput
@@ -498,13 +550,13 @@ const BookmarkSubtitlesFlatList = ({navigation}) => {
               placeholder="Search..."
               placeholderTextColor="#818188"
               value={searchQuery}
-              onChangeText={text => {
+              onChangeText={(text) => {
                 const lowercaseText = text.toLowerCase();
                 setSearchQuery(text);
-                const filtered = data.filter(item => {
+                const filtered = data.filter((item) => {
                   const lowercaseTitle = item.title.toLowerCase();
-                  const subtitleMatches = item.subtitles.some(subtitle =>
-                    subtitle.text.toLowerCase().includes(lowercaseText),
+                  const subtitleMatches = item.subtitles.some((subtitle) =>
+                    subtitle.text.toLowerCase().includes(lowercaseText)
                   );
                   return (
                     lowercaseTitle.includes(lowercaseText) || subtitleMatches
@@ -527,9 +579,9 @@ const BookmarkSubtitlesFlatList = ({navigation}) => {
       </View>
       <FlatList
         data={filteredData}
-        style={{flex: 1, top: 20, marginBottom: 90}}
+        style={{ flex: 1, top: 20, marginBottom: 90 }}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         contentContainerStyle={styles.flatList}
       />
       {/* <StatusBar style={"dark"} /> */}
@@ -544,61 +596,61 @@ function MainStack() {
       <Stack.Screen
         name="MainRef"
         component={BookmarkSubtitlesFlatList}
-        options={{headerShown: false, headerTitle: 'References'}}
+        options={{ headerShown: false, headerTitle: "References" }}
       />
       <Stack.Screen
         name="ItemRef"
         component={Item}
-        options={({route}) => ({
+        options={({ route }) => ({
           headerTitle: route.params.itemTitle,
-          headerTintColor: 'white',
+          headerTintColor: "white",
           headerStyle: {
-            backgroundColor: 'rgb(30, 30, 32)',
-            color: 'white',
+            backgroundColor: "rgb(30, 30, 32)",
+            color: "white",
           },
           headerTitleStyle: {
-            color: 'white',
+            color: "white",
           },
           headerBackTitleStyle: {
-            color: 'white',
+            color: "white",
           },
-          headerBackTitle: 'Back',
+          headerBackTitle: "Back",
         })}
       />
       <Stack.Screen
         name="BookmarkedItemsScreen"
         component={BookmarkedItemsScreen}
         options={{
-          headerTitle: 'Items',
+          headerTitle: "Items",
           headerStyle: {
-            backgroundColor: 'rgb(30, 30, 32)',
-            color: 'white',
+            backgroundColor: "rgb(30, 30, 32)",
+            color: "white",
           },
           headerTitleStyle: {
-            color: 'white',
+            color: "white",
           },
           headerBackTitleStyle: {
-            color: 'white',
+            color: "white",
           },
-          headerTintColor: 'white',
+          headerTintColor: "white",
         }}
       />
       <Stack.Screen
         name="BookmarkedDetailsScreen"
         component={BookmarkedDetail}
         options={{
-          headerTitle: 'PDF Details',
+          headerTitle: "PDF Details",
           headerStyle: {
-            backgroundColor: 'rgb(30, 30, 32)',
-            color: 'white',
+            backgroundColor: "rgb(30, 30, 32)",
+            color: "white",
           },
           headerTitleStyle: {
-            color: 'white',
+            color: "white",
           },
           headerBackTitleStyle: {
-            color: 'white',
+            color: "white",
           },
-          headerTintColor: 'white',
+          headerTintColor: "white",
         }}
       />
     </Stack.Navigator>
@@ -608,19 +660,19 @@ function MainStack() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: useDarkMode ? 'rgb(30, 30, 32)' : 'white',
+    backgroundColor: useDarkMode ? "rgb(30, 30, 32)" : "white",
   },
   darkMode: {
-    backgroundColor: 'rgb(30, 30, 32)',
+    backgroundColor: "rgb(30, 30, 32)",
   },
   lightMode: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
   darkModeText: {
-    color: 'white',
+    color: "white",
   },
   lightModeText: {
-    color: 'black',
+    color: "black",
   },
   flatList: {
     padding: 16,
@@ -630,27 +682,27 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     marginBottom: 20,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: "#f2f2f2",
     padding: 10,
     borderRadius: 8,
   },
   title: {
     fontSize: 21,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 8,
-    color: 'black',
+    color: "black",
   },
   subtitleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     paddingVertical: 8,
   },
   subtitleText: {
     flex: 1,
     marginRight: 10,
     fontSize: 18,
-    color: 'black',
+    color: "black",
   },
   bookmarkButton: {
     padding: 6,
@@ -658,7 +710,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   bookmarkButtonText: {
-    color: 'white',
+    color: "white",
   },
 });
 

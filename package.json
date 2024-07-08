@@ -15,6 +15,7 @@
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
+    "@robinbobin/react-native-google-drive-api-wrapper": "^1.2.4",
     "pdf": "^0.1.0",
     "react": "18.2.0",
     "react-native": "^0.73.1",
