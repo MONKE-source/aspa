@@ -301,34 +301,6 @@ function openGitPDF(title, subtitles) {
       // error
     });
 }
-const BookmarkedDetail = ({ route }) => {
-  function formatFileName(text) {
-    const text1 = text.toString();
-    const lowercaseText = text1.toLowerCase();
-
-    var words = lowercaseText.split(" ");
-    var result = words.join("_");
-    return result;
-  }
-  const { title, subtitles } = route.params;
-  const uri = `file:///Users/calebhan/developer/kkh2/KKH-Paediatrics/assets/kkh-assets/${formatFileName(
-    title
-  )}/${formatFileName(subtitles)}.pdf`;
-  return (
-    <View
-      style={{ flex: 1, justifyContent: "flex-start", alignItems: "center" }}
-    >
-      <Pdf
-        // enablePaging={true}
-        trustAllCerts={false}
-        source={{
-          uri: uri,
-        }}
-        style={{ flex: 1, width: Dimensions.get("window").width }}
-      />
-    </View>
-  );
-};
 
 const BookmarkSubtitlesFlatList = ({ navigation }) => {
   const [items, setItems] = useState(data);
@@ -413,17 +385,12 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
         <TouchableOpacity
           key={subtitle.id}
           style={styles.subtitleContainer}
-          onPress={() =>
-            navigation.navigate("ItemRef", {
-              itemTitle: subtitle.text,
-              itemBigTitle: item.title,
-            })
-          }
+          onPress={() => openGitPDF(item.title, subtitle.text)}
         >
           <Text style={styles.subtitleText}>{subtitle.text}</Text>
           <TouchableOpacity
             style={styles.bookmarkButton}
-            onPress={() => openGitPDF(item.title, subtitle.text)}
+            onPress={() => toggleSubtitleBookmark(item.id, subtitle.id)}
           >
             <Ionicons
               name={subtitle.isBookmarked ? "bookmark" : "bookmark-outline"}
@@ -631,24 +598,6 @@ function MainStack() {
         component={BookmarkedItemsScreen}
         options={{
           headerTitle: "Items",
-          headerStyle: {
-            backgroundColor: "rgb(30, 30, 32)",
-            color: "white",
-          },
-          headerTitleStyle: {
-            color: "white",
-          },
-          headerBackTitleStyle: {
-            color: "white",
-          },
-          headerTintColor: "white",
-        }}
-      />
-      <Stack.Screen
-        name="BookmarkedDetailsScreen"
-        component={BookmarkedDetail}
-        options={{
-          headerTitle: "PDF Details",
           headerStyle: {
             backgroundColor: "rgb(30, 30, 32)",
             color: "white",

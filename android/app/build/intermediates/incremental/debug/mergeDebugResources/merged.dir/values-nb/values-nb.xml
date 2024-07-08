@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
     <plurals name="mtrl_badge_content_description">
     <item quantity="one">%d nytt varsel</item>
     <item quantity="other">%d nye varsler</item>
@@ -32,14 +32,11 @@
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Del med <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Skjul"</string>
     <string gender="unknown" name="alert_description">Varsel</string>
+    <string name="bottomsheet_action_collapse">Skjul feltet nederst</string>
+    <string name="bottomsheet_action_expand">Vis feltet nederst</string>
     <string name="bottomsheet_action_expand_halfway">Vis halve feltet nederst</string>
-    <string msgid="881409763997275156" name="call_notification_answer_action">"Svar"</string>
-    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
-    <string msgid="3229508546291798546" name="call_notification_decline_action">"Avvis"</string>
-    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Legg på"</string>
-    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Innkommende anrop"</string>
-    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Pågående samtale"</string>
-    <string msgid="59049573811482460" name="call_notification_screening_text">"Filtrerer et innkommende anrop"</string>
+    <string name="bottomsheet_drag_handle_clicked">Dobbelttrykket på håndtaket</string>
+    <string name="bottomsheet_drag_handle_content_description">Håndtak</string>
     <string gender="unknown" name="catalyst_dev_menu_header">React Native-utviklermenyen (%1$s)</string>
     <string gender="unknown" name="catalyst_dev_menu_sub_header">Kjører %1$s</string>
     <string name="character_counter_content_description">%1$d av %2$d tegn er skrevet inn</string>
@@ -55,6 +52,7 @@
     <string name="item_view_role_description">Fane</string>
     <string gender="unknown" name="link_description">Lenke</string>
     <string name="material_clock_toggle_content_description">Velg AM eller PM</string>
+    <string name="material_hour_24h_suffix">%1$s timer</string>
     <string name="material_hour_selection">Velg time</string>
     <string name="material_hour_suffix">%1$s null-null</string>
     <string name="material_minute_selection">Angi minutter</string>
@@ -71,11 +69,12 @@
     <string gender="unknown" name="menuitem_description">Menyelement</string>
     <string name="mtrl_badge_numberless_content_description">Nytt varsel</string>
     <string name="mtrl_chip_close_icon_content_description">Fjern %1$s</string>
-    <string name="mtrl_exceed_max_badge_number_content_description">Flere enn %1$d nye varsler</string>
+    <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">Flere enn %1$d nye varsler</string>
     <string name="mtrl_picker_a11y_next_month">Endre til neste måned</string>
     <string name="mtrl_picker_a11y_prev_month">Endre til forrige måned</string>
     <string name="mtrl_picker_announce_current_selection">Gjeldende valg: %1$s</string>
-    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_cancel">Avbryt</string>
+    <string name="mtrl_picker_confirm">OK</string>
     <string name="mtrl_picker_date_header_selected">%1$s</string>
     <string name="mtrl_picker_date_header_title">Velg dato</string>
     <string name="mtrl_picker_date_header_unselected">Valgt dato</string>
@@ -102,6 +101,8 @@
     <string name="mtrl_picker_toggle_to_day_selection">Trykk for å bytte til å velge dag</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Bytt til tekstinndatamodus</string>
     <string name="mtrl_picker_toggle_to_year_selection">Trykk for å bytte til å velge år</string>
+    <string name="mtrl_timepicker_cancel">Avbryt</string>
+    <string name="mtrl_timepicker_confirm">OK</string>
     <string name="password_toggle_content_description">Vis passordet</string>
     <string gender="unknown" name="progressbar_description">Fremdriftslinje</string>
     <string gender="unknown" name="radiogroup_description">Radiogruppe</string>

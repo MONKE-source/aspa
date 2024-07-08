@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
     <plurals name="mtrl_badge_content_description">
     <item quantity="one">%d yeni bildirim</item>
     <item quantity="other">%d yeni bildirim</item>
@@ -32,14 +32,11 @@
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> ile paylaş"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Daralt"</string>
     <string gender="unknown" name="alert_description">Uyarı</string>
+    <string name="bottomsheet_action_collapse">Alt sayfayı daralt</string>
+    <string name="bottomsheet_action_expand">Alt sayfayı genişlet</string>
     <string name="bottomsheet_action_expand_halfway">Yarım genişlet</string>
-    <string msgid="881409763997275156" name="call_notification_answer_action">"Yanıtla"</string>
-    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
-    <string msgid="3229508546291798546" name="call_notification_decline_action">"Reddet"</string>
-    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Kapat"</string>
-    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Gelen arama"</string>
-    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Devam eden arama"</string>
-    <string msgid="59049573811482460" name="call_notification_screening_text">"Gelen arama süzülüyor"</string>
+    <string name="bottomsheet_drag_handle_clicked">Sürükleme tutamacına iki kez dokunuldu</string>
+    <string name="bottomsheet_drag_handle_content_description">Sürükleme tutamacı</string>
     <string gender="unknown" name="catalyst_dev_menu_sub_header">%1$s çalıştırıyor</string>
     <string name="character_counter_content_description">Girilen karakter: %1$d / %2$d</string>
     <string name="character_counter_overflowed_content_description">Karakter sınırı aşıldı %1$d / %2$d</string>
@@ -54,6 +51,7 @@
     <string name="item_view_role_description">Sekme</string>
     <string gender="unknown" name="link_description">Bağlantı</string>
     <string name="material_clock_toggle_content_description">ÖÖ veya ÖS\'yi seçin</string>
+    <string name="material_hour_24h_suffix">%1$s saat</string>
     <string name="material_hour_selection">Saat seçin</string>
     <string name="material_hour_suffix">Saat %1$s</string>
     <string name="material_minute_selection">Dakikayı seçin</string>
@@ -70,11 +68,12 @@
     <string gender="unknown" name="menuitem_description">Menü Seçeneği</string>
     <string name="mtrl_badge_numberless_content_description">Yeni bildirim</string>
     <string name="mtrl_chip_close_icon_content_description">%1$s içeriğini kaldır</string>
-    <string name="mtrl_exceed_max_badge_number_content_description">%1$d adetten fazla yeni bildirim</string>
+    <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">%1$d adetten fazla yeni bildirim</string>
     <string name="mtrl_picker_a11y_next_month">Sonraki aya değiştir</string>
     <string name="mtrl_picker_a11y_prev_month">Önceki aya değiştir</string>
     <string name="mtrl_picker_announce_current_selection">Geçerli seçim: %1$s</string>
-    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_cancel">İptal</string>
+    <string name="mtrl_picker_confirm">Tamam</string>
     <string name="mtrl_picker_date_header_selected">%1$s</string>
     <string name="mtrl_picker_date_header_title">Tarih Seçin</string>
     <string name="mtrl_picker_date_header_unselected">Seçilen tarih</string>
@@ -101,6 +100,8 @@
     <string name="mtrl_picker_toggle_to_day_selection">Gün seçmeye geçmek için dokunun</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Metin giriş moduna geç</string>
     <string name="mtrl_picker_toggle_to_year_selection">Yıl seçmeye geçmek için dokunun</string>
+    <string name="mtrl_timepicker_cancel">İptal</string>
+    <string name="mtrl_timepicker_confirm">Tamam</string>
     <string name="password_toggle_content_description">Şifreyi göster</string>
     <string gender="unknown" name="progressbar_description">İlerleme Çubuğu</string>
     <string gender="unknown" name="radiogroup_description">Radyo Grubu</string>

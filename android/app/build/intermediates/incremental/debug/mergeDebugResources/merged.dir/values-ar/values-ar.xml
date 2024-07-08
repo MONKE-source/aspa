@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
     <plurals name="mtrl_badge_content_description">
     <item quantity="zero">%d إشعار جديد</item>
     <item quantity="one">إشعار جديد واحد (%d)</item>
@@ -36,14 +36,11 @@
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"مشاركة مع <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"تصغير"</string>
     <string gender="unknown" name="alert_description">تنبيه</string>
+    <string name="bottomsheet_action_collapse">تصغير البطاقة السفلية</string>
+    <string name="bottomsheet_action_expand">توسيع البطاقة السفلية</string>
     <string name="bottomsheet_action_expand_halfway">توسيع البطاقة السفلية</string>
-    <string msgid="881409763997275156" name="call_notification_answer_action">"ردّ"</string>
-    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"فيديو"</string>
-    <string msgid="3229508546291798546" name="call_notification_decline_action">"رفض"</string>
-    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"قطع الاتصال"</string>
-    <string msgid="6107532579223922871" name="call_notification_incoming_text">"مكالمة واردة"</string>
-    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"مكالمة جارية"</string>
-    <string msgid="59049573811482460" name="call_notification_screening_text">"يتم فحص المكالمة الواردة"</string>
+    <string name="bottomsheet_drag_handle_clicked">تم النقر مرّتين على مقبض السحب.</string>
+    <string name="bottomsheet_drag_handle_content_description">مقبض السحب</string>
     <string gender="unknown" name="catalyst_dev_menu_header">التفاعل مع قائمة التطوير الأصلي (%1$s)</string>
     <string gender="unknown" name="catalyst_dev_menu_sub_header">تشغيل %1$s</string>
     <string name="character_counter_content_description">تمّ إدخال %1$d حرف من إجمالي %2$d.</string>
@@ -59,6 +56,7 @@
     <string name="item_view_role_description">علامة تبويب</string>
     <string gender="unknown" name="link_description">رابط</string>
     <string name="material_clock_toggle_content_description">يُرجى اختيار صباحًا أو مساءً.</string>
+    <string name="material_hour_24h_suffix">%1$s ساعة</string>
     <string name="material_hour_selection">تحديد الساعة</string>
     <string name="material_hour_suffix">الساعة %1$s</string>
     <string name="material_minute_selection">تحديد الدقائق</string>
@@ -75,11 +73,12 @@
     <string gender="unknown" name="menuitem_description">عنصر القائمة</string>
     <string name="mtrl_badge_numberless_content_description">إشعار جديد</string>
     <string name="mtrl_chip_close_icon_content_description">إزالة %1$s</string>
-    <string name="mtrl_exceed_max_badge_number_content_description">يبلغ عدد الإشعارات الجديدة أكثر من %1$d.</string>
+    <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">يبلغ عدد الإشعارات الجديدة أكثر من %1$d.</string>
     <string name="mtrl_picker_a11y_next_month">التغيير إلى الشهر التالي</string>
     <string name="mtrl_picker_a11y_prev_month">التغيير إلى الشهر السابق</string>
     <string name="mtrl_picker_announce_current_selection">الاختيار الحالي: %1$s</string>
-    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_cancel">إلغاء</string>
+    <string name="mtrl_picker_confirm">حسنًا</string>
     <string name="mtrl_picker_date_header_selected">%1$s</string>
     <string name="mtrl_picker_date_header_title">يُرجى اختيار تاريخ.</string>
     <string name="mtrl_picker_date_header_unselected">التاريخ المحدَّد</string>
@@ -106,6 +105,8 @@
     <string name="mtrl_picker_toggle_to_day_selection">انقر للتبديل إلى اختيار يوم</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">التبديل إلى وضع \"إدخال النص\"</string>
     <string name="mtrl_picker_toggle_to_year_selection">انقر للتبديل إلى اختيار عام</string>
+    <string name="mtrl_timepicker_cancel">إلغاء</string>
+    <string name="mtrl_timepicker_confirm">حسنًا</string>
     <string name="password_toggle_content_description">عرض كلمة المرور</string>
     <string gender="unknown" name="progressbar_description">شريط التقدم</string>
     <string gender="unknown" name="radiogroup_description">مجموعة أزرار اختيار</string>

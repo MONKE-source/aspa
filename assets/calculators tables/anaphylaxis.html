@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link
+      type="text/css"
+      rel="stylesheet"
+      href="resources/sheet.css"
+    />
+    <style type="text/css">
+      .ritz .waffle a {
+        color: inherit;
+      }
+      .ritz .waffle .s35 {
+        border-bottom: 1px SOLID #ff0000;
+        border-right: 1px SOLID #ff0000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s8 {
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s49 {
+        border-bottom: 1px SOLID #548135;
+        border-right: 1px SOLID #ff0000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s14 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID transparent;
+        background-color: #d2e1ff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s37 {
+        border-bottom: 1px SOLID #ff0000;
+        border-right: 1px SOLID #ff0000;
+        background-color: #ffe5f7;
+        text-align: center;
+        font-weight: bold;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 14pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s28 {
+        border-bottom: 1px SOLID #c00000;
+        border-right: 1px SOLID #c00000;
+        background-color: #d2e1ff;
+        text-align: center;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s31 {
+        border-bottom: 1px SOLID #c00000;
+        border-right: 1px SOLID #ff0000;
+        background-color: #d2e1ff;
+        text-align: left;
+        font-weight: bold;
+        color: #0070c0;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s25 {
+        border-bottom: 1px SOLID #c00000;
+        border-right: 1px SOLID #c00000;
+        background-color: #d2e1ff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s48 {
+        border-bottom: 1px SOLID #7030a0;
+        border-right: 1px SOLID #ff0000;
+        background-color: #ffe5f7;
+        text-align: left;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s9 {
+        border-bottom: 1px SOLID transparent;
+        border-right: 1px SOLID #8eaadb;
+        background-color: #d2e1ff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s29 {
+        border-bottom: 1px SOLID #c00000;
+        border-right: 1px SOLID transparent;
+        background-color: #d2e1ff;
+        text-align: right;
+        font-weight: bold;
+        color: #0070c0;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s24 {
+        border-bottom: 1px SOLID #c00000;
+        border-right: 1px SOLID #ff0000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s26 {
+        border-bottom: 1px SOLID #c00000;
+        border-right: 1px SOLID #c00000;
+        background-color: #d2e1ff;
+        text-align: center;
+        font-weight: bold;
+        color: #0070c0;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s4 {
+        border-right: 2px SOLID transparent;
+        background-color: #ffffff;
+        text-align: right;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s30 {
+        border-bottom: 1px SOLID #c00000;
+        border-right: 1px SOLID #c00000;
+        background-color: #d2e1ff;
+        text-align: left;
+        font-weight: bold;
+        color: #0070c0;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s15 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #d2e1ff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s46 {
+        border-right: none;
+        border-bottom: 1px SOLID #7030a0;
+        background-color: #ffe5f7;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s34 {
+        border-bottom: 1px SOLID #c00000;
+        border-right: 1px SOLID #ff0000;
+        background-color: #d2e1ff;
+        text-align: left;
+        color: #0070c0;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s51 {
+        border-bottom: 1px SOLID #ff0000;
+        border-right: 1px SOLID #548135;
+        background-color: #c5e0b3;
+        text-align: center;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s2 {
+        border-bottom: 2px SOLID transparent;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s32 {
+        border-bottom: 1px SOLID #c00000;
+        border-right: 1px SOLID transparent;
+        background-color: #d2e1ff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s44 {
+        border-bottom: 1px SOLID #7030a0;
+        border-right: 1px SOLID #ff0000;
+        background-color: #ffe5f7;
+        text-align: left;
+        font-weight: bold;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 14pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s47 {
+        border-left: none;
+        border-bottom: 1px SOLID #7030a0;
+        background-color: #ffe5f7;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s7 {
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s22 {
+        border-bottom: 1px SOLID #c00000;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s36 {
+        border-bottom: 1px SOLID #ff0000;
+        border-right: 1px SOLID #ff0000;
+        background-color: #ffe5f7;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s45 {
+        border-bottom: 1px SOLID #7030a0;
+        border-right: 1px SOLID transparent;
+        background-color: #ffe5f7;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s16 {
+        border-bottom: 1px SOLID #ff0000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s13 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #8eaadb;
+        background-color: #d2e1ff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s11 {
+        border-bottom: 1px SOLID #8eaadb;
+        border-right: 1px SOLID transparent;
+        background-color: #d2e1ff;
+        text-align: right;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s10 {
+        border-bottom: 1px SOLID #8eaadb;
+        border-right: 1px SOLID #8eaadb;
+        background-color: #d2e1ff;
+        text-align: center;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s3 {
+        border-bottom: 1px SOLID transparent;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s50 {
+        border-bottom: 1px SOLID #ff0000;
+        border-right: 1px SOLID #548135;
+        background-color: #c5e0b3;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s43 {
+        border-bottom: 1px SOLID #7030a0;
+        border-right: 1px SOLID #7030a0;
+        background-color: #ffe5f7;
+        text-align: left;
+        font-weight: bold;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 14pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s39 {
+        border-bottom: 1px SOLID #7030a0;
+        border-right: 1px SOLID transparent;
+        background-color: #ffe5f7;
+        text-align: right;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s17 {
+        border-bottom: 1px SOLID #ff0000;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s41 {
+        border-bottom: 1px SOLID #7030a0;
+        border-right: 1px SOLID #7030a0;
+        background-color: #ffe5f7;
+        text-align: center;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s42 {
+        border-bottom: 1px SOLID #7030a0;
+        border-right: 1px SOLID transparent;
+        background-color: #ffe5f7;
+        text-align: right;
+        font-weight: bold;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 14pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s5 {
+        border-bottom: 2px SOLID transparent;
+        border-right: 2px SOLID transparent;
+        background-color: #ffffff;
+        text-align: center;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s27 {
+        border-bottom: 1px SOLID #c00000;
+        border-right: 1px SOLID transparent;
+        background-color: #d2e1ff;
+        text-align: right;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s12 {
+        border-bottom: 1px SOLID #8eaadb;
+        border-right: 1px SOLID #000000;
+        background-color: #d2e1ff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s0 {
+        background-color: #ffffff;
+        text-align: center;
+        color: #0563c1;
+        font-family: "docs-Calibri", Arial;
+        font-size: 10pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s1 {
+        background-color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 14pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s19 {
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 14pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s23 {
+        border-bottom: 1px SOLID #c00000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s38 {
+        border-bottom: 1px SOLID #7030a0;
+        border-right: 1px SOLID #7030a0;
+        background-color: #ffe5f7;
+        text-align: center;
+        font-weight: bold;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 14pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s33 {
+        border-bottom: 1px SOLID #c00000;
+        border-right: 1px SOLID transparent;
+        background-color: #d2e1ff;
+        text-align: left;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s6 {
+        border-bottom: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s21 {
+        border-right: 1px SOLID #ff0000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s20 {
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s18 {
+        border-right: 1px SOLID #ff0000;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s40 {
+        border-bottom: 1px SOLID #7030a0;
+        border-right: 1px SOLID #7030a0;
+        background-color: #ffe5f7;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+    </style>
+    <div class="ritz grid-container" dir="ltr">
+      <table class="waffle" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr></tr>
+        </thead>
+        <tbody>
+          <tr style="height: 20px">
+            <th
+              id="885691738R0"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R1"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s0"></td>
+            <td class="s1" colspan="2">ANAPHYLAXIS</td>
+            <td class="s0"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R2"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s2"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R3"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s3">IMMEDIATE TREATMENT</td>
+            <td></td>
+            <td class="s4" colspan="3">enter BODY WEIGHT(KG)=</td>
+            <td class="s5" dir="ltr">${weight}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R4"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s6" colspan="5" rowspan="2"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R5"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s7"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R6"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s8"></td>
+            <td class="s9">NS/ RL</td>
+            <td class="s10">IV</td>
+            <td class="s10">BOLUS</td>
+            <td class="s11">${weight*10}</td>
+            <td class="s12">ML</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R7"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s8"></td>
+            <td class="s13">(10-30 ML/KG)</td>
+            <td class="s14"></td>
+            <td class="s14"></td>
+            <td class="s14"></td>
+            <td class="s15"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R8"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s16" colspan="5"></td>
+            <td class="s17"></td>
+            <td class="s17"></td>
+            <td class="s17"></td>
+            <td class="s17"></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R9"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s18"></td>
+            <td class="s19">EPINEPHRINE</td>
+            <td class="s20"></td>
+            <td class="s20"></td>
+            <td class="s20"></td>
+            <td class="s20"></td>
+            <td class="s20"></td>
+            <td class="s20"></td>
+            <td class="s20"></td>
+            <td class="s21"></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R10"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s21"></td>
+            <td class="s22"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s24"></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R11"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s18"></td>
+            <td class="s25">10 MICROgram/KG</td>
+            <td class="s26">IM</td>
+            <td class="s26">BOLUS</td>
+            <td class="s27">${weight*10}</td>
+            <td class="s25">MICROgrams</td>
+            <td class="s28">or</td>
+            <td class="s29">${weight*0.1}</td>
+            <td class="s30">ML</td>
+            <td class="s31">1: 10 000</td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R12"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s18"></td>
+            <td class="s32"></td>
+            <td class="s33"></td>
+            <td class="s33"></td>
+            <td class="s32" colspan="3">(MAX: 300 MICROgram)</td>
+            <td class="s33"></td>
+            <td class="s33"></td>
+            <td class="s34">DILUTION</td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R13"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s18"></td>
+            <td class="s35" colspan="9"></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R14"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s18"></td>
+            <td class="s36">1 MICROgram/KG</td>
+            <td class="s37">IV/IO</td>
+            <td class="s38">BOLUS</td>
+            <td class="s39">${weight}</td>
+            <td class="s40">MICROgrams</td>
+            <td class="s41">or</td>
+            <td class="s42">${weight*0.1}</td>
+            <td class="s43">ML</td>
+            <td class="s44">1: 100 000</td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R15"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s18"></td>
+            <td class="s45"></td>
+            <td class="s45"></td>
+            <td class="s45"></td>
+            <td class="s46 softmerge">
+              <div class="softmerge-inner" style="width: 187px; left: -1px">
+                (MAX: 1000 MICROgram)
+              </div>
+            </td>
+            <td class="s47"></td>
+            <td class="s47"></td>
+            <td class="s45"></td>
+            <td class="s45"></td>
+            <td class="s48">DILUTION</td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R16"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s18"></td>
+            <td class="s49" colspan="9"></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="885691738R17"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s18"></td>
+            <td class="s50">0.02-0.2 MICROgram/KG/MIN</td>
+            <td class="s51">IV/IO</td>
+            <td class="s51">INFUSION</td>
+            <td class="s35" colspan="6"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

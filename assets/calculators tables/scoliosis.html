@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: left;
+      }
+      .longthingy {
+        width: 200px;
+      }
+      .shortthingy {
+        width: 20%;
+      }
+      .header > td {
+        background-color: #6bb4e7;
+        text-align: center;
+      }
+      .drug {
+        width: 26%;
+      }
+      .dosekg {
+        width: 25%;
+      }
+      .amount {
+        width: 9%;
+      }
+      .unit {
+        width: 9%;
+      }
+      .remarks {
+        width: 25%;
+      }
+      .dexy {
+        width: 60%;
+      }
+      .dexy2 {
+        width: 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Scolliosis</h1>
+      <p id="weight">kg</p>
+      <!-- propofol-->
+      <table>
+        <tr>
+          <td class="shortthingy">Propofol</td>
+          <td class="longthingy">
+            TCI - Draw up the drug neat into 50 ml syringe for infusion
+          </td>
+          <td class="shortthingy"></td>
+        </tr>
+      </table>
+      <!-- Remifentanil-->
+      <table>
+        <tr>
+          <td class="shortthingy">Remifentanil</td>
+          <td class="longthingy">TCI - Draw up 2mg in 50 ml for infusion</td>
+          <td class="shortthingy">0.01-1 mcg/kg/min, titrate to effect</td>
+        </tr>
+      </table>
+      <!-- Dexmedetomidine-->
+      <table>
+        <tr>
+          <td class="shortthingy">Dexmedetomidine</td>
+          <td class="longthingy dexy">
+            Draw 200 mcg in 50 ml. Use BBraun Infusion Pump Dexmedetomidine
+            setting"".<br />
+            <b>(Dex is NOT always used - ASK Consultant before diluting)</b>
+          </td>
+          <td class="dexy2">
+            <div>1 ml/hr =</div>
+            <div id="dexcal"></div>
+            <div>mcg/kg/hr</div>
+            <br />
+            <div>0.2-0.5 mcg/kg/hr</div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- New 3 x 5 Table -->
+      <table>
+        <!-- Header + Transexmic acid-->
+        <tr class="header">
+          <td class="drug">Drug</td>
+          <td class="dosekg">Dose/KG</td>
+          <td class="amount">Amount</td>
+          <td class="unit">Unit</td>
+          <td class="remarks">Remarks</td>
+        </tr>
+        <tr class="under40">
+          <td class="drug">Tranexemic acid (< 40kg)</td>
+          <td class="dosekg">( BWT x 50 ) mg/20ml</td>
+          <td id="t<40am" class="amount"></td>
+          <td class="unit">mg/20ml</td>
+          <td class="remarks">
+            1ml/hr=2.5 mg/kg/hr<br />
+            (10ml/hr for 1hr then 1ml/hr)"
+          </td>
+        </tr>
+        <tr class="above40">
+          <td class="drug">Tranexemic acid (≥ 40kg)</td>
+          <td class="dosekg">2000 mg/20 ml/td</td>
+          <td id="t>40am" class="amount">2000</td>
+          <td class="unit">mg/20ml</td>
+          <td class="remarks">(10ml/hr for 1hr then 1ml/hr)</td>
+        </tr>
+      </table>
+      <table>
+        <!--Morphine + ketamine PCA acid-->
+        <tr class="header">
+          <td class="drug">Drug</td>
+          <td class="dosekg">Dose/KG</td>
+          <td class="amount">Amount</td>
+          <td class="unit">Unit</td>
+          <td class="remarks">Remarks</td>
+        </tr>
+        <tr class="under50">
+          <td class="drug">Morphine <br />Ketamine PCA(<50kg)</td>
+          <td class="dosekg">
+            [ (BWT) mg Morphine + (BWT) mg Ketamine ] / 50 ml
+          </td>
+          <td id="t<50am" class="amount">Row 2, Cell 3</td>
+          <td class="unit">mg/50ml</td>
+          <td class="remarks">1ml/hr=20mcg/kg/hr</td>
+        </tr>
+        <tr class="over50">
+          <td class="drug">Morphine <br />Ketamine PCA(≥50kg)</td>
+          <td class="dosekg">( 50 mg Morphine + 50 mg Ketamine ) / 50ml</td>
+          <td id="t>50am" class="amount">Row 3, Cell 3</td>
+          <td class="unit">mg/50ml</td>
+          <td class="remarks">1ml/hr=1mg/hr</td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      let weight = $("#weight");
+      document.getElementById("weight").innerHTML = weight + " kg";
+      document.getElementById("dexcal").innerHTML = (4 / weight).toFixed(14);
+      document.getElementById("t<40am").innerHTML = weight * 50;
+      document.getElementById("t<50am").innerHTML = weight;
+      document.getElementById("t>50am").innerHTML = 50;
+      if (weight > 40) {
+        document.querySelector(".under40").style.display = "none";
+      } else {
+        document.querySelector(".above40").style.display = "none";
+      }
+      if (weight > 50) {
+        document.querySelector(".under50").style.display = "none";
+      } else {
+        document.querySelector(".over50").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
