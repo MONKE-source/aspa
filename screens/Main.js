@@ -271,9 +271,18 @@ const BookmarkedItemsScreen = ({ route, navigation }) => {
     </SafeAreaView>
   );
 };
-function openGitPDF() {
-  const url =
-    "https://github.com/MONKE-source/aspa/raw/main/assets/kkh-assets/common_crisis/hypercyanotic_tet_spells.pdf";
+function openGitPDF(title, subtitles) {
+  function formatFileName(text) {
+    const text1 = text.toString();
+    const lowercaseText = text1.toLowerCase();
+
+    var words = lowercaseText.split(" ");
+    var result = words.join("_");
+    return result;
+  }
+  const url = `https://github.com/MONKE-source/aspa/raw/main/assets/kkh-assets/${formatFileName(
+    title
+  )}/${formatFileName(subtitles)}.pdf`;
   function getUrlExtension(url) {
     return url.split(/[#?]/)[0].split(".").pop().trim();
   }
@@ -414,7 +423,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
           <Text style={styles.subtitleText}>{subtitle.text}</Text>
           <TouchableOpacity
             style={styles.bookmarkButton}
-            onPress={() => openGitPDF()}
+            onPress={() => openGitPDF(item.title, subtitle.text)}
           >
             <Ionicons
               name={subtitle.isBookmarked ? "bookmark" : "bookmark-outline"}
