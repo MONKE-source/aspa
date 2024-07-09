@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import RNHTMLtoPDF from 'react-native-html-to-pdf';
+import React, { useState, useEffect } from "react";
+import RNHTMLtoPDF from "react-native-html-to-pdf";
 // import { StatusBar } from "expo-status-bar";
 import {
   SafeAreaView,
@@ -12,36 +12,36 @@ import {
   Platform,
   Alert,
   Linking,
-} from 'react-native';
-import TextInputButton from '../components/TextInputButton';
+} from "react-native";
+import TextInputButton from "../components/TextInputButton";
 // import TextButton from '../components/TextButton';
-import IconButton from '../components/IconButton';
-import SegmentedControl from '../components/SegmentedControl';
+import IconButton from "../components/IconButton";
+import SegmentedControl from "../components/SegmentedControl";
 // import { MaterialCommunityIcons } from "@expo/vector-icons";
-import {useDarkMode} from '../components/DarkModeContext';
+import { useDarkMode } from "../components/DarkModeContext";
 // import { ScrollView } from "react-native-gesture-handler";
-import FileViewer from 'react-native-file-viewer';
+import FileViewer from "react-native-file-viewer";
 
 export default function Bmi() {
-  const {isDarkMode} = useDarkMode();
+  const { isDarkMode } = useDarkMode();
 
-  const [age, setAge] = useState('');
+  const [age, setAge] = useState("");
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
   const [isMale, setGender] = useState(true);
   const [bmi, setBmi] = useState(0);
-  const [result, setResult] = useState('Input values to get result');
+  const [result, setResult] = useState("Input values to get result");
   function bmiAgeSexCheck(bmi) {
     if (bmi == NaN) {
       return 0;
     } else if (bmi <= 18.5) {
-      return 'Risk of nutritional deficiency diseases and osteoporosis';
-    } else if (18.5 <= bmi <= 22.9) {
-      return 'Low risk (healthy range)';
-    } else if (23.0 <= bmi <= 29.9) {
-      return 'Moderate Risk';
+      return "Risk of nutritional deficiency diseases and osteoporosis";
+    } else if (18.5 <= bmi && bmi <= 22.9) {
+      return "Low risk (healthy range)";
+    } else if (23.0 <= bmi && bmi <= 29.9) {
+      return "Moderate Risk";
     } else {
-      return 'High Risk';
+      return "High Risk";
     }
   }
   useEffect(() => {
@@ -84,23 +84,23 @@ export default function Bmi() {
           <tr>\
               <td>${height}</td>\
               <td>${weight}</td>\
-                <td>${isMale ? 'female' : 'male'}</td>\
+                <td>${isMale ? "female" : "male"}</td>\
               <td>${age}</td>\
               <td>${bmi}</td>\
           </tr>\
       </table>\
   </body>\
   </html>`,
-        fileName: 'file',
-        directory: Platform.OS === 'android' ? 'Downloads' : 'Documents',
+        fileName: "file",
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
       };
       let file = await RNHTMLtoPDF.convert(PDFOptions);
       if (!file.filePath) return;
-      Alert.alert('File path: ', file.filePath);
-      console.log('successful: ', file.filePath);
+      Alert.alert("File path: ", file.filePath);
+      console.log("successful: ", file.filePath);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log('Failed to generate pdf', error.message);
+      console.log("Failed to generate pdf", error.message);
     }
   };
 
@@ -108,8 +108,9 @@ export default function Bmi() {
     <SafeAreaView
       style={[
         styles.treeTop,
-        {backgroundColor: isDarkMode ? 'rgb(30, 30, 32)' : '#F2EDEB'},
-      ]}>
+        { backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB" },
+      ]}
+    >
       {/* <StatusBar style="light" /> */}
       <ScrollView style={styles.contentContainer}>
         <View style={styles.mainContent}>
@@ -117,21 +118,21 @@ export default function Bmi() {
             <TextInputButton
               title="Patient Age"
               unit=""
-              width={(Dimensions.get('window').width * 125) / 390}
-              height={(Dimensions.get('window').height * 55) / 844}
-              backgroundColor={'#313135'}
+              width={(Dimensions.get("window").width * 125) / 390}
+              height={(Dimensions.get("window").height * 55) / 844}
+              backgroundColor={"#313135"}
               store={age}
               action={setAge}
             />
           </View>
           <View style={styles.segmentedControlRow}>
             <SegmentedControl
-              width={(Dimensions.get('window').width * 260) / 390}
-              height={(Dimensions.get('window').height * 35) / 844}
-              titleArray={['Male', 'Female']}
-              fontSize={(Dimensions.get('window').height / 844) * 16}
-              color1={'#45454A'}
-              color2={'#313135'}
+              width={(Dimensions.get("window").width * 260) / 390}
+              height={(Dimensions.get("window").height * 35) / 844}
+              titleArray={["Male", "Female"]}
+              fontSize={(Dimensions.get("window").height / 844) * 16}
+              color1={"#45454A"}
+              color2={"#313135"}
               optionStore={isMale}
               optionUpdate={setGender}
             />
@@ -141,19 +142,19 @@ export default function Bmi() {
               <TextInputButton
                 title="Height"
                 unit="cm"
-                width={(Dimensions.get('window').width * 120) / 390}
-                height={(Dimensions.get('window').height * 55) / 844}
-                backgroundColor={'#313135'}
+                width={(Dimensions.get("window").width * 120) / 390}
+                height={(Dimensions.get("window").height * 55) / 844}
+                backgroundColor={"#313135"}
                 store={height}
                 action={setHeight}
               />
-              <View style={{marginVertical: 15}} />
+              <View style={{ marginVertical: 15 }} />
               <TextInputButton
                 title="Weight"
                 unit="kg"
-                width={(Dimensions.get('window').width * 120) / 390}
-                height={(Dimensions.get('window').height * 55) / 844}
-                backgroundColor={'#313135'}
+                width={(Dimensions.get("window").width * 120) / 390}
+                height={(Dimensions.get("window").height * 55) / 844}
+                backgroundColor={"#313135"}
                 store={weight}
                 action={setWeight}
               />
@@ -167,9 +168,9 @@ export default function Bmi() {
               /> */}
               <TextInputButton
                 title="BMI"
-                width={(Dimensions.get('window').width * 125) / 390}
-                height={(Dimensions.get('window').height * 55) / 844}
-                backgroundColor={'#45454A'}
+                width={(Dimensions.get("window").width * 125) / 390}
+                height={(Dimensions.get("window").height * 55) / 844}
+                backgroundColor={"#45454A"}
                 store={bmi}
                 action={setBmi}
               />
@@ -178,10 +179,11 @@ export default function Bmi() {
           <Text
             style={{
               marginTop: 30,
-              fontWeight: '700',
-              fontSize: (Dimensions.get('window').height / 844) * 18,
-              color: isDarkMode ? 'white' : 'black',
-            }}>
+              fontWeight: "700",
+              fontSize: (Dimensions.get("window").height / 844) * 18,
+              color: isDarkMode ? "white" : "black",
+            }}
+          >
             {result}
           </Text>
           <View style={styles.shareRow}>
@@ -191,12 +193,12 @@ export default function Bmi() {
                 title="Share"
                 iconPath="share-variant"
                 contentHex="#72A8DA"
-                borderColor={'#72A8DA'}
+                borderColor={"#72A8DA"}
                 borderWidth={1.25}
-                size={(Dimensions.get('window').height / 844) * 25}
+                size={(Dimensions.get("window").height / 844) * 25}
                 textSize={
                   Platform.isPad
-                    ? Dimensions.get('window').height * 0.04739336 * 0.45
+                    ? Dimensions.get("window").height * 0.04739336 * 0.45
                     : 19
                 }
               />
@@ -238,68 +240,68 @@ export default function Bmi() {
 const styles = StyleSheet.create({
   treeTop: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    height: Dimensions.get('window').height,
-    width: Dimensions.get('window').width,
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    height: Dimensions.get("window").height,
+    width: Dimensions.get("window").width,
     // marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   contentContainer: {
-    flexDirection: 'column',
+    flexDirection: "column",
     // justifyContent: "center",
     marginHorizontal: 10,
     marginVertical: 30,
-    height: Dimensions.get('window').height * 0.75,
-    width: Dimensions.get('window').width * 0.95,
+    height: Dimensions.get("window").height * 0.75,
+    width: Dimensions.get("window").width * 0.95,
     paddingBottom: 30,
   },
   mainContent: {
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
   },
   patientAgeCol: {
-    flexDirection: 'column',
-    alignItems: 'center',
+    flexDirection: "column",
+    alignItems: "center",
   },
   segmentedControlRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
   },
   inputRow: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    alignContent: 'center',
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    alignContent: "center",
     marginTop: 25,
   },
   detailsColumn: {
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
     marginRight: 15,
   },
   bmiRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   shareRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
     marginTop: 30,
   },
   divider: {
     height: 1,
-    width: Dimensions.get('window').width - 20,
+    width: Dimensions.get("window").width - 20,
     borderWidth: 1,
-    borderColor: '#6D6D74',
+    borderColor: "#6D6D74",
     marginVertical: 35,
   },
   selectionRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    flexDirection: "row",
+    justifyContent: "space-evenly",
   },
 });
