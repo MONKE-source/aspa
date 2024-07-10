@@ -11,6 +11,7 @@ import {
   Image,
   TextInput,
   Dimensions,
+  Alert,
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -287,7 +288,9 @@ function openGitPDF(title, subtitles) {
     return url.split(/[#?]/)[0].split(".").pop().trim();
   }
   const extension = getUrlExtension(url);
-  const localFile = `${RNFS.DocumentDirectoryPath}/pdffile.${extension}`;
+  const localFile = `${RNFS.DocumentDirectoryPath}/${formatFileName(
+    subtitles
+  )}.${extension}`;
   const options = {
     fromUrl: url,
     toFile: localFile,
@@ -318,8 +321,11 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
         const savedItems = await AsyncStorage.getItem("items");
         if (savedItems !== null) {
           setItems(JSON.parse(savedItems));
+        } else {
+          setItems(data);
         }
       } catch (error) {
+        Alert.alert("Error: ", error);
         console.error("Failed to load items from AsyncStorage", error);
       }
     };
@@ -328,15 +334,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
   }, []);
 
   useEffect(() => {
-    const saveItems = async () => {
-      try {
-        await AsyncStorage.setItem("items", JSON.stringify(items));
-      } catch (error) {
-        console.error("Failed to save items to AsyncStorage", error);
-      }
-    };
-
-    saveItems();
+    console.log(items);
   }, [items]);
 
   const toggleSubtitleBookmark = async (itemId, subtitleId) => {
