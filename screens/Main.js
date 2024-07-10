@@ -253,12 +253,7 @@ const BookmarkedItemsScreen = ({ route, navigation }) => {
                 <TouchableOpacity
                   key={subtitle.id}
                   style={styles.subtitleContainer}
-                  onPress={() =>
-                    navigation.navigate("BookmarkedDetailsScreen", {
-                      title: item.title,
-                      subtitles: subtitle.text,
-                    })
-                  }
+                  onPress={() => openGitPDF(item.title, subtitle.text)}
                 >
                   <Text style={styles.subtitleText}>{subtitle.text}</Text>
                 </TouchableOpacity>
@@ -310,6 +305,8 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState(data);
+  const [isInitialMount, setIsInitialMount] = useState(true);
+
   const clearSearch = () => {
     setSearchQuery("");
     setFilteredData([]);
@@ -318,12 +315,13 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
   useEffect(() => {
     const loadItems = async () => {
       try {
-        const savedItems = await AsyncStorage.getItem("items");
-        if (savedItems !== null) {
-          setItems(JSON.parse(savedItems));
-        } else {
-          setItems(data);
-        }
+        const savedItems = await AsyncStorage.getItem("@itemkey");
+        console.log("Items loaded from AsyncStorage");
+        console.log("----- " + JSON.parse(savedItems) + " -----");
+        savedItems !== null
+          ? setFilteredData(JSON.parse(savedItems))
+          : setFilteredData(data);
+        savedItems !== null ? setItems(JSON.parse(savedItems)) : setItems(data);
       } catch (error) {
         Alert.alert("Error: ", error);
         console.error("Failed to load items from AsyncStorage", error);
@@ -332,50 +330,47 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
 
     loadItems();
   }, []);
-
   useEffect(() => {
-    console.log(items);
-  }, [items]);
-
-  const toggleSubtitleBookmark = async (itemId, subtitleId) => {
-    setItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === itemId
-          ? {
-              ...item,
-              subtitles: item.subtitles.map((subtitle) =>
-                subtitle.id === subtitleId
-                  ? { ...subtitle, isBookmarked: !subtitle.isBookmarked }
-                  : subtitle
-              ),
-            }
-          : item
-      )
-    );
-
-    setFilteredData((prevFilteredData) =>
-      prevFilteredData.map((item) =>
-        item.id === itemId
-          ? {
-              ...item,
-              subtitles: item.subtitles.map((subtitle) =>
-                subtitle.id === subtitleId
-                  ? { ...subtitle, isBookmarked: !subtitle.isBookmarked }
-                  : subtitle
-              ),
-            }
-          : item
-      )
-    );
-    try {
-      await AsyncStorage.setItem("items", JSON.stringify(items));
-    } catch (error) {
-      console.error("Failed to save items to AsyncStorage", error);
+    if (isInitialMount) {
+      setIsInitialMount(false); // Set the flag to false after the first render
+    } else {
+      const saveItems = async () => {
+        try {
+          console.log("Items saved to AsyncStorage");
+          console.log("----- " + filteredData + " -----");
+          const dataToBeSaved = JSON.stringify(filteredData);
+          await AsyncStorage.setItem("@itemkey", dataToBeSaved);
+        } catch (error) {
+          console.error("Failed to save items to AsyncStorage", error);
+        }
+      };
+      saveItems();
     }
+  }, [filteredData]);
+  const toggleSubtitleBookmark = async (itemId, subtitleId) => {
+    const updatedItems = items.map((item) => {
+      if (item.id === itemId) {
+        const updatedSubtitles = item.subtitles.map((subtitle) => {
+          if (subtitle.id === subtitleId) {
+            return {
+              ...subtitle,
+              isBookmarked: !subtitle.isBookmarked,
+            };
+          }
+          return subtitle;
+        });
+
+        return {
+          ...item,
+          subtitles: updatedSubtitles,
+        };
+      }
+      return item;
+    });
+    setItems(updatedItems);
+    setFilteredData(updatedItems);
   };
 
-  const [title, setTitle] = useState("");
-  const [subtitle, setsubTitle] = useState("");
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
       <Text style={styles.title}>{item.title}</Text>
