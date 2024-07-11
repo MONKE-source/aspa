@@ -21,6 +21,7 @@ import SegmentedControl from "../components/SegmentedControl";
 import { useDarkMode } from "../components/DarkModeContext";
 // import { ScrollView } from "react-native-gesture-handler";
 import FileViewer from "react-native-file-viewer";
+import RNFS from "react-native-fs";
 
 export default function Bmi() {
   const { isDarkMode } = useDarkMode();
@@ -98,7 +99,19 @@ export default function Bmi() {
       if (!file.filePath) return;
       Alert.alert("File path: ", file.filePath);
       console.log("successful: ", file.filePath);
-      FileViewer.open(file.filePath);
+      const clearPDFCache = async (pdfPath) => {
+        try {
+          await RNFS.unlink(pdfPath);
+          console.log("PDF cache cleared");
+        } catch (error) {
+          console.error("Error clearing PDF cache: ", error);
+        }
+      };
+      FileViewer.open(file.filePath)
+        .then(() => clearPDFCache(file.filePath))
+        .catch((e) => {
+          console.log("Error: ", e);
+        });
     } catch (error) {
       console.log("Failed to generate pdf", error.message);
     }

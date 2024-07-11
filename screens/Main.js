@@ -290,13 +290,24 @@ function openGitPDF(title, subtitles) {
     fromUrl: url,
     toFile: localFile,
   };
+  const clearPDFCache = async (pdfPath) => {
+    try {
+      await RNFS.unlink(pdfPath);
+      console.log("PDF cache cleared");
+    } catch (error) {
+      console.error("Error clearing PDF cache: ", error);
+    }
+  };
   RNFS.downloadFile(options)
-    .promise.then(() => FileViewer.open(localFile))
-    .then(() => {
-      // success
-    })
-    .catch((error) => {
-      // error
+    .promise.then(() =>
+      FileViewer.open(localFile)
+        .then(() => clearPDFCache(localFile))
+        .catch((e) => {
+          console.log("Error: ", e);
+        })
+    )
+    .catch((e) => {
+      console.log("Error: ", e);
     });
 }
 
