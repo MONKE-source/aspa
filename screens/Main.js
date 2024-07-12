@@ -293,7 +293,7 @@ function openGitPDF(title, subtitles) {
   const clearPDFCache = async (pdfPath) => {
     try {
       await RNFS.unlink(pdfPath);
-      console.log("PDF cache cleared");
+      console.log("PDF cache cleared at: ", pdfPath);
     } catch (error) {
       console.error("Error clearing PDF cache: ", error);
     }
