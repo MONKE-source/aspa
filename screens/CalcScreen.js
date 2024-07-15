@@ -19,11 +19,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import RNHTMLtoPDF from "react-native-html-to-pdf";
 import FileViewer from "react-native-file-viewer";
 import RNFS from "react-native-fs";
 import { useDarkMode } from "../components/DarkModeContext";
-import TopBar from "../components/TopBar";
 import TextInputButton from "../components/TextInputButton";
 import TextButton from "../components/TextButton";
 import IconButton from "../components/IconButton";
@@ -308,7 +306,7 @@ function CalcScreen({ navigation }) {
                 }
               />
             </TouchableOpacity>
-            <TouchableOpacity onPress={navigation.navigate("History")}>
+            <TouchableOpacity onPress={() => navigation.navigate("History")}>
               <FontAwesome name="history" size={40} color="white" />
             </TouchableOpacity>
           </View>
@@ -629,7 +627,7 @@ const styles = StyleSheet.create({
       : Dimensions.get("window").width * 0.925,
     flexDirection: "row",
     justifyContent: "space-evenly",
-    paddingBottom: 30,
+    marginBottom: "15%",
   },
 });
 

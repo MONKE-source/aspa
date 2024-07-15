@@ -11,8 +11,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		5AB469182B4C3DA90023BF33 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 5AB469172B4C3DA90023BF33 /* Fonts */; };
 		64EA614F74585A4B4F2D0E2C /* libPods-kkh_rn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D31B90A319FD6C04A5ABE8E /* libPods-kkh_rn.a */; };
+		727FFE9B2C451A4D009193D4 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 5AB469172B4C3DA90023BF33 /* Fonts */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		DF0428D1BDAAB5FCBC240655 /* libPods-kkh_rn-kkh_rnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71819FB0A8103977D269C3F3 /* libPods-kkh_rn-kkh_rnTests.a */; };
 /* End PBXBuildFile section */
@@ -244,7 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AB469182B4C3DA90023BF33 /* Fonts in Resources */,
+				727FFE9B2C451A4D009193D4 /* Fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
