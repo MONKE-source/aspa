@@ -307,7 +307,11 @@ function CalcScreen({ navigation }) {
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate("History")}>
-              <FontAwesome name="history" size={40} color="white" />
+              <FontAwesome
+                name="history"
+                size={40}
+                color={isDarkMode ? "white" : "#313135"}
+              />
             </TouchableOpacity>
           </View>
           <View style={styles.divider} />
