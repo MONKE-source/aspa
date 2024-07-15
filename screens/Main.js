@@ -22,6 +22,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import RNFS from "react-native-fs";
 import FileViewer from "react-native-file-viewer";
+import Settings from "./Settings";
 
 const data = [
   {
@@ -510,7 +511,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
         <View style={{ flexDirection: "row", gap: 5 }}>
           <TouchableOpacity
             style={{ marginTop: 3, marginLeft: 15 }}
-            onPress={() => navigation.navigate("Settings")}
+            onPress={() => navigation.navigate("Info")}
           >
             <SimpleLineIcons
               name="settings"
