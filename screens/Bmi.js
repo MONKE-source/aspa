@@ -20,6 +20,7 @@ import SegmentedControl from "../components/SegmentedControl";
 import { useDarkMode } from "../components/DarkModeContext";
 // import { ScrollView } from "react-native-gesture-handler";
 import FileViewer from "react-native-file-viewer";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Bmi() {
   const { isDarkMode } = useDarkMode();
@@ -43,6 +44,19 @@ export default function Bmi() {
       console.error("Error retrieving files (CalcScreen): ", e);
     }
   };
+  const saveFiles = async (filesArray) => {
+    try {
+      const jsonValue = JSON.stringify(filesArray);
+      await AsyncStorage.setItem("files", jsonValue).then(() =>
+        console.log(
+          "Successfully saved to AsyncStorage (saveFiles - CalcScreen): ",
+          jsonValue
+        )
+      );
+    } catch (e) {
+      console.error("Error saving files (saveFiles - CalcScreen): ", e);
+    }
+  };
   function bmiAgeSexCheck(bmi) {
     if (bmi == NaN) {
       return 0;
@@ -59,6 +73,9 @@ export default function Bmi() {
   useEffect(() => {
     getFilePaths();
   }, []);
+  useEffect(() => {
+    saveFiles(files);
+  }, [files]);
   useEffect(() => {
     if (height && weight) {
       let bmi = weight / (height / 100) ** 2;
