@@ -7284,7 +7284,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: 10,
     marginVertical: 20,
-    marginTop: 35,
+    marginTop: 20,
     paddingHorizontal: Platform.isPad ? 10 : 5,
     height: Dimensions.get("window").height * 0.7582984,
     width: Platform.isPad

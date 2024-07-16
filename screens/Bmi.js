@@ -11,7 +11,6 @@ import {
   Dimensions,
   Platform,
   Alert,
-  Linking,
 } from "react-native";
 import TextInputButton from "../components/TextInputButton";
 // import TextButton from '../components/TextButton';
@@ -21,7 +20,6 @@ import SegmentedControl from "../components/SegmentedControl";
 import { useDarkMode } from "../components/DarkModeContext";
 // import { ScrollView } from "react-native-gesture-handler";
 import FileViewer from "react-native-file-viewer";
-import RNFS from "react-native-fs";
 
 export default function Bmi() {
   const { isDarkMode } = useDarkMode();
@@ -32,6 +30,19 @@ export default function Bmi() {
   const [isMale, setGender] = useState(true);
   const [bmi, setBmi] = useState(0);
   const [result, setResult] = useState("Input values to get result");
+  const [files, setFileArray] = useState([]);
+  const getFilePaths = async () => {
+    try {
+      const savedValue = await AsyncStorage.getItem("files");
+      if (savedValue !== null) {
+        const filesArray = JSON.parse(savedValue);
+        setFileArray(filesArray);
+        console.log("Files retrieved (CalcScreen): ", files);
+      }
+    } catch (e) {
+      console.error("Error retrieving files (CalcScreen): ", e);
+    }
+  };
   function bmiAgeSexCheck(bmi) {
     if (bmi == NaN) {
       return 0;
@@ -46,13 +57,20 @@ export default function Bmi() {
     }
   }
   useEffect(() => {
+    getFilePaths();
+  }, []);
+  useEffect(() => {
     if (height && weight) {
       let bmi = weight / (height / 100) ** 2;
       setBmi(bmi.toFixed(2).toString());
       setResult(bmiAgeSexCheck(bmi));
     }
   }, [age, height, weight, isMale]);
-
+  function genName(type) {
+    const d = new Date();
+    let uniqueName = type + d.toISOString();
+    return uniqueName;
+  }
   const createPDF = async () => {
     try {
       let PDFOptions = {
@@ -92,23 +110,16 @@ export default function Bmi() {
       </table>\
   </body>\
   </html>`,
-        fileName: "file",
+        fileName: genName("BMI"),
         directory: Platform.OS === "android" ? "Downloads" : "Documents",
       };
       let file = await RNHTMLtoPDF.convert(PDFOptions);
       if (!file.filePath) return;
       Alert.alert("File path: ", file.filePath);
       console.log("successful: ", file.filePath);
-      const clearPDFCache = async (pdfPath) => {
-        try {
-          await RNFS.unlink(pdfPath);
-          console.log("PDF cache cleared");
-        } catch (error) {
-          console.error("Error clearing PDF cache: ", error);
-        }
-      };
+
       FileViewer.open(file.filePath)
-        .then(() => clearPDFCache(file.filePath))
+        .then(() => setFileArray([...files, file.filePath]))
         .catch((e) => {
           console.log("Error: ", e);
         });
