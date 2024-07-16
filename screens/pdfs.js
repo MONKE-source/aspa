@@ -1,8 +1,8 @@
 import { Platform, Alert } from "react-native";
 import RNHTMLtoPDF from "react-native-html-to-pdf";
 import FileViewer from "react-native-file-viewer";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-var files = [];
 const fileTitles = [];
 
 // for turning the filename to just title for easier validation
@@ -14,7 +14,7 @@ function genName(type) {
   return uniqueName;
 }
 
-const scoliosis = async (weight) => {
+const scoliosis = async (weight, files, setFileArray) => {
   try {
     let PDFOptions = {
       html: `<!DOCTYPE html>
@@ -173,16 +173,17 @@ const scoliosis = async (weight) => {
     };
     let file = await RNHTMLtoPDF.convert(PDFOptions);
     if (!file.filePath) return;
-    Alert.alert("File path: ", file.filePath);
+    setFileArray([...files, file.filePath]);
+    await AsyncStorage.setItem("files", JSON.stringify(files));
     console.log("successful: ", file.filePath);
-    files.push(file.filePath);
     FileViewer.open(file.filePath);
+    Alert.alert("File path: ", file.filePath);
   } catch (error) {
     console.log("Failed to generate pdf", error.message);
   }
 };
 
-const cardiac = async (weight) => {
+const cardiac = async (weight, files, setFileArray) => {
   try {
     let PDFOptions = {
       html: `<!DOCTYPE html>
@@ -1758,15 +1759,16 @@ const cardiac = async (weight) => {
     };
     let file = await RNHTMLtoPDF.convert(PDFOptions);
     if (!file.filePath) return;
-    Alert.alert("File path: ", file.filePath);
-    files.push(file.filePath);
+    setFileArray([...files, file.filePath]);
+    await AsyncStorage.setItem("files", JSON.stringify(files));
     console.log("successful: ", file.filePath);
     FileViewer.open(file.filePath);
+    Alert.alert("File path: ", file.filePath);
   } catch (error) {
     console.log("Failed to generate pdf", error.message);
   }
 };
-const MH = async (weight) => {
+const MH = async (weight, files, setFileArray) => {
   try {
     let PDFOptions = {
       html: `<!DOCTYPE html>
@@ -2274,17 +2276,17 @@ const MH = async (weight) => {
     };
     let file = await RNHTMLtoPDF.convert(PDFOptions);
     if (!file.filePath) return;
-    Alert.alert("File path: ", file.filePath);
-    files.push(file.filePath);
-
+    setFileArray([...files, file.filePath]);
+    await AsyncStorage.setItem("files", JSON.stringify(files));
     console.log("successful: ", file.filePath);
     FileViewer.open(file.filePath);
+    Alert.alert("File path: ", file.filePath);
   } catch (error) {
     console.log("Failed to generate pdf", error.message);
   }
 };
 
-const HyperK = async (weight) => {
+const HyperK = async (weight, files, setFileArray) => {
   try {
     let PDFOptions = {
       html: `<!DOCTYPE html>
@@ -3689,17 +3691,17 @@ const HyperK = async (weight) => {
     };
     let file = await RNHTMLtoPDF.convert(PDFOptions);
     if (!file.filePath) return;
-    Alert.alert("File path: ", file.filePath);
+    setFileArray([...files, file.filePath]);
+    await AsyncStorage.setItem("files", JSON.stringify(files));
     console.log("successful: ", file.filePath);
-    files.push(file.filePath);
-
     FileViewer.open(file.filePath);
+    Alert.alert("File path: ", file.filePath);
   } catch (error) {
     console.log("Failed to generate pdf", error.message);
   }
 };
 
-const LAToxic = async (weight) => {
+const LAToxic = async (weight, files, setFileArray) => {
   try {
     let PDFOptions = {
       html: `<!DOCTYPE html>
@@ -5711,16 +5713,16 @@ const LAToxic = async (weight) => {
     };
     let file = await RNHTMLtoPDF.convert(PDFOptions);
     if (!file.filePath) return;
-    Alert.alert("File path: ", file.filePath);
+    setFileArray([...files, file.filePath]);
+    await AsyncStorage.setItem("files", JSON.stringify(files));
     console.log("successful: ", file.filePath);
-    files.push(file.filePath);
-
     FileViewer.open(file.filePath);
+    Alert.alert("File path: ", file.filePath);
   } catch (error) {
     console.log("Failed to generate pdf", error.message);
   }
 };
-const Anaphylaxis = async (weight) => {
+const Anaphylaxis = async (weight, files, setFileArray) => {
   try {
     let PDFOptions = {
       html: `<!DOCTYPE html>
@@ -6666,13 +6668,14 @@ const Anaphylaxis = async (weight) => {
     };
     let file = await RNHTMLtoPDF.convert(PDFOptions);
     if (!file.filePath) return;
-    Alert.alert("File path: ", file.filePath);
+    setFileArray([...files, file.filePath]);
+    await AsyncStorage.setItem("files", JSON.stringify(files));
     console.log("successful: ", file.filePath);
     FileViewer.open(file.filePath);
-    files.push(file.filePath);
+    Alert.alert("File path: ", file.filePath);
   } catch (error) {
     console.log("Failed to generate pdf", error.message);
   }
 };
 
-export { scoliosis, cardiac, MH, HyperK, LAToxic, Anaphylaxis, files };
+export { scoliosis, cardiac, MH, HyperK, LAToxic, Anaphylaxis };
