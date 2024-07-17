@@ -629,69 +629,6 @@ function CalcScreen({ navigation }) {
     <thead>
       <tr>
         <th class="row-header freezebar-origin-ltr"></th>
-        <th
-          id="1243788770C0"
-          style="width: 8px"
-          class="column-headers-background"
-        >
-          A
-        </th>
-        <th
-          id="1243788770C1"
-          style="width: 130px"
-          class="column-headers-background"
-        >
-          B
-        </th>
-        <th
-          id="1243788770C2"
-          style="width: 144px"
-          class="column-headers-background"
-        >
-          C
-        </th>
-        <th
-          id="1243788770C3"
-          style="width: 212px"
-          class="column-headers-background"
-        >
-          D
-        </th>
-        <th
-          id="1243788770C4"
-          style="width: 78px"
-          class="column-headers-background"
-        >
-          E
-        </th>
-        <th
-          id="1243788770C5"
-          style="width: 84px"
-          class="column-headers-background"
-        >
-          F
-        </th>
-        <th
-          id="1243788770C6"
-          style="width: 49px"
-          class="column-headers-background"
-        >
-          G
-        </th>
-        <th
-          id="1243788770C7"
-          style="width: 32px"
-          class="column-headers-background"
-        >
-          H
-        </th>
-        <th
-          id="1243788770C8"
-          style="width: 246px"
-          class="column-headers-background"
-        >
-          I
-        </th>
       </tr>
     </thead>
     <tbody>
@@ -700,9 +637,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R0"
           style="height: 16px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 16px">1</div>
-        </th>
+        >        </th>
         <td class="s0"></td>
         <td class="s1">Drugs Calculator</td>
         <td class="s1">kg</td>
@@ -718,9 +653,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R1"
           style="height: 16px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 16px">2</div>
-        </th>
+        >        </th>
         <td class="s0"></td>
         <td class="s1">BW in kg =</td>
         <td class="s1">${weight}</td>
@@ -745,9 +678,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R2"
           style="height: 16px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 16px">3</div>
-        </th>
+        >        </th>
         <td class="s7"></td>
         <td class="s4" colspan="2"></td>
         <td class="s8"></td>
@@ -760,9 +691,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R3"
           style="height: 16px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 16px">4</div>
-        </th>
+        >        </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Adrenaline</td>
         <td class="s8">10</td>
@@ -775,9 +704,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R4"
           style="height: 16px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 16px">5</div>
-        </th>
+        >        </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Adenosine (1st bolus)</td>
         <td class="s8">0.1</td>
@@ -790,9 +717,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R5"
           style="height: 16px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 16px">6</div>
-        </th>
+        >        </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Adenosine (2nd bolus)</td>
         <td class="s8">0.2</td>
@@ -805,9 +730,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R6"
           style="height: 16px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 16px">7</div>
-        </th>
+        >        </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Amiodarone</td>
         <td class="s8">5</td>
@@ -820,9 +743,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R7"
           style="height: 16px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 16px">8</div>
-        </th>
+        >        </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Atropine</td>
         <td class="s8">0.02</td>
@@ -835,9 +756,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R8"
           style="height: 16px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 16px">9</div>
-        </th>
+        >        </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Bicarb (8.4%)</td>
         <td class="s8">1</td>
@@ -851,7 +770,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">10</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">
@@ -884,7 +802,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">11</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Cefazolin</td>
@@ -918,7 +835,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">12</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Fentanyl</td>
@@ -933,7 +849,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">13</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Heparin</td>
@@ -948,7 +863,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">14</div>
         </th>
         <td class="s0"></td>
         <td class="s11">Lignocaine (1%)</td>
@@ -966,7 +880,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">15</div>
         </th>
         <td class="s0"></td>
         <td class="s12">
@@ -1006,7 +919,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">16</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Protamine</td>
@@ -1021,7 +933,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">17</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Phenylephrine</td>
@@ -1036,7 +947,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">18</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Vasopressin</td>
@@ -1052,9 +962,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R18"
           style="height: 8px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 8px">19</div>
-        </th>
+        >        </th>
         <td class="s7"></td>
         <td class="s4" colspan="2"></td>
         <td class="s5"></td>
@@ -1068,7 +976,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">20</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Synch cardioversion</td>
@@ -1083,7 +990,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">21</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Synch cardioversion</td>
@@ -1098,7 +1004,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">22</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">First &amp; Succeeding defibrillation</td>
@@ -1112,9 +1017,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R22"
           style="height: 8px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 8px">23</div>
-        </th>
+        >        </th>
         <td class="s7"></td>
         <td class="s11"></td>
         <td class="s11"></td>
@@ -1129,7 +1032,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">24</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Adrenaline/Noradrenaline</td>
@@ -1144,7 +1046,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">25</div>
         </th>
         <td class="s0"></td>
         <td class="s17 softmerge">
@@ -1183,7 +1084,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">26</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Dobutamine</td>
@@ -1198,7 +1098,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">27</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Dopamine</td>
@@ -1213,7 +1112,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">28</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Esmolol</td>
@@ -1226,7 +1124,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">29</div>
         </th>
         <td class="s19"></td>
         <td class="s1" colspan="2">GTN/Nipride (≤ 16kg)</td>
@@ -1252,7 +1149,6 @@ function CalcScreen({ navigation }) {
           style="height: 25px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 25px">30</div>
         </th>
         <td class="s19"></td>
         <td class="s1" colspan="2">GTN/Nipride (&gt; 16kg)</td>
@@ -1287,7 +1183,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">31</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Isoprenaline</td>
@@ -1304,7 +1199,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">32</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">
@@ -1338,7 +1232,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">33</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Milrinone (&gt; 16kg)</td>
@@ -1355,7 +1248,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">34</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Phentolamine</td>
@@ -1370,7 +1262,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">35</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Vasopressin</td>
@@ -1390,9 +1281,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R35"
           style="height: 8px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 8px">36</div>
-        </th>
+        >        </th>
         <td class="s7"></td>
         <td class="s11"></td>
         <td class="s11"></td>
@@ -1409,7 +1298,6 @@ function CalcScreen({ navigation }) {
           style="height: 25px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 25px">37</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Tranexemic acid (≤ 40kg)</td>
@@ -1445,7 +1333,6 @@ function CalcScreen({ navigation }) {
           style="height: 25px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 25px">38</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Tranexemic acid (&gt; 40kg)</td>
@@ -1481,9 +1368,7 @@ function CalcScreen({ navigation }) {
           id="1243788770R38"
           style="height: 8px"
           class="row-headers-background"
-        >
-          <div class="row-header-wrapper" style="line-height: 8px">39</div>
-        </th>
+        >        </th>
         <td class="s2"></td>
         <td class="s20"></td>
         <td class="s20"></td>
@@ -1500,7 +1385,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">40</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Dexmedetomidine (Neonate)</td>
@@ -1515,7 +1399,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">41</div>
         </th>
         <td class="s0"></td>
         <td class="s17 softmerge">
@@ -1537,7 +1420,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">42</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Fentanyl (≤ 10kg)</td>
@@ -1552,7 +1434,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">43</div>
         </th>
         <td class="s0"></td>
         <td class="s11">Fentanyl (&gt;10kg)</td>
@@ -1570,7 +1451,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">44</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Midazolam</td>
@@ -1585,7 +1465,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">45</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Morphine/ Ketamine (≤ 50kg)</td>
@@ -1600,7 +1479,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">46</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Morphine/ Ketamine (&gt; 50kg)</td>
@@ -1615,7 +1493,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">47</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Rocuronium (≤ 20kg)</td>
@@ -1632,7 +1509,6 @@ function CalcScreen({ navigation }) {
           style="height: 16px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 16px">48</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Rocuronium (&gt; 20kg)</td>
@@ -1649,7 +1525,6 @@ function CalcScreen({ navigation }) {
           style="height: 86px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 86px">49</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Fibrinogen Concentrate (Haemocomplettan)</td>
@@ -1697,7 +1572,6 @@ function CalcScreen({ navigation }) {
           style="height: 57px"
           class="row-headers-background"
         >
-          <div class="row-header-wrapper" style="line-height: 57px">50</div>
         </th>
         <td class="s0"></td>
         <td class="s1" colspan="2">Novoseven</td>
@@ -7181,9 +7055,10 @@ const FileScreen = () => {
         { backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB" },
       ]}
     >
-      <KeyboardAvoidingView behavior="position">
+      <KeyboardAvoidingView behavior="position" style={{ flex: 1 }}>
         <FlatList
           data={displayFiles}
+          style={{ marginBottom: 150 }}
           renderItem={({ item }) => (
             <FileItem
               item={item}
