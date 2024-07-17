@@ -299,9 +299,12 @@ function openGitPDF(title, subtitles) {
       console.error("Error clearing PDF cache: ", error);
     }
   };
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   RNFS.downloadFile(options)
     .promise.then(() =>
       FileViewer.open(localFile)
+        .then(() => delay(5000))
         .then(() => clearPDFCache(localFile))
         .catch((e) => {
           console.log("Error: ", e);
