@@ -28,6 +28,13 @@
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Compartilhar com <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Recolher"</string>
     <string gender="unknown" name="alert_description">Alerta</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Atender"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Vídeo"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Recusar"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Desligar"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Chamada recebida"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Chamada em andamento"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Filtrando uma ligação recebida"</string>
     <string gender="unknown" name="catalyst_dev_menu_header">Menu de desenvolvedor de reações nativas (%1$s)</string>
     <string gender="unknown" name="catalyst_dev_menu_sub_header">%1$s em veiculação</string>
     <string gender="unknown" name="combobox_description">Caixa de combinação</string>

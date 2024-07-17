@@ -230,12 +230,12 @@ export default function Bmi() {
           <View style={styles.shareRow}>
             <TouchableOpacity onPress={createPDF}>
               <IconButton
-                bgHex="#rgb(30, 30, 32)"
-                title="Share"
-                iconPath="share-variant"
-                contentHex="#72A8DA"
-                borderColor={"#72A8DA"}
-                borderWidth={1.25}
+                bgHex="#72A8DA"
+                title="View"
+                iconPath="folder-outline"
+                contentHex="white"
+                borderColor={"rgb(30, 30, 32)"}
+                borderWidth={0}
                 size={(Dimensions.get("window").height / 844) * 25}
                 textSize={
                   Platform.isPad
