@@ -7055,7 +7055,7 @@ const FileScreen = () => {
         { backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB" },
       ]}
     >
-      <KeyboardAvoidingView behavior="position" style={{ flex: 1 }}>
+      <KeyboardAvoidingView behavior="height" style={{ flex: 1 }}>
         <FlatList
           data={displayFiles}
           style={{ marginBottom: 150 }}
