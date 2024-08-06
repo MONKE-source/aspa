@@ -52,7 +52,7 @@ const data = [
       { id: "sub8", text: "Preoperative Evaluation", isBookmarked: false },
       { id: "sub9", text: "Premedication", isBookmarked: false },
       { id: "sub10", text: "Emergence delirium", isBookmarked: false },
-      { id: "sub11", text: "Fasting Guidelines", isBookmarked: false }, // doesnt work
+      { id: "sub11", text: "Fasting Guidelines", isBookmarked: false },
     ],
   },
   {
@@ -79,17 +79,17 @@ const data = [
     subtitles: [
       {
         id: "sub13",
-        text: "Prophylaxis for Infective Endocarditis",
+        text: "Prophylaxis for Infective Endocarditis", // doesnt work
         isBookmarked: false,
       },
-      { id: "sub14", text: "ROTEM Algorithm", isBookmarked: false },
+      { id: "sub14", text: "ROTEM Algorithm", isBookmarked: false }, // doesnt work
       {
         id: "sub15",
-        text: "Paediatric Cardiac Anaesthesia",
+        text: "Paediatric Cardiac Anaesthesia", // doesnt work
         isBookmarked: false,
       },
       { id: "sub16", text: "Common Cardiac Conditions", isBookmarked: false },
-      { id: "sub17", text: "Cardiac Catheterization", isBookmarked: false },
+      { id: "sub17", text: "Cardiac Catheterization", isBookmarked: false }, // doesnt work
     ],
   },
   {
@@ -102,11 +102,11 @@ const data = [
   },
   {
     id: "8",
-    title: "Sedation for Oncology Patients",
+    title: "Sedation For Oncology Patients",
     subtitles: [
       {
         id: "sub19",
-        text: "Sedation for Oncology Children",
+        text: "Sedation for Oncology Children", // doesnt work
         isBookmarked: false,
       },
     ],
@@ -122,7 +122,7 @@ const data = [
         isBookmarked: false,
       },
       { id: "sub22", text: "Current Trends", isBookmarked: false },
-      { id: "sub23", text: "Peripheral Nerve Block", isBookmarked: false },
+      { id: "sub23", text: "Peripheral Nerve Block", isBookmarked: false }, //doesnt work
       { id: "sub24", text: "Local Anaesthetic Toxicity", isBookmarked: false },
       { id: "sub25", text: "Ultrasound Guided Blocks", isBookmarked: false },
     ],
@@ -141,7 +141,7 @@ const data = [
     subtitles: [
       {
         id: "sub29",
-        text: "Paediatric Massive Transfusion Protocol",
+        text: "Paediatric Massive Transfusion Protocol", // doesnt work
         isBookmarked: false,
       },
       { id: "sub30", text: "Transfusion Guidelines", isBookmarked: false },
@@ -153,7 +153,7 @@ const data = [
     subtitles: [
       {
         id: "sub31",
-        text: "Post Adenotonsillectomy Bleeding",
+        text: "Post Adenotonsillectomy Bleeding", // doesnt work
         isBookmarked: false,
       },
       { id: "sub32", text: "Latex Allergy", isBookmarked: false },
@@ -171,7 +171,7 @@ const data = [
     subtitles: [
       {
         id: "sub40",
-        text: "Advanced Paediatric Life Support",
+        text: "Advanced Paediatric Life Support", // doesnt work
         isBookmarked: false,
       },
     ],
@@ -180,10 +180,10 @@ const data = [
     id: "15",
     title: "Acute Pain Service",
     subtitles: [
-      { id: "sub41", text: "Pain Assesment in Children", isBookmarked: false },
+      { id: "sub41", text: "Pain Assesment in Children", isBookmarked: false }, // doesnt work
       {
         id: "sub42",
-        text: "Pharmagological Approach To Pain Management",
+        text: "Pharmagological Approach To Pain Management", // doesnt work
         isBookmarked: false,
       },
       {
