@@ -85,11 +85,15 @@ const data = [
       { id: "sub14", text: "ROTEM Algoritihm", isBookmarked: false },
       {
         id: "sub15",
-        text: "Paediatric Cardiac Anaesthesia", // doesnt work
+        text: "Paediatric Cardiac Anaesthesia",
         isBookmarked: false,
       },
       { id: "sub16", text: "Common Cardiac Conditions", isBookmarked: false },
-      { id: "sub17", text: "Cardiac Catheterization", isBookmarked: false }, // doesnt work
+      {
+        id: "sub17",
+        text: "Cardiac Catheterization Tracy",
+        isBookmarked: false,
+      },
     ],
   },
   {
@@ -97,7 +101,7 @@ const data = [
     title: "Diagnostic Imaging",
     subtitles: [
       { id: "sub18", text: "Diagnostic Imaging", isBookmarked: false },
-      { id: "sub49", text: "Oncology Radiotherapy", isBookmarked: false }, // doesnt work
+      { id: "sub49", text: "Oncology Radiotherapy", isBookmarked: false },
     ],
   },
   {
@@ -106,7 +110,7 @@ const data = [
     subtitles: [
       {
         id: "sub19",
-        text: "Sedation for Oncology Children", // doesnt work
+        text: "Sedation for Oncology Patients",
         isBookmarked: false,
       },
     ],
