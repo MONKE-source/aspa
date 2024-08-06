@@ -26,13 +26,6 @@ import Settings from "./Settings";
 
 const data = [
   {
-    id: "1",
-    title: "Training Programmes",
-    subtitles: [
-      { id: "sub1", text: "Training Programmes", isBookmarked: false },
-    ],
-  },
-  {
     id: "2",
     title: "Guidelines for Paediatric Anaesthesia",
     subtitles: [
@@ -59,6 +52,7 @@ const data = [
       { id: "sub8", text: "Preoperative Evaluation", isBookmarked: false },
       { id: "sub9", text: "Premedication", isBookmarked: false },
       { id: "sub10", text: "Emergence delirium", isBookmarked: false },
+      { id: "sub11", text: "Fasting Guidelines", isBookmarked: false }, // doesnt work
     ],
   },
   {
@@ -66,7 +60,7 @@ const data = [
     title: "Fluid Guidelines",
     subtitles: [
       {
-        id: "sub11",
+        id: "sub48",
         text: "Fluid Guidelines in children",
         isBookmarked: false,
       },
@@ -103,6 +97,7 @@ const data = [
     title: "Diagnostic Imaging",
     subtitles: [
       { id: "sub18", text: "Diagnostic Imaging", isBookmarked: false },
+      { id: "sub49", text: "Oncology Radiotherapy", isBookmarked: false }, // doesnt work
     ],
   },
   {
@@ -130,13 +125,6 @@ const data = [
       { id: "sub23", text: "Peripheral Nerve Block", isBookmarked: false },
       { id: "sub24", text: "Local Anaesthetic Toxicity", isBookmarked: false },
       { id: "sub25", text: "Ultrasound Guided Blocks", isBookmarked: false },
-    ],
-  },
-  {
-    id: "10",
-    title: "Patient Transport",
-    subtitles: [
-      { id: "sub26", text: "Patient Transport", isBookmarked: false },
     ],
   },
   {
@@ -204,7 +192,7 @@ const data = [
         isBookmarked: false,
       },
       { id: "sub44", text: "Post Epidural Care", isBookmarked: false },
-      { id: "sub45", text: "Children's Pain Service", isBookmarked: false },
+      { id: "sub45", text: "Childrens Pain Service", isBookmarked: false },
     ],
   },
   {
