@@ -157,7 +157,7 @@ const data = [
     subtitles: [
       {
         id: "sub31",
-        text: "Post Adenotonsillectomy Bleeding", // doesnt work
+        text: "Post Adenotonsillectomy Bleeding",
         isBookmarked: false,
       },
       { id: "sub32", text: "Latex Allergy", isBookmarked: false },
@@ -171,11 +171,11 @@ const data = [
   },
   {
     id: "14",
-    title: "Advance Paediatric Life Support",
+    title: "advance_paediatric_life_support",
     subtitles: [
       {
         id: "sub40",
-        text: "Advanced Paediatric Life Support", // doesnt work
+        text: "advanced_paediatric_life _support", // doesnt work
         isBookmarked: false,
       },
     ],
@@ -187,7 +187,7 @@ const data = [
       { id: "sub41", text: "Pain Assesment in Children", isBookmarked: false }, // doesnt work
       {
         id: "sub42",
-        text: "Pharmagological Approach To Pain Management", // doesnt work
+        text: "Pharmagological Approach To Pain Management",
         isBookmarked: false,
       },
       {
