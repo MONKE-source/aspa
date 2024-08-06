@@ -79,10 +79,10 @@ const data = [
     subtitles: [
       {
         id: "sub13",
-        text: "Prophylaxis for Infective Endocarditis", // doesnt work
+        text: "Prophylaxis for Infective Endocarditis",
         isBookmarked: false,
       },
-      { id: "sub14", text: "ROTEM Algorithm", isBookmarked: false }, // doesnt work
+      { id: "sub14", text: "ROTEM Algoritihm", isBookmarked: false },
       {
         id: "sub15",
         text: "Paediatric Cardiac Anaesthesia", // doesnt work
