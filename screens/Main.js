@@ -126,7 +126,7 @@ const data = [
         isBookmarked: false,
       },
       { id: "sub22", text: "Current Trends", isBookmarked: false },
-      { id: "sub23", text: "Peripheral Nerve Block", isBookmarked: false }, //doesnt work
+      { id: "sub23", text: "Peripheral Nerve Block", isBookmarked: false },
       { id: "sub24", text: "Local Anaesthetic Toxicity", isBookmarked: false },
       { id: "sub25", text: "Ultrasound Guided Blocks", isBookmarked: false },
     ],
