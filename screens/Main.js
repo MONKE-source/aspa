@@ -145,7 +145,7 @@ const data = [
     subtitles: [
       {
         id: "sub29",
-        text: "Paediatric Massive Transfusion Protocol", // doesnt work
+        text: "Paediatric Massive Transfusion Protocol",
         isBookmarked: false,
       },
       { id: "sub30", text: "Transfusion Guidelines", isBookmarked: false },
