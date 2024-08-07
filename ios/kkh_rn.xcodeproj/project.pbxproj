@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* kkh_rnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* kkh_rnTests.m */; };
+		00E356F31AD99517003FC87E /* ASPATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ASPATests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		64EA614F74585A4B4F2D0E2C /* libPods-kkh_rn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D31B90A319FD6C04A5ABE8E /* libPods-kkh_rn.a */; };
+		64EA614F74585A4B4F2D0E2C /* libPods-ASPA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D31B90A319FD6C04A5ABE8E /* libPods-ASPA.a */; };
 		727FFE9B2C451A4D009193D4 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 5AB469172B4C3DA90023BF33 /* Fonts */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		DF0428D1BDAAB5FCBC240655 /* libPods-kkh_rn-kkh_rnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71819FB0A8103977D269C3F3 /* libPods-kkh_rn-kkh_rnTests.a */; };
+		DF0428D1BDAAB5FCBC240655 /* libPods-ASPA-ASPATests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71819FB0A8103977D269C3F3 /* libPods-ASPA-ASPATests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,29 +23,29 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = kkh_rn;
+			remoteInfo = ASPA;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* kkh_rnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kkh_rnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* ASPATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ASPATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* kkh_rnTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kkh_rnTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* kkh_rn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kkh_rn.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = kkh_rn/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = kkh_rn/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = kkh_rn/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = kkh_rn/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = kkh_rn/main.m; sourceTree = "<group>"; };
-		1D919553A1491E6D4409CFC9 /* Pods-kkh_rn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kkh_rn.debug.xcconfig"; path = "Target Support Files/Pods-kkh_rn/Pods-kkh_rn.debug.xcconfig"; sourceTree = "<group>"; };
-		4D31B90A319FD6C04A5ABE8E /* libPods-kkh_rn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kkh_rn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* ASPATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASPATests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* ASPA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASPA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ASPA/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ASPA/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ASPA/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ASPA/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ASPA/main.m; sourceTree = "<group>"; };
+		1D919553A1491E6D4409CFC9 /* Pods-ASPA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASPA.debug.xcconfig"; path = "Target Support Files/Pods-ASPA/Pods-ASPA.debug.xcconfig"; sourceTree = "<group>"; };
+		4D31B90A319FD6C04A5ABE8E /* libPods-ASPA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ASPA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AB469172B4C3DA90023BF33 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
-		71819FB0A8103977D269C3F3 /* libPods-kkh_rn-kkh_rnTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kkh_rn-kkh_rnTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		71D528554291678E769C8836 /* Pods-kkh_rn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kkh_rn.release.xcconfig"; path = "Target Support Files/Pods-kkh_rn/Pods-kkh_rn.release.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = kkh_rn/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		71819FB0A8103977D269C3F3 /* libPods-ASPA-ASPATests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ASPA-ASPATests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71D528554291678E769C8836 /* Pods-ASPA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASPA.release.xcconfig"; path = "Target Support Files/Pods-ASPA/Pods-ASPA.release.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ASPA/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F13AF843AD5C937A94247B07 /* Pods-kkh_rn-kkh_rnTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kkh_rn-kkh_rnTests.release.xcconfig"; path = "Target Support Files/Pods-kkh_rn-kkh_rnTests/Pods-kkh_rn-kkh_rnTests.release.xcconfig"; sourceTree = "<group>"; };
-		F2776B0D35A5F95D140B3886 /* Pods-kkh_rn-kkh_rnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kkh_rn-kkh_rnTests.debug.xcconfig"; path = "Target Support Files/Pods-kkh_rn-kkh_rnTests/Pods-kkh_rn-kkh_rnTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F13AF843AD5C937A94247B07 /* Pods-ASPA-ASPATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASPA-ASPATests.release.xcconfig"; path = "Target Support Files/Pods-ASPA-ASPATests/Pods-ASPA-ASPATests.release.xcconfig"; sourceTree = "<group>"; };
+		F2776B0D35A5F95D140B3886 /* Pods-ASPA-ASPATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASPA-ASPATests.debug.xcconfig"; path = "Target Support Files/Pods-ASPA-ASPATests/Pods-ASPA-ASPATests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF0428D1BDAAB5FCBC240655 /* libPods-kkh_rn-kkh_rnTests.a in Frameworks */,
+				DF0428D1BDAAB5FCBC240655 /* libPods-ASPA-ASPATests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,20 +61,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64EA614F74585A4B4F2D0E2C /* libPods-kkh_rn.a in Frameworks */,
+				64EA614F74585A4B4F2D0E2C /* libPods-ASPA.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* kkh_rnTests */ = {
+		00E356EF1AD99517003FC87E /* ASPATests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* kkh_rnTests.m */,
+				00E356F21AD99517003FC87E /* ASPATests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = kkh_rnTests;
+			path = ASPATests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -85,7 +85,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* kkh_rn */ = {
+		13B07FAE1A68108700A75B9A /* ASPA */ = {
 			isa = PBXGroup;
 			children = (
 				5AB469172B4C3DA90023BF33 /* Fonts */,
@@ -96,15 +96,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = kkh_rn;
+			name = ASPA;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				4D31B90A319FD6C04A5ABE8E /* libPods-kkh_rn.a */,
-				71819FB0A8103977D269C3F3 /* libPods-kkh_rn-kkh_rnTests.a */,
+				4D31B90A319FD6C04A5ABE8E /* libPods-ASPA.a */,
+				71819FB0A8103977D269C3F3 /* libPods-ASPA-ASPATests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,9 +119,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* kkh_rn */,
+				13B07FAE1A68108700A75B9A /* ASPA */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* kkh_rnTests */,
+				00E356EF1AD99517003FC87E /* ASPATests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -134,8 +134,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* kkh_rn.app */,
-				00E356EE1AD99517003FC87E /* kkh_rnTests.xctest */,
+				13B07F961A680F5B00A75B9A /* ASPA.app */,
+				00E356EE1AD99517003FC87E /* ASPATests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,10 +143,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1D919553A1491E6D4409CFC9 /* Pods-kkh_rn.debug.xcconfig */,
-				71D528554291678E769C8836 /* Pods-kkh_rn.release.xcconfig */,
-				F2776B0D35A5F95D140B3886 /* Pods-kkh_rn-kkh_rnTests.debug.xcconfig */,
-				F13AF843AD5C937A94247B07 /* Pods-kkh_rn-kkh_rnTests.release.xcconfig */,
+				1D919553A1491E6D4409CFC9 /* Pods-ASPA.debug.xcconfig */,
+				71D528554291678E769C8836 /* Pods-ASPA.release.xcconfig */,
+				F2776B0D35A5F95D140B3886 /* Pods-ASPA-ASPATests.debug.xcconfig */,
+				F13AF843AD5C937A94247B07 /* Pods-ASPA-ASPATests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -154,9 +154,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* kkh_rnTests */ = {
+		00E356ED1AD99517003FC87E /* ASPATests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "kkh_rnTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ASPATests" */;
 			buildPhases = (
 				9808C11BE6DCE31C08764E7B /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -170,14 +170,13 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = kkh_rnTests;
-			productName = kkh_rnTests;
-			productReference = 00E356EE1AD99517003FC87E /* kkh_rnTests.xctest */;
+			name = ASPATests;
+			productReference = 00E356EE1AD99517003FC87E /* ASPATests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* kkh_rn */ = {
+		13B07F861A680F5B00A75B9A /* ASPA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "kkh_rn" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ASPA" */;
 			buildPhases = (
 				027E7CAEF6C62B562E0CE8F2 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -191,9 +190,9 @@
 			);
 			dependencies = (
 			);
-			name = kkh_rn;
-			productName = kkh_rn;
-			productReference = 13B07F961A680F5B00A75B9A /* kkh_rn.app */;
+			name = ASPA;
+			productName = ASPA;
+			productReference = 13B07F961A680F5B00A75B9A /* ASPA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -226,8 +225,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* kkh_rn */,
-				00E356ED1AD99517003FC87E /* kkh_rnTests */,
+				13B07F861A680F5B00A75B9A /* ASPA */,
+				00E356ED1AD99517003FC87E /* ASPATests */,
 			);
 		};
 /* End PBXProject section */
@@ -284,7 +283,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-kkh_rn-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ASPA-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -297,15 +296,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kkh_rn-kkh_rnTests/Pods-kkh_rn-kkh_rnTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ASPA-ASPATests/Pods-ASPA-ASPATests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kkh_rn-kkh_rnTests/Pods-kkh_rn-kkh_rnTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ASPA-ASPATests/Pods-ASPA-ASPATests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kkh_rn-kkh_rnTests/Pods-kkh_rn-kkh_rnTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ASPA-ASPATests/Pods-ASPA-ASPATests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		82AEED860D0E7BBE616CE58B /* [CP] Embed Pods Frameworks */ = {
@@ -314,15 +313,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kkh_rn/Pods-kkh_rn-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ASPA/Pods-ASPA-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kkh_rn/Pods-kkh_rn-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ASPA/Pods-ASPA-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kkh_rn/Pods-kkh_rn-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ASPA/Pods-ASPA-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9808C11BE6DCE31C08764E7B /* [CP] Check Pods Manifest.lock */ = {
@@ -340,7 +339,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-kkh_rn-kkh_rnTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ASPA-ASPATests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -353,15 +352,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kkh_rn/Pods-kkh_rn-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ASPA/Pods-ASPA-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kkh_rn/Pods-kkh_rn-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ASPA/Pods-ASPA-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kkh_rn/Pods-kkh_rn-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ASPA/Pods-ASPA-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F92A89AE4FCF82FFC596CBDF /* [CP] Copy Pods Resources */ = {
@@ -370,15 +369,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kkh_rn-kkh_rnTests/Pods-kkh_rn-kkh_rnTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ASPA-ASPATests/Pods-ASPA-ASPATests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kkh_rn-kkh_rnTests/Pods-kkh_rn-kkh_rnTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ASPA-ASPATests/Pods-ASPA-ASPATests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kkh_rn-kkh_rnTests/Pods-kkh_rn-kkh_rnTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ASPA-ASPATests/Pods-ASPA-ASPATests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -388,7 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* kkh_rnTests.m in Sources */,
+				00E356F31AD99517003FC87E /* ASPATests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +405,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* kkh_rn */;
+			target = 13B07F861A680F5B00A75B9A /* ASPA */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -414,14 +413,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2776B0D35A5F95D140B3886 /* Pods-kkh_rn-kkh_rnTests.debug.xcconfig */;
+			baseConfigurationReference = F2776B0D35A5F95D140B3886 /* Pods-ASPA-ASPATests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = kkh_rnTests/Info.plist;
+				INFOPLIST_FILE = ASPATests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -433,19 +432,19 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ASPAKKH;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kkh_rn.app/kkh_rn";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ASPA.app/ASPA";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F13AF843AD5C937A94247B07 /* Pods-kkh_rn-kkh_rnTests.release.xcconfig */;
+			baseConfigurationReference = F13AF843AD5C937A94247B07 /* Pods-ASPA-ASPATests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = kkh_rnTests/Info.plist;
+				INFOPLIST_FILE = ASPATests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,21 +456,22 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ASPAKKH;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kkh_rn.app/kkh_rn";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ASPA.app/ASPA";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D919553A1491E6D4409CFC9 /* Pods-kkh_rn.debug.xcconfig */;
+			baseConfigurationReference = 1D919553A1491E6D4409CFC9 /* Pods-ASPA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = kkh_rn/Info.plist;
+				INFOPLIST_FILE = ASPA/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ASPA;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,8 +482,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = kkh_rn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ASPAKKH;
+				PRODUCT_NAME = ASPA;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -492,12 +492,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71D528554291678E769C8836 /* Pods-kkh_rn.release.xcconfig */;
+			baseConfigurationReference = 71D528554291678E769C8836 /* Pods-ASPA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = kkh_rn/Info.plist;
+				INFOPLIST_FILE = ASPA/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ASPA;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,8 +509,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = kkh_rn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ASPAKKH;
+				PRODUCT_NAME = ASPA;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -663,7 +664,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "kkh_rnTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ASPATests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -672,7 +673,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "kkh_rn" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ASPA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,

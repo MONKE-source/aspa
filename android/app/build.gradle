@@ -86,9 +86,9 @@ android {
        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
      }
 
-    namespace "com.kkh_rn"
+    namespace "com.ASPAKKH"
     defaultConfig {
-        applicationId "com.kkh_rn"
+        applicationId "com.ASPAKKH"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "kkh_rn.app"
-               BlueprintName = "kkh_rn"
-               ReferencedContainer = "container:kkh_rn.xcodeproj">
+               BuildableName = "ASPA.app"
+               BlueprintName = "ASPA"
+               ReferencedContainer = "container:ASPA.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "kkh_rnTests.xctest"
-               BlueprintName = "kkh_rnTests"
-               ReferencedContainer = "container:kkh_rn.xcodeproj">
+               BuildableName = "ASPATests.xctest"
+               BlueprintName = "ASPATests"
+               ReferencedContainer = "container:ASPA.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "kkh_rn.app"
-            BlueprintName = "kkh_rn"
-            ReferencedContainer = "container:kkh_rn.xcodeproj">
+            BuildableName = "ASPA.app"
+            BlueprintName = "ASPA"
+            ReferencedContainer = "container:ASPA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "kkh_rn.app"
-            BlueprintName = "kkh_rn"
-            ReferencedContainer = "container:kkh_rn.xcodeproj">
+            BuildableName = "ASPA.app"
+            BlueprintName = "ASPA"
+            ReferencedContainer = "container:ASPA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
