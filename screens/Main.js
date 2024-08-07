@@ -175,7 +175,7 @@ const data = [
     subtitles: [
       {
         id: "sub40",
-        text: "Advanced Paediatric Life Support", // doesnt work
+        text: "Advanced Paediatric Life Support",
         isBookmarked: false,
       },
     ],
