@@ -1,4 +1,4 @@
-package com.ASPAKKH
+package com.sstinc.ASPA
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

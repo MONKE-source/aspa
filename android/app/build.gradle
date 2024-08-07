@@ -86,9 +86,9 @@ android {
        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
      }
 
-    namespace "com.ASPAKKH"
+    namespace "com.sstinc.ASPA"
     defaultConfig {
-        applicationId "com.ASPAKKH"
+        applicationId "com.sstinc.ASPA"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

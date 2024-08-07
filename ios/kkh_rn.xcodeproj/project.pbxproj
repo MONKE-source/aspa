@@ -432,7 +432,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ASPAKKH;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sstinc.ASPA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ASPA.app/ASPA";
 			};
@@ -456,7 +456,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ASPAKKH;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sstinc.ASPA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ASPA.app/ASPA";
 			};
@@ -482,7 +482,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ASPAKKH;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sstinc.ASPA;
 				PRODUCT_NAME = ASPA;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -509,7 +509,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ASPAKKH;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sstinc.ASPA;
 				PRODUCT_NAME = ASPA;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -1,4 +1,4 @@
-package com.ASPAKKH
+package com.sstinc.ASPA
 
 import android.app.Application
 import com.facebook.react.PackageList
