@@ -171,11 +171,11 @@ const data = [
   },
   {
     id: "14",
-    title: "advance_paediatric_life_support",
+    title: "Advanced Paediatric Life Support",
     subtitles: [
       {
         id: "sub40",
-        text: "advanced_paediatric_life _support", // doesnt work
+        text: "Advanced Paediatric Life Support", // doesnt work
         isBookmarked: false,
       },
     ],
@@ -184,7 +184,7 @@ const data = [
     id: "15",
     title: "Acute Pain Service",
     subtitles: [
-      { id: "sub41", text: "Pain Assesment in Children", isBookmarked: false }, // doesnt work
+      { id: "sub41", text: "Pain Assessment in Children", isBookmarked: false },
       {
         id: "sub42",
         text: "Pharmagological Approach To Pain Management",
@@ -264,17 +264,18 @@ function openGitPDF(title, subtitles) {
   function formatFileName(text) {
     const text1 = text.toString();
     const lowercaseText = text1.toLowerCase();
-
-    var words = lowercaseText.split(" ");
-    var result = words.join("_");
-    return result;
+    const words = lowercaseText.split(" ");
+    return words.join("_");
   }
+
   const url = `https://github.com/MONKE-source/aspa/raw/main/assets/kkh-assets/${formatFileName(
     title
   )}/${formatFileName(subtitles)}.pdf`;
+
   function getUrlExtension(url) {
     return url.split(/[#?]/)[0].split(".").pop().trim();
   }
+
   const extension = getUrlExtension(url);
   const localFile = `${RNFS.DocumentDirectoryPath}/${formatFileName(
     subtitles
@@ -283,14 +284,21 @@ function openGitPDF(title, subtitles) {
     fromUrl: url,
     toFile: localFile,
   };
+
   const clearPDFCache = async (pdfPath) => {
     try {
-      await RNFS.unlink(pdfPath);
-      console.log("PDF cache cleared at: ", pdfPath);
+      const exists = await RNFS.exists(pdfPath);
+      if (exists) {
+        await RNFS.unlink(pdfPath);
+        console.log("PDF cache cleared at: ", pdfPath);
+      } else {
+        console.log("File does not exist: ", pdfPath);
+      }
     } catch (error) {
       console.error("Error clearing PDF cache: ", error);
     }
   };
+
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   RNFS.downloadFile(options)
@@ -299,11 +307,11 @@ function openGitPDF(title, subtitles) {
         .then(() => delay(5000))
         .then(() => clearPDFCache(localFile))
         .catch((e) => {
-          console.log("Error: ", e);
+          console.log("Error opening file: ", e);
         })
     )
     .catch((e) => {
-      console.log("Error: ", e);
+      console.log("Error downloading file: ", e);
     });
 }
 
