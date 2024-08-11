@@ -277,7 +277,6 @@ export default function Bmi() {
     </SafeAreaView>
   );
 }
-
 const styles = StyleSheet.create({
   treeTop: {
     flex: 1,
