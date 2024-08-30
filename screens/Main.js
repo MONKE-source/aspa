@@ -70,7 +70,7 @@ const data = [
     id: "5",
     title: "Neonatal Anaesthesia",
     subtitles: [
-      { id: "sub12", text: "Nenotal Anaesthesia", isBookmarked: false },
+      { id: "sub12", text: "Neonatal Anaesthesia", isBookmarked: false },
     ],
   },
   {
@@ -187,7 +187,7 @@ const data = [
       { id: "sub41", text: "Pain Assessment in Children", isBookmarked: false },
       {
         id: "sub42",
-        text: "Pharmagological Approach To Pain Management",
+        text: "Pharmacological Approach To Pain Management",
         isBookmarked: false,
       },
       {
@@ -326,6 +326,11 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
     setSearchQuery("");
     setFilteredData([]);
   };
+  useEffect(() => {
+    if (searchQuery === "") {
+      setFilteredData(data);
+    }
+  }, [searchQuery]);
 
   useEffect(() => {
     const loadItems = async () => {
@@ -534,6 +539,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
               placeholder="Search..."
               placeholderTextColor="#818188"
               value={searchQuery}
+              scrollEnabled={false}
               onChangeText={(text) => {
                 const lowercaseText = text.toLowerCase();
                 setSearchQuery(text);
