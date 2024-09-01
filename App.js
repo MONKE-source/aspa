@@ -47,7 +47,7 @@ function MyTabs() {
           }}
         />
         <Tab.Screen
-          name="Reference"
+          name="Guidelines"
           component={Main}
           options={{
             headerShown: false,

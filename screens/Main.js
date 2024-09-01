@@ -473,7 +473,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
             },
           ]}
         >
-          References
+          Guidelines
         </Text>
         {/* Touchable Opacity to view bookmarked  */}
         <TouchableOpacity
