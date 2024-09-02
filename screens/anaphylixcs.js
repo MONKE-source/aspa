@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {useDarkMode} from '../components/DarkModeContext';
+import React, { useState } from "react";
+import { useDarkMode } from "../components/DarkModeContext";
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,53 +8,57 @@ import {
   ScrollView,
   TouchableOpacity,
   FlatList,
-} from 'react-native';
+} from "react-native";
 
 export default function Anaphylaxis() {
-  const {isDarkMode, toggleDarkMode} = useDarkMode();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [checklistItems, setChecklistItems] = useState([
-    {id: 1, text: 'Declare an emergency', completed: false},
-    {id: 2, text: 'Call for HELP', completed: false},
-    {id: 3, text: 'Increase FiO2 to 100%', completed: false},
-    {id: 4, text: 'Assess AIRWAY, BREATHING, CIRCULATION', completed: false},
-    {id: 5, text: 'Intubate if necessary', completed: false},
-    {id: 6, text: 'Obtain IV/IO access', completed: false},
-    {id: 7, text: 'Turn OFF anaesthetic agents', completed: false},
-    {id: 8, text: 'Elevate legs if there is hypotension', completed: false},
-    {id: 9, text: 'Start CPR if necessary', completed: false},
-    {id: 10, text: 'Remove possible Triggers', completed: false},
-    {id: 11, text: 'Latex', completed: false},
-    {id: 12, text: 'NMB', completed: false},
-    {id: 13, text: 'Chlorhexidine', completed: false},
-    {id: 14, text: 'IV Colloids', completed: false},
-    {id: 15, text: 'Antibiotics', completed: false},
+    { id: 1, text: "Declare an emergency", completed: false },
+    { id: 2, text: "Call for HELP", completed: false },
+    { id: 3, text: "Increase FiO2 to 100%", completed: false },
+    { id: 4, text: "Assess AIRWAY, BREATHING, CIRCULATION", completed: false },
+    { id: 5, text: "Intubate if necessary", completed: false },
+    { id: 6, text: "Obtain IV/IO access", completed: false },
+    { id: 7, text: "Turn OFF anaesthetic agents", completed: false },
+    { id: 8, text: "Elevate legs if there is hypotension", completed: false },
+    { id: 9, text: "Start CPR if necessary", completed: false },
+    { id: 10, text: "Remove possible Triggers", completed: false },
+    { id: 11, text: "Latex", completed: false },
+    { id: 12, text: "NMB", completed: false },
+    { id: 13, text: "Chlorhexidine", completed: false },
+    { id: 14, text: "IV Colloids", completed: false },
+    { id: 15, text: "Antibiotics", completed: false },
     // Add more checklist items here
   ]);
 
-  const handleToggleComplete = itemId => {
-    setChecklistItems(prevItems =>
-      prevItems.map(item =>
-        item.id === itemId ? {...item, completed: !item.completed} : item,
-      ),
+  const handleToggleComplete = (itemId) => {
+    setChecklistItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === itemId ? { ...item, completed: !item.completed } : item
+      )
     );
   };
 
   return (
     <SafeAreaView
       style={{
-        backgroundColor: isDarkMode ? 'rgb(30, 30, 32)' : '#F2EDEB',
+        backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB",
         flex: 1,
-      }}>
-      <ScrollView style={{marginBottom: '10%'}}>
+      }}
+    >
+      <ScrollView style={{ marginBottom: "20%" }}>
         <View style={styles.container}>
-          <Text style={[styles.title, {color: isDarkMode ? 'white' : 'black'}]}>
+          <Text
+            style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+          >
             Anaphylaxis Management
           </Text>
-          {checklistItems.map(item => (
+          {checklistItems.map((item) => (
             <TouchableOpacity
               key={item.id}
               onPress={() => handleToggleComplete(item.id)}
-              style={styles.checklistItem}>
+              style={styles.checklistItem}
+            >
               <View style={styles.checkbox}>
                 {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
               </View>
@@ -62,16 +66,58 @@ export default function Anaphylaxis() {
                 style={[
                   styles.checklistText,
                   {
-                    color: isDarkMode ? 'white' : 'black',
+                    color: isDarkMode ? "white" : "black",
                     textDecorationLine: item.completed
-                      ? 'line-through'
-                      : 'none',
+                      ? "line-through"
+                      : "none",
                   },
-                ]}>
+                ]}
+              >
                 {item.text}
               </Text>
             </TouchableOpacity>
           ))}
+          <Text
+            style={[
+              styles.title,
+              { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+            ]}
+          >
+            Signs
+          </Text>
+          <Text
+            style={[
+              styles.checklistText,
+              {
+                color: isDarkMode ? "white" : "black",
+              },
+            ]}
+          >
+            1.Erythema{"\n"}
+            2.Urticaria{"\n"}
+            3.Angioedema{"\n"}
+            4.Hypotension{"\n"}
+            5.Tachycardia{"\n"}
+            6.Dysrrhythmias{"\n"}
+            7.Circulatory Collapse
+          </Text>
+          <Text
+            style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+          >
+            Symptoms
+          </Text>
+          <Text
+            style={[
+              styles.checklistText,
+              {
+                color: isDarkMode ? "white" : "black",
+                marginTop: "-5%",
+              },
+            ]}
+          >
+            1.Dyspnoea{"\n"}
+            2.Wheezing
+          </Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -83,17 +129,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
     marginBottom: 50,
-    height: '100%',
-    paddingBottom: '100',
+    height: "100%",
+    paddingBottom: "100",
   },
   title: {
     fontSize: 30,
     marginBottom: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   checklistItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 15,
   },
   checkbox: {
@@ -102,13 +148,13 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 5,
     marginRight: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: useDarkMode ? '#D3D3D3' : 'black',
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: useDarkMode ? "#D3D3D3" : "black",
   },
   tick: {
     fontSize: 20,
-    color: 'green',
+    color: "green",
   },
   checklistText: {
     flex: 1,
