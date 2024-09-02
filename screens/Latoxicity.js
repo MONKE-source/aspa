@@ -10,14 +10,9 @@ import {
   Dimensions,
   Platform,
 } from "react-native";
-import AntDesign from "react-native-vector-icons/AntDesign";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
 import FileViewer from "react-native-file-viewer";
-import RNFS from "react-native-fs";
 import TextInputButton from "../components/TextInputButton";
-import TextButton from "../components/TextButton";
 import IconButton from "../components/IconButton";
-import Bmi from "./Bmi";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNHTMLtoPDF from "react-native-html-to-pdf";
 
@@ -2068,7 +2063,7 @@ export default function LA() {
   </body>
 </html>
         `,
-        fileName: genName("BMI"),
+        fileName: genName("LaToxicity"),
         directory: Platform.OS === "android" ? "Downloads" : "Documents",
       };
       let file = await RNHTMLtoPDF.convert(PDFOptions);
