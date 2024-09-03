@@ -5112,138 +5112,50 @@ function CalcScreen({ navigation }) {
                 one
               </Text>
             </Text>
-            <ScrollView>
-              <TouchableOpacity onPress={() => setButtonState("cardiac")}>
-                <TextButton
-                  title="Cardiac"
-                  width={Dimensions.get("window").width * 0.46153846}
-                  height={Dimensions.get("window").height * 0.06812796}
-                  bgHex="#313135"
-                  contentHex={"white"}
-                  borderRadius={
-                    Dimensions.get("window").height * 0.06812796 * 0.30434783
-                  }
-                  borderColor={
-                    buttonState === "cardiac" ? "#72A8DA" : "transparent"
-                  }
-                  borderWidth={1}
-                  fontWeight={"700"}
-                  textSize={
-                    Platform.isPad
-                      ? Dimensions.get("window").width * 0.46153846 * 0.08
-                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
-                  }
-                />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => setButtonState("MH")}>
-                <TextButton
-                  title="MH"
-                  width={Dimensions.get("window").width * 0.46153846}
-                  height={Dimensions.get("window").height * 0.06812796}
-                  bgHex="#313135"
-                  borderColor={buttonState === "MH" ? "#72A8DA" : "transparent"}
-                  borderWidth={1}
-                  contentHex={"white"}
-                  borderRadius={
-                    Dimensions.get("window").height * 0.06812796 * 0.30434783
-                  }
-                  fontWeight={"700"}
-                  textSize={
-                    Platform.isPad
-                      ? Dimensions.get("window").width * 0.46153846 * 0.08
-                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
-                  }
-                />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => setButtonState("scoliosis")}>
-                <TextButton
-                  title="Scoliosis"
-                  width={Dimensions.get("window").width * 0.46153846}
-                  height={Dimensions.get("window").height * 0.06812796}
-                  bgHex="#313135"
-                  contentHex={"white"}
-                  borderColor={
-                    buttonState === "scoliosis" ? "#72A8DA" : "transparent"
-                  }
-                  borderWidth={1}
-                  borderRadius={
-                    Dimensions.get("window").height * 0.06812796 * 0.30434783
-                  }
-                  fontWeight={"700"}
-                  textSize={
-                    Platform.isPad
-                      ? Dimensions.get("window").width * 0.46153846 * 0.08
-                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
-                  }
-                />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => setButtonState("HyperK")}>
-                <TextButton
-                  title="HyperK"
-                  width={Dimensions.get("window").width * 0.46153846}
-                  height={Dimensions.get("window").height * 0.06812796}
-                  bgHex="#313135"
-                  contentHex={"white"}
-                  borderColor={
-                    buttonState === "HyperK" ? "#72A8DA" : "transparent"
-                  }
-                  borderWidth={1}
-                  borderRadius={
-                    Dimensions.get("window").height * 0.06812796 * 0.30434783
-                  }
-                  fontWeight={"700"}
-                  textSize={
-                    Platform.isPad
-                      ? Dimensions.get("window").width * 0.46153846 * 0.08
-                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
-                  }
-                />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => setButtonState("Anaphylaxis")}>
-                <TextButton
-                  title="Anaphylaxis"
-                  width={Dimensions.get("window").width * 0.46153846}
-                  height={Dimensions.get("window").height * 0.06812796}
-                  bgHex="#313135"
-                  contentHex={"white"}
-                  borderColor={
-                    buttonState === "Anaphylaxis" ? "#72A8DA" : "transparent"
-                  }
-                  borderWidth={1}
-                  borderRadius={
-                    Dimensions.get("window").height * 0.06812796 * 0.30434783
-                  }
-                  fontWeight={"700"}
-                  textSize={
-                    Platform.isPad
-                      ? Dimensions.get("window").width * 0.46153846 * 0.08
-                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
-                  }
-                />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => setButtonState("LA Toxicity")}>
-                <TextButton
-                  title="LA Toxicity"
-                  width={Dimensions.get("window").width * 0.46153846}
-                  height={Dimensions.get("window").height * 0.06812796}
-                  bgHex="#313135"
-                  contentHex={"white"}
-                  borderColor={
-                    buttonState === "LA Toxicity" ? "#72A8DA" : "transparent"
-                  }
-                  borderWidth={1}
-                  borderRadius={
-                    Dimensions.get("window").height * 0.06812796 * 0.30434783
-                  }
-                  fontWeight={"700"}
-                  textSize={
-                    Platform.isPad
-                      ? Dimensions.get("window").width * 0.46153846 * 0.08
-                      : Dimensions.get("window").width * 0.46153846 * 0.10555556
-                  }
-                />
-              </TouchableOpacity>
-            </ScrollView>
+            <TouchableOpacity onPress={() => setButtonState("cardiac")}>
+              <TextButton
+                title="Cardiac"
+                width={Dimensions.get("window").width * 0.46153846}
+                height={Dimensions.get("window").height * 0.06812796}
+                bgHex="#313135"
+                contentHex={"white"}
+                borderRadius={
+                  Dimensions.get("window").height * 0.06812796 * 0.30434783
+                }
+                borderColor={
+                  buttonState === "cardiac" ? "#72A8DA" : "transparent"
+                }
+                borderWidth={1}
+                fontWeight={"700"}
+                textSize={
+                  Platform.isPad
+                    ? Dimensions.get("window").width * 0.46153846 * 0.08
+                    : Dimensions.get("window").width * 0.46153846 * 0.10555556
+                }
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => setButtonState("scoliosis")}>
+              <TextButton
+                title="Scoliosis"
+                width={Dimensions.get("window").width * 0.46153846}
+                height={Dimensions.get("window").height * 0.06812796}
+                bgHex="#313135"
+                contentHex={"white"}
+                borderColor={
+                  buttonState === "scoliosis" ? "#72A8DA" : "transparent"
+                }
+                borderWidth={1}
+                borderRadius={
+                  Dimensions.get("window").height * 0.06812796 * 0.30434783
+                }
+                fontWeight={"700"}
+                textSize={
+                  Platform.isPad
+                    ? Dimensions.get("window").width * 0.46153846 * 0.08
+                    : Dimensions.get("window").width * 0.46153846 * 0.10555556
+                }
+              />
+            </TouchableOpacity>
           </View>
         </View>
         <View style={{ top: 50 }}>
