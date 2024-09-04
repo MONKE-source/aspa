@@ -6,11 +6,11 @@ import {
   SafeAreaView,
   FlatList,
   TouchableOpacity,
-  Dimensions,
   Platform,
   useWindowDimensions,
   Image,
   TextInput,
+  Dimensions,
 } from "react-native";
 // import { StatusBar } from "expo-status-bar";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -170,6 +170,8 @@ export default function CrisisNavigator() {
 }
 
 function Crisis({ navigation }) {
+  const [displayWeight, setDisplayWeight] = useState(true);
+  const [weight, setWeight] = useState(null);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [searchQuery, setSearchQuery] = useState("");
   const windowWidth = useWindowDimensions().width;
@@ -292,48 +294,155 @@ function Crisis({ navigation }) {
         { backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB" },
       ]}
     >
-      <View style={{ flexDirection: "row", gap: 5 }}>
-        <TouchableOpacity
-          style={{ marginTop: 34, marginLeft: 15 }}
-          onPress={() => navigation.navigate("Settings")}
-        >
-          <SimpleLineIcons
-            name="settings"
+      {displayWeight === true ? (
+        <>
+          <View
             style={{
-              fontSize: 30,
-              color: isDarkMode ? "white" : "black",
+              flexDirection: "column",
+              alignItems: "center",
+              marginBottom: 20,
+              width: Dimensions.get("window").width * 0.925,
+              height: Dimensions.get("window").height * 0.5,
+              backgroundColor: "#72A8DA",
+              borderRadius:
+                Dimensions.get("window").height * 0.04739336 * 0.94594595,
             }}
-          />
-        </TouchableOpacity>
-        <View style={dynamicStyles.searchContainer}>
-          <Image
-            source={require("../assets/search.png")}
-            style={dynamicStyles.searchIcon}
-          />
-          <TextInput
-            style={dynamicStyles.searchInput}
-            placeholder="Search..."
-            placeholderTextColor="#818188"
-            value={searchQuery}
-            onChangeText={(text) => {
-              const lowercaseText = text.toLowerCase();
-              setSearchQuery(text);
-              const filtered = isBlurred.filter((item) => {
-                const lowercaseTitle = item.title.toLowerCase();
-                return lowercaseTitle.includes(lowercaseText);
-              });
-              setFilteredData(filtered);
+          >
+            <Text
+              style={{
+                color: "white",
+                fontWeight: "700",
+                fontSize: Platform.isPad
+                  ? Dimensions.get("window").height * 0.04739336 * 0.45
+                  : 25,
+                position: "relative",
+                top: "10%",
+              }}
+            >
+              Enter patient's weight
+            </Text>
+            <View style={{ position: "relative", top: "26%" }}>
+              <TextInputButton
+                title="Weight"
+                unit="kg"
+                action={(prop) => setWeight(prop)}
+                backgroundColor={"#313135"}
+                width={Dimensions.get("window").width * 0.4}
+                height={Dimensions.get("window").height * 0.09}
+              />
+            </View>
+            <TouchableOpacity onPress={() => setDisplayWeight(false)}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginBottom: 20,
+                  width: Dimensions.get("window").width * 0.8,
+                  height: Dimensions.get("window").height * 0.063,
+                  backgroundColor: "black",
+                  borderRadius:
+                    Dimensions.get("window").height * 0.04739336 * 0.5,
+                  position: "relative",
+                  top: "55%",
+                }}
+              >
+                <Text
+                  style={{
+                    color: "white",
+                    fontWeight: "700",
+                    fontSize: Platform.isPad
+                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      : 20,
+                  }}
+                >
+                  Next
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        </>
+      ) : (
+        <>
+          <View style={{ flexDirection: "row", gap: 5 }}>
+            <TouchableOpacity
+              style={{ marginTop: 34, marginLeft: 15 }}
+              onPress={() => navigation.navigate("Settings")}
+            >
+              <SimpleLineIcons
+                name="settings"
+                style={{
+                  fontSize: 30,
+                  color: isDarkMode ? "white" : "black",
+                }}
+              />
+            </TouchableOpacity>
+            <View style={dynamicStyles.searchContainer}>
+              <Image
+                source={require("../assets/search.png")}
+                style={dynamicStyles.searchIcon}
+              />
+              <TextInput
+                style={dynamicStyles.searchInput}
+                placeholder="Search..."
+                placeholderTextColor="#818188"
+                value={searchQuery}
+                onChangeText={(text) => {
+                  const lowercaseText = text.toLowerCase();
+                  setSearchQuery(text);
+                  const filtered = isBlurred.filter((item) => {
+                    const lowercaseTitle = item.title.toLowerCase();
+                    return lowercaseTitle.includes(lowercaseText);
+                  });
+                  setFilteredData(filtered);
+                }}
+              />
+            </View>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              backgroundColor: "#72A8DA",
+              marginTop: 15,
+              width: Dimensions.get("window").width,
+              height: Dimensions.get("window").height * 0.08,
+              alignItems: "center",
+              justifyContent: "center",
             }}
+          >
+            <Text
+              style={{
+                color: "white",
+                fontWeight: "500",
+                fontSize: Platform.isPad
+                  ? Dimensions.get("window").height * 0.04739336 * 0.45
+                  : 20,
+              }}
+            >
+              Patient's Weight:{" "}
+              <Text
+                style={{
+                  color: "white",
+                  fontWeight: "700",
+                  fontSize: Platform.isPad
+                    ? Dimensions.get("window").height * 0.04739336 * 0.45
+                    : 25,
+                }}
+              >
+                {weight}
+              </Text>{" "}
+              kg
+            </Text>
+          </View>
+          <FlatList
+            data={filteredData} // use filteredData here
+            style={{ top: 25, marginBottom: 70 }}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            contentContainerStyle={styles.listContainer}
           />
-        </View>
-      </View>
-      <FlatList
-        data={filteredData} // use filteredData here
-        style={{ top: 25, marginBottom: 70 }}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.listContainer}
-      />
+        </>
+      )}
     </SafeAreaView>
   );
 }
