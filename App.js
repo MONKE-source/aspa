@@ -73,24 +73,8 @@ function MyTabs() {
           }}
         />
         <Tab.Screen
-          name="Info"
+          name="Logo"
           component={Info}
-          options={{
-            headerShown: false,
-            tabBarIcon: () => (
-              <FontAwesome5
-                name="exclamation-circle"
-                style={{
-                  fontSize: 30,
-                  color: "#D24545",
-                }}
-              />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="logo"
-          component={Logo}
           options={{
             headerShown: false,
             tabBarIcon: () => (

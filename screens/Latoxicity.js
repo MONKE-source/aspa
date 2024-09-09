@@ -56,6 +56,13 @@ export default function LA() {
     let uniqueName = type + d.toISOString();
     return uniqueName;
   }
+  function roundToOneDecimalPlace(value) {
+    const decimalPlaces = value.toString().split(".")[1]?.length || 0;
+    if (decimalPlaces > 5) {
+      return Math.round(value * 10) / 10;
+    }
+    return value;
+  }
   const createPDF = async () => {
     try {
       let PDFOptions = {
@@ -1110,7 +1117,7 @@ export default function LA() {
             <td class="s21">${weight}</td>
             <td class="s19">MICROgrams</td>
             <td class="s4">OR</td>
-            <td class="s21">${weight * 0.1}</td>
+            <td class="s21">${roundToOneDecimalPlace(weight * 0.1)}</td>
             <td class="s19">ML</td>
             <td class="s19">1: 100 000</td>
             <td class="s19">DILUTION</td>
@@ -1976,7 +1983,7 @@ export default function LA() {
             <td class="s60" colspan="2" rowspan="2">MIDAZOLAM</td>
             <td class="s17">IV</td>
             <td class="s61">0.05</td>
-            <td class="s61">${weight * 0.05}</td>
+            <td class="s61">${roundToOneDecimalPlace(weight * 0.05)}</td>
             <td class="s17">MG</td>
             <td class="s17" colspan="2">small incremental doses</td>
             <td></td>

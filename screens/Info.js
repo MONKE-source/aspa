@@ -6,10 +6,12 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { useDarkMode } from "../components/DarkModeContext";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Settings from "./Settings";
+
 const Info = ({ navigation }) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [fontSize, setFontSize] = useState(18);
@@ -30,6 +32,13 @@ const Info = ({ navigation }) => {
       }}
     >
       <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
+        <View>
+          <Image
+            source={require("../assets/aspaImage.png")}
+            style={styles.Image}
+            resizeMode="contain"
+          />
+        </View>
         <Text
           style={{
             fontWeight: "bold",
@@ -37,6 +46,7 @@ const Info = ({ navigation }) => {
             fontSize: 30,
             padding: 25,
             alignSelf: "center",
+            marginTop: "-8%",
           }}
         >
           DISCLAIMER
@@ -163,6 +173,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: 10,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: useDarkMode ? "rgb(30, 30, 32)" : "white",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%",
+    width: "100%",
+  },
+  Image: {
+    width: "90%",
+    alignSelf: "center",
   },
 });
 

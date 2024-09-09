@@ -1,16 +1,13 @@
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 import { useDarkMode } from "../components/DarkModeContext";
+import Info from "./Info";
 
 export default function Logo() {
   const { isDarkMode } = useDarkMode();
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../assets/aspaImage.png")}
-        style={styles.Image}
-        resizeMode="contain"
-      />
+      <Info />
     </View>
   );
 }

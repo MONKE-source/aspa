@@ -1,16 +1,1487 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDarkMode } from "../components/DarkModeContext";
 import {
   SafeAreaView,
   StyleSheet,
-  Dimensions,
   Text,
   View,
   ScrollView,
   TouchableOpacity,
+  Dimensions,
+  Platform,
 } from "react-native";
+import FileViewer from "react-native-file-viewer";
+import TextInputButton from "../components/TextInputButton";
+import IconButton from "../components/IconButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import RNHTMLtoPDF from "react-native-html-to-pdf";
 
 export default function Hyper() {
+  const [weight, setWeight] = useState(0);
+  const [files, setFileArray] = useState([]);
+
+  const getFilePaths = async () => {
+    try {
+      const savedValue = await AsyncStorage.getItem("files");
+      if (savedValue !== null) {
+        const filesArray = JSON.parse(savedValue);
+        setFileArray(filesArray);
+        console.log("Files retrieved (CalcScreen): ", files);
+      }
+    } catch (e) {
+      console.error("Error retrieving files (CalcScreen): ", e);
+    }
+  };
+  const saveFiles = async (filesArray) => {
+    try {
+      const jsonValue = JSON.stringify(filesArray);
+      await AsyncStorage.setItem("files", jsonValue).then(() =>
+        console.log(
+          "Successfully saved to AsyncStorage (saveFiles - CalcScreen): ",
+          jsonValue
+        )
+      );
+    } catch (e) {
+      console.error("Error saving files (saveFiles - CalcScreen): ", e);
+    }
+  };
+  useEffect(() => {
+    getFilePaths();
+  }, []);
+  useEffect(() => {
+    saveFiles(files);
+  }, [files]);
+  function genName(type) {
+    const d = new Date();
+    let uniqueName = type + d.toISOString();
+    return uniqueName;
+  }
+  function roundToOneDecimalPlace(value) {
+    const decimalPlaces = value.toString().split(".")[1]?.length || 0;
+    if (decimalPlaces > 5) {
+      return Math.round(value * 10) / 10;
+    }
+    return value;
+  }
+  const createPDF = async () => {
+    try {
+      let PDFOptions = {
+        html: `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <style type="text/css">
+      .ritz .waffle a {
+        color: inherit;
+      }
+      .ritz .waffle .s20 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: center;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 14pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s24 {
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s5 {
+        border-bottom: 2px SOLID #000000;
+        border-right: 2px SOLID #000000;
+        background-color: #ffffff;
+        text-align: right;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s9 {
+        border-bottom: 1px SOLID #000000;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s25 {
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s27 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: right;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 14pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s28 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s0 {
+        border-bottom: 1px SOLID transparent;
+        border-right: 1px SOLID transparent;
+        background-color: #ffffff;
+        text-align: center;
+        color: #0563c1;
+        font-family: "docs-Calibri", Arial;
+        font-size: 10pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s15 {
+        border-bottom: 2px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s17 {
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s16 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s4 {
+        border-right: 2px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s13 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s18 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 14pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s23 {
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s3 {
+        border-bottom: 2px SOLID #000000;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s6 {
+        border-right: none;
+        border-bottom: 2px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s11 {
+        border-bottom: 2px SOLID #000000;
+        border-right: 2px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 14pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s19 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: center;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s29 {
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: right;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s12 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: top;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s8 {
+        border-left: none;
+        border-bottom: 1px SOLID #000000;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s7 {
+        border-left: none;
+        border-bottom: 2px SOLID #000000;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s22 {
+        border-bottom: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s21 {
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s1 {
+        background-color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+        color: #2f5496;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s10 {
+        border-right: 2px SOLID #000000;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s14 {
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s2 {
+        background-color: #ffffff;
+        text-align: left;
+        color: #0563c1;
+        font-family: "docs-Calibri", Arial;
+        font-size: 10pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s26 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: right;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+    </style>
+    <div class="ritz grid-container" dir="ltr">
+      <table class="waffle" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr></tr>
+        </thead>
+        <tbody>
+          <tr style="height: 20px">
+            <th
+              id="91737183R0"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s0"></td>
+            <td class="s1" colspan="6">
+              EMERGENCY MANAGEMENT OF HYPAEKALAEMIA IN CHILDREN &amp; NEONATES
+            </td>
+            <td class="s2"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R1"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s3"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R2"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s4" colspan="2">enter Body WEIGHT (KG) =</td>
+            <td class="s5" dir="ltr">${weight}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R3"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R4"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s6 softmerge">
+              <div class="softmerge-inner" style="width: 229px; left: -1px">
+                3. Inititate Treatment
+              </div>
+            </td>
+            <td class="s7"></td>
+            <td class="s8"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R5"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s10"></td>
+            <td class="s11" colspan="2">Salbutamol 0.5% solution</td>
+            <td class="s12" colspan="2" rowspan="2">
+              Nebulise with 8 L oxygen :
+            </td>
+            <td class="s13">&lt; 25 KG:</td>
+            <td class="s13" colspan="3">2.5 MG in 4 ML of NS Q1-2H</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R6"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s14"></td>
+            <td></td>
+            <td class="s13">&gt; 25 KG:</td>
+            <td class="s13" colspan="3">5 MG in 4 ML of NS Q1-2H</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R7"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s15"></td>
+            <td class="s3"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R8"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s10"></td>
+            <td class="s11" colspan="2">Regular Insulin (Actrapid)</td>
+            <td class="s16">ROUTE</td>
+            <td class="s16">DOSE/KG BODY WEIGHT</td>
+            <td class="s16">AMOUNT</td>
+            <td class="s16">UNITS</td>
+            <td class="s14"></td>
+            <td class="s14"></td>
+            <td class="s14"></td>
+            <td class="s14"></td>
+            <td class="s14" colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R9"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s17" colspan="2"></td>
+            <td class="s18">IV</td>
+            <td class="s19">0.1</td>
+            <td class="s20">${roundToOneDecimalPlace(weight * 0.1)}</td>
+            <td class="s20">IU</td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td class="s21" colspan="4"></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R10"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td class="s22"></td>
+            <td class="s22"></td>
+            <td class="s22"></td>
+            <td class="s22"></td>
+            <td class="s22"></td>
+            <td class="s22"></td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td class="s21" colspan="2"></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R11"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s21"></td>
+            <td class="s23"></td>
+            <td class="s16">ONSET</td>
+            <td class="s16">DURATION</td>
+            <td class="s16" colspan="4">REMARKS</td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R12"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s21"></td>
+            <td class="s23"></td>
+            <td class="s23">15-20 min</td>
+            <td class="s23">4-6 h</td>
+            <td class="s24" colspan="4">
+              administer together with DEXTROSE (10% or 50%)
+            </td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td class="s14"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R13"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s21"></td>
+            <td class="s23"></td>
+            <td class="s17"></td>
+            <td class="s17"></td>
+            <td class="s23" colspan="4">1 IU to every 5 g glucose</td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R14"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s21"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s23" colspan="4">administer in 1 IU/ML dilution</td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R15"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s21"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s17" colspan="4">MAX: 10 IU per dose</td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R16"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s21"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s23" colspan="4">check H/C; may cause hypoglycaemia</td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R17"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s21"></td>
+            <td class="s23"></td>
+            <td class="s13"></td>
+            <td class="s13"></td>
+            <td class="s13" colspan="4">may be repeated</td>
+            <td class="s21"></td>
+            <td class="s21"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R18"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s3"></td>
+            <td class="s3"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R19"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s10"></td>
+            <td class="s11" colspan="2">Dextrose 10%</td>
+            <td class="s16">ROUTE</td>
+            <td class="s16">DOSE/KG BODY WEIGHT</td>
+            <td class="s16">AMOUNT</td>
+            <td class="s16">UNITS</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R20"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s18">IV</td>
+            <td class="s26">5</td>
+            <td class="s27">${weight * 5}</td>
+            <td class="s18">ML</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R21"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R22"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s16" colspan="3">REMARKS</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R23"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s28" colspan="3">administer together with INSULIN</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R24"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s3"></td>
+            <td class="s3"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R25"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s10"></td>
+            <td class="s11" colspan="2">Dextrose 50%</td>
+            <td class="s16">ROUTE</td>
+            <td class="s16">DOSE/KG BODY WEIGHT</td>
+            <td class="s16">AMOUNT</td>
+            <td class="s16">UNITS</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R26"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s18">IV</td>
+            <td class="s26">1</td>
+            <td class="s27">${weight}</td>
+            <td class="s18">ML</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R27"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R28"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s16" colspan="3">REMARKS</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R29"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s23" colspan="3">
+              administer
+              <span style="font-size: 12pt; font-family: Arial; color: #c00000"
+                >via large bore peripheral IV
+              </span>
+            </td>
+            <td class="s21"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R30"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s29" colspan="3">or central venous access</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R31"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s28" colspan="3">administer together with insulin</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R32"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s3"></td>
+            <td class="s3"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R33"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s10"></td>
+            <td class="s11" colspan="2">10% Calcium Gluconate</td>
+            <td class="s16">ROUTE</td>
+            <td class="s16">DOSE/KG BODY WEIGHT</td>
+            <td class="s16">AMOUNT</td>
+            <td class="s16">UNITS</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R34"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s18">IV</td>
+            <td class="s26">0.5</td>
+            <td class="s27">${roundToOneDecimalPlace(weight * 0.5)}</td>
+            <td class="s18">ML</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R35"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R36"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s16">ONSET</td>
+            <td class="s16">DURATION</td>
+            <td class="s16" colspan="4">REMARKS</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R37"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s23">5- 10 min</td>
+            <td class="s23">30- 60 min</td>
+            <td class="s23" colspan="4">
+              may cause hypercalcaemia &amp; tissue necrosis
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R38"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s13"></td>
+            <td class="s13"></td>
+            <td class="s13" colspan="4">may be repeated</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R39"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s3"></td>
+            <td class="s3"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R40"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s10"></td>
+            <td class="s11" colspan="2">10% Calcium Chloride</td>
+            <td class="s16">ROUTE</td>
+            <td class="s16">DOSE/KG BODY WEIGHT</td>
+            <td class="s16">AMOUNT</td>
+            <td class="s16">UNITS</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R41"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s18">IV</td>
+            <td class="s26">0.2</td>
+            <td class="s27">${roundToOneDecimalPlace(weight * 0.2)}</td>
+            <td class="s18">ML</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R42"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s3"></td>
+            <td class="s3"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R43"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s10"></td>
+            <td class="s11" colspan="2">8.4% NaHCO3</td>
+            <td class="s16">ROUTE</td>
+            <td class="s16">DOSE/KG BODY WEIGHT</td>
+            <td class="s16">AMOUNT</td>
+            <td class="s16">UNITS</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R44"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s18">IV</td>
+            <td class="s26">1</td>
+            <td class="s27">${weight}</td>
+            <td class="s18">ML</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R45"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R46"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s16">ONSET</td>
+            <td class="s16">DURATION</td>
+            <td class="s16" colspan="2">REMARKS</td>
+            <td class="s14"></td>
+            <td class="s14"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R47"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s23">15 min</td>
+            <td class="s23">1-2 H</td>
+            <td class="s23" colspan="2">give over 10 min</td>
+            <td class="s21"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R48"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s23"></td>
+            <td class="s23"></td>
+            <td class="s23" colspan="2">DO NOT mix with Calcium</td>
+            <td class="s21"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="91737183R49"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td class="s25"></td>
+            <td class="s13"></td>
+            <td class="s13"></td>
+            <td class="s13" colspan="2">Max: 50 mmol/dose</td>
+            <td class="s21"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
+`,
+        fileName: genName("Hyperkalemia"),
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
+      };
+      let file = await RNHTMLtoPDF.convert(PDFOptions);
+      if (!file.filePath) return;
+      const updatedFiles = [...files, file.filePath];
+      setFileArray(updatedFiles);
+      saveFiles(updatedFiles).then(() =>
+        console.log(
+          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
+          updatedFiles
+        )
+      );
+      FileViewer.open(file.filePath);
+      Alert.alert("File path: ", file.filePath);
+    } catch (error) {
+      console.log("Failed to generate pdf", error.message);
+    }
+  };
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [checklistItems, setChecklistItems] = useState([
     { id: 1, text: "Perform ECG immediately when possible", completed: false },
@@ -263,6 +1734,46 @@ export default function Hyper() {
               </View>
             </View>
           ))}
+          <View
+            style={{
+              bottom: "-1",
+              paddingBottom: 20,
+              flexDirection: "row",
+              bottom: "11%",
+              marginTop: "9%",
+              alignSelf: "center",
+              right: "0.75%",
+            }}
+          >
+            <TextInputButton
+              title="Weight"
+              unit="kg"
+              width={(Dimensions.get("window").width * 120) / 390}
+              height={(Dimensions.get("window").height * 55) / 844}
+              backgroundColor={"#313135"}
+              store={weight}
+              action={setWeight}
+            />
+            <TouchableOpacity
+              onPress={createPDF}
+              style={{ left: "20%", top: "7%" }}
+            >
+              <IconButton
+                bgHex="#72A8DA"
+                title="View"
+                iconPath="folder-outline"
+                contentHex="white"
+                borderColor={"rgb(30, 30, 32)"}
+                borderWidth={0}
+                size={(Dimensions.get("window").height / 844) * 25}
+                textSize={
+                  Platform.isPad
+                    ? Dimensions.get("window").height * 0.04739336 * 0.45
+                    : 19
+                }
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDarkMode } from "../components/DarkModeContext";
 import {
   SafeAreaView,
@@ -7,9 +7,584 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  Dimensions,
+  Platform,
 } from "react-native";
+import FileViewer from "react-native-file-viewer";
+import TextInputButton from "../components/TextInputButton";
+import IconButton from "../components/IconButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import RNHTMLtoPDF from "react-native-html-to-pdf";
 
 export default function Hypertermina() {
+  const [weight, setWeight] = useState(0);
+  const [files, setFileArray] = useState([]);
+
+  const getFilePaths = async () => {
+    try {
+      const savedValue = await AsyncStorage.getItem("files");
+      if (savedValue !== null) {
+        const filesArray = JSON.parse(savedValue);
+        setFileArray(filesArray);
+        console.log("Files retrieved (CalcScreen): ", files);
+      }
+    } catch (e) {
+      console.error("Error retrieving files (CalcScreen): ", e);
+    }
+  };
+  const saveFiles = async (filesArray) => {
+    try {
+      const jsonValue = JSON.stringify(filesArray);
+      await AsyncStorage.setItem("files", jsonValue).then(() =>
+        console.log(
+          "Successfully saved to AsyncStorage (saveFiles - CalcScreen): ",
+          jsonValue
+        )
+      );
+    } catch (e) {
+      console.error("Error saving files (saveFiles - CalcScreen): ", e);
+    }
+  };
+  useEffect(() => {
+    getFilePaths();
+  }, []);
+  useEffect(() => {
+    saveFiles(files);
+  }, [files]);
+  function genName(type) {
+    const d = new Date();
+    let uniqueName = type + d.toISOString();
+    return uniqueName;
+  }
+  function roundToOneDecimalPlace(value) {
+    const decimalPlaces = value.toString().split(".")[1]?.length || 0;
+    if (decimalPlaces > 5) {
+      return Math.round(value * 10) / 10;
+    }
+    return value;
+  }
+  const createPDF = async () => {
+    try {
+      let PDFOptions = {
+        html: `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <style type="text/css">
+      .ritz .waffle a {
+        color: inherit;
+      }
+      .ritz .waffle .s15 {
+        border-bottom: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: right;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s3 {
+        border-left: none;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s9 {
+        border-bottom: 1px SOLID #000000;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s13 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s14 {
+        background-color: #ffffff;
+        text-align: left;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s0 {
+        background-color: #ffffff;
+        text-align: center;
+        color: #0563c1;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s4 {
+        border-left: none;
+        background-color: #ffffff;
+        text-align: center;
+        color: #0563c1;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s7 {
+        border-right: 2px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s16 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s2 {
+        border-left: none;
+        border-right: none;
+        background-color: #ffffff;
+      }
+      .ritz .waffle .s11 {
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s12 {
+        border-bottom: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: right;
+        color: #c00000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s8 {
+        border-bottom: 2px SOLID #000000;
+        border-right: 2px SOLID #000000;
+        background-color: #ffffff;
+        text-align: right;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s10 {
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s1 {
+        border-right: none;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s5 {
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: "docs-Calibri", Arial;
+        font-size: 12pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+      }
+      .ritz .waffle .s6 {
+        border-bottom: 2px SOLID #000000;
+        background-color: #ffffff;
+      }
+    </style>
+    <div class="ritz grid-container" dir="ltr">
+      <table class="waffle" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th class="row-header freezebar-origin-ltr"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R0"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R1"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s0"></td>
+            <td></td>
+            <td></td>
+            <td class="s1 softmerge">
+              <div class="softmerge-inner" style="width: 280px; left: -1px">
+                MALIGNANT HYPERTHERMIA
+              </div>
+            </td>
+            <td class="s2"></td>
+            <td class="s3"></td>
+            <td class="s4"></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R2"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R3"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s5" colspan="2">DANROLENE:</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R4"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s1 softmerge">
+              <div class="softmerge-inner" style="width: 374px; left: -1px">
+                each vial cobtains 20MILLIgrams of dantrolene
+              </div>
+            </td>
+            <td class="s2"></td>
+            <td class="s2"></td>
+            <td class="s3"></td>
+            <td class="s3"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R5"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s1 softmerge">
+              <div class="softmerge-inner" style="width: 280px; left: -1px">
+                Dissolve 1 vial in 60 ML sterile water
+              </div>
+            </td>
+            <td class="s2"></td>
+            <td class="s3"></td>
+            <td class="s3"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R6"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s1 softmerge">
+              <div class="softmerge-inner" style="width: 374px; left: -1px">
+                dantrolene potentiates neuromuscular blockers
+              </div>
+            </td>
+            <td class="s2"></td>
+            <td class="s2"></td>
+            <td class="s3"></td>
+            <td class="s3"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R7"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s6"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R8"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s7" colspan="2">Body Weight (KG):</td>
+            <td class="s8" dir="ltr">${weight}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R9"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R10"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s10" colspan="3">
+              give
+              <span style="font-size: 12pt; font-family: Arial; color: #c00000"
+                >DANTROLENE</span
+              ><span
+                style="
+                  font-size: 12pt;
+                  font-family: Calibri, Arial;
+                  color: #000000;
+                "
+              >
+                (2.5 MILLIgram/KG)</span
+              >
+            </td>
+            <td class="s11" colspan="2">
+              <span style="font-size: 12pt; font-family: Arial; color: #c00000"
+                >INTRAVENOUSLY</span
+              ><span
+                style="
+                  font-size: 12pt;
+                  font-family: Calibri, Arial;
+                  color: #000000;
+                "
+              >
+                =</span
+              >
+            </td>
+            <td class="s12">${weight * 2.5}</td>
+            <td class="s13">MILLIgrams</td>
+            <td class="s14">rapidly</td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R11"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R12"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R13"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="s9"></td>
+            <td class="s9"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R14"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s11" colspan="3">subsequent dantrolene boluses:</td>
+            <td class="s15">${weight}</td>
+            <td class="s16">MILLIgrams</td>
+            <td class="s10" colspan="2">intravenously</td>
+            <td></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R15"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td class="s10"></td>
+            <td class="s10" colspan="2">(1 MILLIgram/KG)</td>
+            <td class="s10"></td>
+            <td class="s10"></td>
+            <td class="s10"></td>
+            <td class="s10"></td>
+            <td class="s10"></td>
+            <td class="s10"></td>
+          </tr>
+          <tr style="height: 20px">
+            <th
+              id="1473496397R16"
+              style="height: 20px"
+              class="row-headers-background"
+            ></th>
+            <td></td>
+            <td class="s10" colspan="6">
+              (every 5 minutes til symptoms subside or up to total of 10
+              MILLIgrams/KG)
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
+`,
+        fileName: genName("malignant"),
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
+      };
+      let file = await RNHTMLtoPDF.convert(PDFOptions);
+      if (!file.filePath) return;
+      const updatedFiles = [...files, file.filePath];
+      setFileArray(updatedFiles);
+      saveFiles(updatedFiles).then(() =>
+        console.log(
+          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
+          updatedFiles
+        )
+      );
+      FileViewer.open(file.filePath);
+      Alert.alert("File path: ", file.filePath);
+    } catch (error) {
+      console.log("Failed to generate pdf", error.message);
+    }
+  };
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [checklistItems, setChecklistItems] = useState([
     { id: 1, text: "Call for help", completed: false },
@@ -244,6 +819,46 @@ export default function Hypertermina() {
             5. Pheochromocytoma{"\n"}
             6. Thyroid storm
           </Text>
+          <View
+            style={{
+              bottom: "0%",
+              paddingBottom: 20,
+              flexDirection: "row",
+              bottom: "11%",
+              marginTop: "11%",
+              alignSelf: "center",
+              right: "0.75%",
+            }}
+          >
+            <TextInputButton
+              title="Weight"
+              unit="kg"
+              width={(Dimensions.get("window").width * 120) / 390}
+              height={(Dimensions.get("window").height * 55) / 844}
+              backgroundColor={"#313135"}
+              store={weight}
+              action={setWeight}
+            />
+            <TouchableOpacity
+              onPress={createPDF}
+              style={{ left: "20%", top: "7%" }}
+            >
+              <IconButton
+                bgHex="#72A8DA"
+                title="View"
+                iconPath="folder-outline"
+                contentHex="white"
+                borderColor={"rgb(30, 30, 32)"}
+                borderWidth={0}
+                size={(Dimensions.get("window").height / 844) * 25}
+                textSize={
+                  Platform.isPad
+                    ? Dimensions.get("window").height * 0.04739336 * 0.45
+                    : 19
+                }
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
