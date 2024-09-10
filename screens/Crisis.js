@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { WeightProvider, WeightContext } from "../components/WeightContext";
 import {
   StyleSheet,
   Text,
@@ -38,140 +39,142 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 export default function CrisisNavigator() {
   const Stack = createNativeStackNavigator();
   return (
-    <Stack.Navigator initialRouteName="Crisis">
-      <Stack.Screen
-        name="Crisis"
-        component={Crisis}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="Settings"
-        component={Settings}
-        options={{
-          headerStyle: {
-            backgroundColor: "rgb(30, 30, 32)",
-            color: "white",
-          },
-          headerTitleStyle: {
-            color: "white",
-          },
-          headerBackTitleStyle: {
-            color: "white",
-          },
-          headerTintColor: "white",
-        }}
-      />
-      <Stack.Screen
-        name="Anaphylaxis"
-        component={Anaphylaxis}
-        options={{
-          headerStyle: {
-            backgroundColor: "rgb(30, 30, 32)",
-            color: "white",
-          },
-          headerTitleStyle: {
-            color: "rgba(255, 255, 255, 0)",
-          },
-          headerBackTitleStyle: {
-            color: "white",
-          },
-          headerTintColor: "white",
-        }}
-      />
-      <Stack.Screen
-        name="Cardiac Arrest"
-        component={CardiacArrest}
-        options={{
-          headerStyle: {
-            backgroundColor: "rgb(30, 30, 32)",
-            color: "white",
-          },
-          headerTitleStyle: {
-            color: "rgba(255, 255, 255, 0)",
-          },
-          headerBackTitleStyle: {
-            color: "white",
-          },
-          headerTintColor: "white",
-        }}
-      />
-      <Stack.Screen
-        name="Hyperkalemia"
-        component={Hyper}
-        options={{
-          headerStyle: {
-            backgroundColor: "rgb(30, 30, 32)",
-            color: "white",
-          },
-          headerTitleStyle: {
-            color: "rgba(255, 255, 255, 0)",
-          },
-          headerBackTitleStyle: {
-            color: "white",
-          },
-          headerTintColor: "white",
-        }}
-      />
-      <Stack.Screen
-        name="LA Toxicity"
-        component={LA}
-        options={{
-          headerStyle: {
-            backgroundColor: "rgb(30, 30, 32)",
-            color: "white",
-          },
-          headerTitleStyle: {
-            color: "rgba(255, 255, 255, 0)",
-          },
-          headerBackTitleStyle: {
-            color: "white",
-          },
-          headerTintColor: "white",
-        }}
-      />
-      <Stack.Screen
-        name="Basic Life Support"
-        component={Basiclifesupport}
-        options={{
-          headerStyle: {
-            backgroundColor: "rgb(30, 30, 32)",
-            color: "white",
-          },
-          headerTitleStyle: {
-            color: "rgba(255, 255, 255, 0)",
-          },
-          headerBackTitleStyle: {
-            color: "white",
-          },
-          headerTintColor: "white",
-        }}
-      />
-      <Stack.Screen
-        name="Malignant Hyperthermia"
-        component={Hypertermina}
-        options={{
-          headerStyle: {
-            backgroundColor: "rgb(30, 30, 32)",
-            color: "white",
-          },
-          headerTitleStyle: {
-            color: "rgba(255, 255, 255, 0)",
-          },
-          headerBackTitleStyle: {
-            color: "white",
-          },
-          headerTintColor: "white",
-        }}
-      />
-    </Stack.Navigator>
+    <WeightProvider>
+      <Stack.Navigator initialRouteName="Crisis">
+        <Stack.Screen
+          name="Crisis"
+          component={Crisis}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
+          options={{
+            headerStyle: {
+              backgroundColor: "rgb(30, 30, 32)",
+              color: "white",
+            },
+            headerTitleStyle: {
+              color: "white",
+            },
+            headerBackTitleStyle: {
+              color: "white",
+            },
+            headerTintColor: "white",
+          }}
+        />
+        <Stack.Screen
+          name="Anaphylaxis"
+          component={Anaphylaxis}
+          options={{
+            headerStyle: {
+              backgroundColor: "rgb(30, 30, 32)",
+              color: "white",
+            },
+            headerTitleStyle: {
+              color: "rgba(255, 255, 255, 0)",
+            },
+            headerBackTitleStyle: {
+              color: "white",
+            },
+            headerTintColor: "white",
+          }}
+        />
+        <Stack.Screen
+          name="Cardiac Arrest"
+          component={CardiacArrest}
+          options={{
+            headerStyle: {
+              backgroundColor: "rgb(30, 30, 32)",
+              color: "white",
+            },
+            headerTitleStyle: {
+              color: "rgba(255, 255, 255, 0)",
+            },
+            headerBackTitleStyle: {
+              color: "white",
+            },
+            headerTintColor: "white",
+          }}
+        />
+        <Stack.Screen
+          name="Hyperkalemia"
+          component={Hyper}
+          options={{
+            headerStyle: {
+              backgroundColor: "rgb(30, 30, 32)",
+              color: "white",
+            },
+            headerTitleStyle: {
+              color: "rgba(255, 255, 255, 0)",
+            },
+            headerBackTitleStyle: {
+              color: "white",
+            },
+            headerTintColor: "white",
+          }}
+        />
+        <Stack.Screen
+          name="LA Toxicity"
+          component={LA}
+          options={{
+            headerStyle: {
+              backgroundColor: "rgb(30, 30, 32)",
+              color: "white",
+            },
+            headerTitleStyle: {
+              color: "rgba(255, 255, 255, 0)",
+            },
+            headerBackTitleStyle: {
+              color: "white",
+            },
+            headerTintColor: "white",
+          }}
+        />
+        <Stack.Screen
+          name="Basic Life Support"
+          component={Basiclifesupport}
+          options={{
+            headerStyle: {
+              backgroundColor: "rgb(30, 30, 32)",
+              color: "white",
+            },
+            headerTitleStyle: {
+              color: "rgba(255, 255, 255, 0)",
+            },
+            headerBackTitleStyle: {
+              color: "white",
+            },
+            headerTintColor: "white",
+          }}
+        />
+        <Stack.Screen
+          name="Malignant Hyperthermia"
+          component={Hypertermina}
+          options={{
+            headerStyle: {
+              backgroundColor: "rgb(30, 30, 32)",
+              color: "white",
+            },
+            headerTitleStyle: {
+              color: "rgba(255, 255, 255, 0)",
+            },
+            headerBackTitleStyle: {
+              color: "white",
+            },
+            headerTintColor: "white",
+          }}
+        />
+      </Stack.Navigator>
+    </WeightProvider>
   );
 }
 
 function Crisis({ navigation }) {
   const [displayWeight, setDisplayWeight] = useState(true);
-  const [weight, setWeight] = useState(null);
+  const { weight, setWeight } = useContext(WeightContext);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [searchQuery, setSearchQuery] = useState("");
   const windowWidth = useWindowDimensions().width;
@@ -331,7 +334,13 @@ function Crisis({ navigation }) {
                 height={Dimensions.get("window").height * 0.09}
               />
             </View>
-            <TouchableOpacity onPress={() => setDisplayWeight(false)}>
+            <TouchableOpacity
+              onPress={() => {
+                if (weight !== null) {
+                  setDisplayWeight(false);
+                }
+              }}
+            >
               <View
                 style={{
                   flexDirection: "row",

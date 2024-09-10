@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { WeightProvider, WeightContext } from "../components/WeightContext";
 import { useDarkMode } from "../components/DarkModeContext";
 import {
   SafeAreaView,
@@ -17,7 +18,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNHTMLtoPDF from "react-native-html-to-pdf";
 
 export default function Hypertermina() {
-  const [weight, setWeight] = useState(0);
+  const { weight, setWeight } = useContext(WeightContext);
   const [files, setFileArray] = useState([]);
 
   const getFilePaths = async () => {
