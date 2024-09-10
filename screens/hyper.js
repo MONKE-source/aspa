@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { WeightProvider, WeightContext } from "../components/WeightContext";
 import { useDarkMode } from "../components/DarkModeContext";
+import Collapsible from "react-native-collapsible";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import {
   SafeAreaView,
   StyleSheet,
@@ -1529,6 +1531,10 @@ export default function Hyper() {
         "reevaluate cause\nif ECG changes persist:\n→ rpt Calcium\n→ consider CRRT",
     },
   ];
+  const [collapsed1, setCollapsed1] = useState(true);
+  const [collapsed2, setCollapsed2] = useState(true);
+  const [collapsed3, setCollapsed3] = useState(true);
+  const [collapsed4, setCollapsed4] = useState(true);
 
   return (
     <SafeAreaView
@@ -1539,208 +1545,283 @@ export default function Hyper() {
     >
       <ScrollView style={{ marginBottom: "20%" }}>
         <View style={styles.container}>
-          <Text
-            style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed1(!collapsed1)}
           >
-            Hyperkalemia
-          </Text>
-          {checklistItems.map((item) => (
-            <TouchableOpacity
-              key={item.id}
-              onPress={() => handleToggleComplete(item.id)}
-              style={styles.checklistItem}
+            <Text
+              style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
             >
-              <View style={styles.checkbox}>
-                {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
-              </View>
-              <Text
-                style={[
-                  styles.checklistText,
-                  {
-                    color: isDarkMode ? "white" : "black",
-                    textDecorationLine: item.completed
-                      ? "line-through"
-                      : "none",
-                  },
-                ]}
-              >
-                {item.text}
-              </Text>
-            </TouchableOpacity>
-          ))}
-          <Text
-            style={[
-              styles.title,
-              { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
-            ]}
-          >
-            Inclusion Criteria
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-              },
-            ]}
-          >
-            Term NEONATE ({">"} 1 month age): serum K+ {">"} 6 mmol/L {"\n"}
-            Children {">"} 1 month age: serum K+ {">"}5.5 mmol/L
-          </Text>
-          <Text
-            style={[
-              styles.title,
-              { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
-            ]}
-          >
-            Exclusion Criteria
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-                marginBottom: "1%",
-              },
-            ]}
-          >
-            Premature Neonates
-          </Text>
-          <Text
-            style={[
-              styles.title,
-              { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
-            ]}
-          >
-            Management Algoritihm
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-                marginBottom: "1%",
-              },
-            ]}
-          >
-            Perform ECG immediately when possible {"\n"}
-            Review all medications/ infusions {"\n"}
-            Exclude: {"\n"}
-            {"\t"} - Burn or Crush injury {"\n"}
-            {"\t"} - Rhabdomyolysis {"\n"}
-            {"\t"} - Succinylchholine {"\n"}
-            {"\t"} - Malignant Hyperthermia {"\n"}
-            {"\t"} - Renal Failure
-          </Text>
-          {tableData.map((row, index) => (
-            <View
-              key={index}
+              Hyperkalemia
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
               style={{
-                marginBottom: 16,
-                borderWidth: 1,
-                borderColor: isDarkMode ? "white" : "black",
-                borderRadius: 8,
-                padding: 8,
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
               }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed1}>
+            {checklistItems.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                onPress={() => handleToggleComplete(item.id)}
+                style={styles.checklistItem}
+              >
+                <View style={styles.checkbox}>
+                  {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
+                </View>
+                <Text
+                  style={[
+                    styles.checklistText,
+                    {
+                      color: isDarkMode ? "white" : "black",
+                      textDecorationLine: item.completed
+                        ? "line-through"
+                        : "none",
+                    },
+                  ]}
+                >
+                  {item.text}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed2(!collapsed2)}
+          >
+            <Text
+              style={[
+                styles.title,
+                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+              ]}
             >
+              Inclusion Criteria
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed2}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                },
+              ]}
+            >
+              Term NEONATE ({">"} 1 month age): serum K+ {">"} 6 mmol/L {"\n"}
+              Children {">"} 1 month age: serum K+ {">"}5.5 mmol/L
+            </Text>
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+              marginVertical: "2%",
+            }}
+            onPress={() => setCollapsed3(!collapsed3)}
+          >
+            <Text
+              style={[
+                styles.title,
+                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+              ]}
+            >
+              Exclusion Criteria
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed3}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginBottom: "1%",
+                },
+              ]}
+            >
+              Premature Neonates
+            </Text>
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed4(!collapsed4)}
+          >
+            <Text
+              style={[
+                styles.title,
+                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+              ]}
+            >
+              Management Algoritihm
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed4}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginBottom: "1%",
+                },
+              ]}
+            >
+              Perform ECG immediately when possible {"\n"}
+              Review all medications/ infusions {"\n"}
+              Exclude: {"\n"}
+              {"\t"} - Burn or Crush injury {"\n"}
+              {"\t"} - Rhabdomyolysis {"\n"}
+              {"\t"} - Succinylchholine {"\n"}
+              {"\t"} - Malignant Hyperthermia {"\n"}
+              {"\t"} - Renal Failure
+            </Text>
+            {tableData.map((row, index) => (
               <View
+                key={index}
                 style={{
-                  flexDirection: "row",
-                  marginBottom: 8,
-                  borderBottomWidth: 1,
+                  marginBottom: 16,
+                  borderWidth: 1,
                   borderColor: isDarkMode ? "white" : "black",
-                  paddingBottom: 8,
+                  borderRadius: 8,
+                  padding: 8,
                 }}
               >
-                <Text
+                <View
                   style={{
-                    fontWeight: "bold",
-                    width: "25%",
-                    color: isDarkMode ? "white" : "black",
+                    flexDirection: "row",
+                    marginBottom: 8,
+                    borderBottomWidth: 1,
+                    borderColor: isDarkMode ? "white" : "black",
+                    paddingBottom: 8,
                   }}
                 >
-                  serum K+ (mmol/L)
-                </Text>
-                <Text
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                      width: "25%",
+                      color: isDarkMode ? "white" : "black",
+                    }}
+                  >
+                    serum K+ (mmol/L)
+                  </Text>
+                  <Text
+                    style={{
+                      width: "25%",
+                      color: isDarkMode ? "white" : "black",
+                    }}
+                  >
+                    {row.range}
+                  </Text>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                      width: "25%",
+                      color: isDarkMode ? "white" : "black",
+                    }}
+                  >
+                    Initial Treatment
+                  </Text>
+                  <Text
+                    style={{
+                      width: "25%",
+                      color: isDarkMode ? "white" : "black",
+                    }}
+                  >
+                    {row.initialTreatment}
+                  </Text>
+                </View>
+                <View
                   style={{
-                    width: "25%",
-                    color: isDarkMode ? "white" : "black",
+                    flexDirection: "row",
+                    marginBottom: 8,
+                    borderBottomWidth: 1,
+                    borderColor: isDarkMode ? "white" : "black",
+                    paddingBottom: 8,
                   }}
                 >
-                  {row.range}
-                </Text>
-                <Text
-                  style={{
-                    fontWeight: "bold",
-                    width: "25%",
-                    color: isDarkMode ? "white" : "black",
-                  }}
-                >
-                  Initial Treatment
-                </Text>
-                <Text
-                  style={{
-                    width: "25%",
-                    color: isDarkMode ? "white" : "black",
-                  }}
-                >
-                  {row.initialTreatment}
-                </Text>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                      width: "50%",
+                      color: isDarkMode ? "white" : "black",
+                    }}
+                  >
+                    Review: K+ improving
+                  </Text>
+                  <Text
+                    style={{
+                      width: "50%",
+                      color: isDarkMode ? "white" : "black",
+                    }}
+                  >
+                    {row.improving}
+                  </Text>
+                </View>
+                <View style={{ flexDirection: "row" }}>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                      width: "50%",
+                      color: isDarkMode ? "white" : "black",
+                    }}
+                  >
+                    Review: K+ NOT improving
+                  </Text>
+                  <Text
+                    style={{
+                      width: "50%",
+                      color: isDarkMode ? "white" : "black",
+                    }}
+                  >
+                    {row.notImproving}
+                  </Text>
+                </View>
               </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  marginBottom: 8,
-                  borderBottomWidth: 1,
-                  borderColor: isDarkMode ? "white" : "black",
-                  paddingBottom: 8,
-                }}
-              >
-                <Text
-                  style={{
-                    fontWeight: "bold",
-                    width: "50%",
-                    color: isDarkMode ? "white" : "black",
-                  }}
-                >
-                  Review: K+ improving
-                </Text>
-                <Text
-                  style={{
-                    width: "50%",
-                    color: isDarkMode ? "white" : "black",
-                  }}
-                >
-                  {row.improving}
-                </Text>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <Text
-                  style={{
-                    fontWeight: "bold",
-                    width: "50%",
-                    color: isDarkMode ? "white" : "black",
-                  }}
-                >
-                  Review: K+ NOT improving
-                </Text>
-                <Text
-                  style={{
-                    width: "50%",
-                    color: isDarkMode ? "white" : "black",
-                  }}
-                >
-                  {row.notImproving}
-                </Text>
-              </View>
-            </View>
-          ))}
+            ))}
+          </Collapsible>
           <View
             style={{
-              bottom: "-1",
               paddingBottom: 20,
               flexDirection: "row",
-              bottom: "11%",
               marginTop: "9%",
               alignSelf: "center",
               right: "0.75%",

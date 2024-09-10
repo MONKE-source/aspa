@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { WeightProvider, WeightContext } from "../components/WeightContext";
 import { useDarkMode } from "../components/DarkModeContext";
+import Collapsible from "react-native-collapsible";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import {
   SafeAreaView,
   StyleSheet,
@@ -619,6 +621,12 @@ export default function Hypertermina() {
       )
     );
   };
+  const [collapsed1, setCollapsed1] = useState(true);
+  const [collapsed2, setCollapsed2] = useState(true);
+  const [collapsed3, setCollapsed3] = useState(true);
+  const [collapsed4, setCollapsed4] = useState(true);
+  const [collapsed5, setCollapsed5] = useState(true);
+  const [collapsed6, setCollapsed6] = useState(true);
 
   return (
     <SafeAreaView
@@ -629,204 +637,314 @@ export default function Hypertermina() {
     >
       <ScrollView style={{ marginBottom: "20%" }}>
         <View style={styles.container}>
-          <Text
-            style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed1(!collapsed1)}
           >
-            MALIGNANT HYPERTHERMIA
-          </Text>
-          {checklistItems.map((item) => (
-            <TouchableOpacity
-              key={item.id}
-              onPress={() => handleToggleComplete(item.id)}
-              style={styles.checklistItem}
+            <Text
+              style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
             >
-              <View style={styles.checkbox}>
-                {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
-              </View>
-              <Text
-                style={[
-                  styles.checklistText,
-                  {
-                    color: isDarkMode ? "white" : "black",
-                    textDecorationLine: item.completed
-                      ? "line-through"
-                      : "none",
-                  },
-                ]}
+              MALIGNANT HYPERTHERMIA
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed1}>
+            {checklistItems.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                onPress={() => handleToggleComplete(item.id)}
+                style={styles.checklistItem}
               >
-                {item.text}
-              </Text>
-            </TouchableOpacity>
-          ))}
-          <Text
-            style={[
-              styles.title,
-              { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
-            ]}
+                <View style={styles.checkbox}>
+                  {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
+                </View>
+                <Text
+                  style={[
+                    styles.checklistText,
+                    {
+                      color: isDarkMode ? "white" : "black",
+                      textDecorationLine: item.completed
+                        ? "line-through"
+                        : "none",
+                    },
+                  ]}
+                >
+                  {item.text}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed2(!collapsed2)}
           >
-            Check Box
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
+            <Text
+              style={[
+                styles.title,
+                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+              ]}
+            >
+              Check Box
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed2}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  textDecorationLine: "none",
+                },
+              ]}
+            >
+              MH BOX- ORANGE box (containing essential drugs & treatment
+              algorithm) kept in: {`\n`}
+              {"\t"}- MOT: check with your instituition {`\n`}
+              {"\t"}- DSOT- check with your own instituition {`\n`}
+              {"\n"}
+              Please inform AU nurse if MH box has been opened and used.{`\n`}
+              Please return box to respective OT locations if not used.
+            </Text>
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed3(!collapsed3)}
+          >
+            <Text
+              style={[
+                styles.title,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginBottom: "3%",
+                },
+              ]}
+            >
+              Recognition
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed3}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                },
+              ]}
+            >
+              Previous uneventful GA DOES NOT rule out MH
+              {"\n"}
+              {"\n"}
+              Clinical:{"\n"}
+              {"\t"}1. Unexplained increase in ETCO2 {"\n"}
+              {"\t"}2. Unexplained Tachycardia {"\n"}
+              {"\t"}3. Unexplained increase in Oxygen requirements {"\n"}
+              {"\t"}4. Trunk or limb rigidity {"\n"}
+              {"\t"}5. Masseter spasm (Trismus) {"\n"}
+              {"\t"}6. Unstable or rising blood pressure {"\n"}
+              {"\t"}7. Respiratory & Metabloic Acidosis {"\n"}
+              {"\t"}8. Arrhythmias {"\n"}
+              {"\t"}9. Temperature changes are a LATE sign
+              {"\n"}
+              {"\n"}
+              Biochemical:{"\n"}
+              {"\t"}1. increased PaCO2 {"\n"}
+              {"\t"}2. decreased PH {"\n"}
+              {"\t"}3. increased serum K {"\n"}
+              {"\t"}4. decreased PaO2 {"\n"}
+              {"\t"}5. increased creatine kinase {"\n"}
+              {"\t"}6. myoglobinuria {"\n"}
+            </Text>
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed4(!collapsed4)}
+          >
+            <Text
+              style={[
+                styles.title,
+                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+              ]}
+            >
+              Treatment{" "}
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed4}>
+            <Text
+              style={[
+                styles.checklistText,
+                { color: isDarkMode ? "white" : "black" },
+              ]}
+            >
+              Dantrolene
+              {"\n"}
+              1. COOL patient if temp {">"} 39 degrees celsius{"\n"}
+              2.Cold IV NS,ice saline lavage, surface ice packs{"\n"}
+              3.Stop cooling when temp 38 degrees celsius and falling
+              {"\n"}
+              {"\n"}
+              Treat HYPERKALAEMIA{"\n"}
+              1. Treat ARRHYTHMIAS{"\n"}
+              {"\t"} - Avoid Calcium channel blockers {"\n"}
+              {"\t"} - can use Amiodarone {"\n"}
+              2. Treat METABOLIC ACIDOSIS {"\n"}
+              {"\t"} - Hyperventilate {"\n"}
+              {"\t"} - NaHCO3 {"\n"}
+              3. Treat MYOGLOBINURIA{"\n"}
+              {"\t"} - forced alkaline diuresis (mannitol/frusemide+NaHCO3){" "}
+              {"\n"}
+              {"\t"} - may require renal replacement therapy later {"\n"}
+              4.Treat DIC (if present) {"\n"}
+              {"\t"} - FFP, Cryoppt, Platelets {"\n"}
+              {"\n"}
+            </Text>
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed5(!collapsed5)}
+          >
+            <Text
+              style={[
+                styles.title,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginTop: "2%",
+                },
+              ]}
+            >
+              Monitor
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed5}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginBottom: "5%",
+                },
+              ]}
+            >
+              1. Core & Peripheral TEMPERATURE{"\n"}
+              2. ECG{"\n"}
+              3. Invasive BP{"\n"}
+              4. CVP{"\n"}
+              5. ETCO2/ PaCO2{"\n"}
+              6. SpO2/ PaO2{"\n"}
+              7. serum CREATINE KINASE{"\n"}
+              8. serum K{"\n"}
+              9. coagulation profile
+            </Text>
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed6(!collapsed6)}
+          >
+            <Text
+              style={{
+                fontSize: 28,
+                fontWeight: "bold",
                 color: isDarkMode ? "white" : "black",
-                textDecorationLine: "none",
-              },
-            ]}
-          >
-            MH BOX- ORANGE box (containing essential drugs & treatment
-            algorithm) kept in: {`\n`}
-            {"\t"}- MOT: check with your instituition {`\n`}
-            {"\t"}- DSOT- check with your own instituition {`\n`}
-            {"\n"}
-            Please inform AU nurse if MH box has been opened and used.{`\n`}
-            Please return box to respective OT locations if not used.
-          </Text>
-          <Text
-            style={[
-              styles.title,
-              {
-                color: isDarkMode ? "white" : "black",
-                marginBottom: "3%",
-              },
-            ]}
-          >
-            Recognition
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-              },
-            ]}
-          >
-            Previous uneventful GA DOES NOT rule out MH
-            {"\n"}
-            {"\n"}
-            Clinical:{"\n"}
-            {"\t"}1. Unexplained increase in ETCO2 {"\n"}
-            {"\t"}2. Unexplained Tachycardia {"\n"}
-            {"\t"}3. Unexplained increase in Oxygen requirements {"\n"}
-            {"\t"}4. Trunk or limb rigidity {"\n"}
-            {"\t"}5. Masseter spasm (Trismus) {"\n"}
-            {"\t"}6. Unstable or rising blood pressure {"\n"}
-            {"\t"}7. Respiratory & Metabloic Acidosis {"\n"}
-            {"\t"}8. Arrhythmias {"\n"}
-            {"\t"}9. Temperature changes are a LATE sign
-            {"\n"}
-            {"\n"}
-            Biochemical:{"\n"}
-            {"\t"}1. increased PaCO2 {"\n"}
-            {"\t"}2. decreased PH {"\n"}
-            {"\t"}3. increased serum K {"\n"}
-            {"\t"}4. decreased PaO2 {"\n"}
-            {"\t"}5. increased creatine kinase {"\n"}
-            {"\t"}6. myoglobinuria {"\n"}
-          </Text>
-          <Text
-            style={[
-              styles.title,
-              { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
-            ]}
-          >
-            Treatment{" "}
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              { color: isDarkMode ? "white" : "black" },
-            ]}
-          >
-            Dantrolene
-            {"\n"}
-            1. COOL patient if temp {">"} 39 degrees celsius{"\n"}
-            2.Cold IV NS,ice saline lavage, surface ice packs{"\n"}
-            3.Stop cooling when temp 38 degrees celsius and falling
-            {"\n"}
-            {"\n"}
-            Treat HYPERKALAEMIA{"\n"}
-            1. Treat ARRHYTHMIAS{"\n"}
-            {"\t"} - Avoid Calcium channel blockers {"\n"}
-            {"\t"} - can use Amiodarone {"\n"}
-            2. Treat METABOLIC ACIDOSIS {"\n"}
-            {"\t"} - Hyperventilate {"\n"}
-            {"\t"} - NaHCO3 {"\n"}
-            3. Treat MYOGLOBINURIA{"\n"}
-            {"\t"} - forced alkaline diuresis (mannitol/frusemide+NaHCO3) {"\n"}
-            {"\t"} - may require renal replacement therapy later {"\n"}
-            4.Treat DIC (if present) {"\n"}
-            {"\t"} - FFP, Cryoppt, Platelets {"\n"}
-            {"\n"}
-          </Text>
-          <Text
-            style={[
-              styles.title,
-              {
-                color: isDarkMode ? "white" : "black",
-                marginBottom: "0%",
-                marginTop: "-5%",
-              },
-            ]}
-          >
-            Monitor
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-                marginBottom: "0%",
-              },
-            ]}
-          >
-            1. Core & Peripheral TEMPERATURE{"\n"}
-            2. ECG{"\n"}
-            3. Invasive BP{"\n"}
-            4. CVP{"\n"}
-            5. ETCO2/ PaCO2{"\n"}
-            6. SpO2/ PaO2{"\n"}
-            7. serum CREATINE KINASE{"\n"}
-            8. serum K{"\n"}
-            9. coagulation profile
-          </Text>
-          <Text
-            style={[
-              styles.title,
-              {
-                color: isDarkMode ? "white" : "black",
-                marginBottom: "0%",
-                marginTop: "5%",
-              },
-            ]}
-          >
-            DIFFERENTIAL DIAGNOSIS
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-              },
-            ]}
-          >
-            1. Inadequate anaesthesia or analgesia{"\n"}
-            2. Inappropriate breathing circuit, fresh gas flow or ventilation
-            {"\n"}
-            3. Infection or sepsis{"\n"}
-            4. Tourniquet ischaemia{"\n"}
-            5. Anaphylaxis{"\n"}
-            5. Pheochromocytoma{"\n"}
-            6. Thyroid storm
-          </Text>
+              }}
+            >
+              DIFFERENTIAL DIAGNOSIS
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed6}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginVertical: "3%",
+                },
+              ]}
+            >
+              1. Inadequate anaesthesia or analgesia{"\n"}
+              2. Inappropriate breathing circuit, fresh gas flow or ventilation
+              {"\n"}
+              3. Infection or sepsis{"\n"}
+              4. Tourniquet ischaemia{"\n"}
+              5. Anaphylaxis{"\n"}
+              5. Pheochromocytoma{"\n"}
+              6. Thyroid storm
+            </Text>
+          </Collapsible>
           <View
             style={{
-              bottom: "0%",
               paddingBottom: 20,
               flexDirection: "row",
-              bottom: "11%",
-              marginTop: "11%",
+              marginTop: "15%",
               alignSelf: "center",
               right: "0.75%",
             }}

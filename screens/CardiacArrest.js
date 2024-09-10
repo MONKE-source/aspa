@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useDarkMode } from "../components/DarkModeContext";
+import Collapsible from "react-native-collapsible";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import {
   SafeAreaView,
   StyleSheet,

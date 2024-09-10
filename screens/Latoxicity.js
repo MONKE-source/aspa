@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { WeightProvider, WeightContext } from "../components/WeightContext";
-
+import Collapsible from "react-native-collapsible";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { useDarkMode } from "../components/DarkModeContext";
 import {
   SafeAreaView,
@@ -2110,6 +2111,8 @@ export default function LA() {
       )
     );
   };
+  const [collapsed1, setCollapsed1] = useState(true);
+  const [collapsed2, setCollapsed2] = useState(true);
 
   return (
     <SafeAreaView
@@ -2120,67 +2123,103 @@ export default function LA() {
     >
       <ScrollView style={{ marginBottom: "20%" }}>
         <View style={styles.container}>
-          <Text
-            style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed1(!collapsed1)}
           >
-            LA Toxicity
-          </Text>
-          {checklistItems.map((item) => (
-            <TouchableOpacity
-              key={item.id}
-              onPress={() => handleToggleComplete(item.id)}
-              style={styles.checklistItem}
+            <Text
+              style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
             >
-              <View style={styles.checkbox}>
-                {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
-              </View>
-              <Text
-                style={[
-                  styles.checklistText,
-                  {
-                    color: isDarkMode ? "white" : "black",
-                    textDecorationLine: item.completed
-                      ? "line-through"
-                      : "none",
-                  },
-                ]}
+              LA Toxicity
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed1}>
+            {checklistItems.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                onPress={() => handleToggleComplete(item.id)}
+                style={styles.checklistItem}
               >
-                {item.text}
-              </Text>
-            </TouchableOpacity>
-          ))}
-          <Text
-            style={[
-              styles.title,
-              { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
-            ]}
+                <View style={styles.checkbox}>
+                  {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
+                </View>
+                <Text
+                  style={[
+                    styles.checklistText,
+                    {
+                      color: isDarkMode ? "white" : "black",
+                      textDecorationLine: item.completed
+                        ? "line-through"
+                        : "none",
+                    },
+                  ]}
+                >
+                  {item.text}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed2(!collapsed2)}
           >
-            Signs
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-              },
-            ]}
-          >
-            Sudden altertaion in mental status: {"\n"}
-            {"\t"} 1. Severe Agitation {"\n"}
-            {"\t"} 2. loss of consciousness {"\n"}
-            Cardiovascular Collapse: {"\n"}
-            {"\t"} 1. sinus bradycardia {"\n"}
-            {"\t"} 2. conduction block {"\n"}
-            {"\t"} 3. ventricular Tachyarrhythmias {"\n"}
-            {"\t"} 4. Asystole {"\n"}
-          </Text>
+            <Text
+              style={[
+                styles.title,
+                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+              ]}
+            >
+              Signs
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed2} style={{ marginTop: "2%" }}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                },
+              ]}
+            >
+              Sudden altertaion in mental status: {"\n"}
+              {"\t"} 1. Severe Agitation {"\n"}
+              {"\t"} 2. loss of consciousness {"\n"}
+              Cardiovascular Collapse: {"\n"}
+              {"\t"} 1. sinus bradycardia {"\n"}
+              {"\t"} 2. conduction block {"\n"}
+              {"\t"} 3. ventricular Tachyarrhythmias {"\n"}
+              {"\t"} 4. Asystole {"\n"}
+            </Text>
+          </Collapsible>
           <View
             style={{
-              bottom: "2%",
-              paddingBottom: 20,
               flexDirection: "row",
-              bottom: "11%",
               justifyContent: "space-evenly",
+              marginTop: "10%"
             }}
           >
             <TextInputButton

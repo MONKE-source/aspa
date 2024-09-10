@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useDarkMode } from "../components/DarkModeContext";
+import Collapsible from "react-native-collapsible";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import {
   SafeAreaView,
   StyleSheet,
@@ -40,7 +42,9 @@ export default function Basiclifesupport() {
       )
     );
   };
-
+  const [collapsed1, setCollapsed1] = useState(true);
+  const [collapsed2, setCollapsed2] = useState(true);
+  const [collapsed3, setCollapsed3] = useState(true);
   return (
     <SafeAreaView
       style={{
@@ -50,108 +54,164 @@ export default function Basiclifesupport() {
     >
       <ScrollView style={{ marginBottom: "20%" }}>
         <View style={styles.container}>
-          <Text
-            style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed1(!collapsed1)}
           >
-            Basic Life Support Checklist
-          </Text>
-          {checklistItems.map((item) => (
-            <TouchableOpacity
-              key={item.id}
-              onPress={() => handleToggleComplete(item.id)}
-              style={styles.checklistItem}
+            <Text
+              style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
             >
-              <View style={styles.checkbox}>
-                {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
-              </View>
-              <Text
-                style={[
-                  styles.checklistText,
-                  {
-                    color: isDarkMode ? "white" : "black",
-                    textDecorationLine: item.completed
-                      ? "line-through"
-                      : "none",
-                  },
-                ]}
+              Basic Life Support Checklist
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed1}>
+            {checklistItems.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                onPress={() => handleToggleComplete(item.id)}
+                style={styles.checklistItem}
               >
-                {item.text}
-              </Text>
-            </TouchableOpacity>
-          ))}
-          <Text
-            style={[
-              styles.title,
-              {
-                color: isDarkMode ? "white" : "black",
-                marginTop: "1%",
-                marginBottom: "1%",
-              },
-            ]}
+                <View style={styles.checkbox}>
+                  {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
+                </View>
+                <Text
+                  style={[
+                    styles.checklistText,
+                    {
+                      color: isDarkMode ? "white" : "black",
+                      textDecorationLine: item.completed
+                        ? "line-through"
+                        : "none",
+                    },
+                  ]}
+                >
+                  {item.text}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed2(!collapsed2)}
           >
-            Rescue Breathing
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-              },
-            ]}
+            <Text
+              style={[
+                styles.title,
+                {
+                  color: isDarkMode ? "white" : "black",
+                },
+              ]}
+            >
+              Rescue Breathing
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed2}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                },
+              ]}
+            >
+              1. One breath 1 breath every 3 seconds
+              {"\n"}
+              {"\t"} - breathe a thousand, 2 a thousand, 3 a {"\t"} thousand
+              then repeat cycle
+            </Text>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginTop: "2%",
+                },
+              ]}
+            >
+              2. Recheck pulse every 2 minutes
+            </Text>
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+              marginVertical: "3%",
+            }}
+            onPress={() => setCollapsed3(!collapsed3)}
           >
-            1. One breath 1 breath every 3 seconds
-            {"\n"}
-            {"\t"} - breathe a thousand, 2 a thousand, 3 a {"\t"} thousand then
-            repeat cycle
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-                marginTop: "-4%",
-              },
-            ]}
-          >
-            2. Recheck pulse every 2 minutes
-          </Text>
-          <Text
-            style={[
-              styles.title,
-              {
-                color: isDarkMode ? "white" : "black",
-                marginTop: "1%",
-                marginBottom: "1%",
-              },
-            ]}
-          >
-            Cardiopulmonary Resuscitation
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-              },
-            ]}
-          >
-            1. SINGLE RESCUER: 30 compressions : 2 breaths
-            {"\n"}
-            2. HEALTHCARE PROVIDER, TEAM RESUSCITATION:
-            {"\n"}
-            {"\t"}a. No advanced airway- 15 compressions : 2 breaths
-            {"\n"}
-            {"\t"}b. Advanced airway (LMA/ ETT)- provide 100 compressions & 10
-            ventilations per minute
-            {"\n"}
-            {"\t"}c. Push Hard Push Fast
-            {"\n"}
-            {"\t"}d. Minimise interruptions to compressions
-            {"\n"}
-            {"\t"}e. Rotate roles to avoid fatigue
-            {"\n"}
-            {"\t"}f. Recheck pulse every 2 minutes
-          </Text>
+            <Text
+              style={[
+                styles.title,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginTop: "1%",
+                  marginBottom: "1%",
+                },
+              ]}
+            >
+              Cardiopulmonary Resuscitation
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed3}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                },
+              ]}
+            >
+              1. SINGLE RESCUER: 30 compressions : 2 breaths
+              {"\n"}
+              2. HEALTHCARE PROVIDER, TEAM RESUSCITATION:
+              {"\n"}
+              {"\t"}a. No advanced airway- 15 compressions : 2 breaths
+              {"\n"}
+              {"\t"}b. Advanced airway (LMA/ ETT)- provide 100 compressions & 10
+              ventilations per minute
+              {"\n"}
+              {"\t"}c. Push Hard Push Fast
+              {"\n"}
+              {"\t"}d. Minimise interruptions to compressions
+              {"\n"}
+              {"\t"}e. Rotate roles to avoid fatigue
+              {"\n"}
+              {"\t"}f. Recheck pulse every 2 minutes
+            </Text>
+          </Collapsible>
         </View>
       </ScrollView>
     </SafeAreaView>

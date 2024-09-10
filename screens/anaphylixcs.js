@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { WeightProvider, WeightContext } from "../components/WeightContext";
 import { useDarkMode } from "../components/DarkModeContext";
+import Collapsible from "react-native-collapsible";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import {
   SafeAreaView,
   StyleSheet,
@@ -1051,6 +1053,9 @@ export default function Anaphylaxis() {
       )
     );
   };
+  const [collapsed1, setCollapsed1] = useState(true);
+  const [collapsed2, setCollapsed2] = useState(true);
+  const [collapsed3, setCollapsed3] = useState(true);
 
   return (
     <SafeAreaView
@@ -1061,82 +1066,140 @@ export default function Anaphylaxis() {
     >
       <ScrollView style={{ marginBottom: "20%" }}>
         <View style={styles.container}>
-          <Text
-            style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed1(!collapsed1)}
           >
-            Anaphylaxis Management
-          </Text>
-          {checklistItems.map((item) => (
-            <TouchableOpacity
-              key={item.id}
-              onPress={() => handleToggleComplete(item.id)}
-              style={styles.checklistItem}
+            <Text
+              style={[
+                styles.title,
+                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+              ]}
             >
-              <View style={styles.checkbox}>
-                {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
-              </View>
-              <Text
-                style={[
-                  styles.checklistText,
-                  {
-                    color: isDarkMode ? "white" : "black",
-                    textDecorationLine: item.completed
-                      ? "line-through"
-                      : "none",
-                  },
-                ]}
+              Anaphylaxis Management
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed1} style={{ marginVertical: "3%" }}>
+            {checklistItems.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                onPress={() => handleToggleComplete(item.id)}
+                style={styles.checklistItem}
               >
-                {item.text}
-              </Text>
-            </TouchableOpacity>
-          ))}
-          <Text
-            style={[
-              styles.title,
-              { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
-            ]}
+                <View style={styles.checkbox}>
+                  {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
+                </View>
+                <Text
+                  style={[
+                    styles.checklistText,
+                    {
+                      color: isDarkMode ? "white" : "black",
+                      textDecorationLine: item.completed
+                        ? "line-through"
+                        : "none",
+                    },
+                  ]}
+                >
+                  {item.text}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed2(!collapsed2)}
           >
-            Signs
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-              },
-            ]}
+            <Text
+              style={[
+                styles.title,
+                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+              ]}
+            >
+              Signs
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed2}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                },
+              ]}
+            >
+              1.Erythema{"\n"}
+              2.Urticaria{"\n"}
+              3.Angioedema{"\n"}
+              4.Hypotension{"\n"}
+              5.Tachycardia{"\n"}
+              6.Dysrrhythmias{"\n"}
+              7.Circulatory Collapse
+            </Text>
+          </Collapsible>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+            }}
+            onPress={() => setCollapsed3(!collapsed3)}
           >
-            1.Erythema{"\n"}
-            2.Urticaria{"\n"}
-            3.Angioedema{"\n"}
-            4.Hypotension{"\n"}
-            5.Tachycardia{"\n"}
-            6.Dysrrhythmias{"\n"}
-            7.Circulatory Collapse
-          </Text>
-          <Text
-            style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
-          >
-            Symptoms
-          </Text>
-          <Text
-            style={[
-              styles.checklistText,
-              {
-                color: isDarkMode ? "white" : "black",
-                marginTop: "-5%",
-              },
-            ]}
-          >
-            1.Dyspnoea{"\n"}
-            2.Wheezing
-          </Text>
+            <Text
+              style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+            >
+              Symptoms
+            </Text>
+            <FontAwesome5
+              name="expand-alt"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed3}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginTop: "-1%",
+                },
+              ]}
+            >
+              1.Dyspnoea{"\n"}
+              2.Wheezing
+            </Text>
+          </Collapsible>
           <View
             style={{
-              bottom: "0%",
               paddingBottom: 20,
               flexDirection: "row",
-              bottom: "11%",
               marginTop: "7%",
               alignSelf: "center",
               right: "1%",
@@ -1186,7 +1249,7 @@ const styles = StyleSheet.create({
     paddingBottom: "100",
   },
   title: {
-    fontSize: 30,
+    fontSize: 28,
     marginBottom: 20,
     fontWeight: "bold",
   },
