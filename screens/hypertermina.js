@@ -979,19 +979,7 @@ export default function Hypertermina() {
               right: "0.75%",
             }}
           >
-            <TextInputButton
-              title="Weight"
-              unit="kg"
-              width={(Dimensions.get("window").width * 120) / 390}
-              height={(Dimensions.get("window").height * 55) / 844}
-              backgroundColor={"#313135"}
-              store={weight}
-              action={setWeight}
-            />
-            <TouchableOpacity
-              onPress={createPDF}
-              style={{ left: "20%", top: "7%" }}
-            >
+            <TouchableOpacity onPress={createPDF}>
               <IconButton
                 bgHex="#72A8DA"
                 title="View"

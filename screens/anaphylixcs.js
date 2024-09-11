@@ -66,10 +66,8 @@ export default function Anaphylaxis() {
     }
     return value;
   }
-  const createPDF = async () => {
-    try {
-      let PDFOptions = {
-        html: `<!DOCTYPE html>
+  let PDFOptions1 = {
+    html: `<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Document</title>
@@ -1007,9 +1005,591 @@ export default function Anaphylaxis() {
   </body>
 </html>
 `,
-        fileName: genName("Anaphylaxis"),
-        directory: Platform.OS === "android" ? "Downloads" : "Documents",
-      };
+    fileName: genName("AnaphylaxisImmediate"),
+    directory: Platform.OS === "android" ? "Downloads" : "Documents",
+  };
+  let PDFOptions2 = {
+    html: `<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link
+  type="text/css"
+  rel="stylesheet"
+  href="resources/sheet.css"
+/>
+<style type="text/css">
+  .ritz .waffle a {
+    color: inherit;
+  }
+  .ritz .waffle .s3 {
+    background-color: #ffffff;
+    text-align: center;
+    color: #0563c1;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s18 {
+    border-bottom: 1px SOLID transparent;
+    border-right: 1px SOLID transparent;
+    background-color: #deeaf6;
+    text-align: center;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s2 {
+    background-color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 14pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s6 {
+    border-bottom: 1px SOLID transparent;
+    background-color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s14 {
+    border-bottom: 1px SOLID transparent;
+    border-right: 1px SOLID transparent;
+    background-color: #d2e1ff;
+    text-align: center;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s7 {
+    border-right: 2px SOLID transparent;
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s9 {
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s20 {
+    border-right: 1px SOLID transparent;
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s19 {
+    border-bottom: 1px SOLID transparent;
+    border-right: 1px SOLID transparent;
+    background-color: #deeaf6;
+    text-align: right;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s5 {
+    border-bottom: 2px SOLID transparent;
+    background-color: #ffffff;
+  }
+  .ritz .waffle .s0 {
+    border-bottom: 1px SOLID transparent;
+    background-color: #ffffff;
+  }
+  .ritz .waffle .s15 {
+    border-bottom: 1px SOLID transparent;
+    border-right: 1px SOLID transparent;
+    background-color: #d2e1ff;
+    text-align: right;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s10 {
+    background-color: #ffffff;
+    text-align: center;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s4 {
+    background-color: #ffffff;
+    text-align: center;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s8 {
+    border-bottom: 2px SOLID transparent;
+    border-right: 2px SOLID transparent;
+    background-color: #ffffff;
+    text-align: right;
+    color: #c00000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s11 {
+    border-right: 1px SOLID transparent;
+    background-color: #ffffff;
+  }
+  .ritz .waffle .s1 {
+    border-bottom: 1px SOLID transparent;
+    border-right: 1px SOLID transparent;
+    background-color: #ffffff;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    -webkit-text-decoration-skip: none;
+    color: #0563c1;
+    font-family: docs-Calibri, Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s13 {
+    border-bottom: 1px SOLID transparent;
+    border-right: 1px SOLID transparent;
+    background-color: #d2e1ff;
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s16 {
+    border-bottom: 1px SOLID transparent;
+    border-right: 1px SOLID transparent;
+    background-color: #deeaf6;
+    text-align: left;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s17 {
+    border-bottom: 1px SOLID transparent;
+    border-right: 1px SOLID transparent;
+    background-color: #deeaf6;
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+  .ritz .waffle .s12 {
+    border-bottom: 1px SOLID transparent;
+    border-right: 1px SOLID transparent;
+    background-color: #d2e1ff;
+    text-align: left;
+    color: #000000;
+    font-family: docs-Calibri, Arial;
+    font-size: 12pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+</style>
+<div class="ritz grid-container" dir="ltr">
+  <table class="waffle" cellspacing="0" cellpadding="0" id="myTable">
+    <tbody>
+      <tr style="height: 20px">
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s2" colspan="2">ANAPHYLAXIS</td>
+        <td class="s4"></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s5"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td></td>
+        <td class="s6" colspan="2">SECONDARY TREATMENT</td>
+        <td></td>
+        <td class="s7" colspan="2">enter BODY WEIGHT(KG)=</td>
+        <td class="s8">${weight}</td>
+      </tr>
+      <tr style="height: 20px">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s9"></td>
+        <td class="s10"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s12">Anti- Inflammatory:</td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s13" colspan="2">HYDROCORTISONE</td>
+        <td class="s14">IV/IO</td>
+        <td class="s14">BOLUS</td>
+        <td class="s15">${weight * 2}</td>
+        <td class="s12">MILLIgram</td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s12" colspan="2">(2 MILLIgram/KG)</td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s16" colspan="4">
+          consider if hypotension persist despite epinephrine:
+        </td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s16" colspan="6"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s17">phenylephrine</td>
+        <td class="s16"></td>
+        <td class="s18">IV/IO</td>
+        <td class="s18">BOLUS</td>
+        <td class="s19">${weight * 10}</td>
+        <td class="s16">MICROgram</td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s16">(10 MICROgram/KG)</td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s16" colspan="6" rowspan="2"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s17">vasopressin</td>
+        <td class="s16"></td>
+        <td class="s16">IV/IO</td>
+        <td class="s16">BOLUS</td>
+        <td class="s19">${roundToOneDecimalPlace(weight * 0.03)}</td>
+        <td class="s16">UNITS</td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s16">0.03 UNITS/KG</td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s16" colspan="6" rowspan="2"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s16" colspan="6">
+          <span
+            style="
+              font-size: 12pt;
+              font-family: Calibri, Arial;
+              font-weight: bold;
+              color: #000000;
+            "
+            >NOREPINEPHRINE</span
+          ><span
+            style="font-size: 12pt; font-family: Calibri, Arial; color: #000000"
+          >
+            infusion at 0.01-0.2 MICROgram/KG/MIN</span
+          >
+        </td>
+      </tr>
+      <tr style="height: 20px">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <td></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s12" colspan="2">consider if bronchospasm:</td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s20"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s12">
+          <span
+            style="
+              font-size: 12pt;
+              font-family: Calibri, Arial;
+              font-weight: bold;
+              color: #000000;
+            "
+            >Salbutamol </span
+          ><span
+            style="font-size: 12pt; font-family: Calibri, Arial; color: #000000"
+            >Inhaler</span
+          >
+        </td>
+        <td class="s15">4-10</td>
+        <td class="s12">puffs</td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s13">Aminophylline</td>
+        <td class="s12"></td>
+        <td class="s14">IV/IO</td>
+        <td class="s12">SLOW BOLUS</td>
+        <td class="s15">${weight * 10}</td>
+        <td class="s12">MILLIgram</td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s12">(10 MILLIgram/KG)</td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s14">(1 Hour)</td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s16">AntiHistamine:</td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s17">Diphenhydramine</td>
+        <td class="s16"></td>
+        <td class="s18">IV/IO</td>
+        <td class="s16">SLOW BOLUS</td>
+        <td class="s19">${weight * 1}</td>
+        <td class="s16">MILLIgram</td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s16">(1 MILLIgram/KG)</td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <td></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s13">Ranitidine</td>
+        <td class="s12"></td>
+        <td class="s12">IV/IO</td>
+        <td class="s14">BOLUS</td>
+        <td class="s15">${weight * 1}</td>
+        <td class="s12">MILLIgram</td>
+      </tr>
+      <tr style="height: 20px">
+        <td class="s11"></td>
+        <td class="s12">(1 MILLIgram/KG)</td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+        <td class="s12"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`,
+    fileName: genName("AnaphylaxisSecondary"),
+    directory: Platform.OS === "android" ? "Downloads" : "Documents",
+  };
+  const createPDF = async (PDFOptions) => {
+    try {
       let file = await RNHTMLtoPDF.convert(PDFOptions);
       if (!file.filePath) return;
       const updatedFiles = [...files, file.filePath];
@@ -1215,27 +1795,34 @@ export default function Anaphylaxis() {
             style={{
               paddingBottom: 20,
               flexDirection: "row",
-              marginTop: "7%",
+              marginTop: "10%",
               alignSelf: "center",
               right: "1%",
             }}
           >
-            <TextInputButton
-              title="Weight"
-              unit="kg"
-              width={(Dimensions.get("window").width * 120) / 390}
-              height={(Dimensions.get("window").height * 55) / 844}
-              backgroundColor={"#313135"}
-              store={weight}
-              action={setWeight}
-            />
             <TouchableOpacity
-              onPress={createPDF}
-              style={{ left: "20%", top: "7%" }}
+              onPress={() => createPDF(PDFOptions1)}
+              style={{ marginRight: "5%" }}
             >
               <IconButton
                 bgHex="#72A8DA"
-                title="View"
+                title="Immediate"
+                iconPath="folder-outline"
+                contentHex="white"
+                borderColor={"rgb(30, 30, 32)"}
+                borderWidth={0}
+                size={(Dimensions.get("window").height / 844) * 25}
+                textSize={
+                  Platform.isPad
+                    ? Dimensions.get("window").height * 0.04739336 * 0.45
+                    : 19
+                }
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => createPDF(PDFOptions2)}>
+              <IconButton
+                bgHex="#72A8DA"
+                title="Secondary"
                 iconPath="folder-outline"
                 contentHex="white"
                 borderColor={"rgb(30, 30, 32)"}
