@@ -651,11 +651,16 @@ export default function Hypertermina() {
               MALIGNANT HYPERTHERMIA
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed1 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -702,11 +707,16 @@ export default function Hypertermina() {
               Check Box
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed2 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -749,11 +759,16 @@ export default function Hypertermina() {
               Recognition
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed3 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -807,11 +822,16 @@ export default function Hypertermina() {
               Treatment{" "}
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed4 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -865,11 +885,16 @@ export default function Hypertermina() {
               Monitor
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed5 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -912,11 +937,16 @@ export default function Hypertermina() {
               DIFFERENTIAL DIAGNOSIS
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed6 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>

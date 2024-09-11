@@ -1559,11 +1559,16 @@ export default function Hyper() {
               Hyperkalemia
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed1 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -1610,11 +1615,16 @@ export default function Hyper() {
               Inclusion Criteria
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed2 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -1649,11 +1659,16 @@ export default function Hyper() {
               Exclusion Criteria
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed3 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -1687,11 +1702,16 @@ export default function Hyper() {
               Management Algoritihm
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed4 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>

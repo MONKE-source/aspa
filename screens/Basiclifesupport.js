@@ -68,11 +68,16 @@ export default function Basiclifesupport() {
               Basic Life Support Checklist
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed1 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -121,11 +126,16 @@ export default function Basiclifesupport() {
               Rescue Breathing
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed2 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -177,11 +187,16 @@ export default function Basiclifesupport() {
               Cardiopulmonary Resuscitation
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed3 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>

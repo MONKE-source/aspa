@@ -2137,11 +2137,16 @@ export default function LA() {
               LA Toxicity
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed1 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -2188,11 +2193,16 @@ export default function LA() {
               Signs
             </Text>
             <FontAwesome5
-              name="expand-alt"
+              name="chevron-down"
               style={{
                 fontSize: 25,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed2 ? "0deg" : "180deg",
+                  },
+                ],
               }}
             />
           </TouchableOpacity>
@@ -2219,7 +2229,7 @@ export default function LA() {
             style={{
               flexDirection: "row",
               justifyContent: "space-evenly",
-              marginTop: "10%"
+              marginTop: "10%",
             }}
           >
             <TextInputButton
