@@ -1636,6 +1636,7 @@ export default function Anaphylaxis() {
   const [collapsed1, setCollapsed1] = useState(true);
   const [collapsed2, setCollapsed2] = useState(true);
   const [collapsed3, setCollapsed3] = useState(true);
+  const [collapsed4, setCollapsed4] = useState(true);
 
   return (
     <SafeAreaView
@@ -1791,51 +1792,80 @@ export default function Anaphylaxis() {
               2.Wheezing
             </Text>
           </Collapsible>
-          <View
+          <TouchableOpacity
             style={{
-              paddingBottom: 20,
               flexDirection: "row",
-              marginTop: "10%",
-              alignSelf: "center",
-              right: "1%",
+              alignItems: "center",
+              alignContent: "center",
             }}
+            onPress={() => setCollapsed4(!collapsed4)}
           >
-            <TouchableOpacity
-              onPress={() => createPDF(PDFOptions1)}
-              style={{ marginRight: "5%" }}
+            <Text
+              style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
             >
-              <IconButton
-                bgHex="#72A8DA"
-                title="Immediate"
-                iconPath="folder-outline"
-                contentHex="white"
-                borderColor={"rgb(30, 30, 32)"}
-                borderWidth={0}
-                size={(Dimensions.get("window").height / 844) * 25}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").height * 0.04739336 * 0.45
-                    : 19
-                }
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => createPDF(PDFOptions2)}>
-              <IconButton
-                bgHex="#72A8DA"
-                title="Secondary"
-                iconPath="folder-outline"
-                contentHex="white"
-                borderColor={"rgb(30, 30, 32)"}
-                borderWidth={0}
-                size={(Dimensions.get("window").height / 844) * 25}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").height * 0.04739336 * 0.45
-                    : 19
-                }
-              />
-            </TouchableOpacity>
-          </View>
+              Calculators
+            </Text>
+            <FontAwesome5
+              name="chevron-down"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed4 ? "0deg" : "180deg",
+                  },
+                ],
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed4}>
+            <View
+              style={{
+                paddingBottom: 20,
+                flexDirection: "row",
+                marginTop: "10%",
+                alignSelf: "center",
+                right: "1%",
+              }}
+            >
+              <TouchableOpacity
+                onPress={() => createPDF(PDFOptions1)}
+                style={{ marginRight: "5%" }}
+              >
+                <IconButton
+                  bgHex="#72A8DA"
+                  title="Immediate"
+                  iconPath="folder-outline"
+                  contentHex="white"
+                  borderColor={"rgb(30, 30, 32)"}
+                  borderWidth={0}
+                  size={(Dimensions.get("window").height / 844) * 25}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      : 19
+                  }
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => createPDF(PDFOptions2)}>
+                <IconButton
+                  bgHex="#72A8DA"
+                  title="Secondary"
+                  iconPath="folder-outline"
+                  contentHex="white"
+                  borderColor={"rgb(30, 30, 32)"}
+                  borderWidth={0}
+                  size={(Dimensions.get("window").height / 844) * 25}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      : 19
+                  }
+                />
+              </TouchableOpacity>
+            </View>
+          </Collapsible>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -1849,6 +1879,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     height: "100%",
     paddingBottom: "100",
+    gap: 5,
   },
   title: {
     fontSize: 28,
