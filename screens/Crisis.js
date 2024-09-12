@@ -12,6 +12,7 @@ import {
   Image,
   TextInput,
   Dimensions,
+  Pressable,
 } from "react-native";
 // import { StatusBar } from "expo-status-bar";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -340,34 +341,31 @@ function Crisis({ navigation }) {
                   setDisplayWeight(false);
                 }
               }}
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+                marginBottom: 20,
+                width: Dimensions.get("window").width * 0.8,
+                height: Dimensions.get("window").height * 0.063,
+                backgroundColor: "black",
+                borderRadius:
+                  Dimensions.get("window").height * 0.04739336 * 0.5,
+                position: "relative",
+                top: "55%",
+              }}
             >
-              <View
+              <Text
                 style={{
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginBottom: 20,
-                  width: Dimensions.get("window").width * 0.8,
-                  height: Dimensions.get("window").height * 0.063,
-                  backgroundColor: "black",
-                  borderRadius:
-                    Dimensions.get("window").height * 0.04739336 * 0.5,
-                  position: "relative",
-                  top: "55%",
+                  color: "white",
+                  fontWeight: "700",
+                  fontSize: Platform.isPad
+                    ? Dimensions.get("window").height * 0.04739336 * 0.45
+                    : 20,
                 }}
               >
-                <Text
-                  style={{
-                    color: "white",
-                    fontWeight: "700",
-                    fontSize: Platform.isPad
-                      ? Dimensions.get("window").height * 0.04739336 * 0.45
-                      : 20,
-                  }}
-                >
-                  Next
-                </Text>
-              </View>
+                Next
+              </Text>
             </TouchableOpacity>
           </View>
         </>
