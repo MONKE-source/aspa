@@ -627,6 +627,7 @@ export default function Hypertermina() {
   const [collapsed4, setCollapsed4] = useState(true);
   const [collapsed5, setCollapsed5] = useState(true);
   const [collapsed6, setCollapsed6] = useState(true);
+  const [collapsed7, setCollapsed7] = useState(true);
 
   return (
     <SafeAreaView
@@ -648,7 +649,7 @@ export default function Hypertermina() {
             <Text
               style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
             >
-              MALIGNANT HYPERTHERMIA
+              MH Management
             </Text>
             <FontAwesome5
               name="chevron-down"
@@ -704,7 +705,7 @@ export default function Hypertermina() {
                 { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
               ]}
             >
-              Check Box
+              Box
             </Text>
             <FontAwesome5
               name="chevron-down"
@@ -970,32 +971,66 @@ export default function Hypertermina() {
               6. Thyroid storm
             </Text>
           </Collapsible>
-          <View
+          <TouchableOpacity
             style={{
-              paddingBottom: 20,
               flexDirection: "row",
-              marginTop: "15%",
-              alignSelf: "center",
-              right: "0.75%",
+              alignItems: "center",
+              alignContent: "center",
+              marginTop: "5%",
             }}
+            onPress={() => setCollapsed7(!collapsed7)}
           >
-            <TouchableOpacity onPress={createPDF}>
-              <IconButton
-                bgHex="#72A8DA"
-                title="View"
-                iconPath="folder-outline"
-                contentHex="white"
-                borderColor={"rgb(30, 30, 32)"}
-                borderWidth={0}
-                size={(Dimensions.get("window").height / 844) * 25}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").height * 0.04739336 * 0.45
-                    : 19
-                }
-              />
-            </TouchableOpacity>
-          </View>
+            <Text
+              style={{
+                fontSize: 28,
+                fontWeight: "bold",
+                color: isDarkMode ? "white" : "black",
+              }}
+            >
+              Calculator
+            </Text>
+            <FontAwesome5
+              name="chevron-down"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed7 ? "0deg" : "180deg",
+                  },
+                ],
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed7}>
+            <View
+              style={{
+                paddingBottom: 20,
+                flexDirection: "row",
+                marginTop: "15%",
+                alignSelf: "center",
+                right: "0.75%",
+              }}
+            >
+              <TouchableOpacity onPress={createPDF}>
+                <IconButton
+                  bgHex="#72A8DA"
+                  title="DANROLENE"
+                  iconPath="folder-outline"
+                  contentHex="white"
+                  borderColor={"rgb(30, 30, 32)"}
+                  borderWidth={0}
+                  size={(Dimensions.get("window").height / 844) * 25}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      : 19
+                  }
+                />
+              </TouchableOpacity>
+            </View>
+          </Collapsible>
         </View>
       </ScrollView>
     </SafeAreaView>

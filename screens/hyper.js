@@ -1487,13 +1487,33 @@ export default function Hyper() {
   };
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [checklistItems, setChecklistItems] = useState([
-    { id: 1, text: "Perform ECG immediately when possible", completed: false },
-    { id: 2, text: "Review all medications/infusions", completed: false },
-    { id: 3, text: "Exclude: Burn or Crush injury", completed: false },
-    { id: 4, text: "Exclude: Rhabdomyolysis", completed: false },
-    { id: 5, text: "Exclude: Succinylchholine", completed: false },
-    { id: 6, text: "Exclude: Malignant Hyperthermia", completed: false },
-    { id: 7, text: "Exclude: Renal Failure", completed: false },
+    { id: 1, text: "Declare Emergency", completed: false },
+    { id: 2, text: "Call for help", completed: false },
+    {
+      id: 3,
+      text: "Discontinue ALL K+ containing infusions",
+      completed: false,
+    },
+    { id: 4, text: "Discontinue blood products", completed: false },
+    { id: 5, text: "Hyperventilate with 100% oxygen", completed: false },
+  ]);
+
+  const [checklistItems2, setChecklistItems2] = useState([
+    {
+      id: 1,
+      text: "send rpt K+ to lab",
+      completed: false,
+    },
+    {
+      id: 2,
+      text: "obtain ECG",
+      completed: false,
+    },
+    {
+      id: 3,
+      text: "start CPR if haemodynamically unstable",
+      completed: false,
+    },
   ]);
 
   const handleToggleComplete = (itemId) => {
@@ -1504,6 +1524,13 @@ export default function Hyper() {
     );
   };
 
+  const handleToggleComplete2 = (itemId) => {
+    setChecklistItems2((prevItems) =>
+      prevItems.map((item) =>
+        item.id === itemId ? { ...item, completed: !item.completed } : item
+      )
+    );
+  };
   const tableData = [
     {
       range: "5.5 - 6.0",
@@ -1531,10 +1558,10 @@ export default function Hyper() {
         "reevaluate cause\nif ECG changes persist:\n→ rpt Calcium\n→ consider CRRT",
     },
   ];
-  const [collapsed1, setCollapsed1] = useState(true);
   const [collapsed2, setCollapsed2] = useState(true);
   const [collapsed3, setCollapsed3] = useState(true);
   const [collapsed4, setCollapsed4] = useState(true);
+  const [collapsed5, setCollapsed5] = useState(true);
 
   return (
     <SafeAreaView
@@ -1545,59 +1572,11 @@ export default function Hyper() {
     >
       <ScrollView style={{ marginBottom: "20%" }}>
         <View style={styles.container}>
-          <TouchableOpacity
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              alignContent: "center",
-            }}
-            onPress={() => setCollapsed1(!collapsed1)}
+          <Text
+            style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
           >
-            <Text
-              style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
-            >
-              Hyperkalemia
-            </Text>
-            <FontAwesome5
-              name="chevron-down"
-              style={{
-                fontSize: 25,
-                color: isDarkMode ? "#F3EDC8" : "black",
-                marginLeft: "auto",
-                transform: [
-                  {
-                    rotate: collapsed1 ? "0deg" : "180deg",
-                  },
-                ],
-              }}
-            />
-          </TouchableOpacity>
-          <Collapsible collapsed={collapsed1}>
-            {checklistItems.map((item) => (
-              <TouchableOpacity
-                key={item.id}
-                onPress={() => handleToggleComplete(item.id)}
-                style={styles.checklistItem}
-              >
-                <View style={styles.checkbox}>
-                  {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
-                </View>
-                <Text
-                  style={[
-                    styles.checklistText,
-                    {
-                      color: isDarkMode ? "white" : "black",
-                      textDecorationLine: item.completed
-                        ? "line-through"
-                        : "none",
-                    },
-                  ]}
-                >
-                  {item.text}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </Collapsible>
+            Hyperkalemia
+          </Text>
           <TouchableOpacity
             style={{
               flexDirection: "row",
@@ -1838,32 +1817,137 @@ export default function Hyper() {
               </View>
             ))}
           </Collapsible>
-          <View
+          <TouchableOpacity
             style={{
-              paddingBottom: 20,
               flexDirection: "row",
-              marginTop: "9%",
-              alignSelf: "center",
-              right: "0.75%",
+              alignItems: "center",
+              alignContent: "center",
+              marginTop: "5%",
             }}
+            onPress={() => setCollapsed5(!collapsed5)}
           >
-            <TouchableOpacity onPress={createPDF}>
-              <IconButton
-                bgHex="#72A8DA"
-                title="View"
-                iconPath="folder-outline"
-                contentHex="white"
-                borderColor={"rgb(30, 30, 32)"}
-                borderWidth={0}
-                size={(Dimensions.get("window").height / 844) * 25}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").height * 0.04739336 * 0.45
-                    : 19
-                }
-              />
-            </TouchableOpacity>
-          </View>
+            <Text
+              style={[
+                styles.title,
+                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+              ]}
+            >
+              Emergency Management
+            </Text>
+            <FontAwesome5
+              name="chevron-down"
+              style={{
+                fontSize: 25,
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsed5 ? "0deg" : "180deg",
+                  },
+                ],
+              }}
+            />
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed5}>
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginBottom: "1%",
+                },
+              ]}
+            >
+              1. DO:
+            </Text>
+            {checklistItems.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                onPress={() => handleToggleComplete(item.id)}
+                style={styles.checklistItem}
+              >
+                <View style={{ marginRight: "5%" }} />
+                <View style={styles.checkbox}>
+                  {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
+                </View>
+                <Text
+                  style={[
+                    styles.checklistText,
+                    {
+                      color: isDarkMode ? "white" : "black",
+                      textDecorationLine: item.completed
+                        ? "line-through"
+                        : "none",
+                    },
+                  ]}
+                >
+                  {item.text}
+                </Text>
+              </TouchableOpacity>
+            ))}
+            <Text
+              style={[
+                styles.checklistText,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginBottom: "1%",
+                },
+              ]}
+            >
+              2. without delaying therapy, consider:
+            </Text>
+            {checklistItems2.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                onPress={() => handleToggleComplete2(item.id)}
+                style={styles.checklistItem}
+              >
+                <View style={{ marginRight: "5%" }} />
+                <View style={styles.checkbox}>
+                  {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
+                </View>
+                <Text
+                  style={[
+                    styles.checklistText,
+                    {
+                      color: isDarkMode ? "white" : "black",
+                      textDecorationLine: item.completed
+                        ? "line-through"
+                        : "none",
+                    },
+                  ]}
+                >
+                  {item.text}
+                </Text>
+              </TouchableOpacity>
+            ))}
+            <View
+              style={{
+                paddingBottom: 20,
+                flexDirection: "row",
+                marginTop: "5%",
+                alignSelf: "center",
+                right: "0.75%",
+              }}
+            >
+              <TouchableOpacity onPress={createPDF}>
+                <IconButton
+                  bgHex="#72A8DA"
+                  title="Calculator"
+                  iconPath="folder-outline"
+                  contentHex="white"
+                  borderColor={"rgb(30, 30, 32)"}
+                  borderWidth={0}
+                  size={(Dimensions.get("window").height / 844) * 25}
+                  textSize={
+                    Platform.isPad
+                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      : 19
+                  }
+                />
+              </TouchableOpacity>
+            </View>
+          </Collapsible>
         </View>
       </ScrollView>
     </SafeAreaView>
