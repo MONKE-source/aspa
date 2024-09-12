@@ -144,6 +144,7 @@ export default function Basiclifesupport() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -157,6 +158,7 @@ export default function Basiclifesupport() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                   marginTop: "2%",
                 },
@@ -205,6 +207,7 @@ export default function Basiclifesupport() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                 },
               ]}

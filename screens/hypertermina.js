@@ -726,6 +726,7 @@ export default function Hypertermina() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                   textDecorationLine: "none",
                 },
@@ -778,6 +779,7 @@ export default function Hypertermina() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -840,7 +842,10 @@ export default function Hypertermina() {
             <Text
               style={[
                 styles.checklistText,
-                { color: isDarkMode ? "white" : "black" },
+                {
+                  lineHeight: 25,
+                  color: isDarkMode ? "white" : "black",
+                },
               ]}
             >
               Dantrolene
@@ -904,6 +909,7 @@ export default function Hypertermina() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                   marginBottom: "5%",
                 },
@@ -956,6 +962,7 @@ export default function Hypertermina() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                   marginVertical: "3%",
                 },

@@ -2614,6 +2614,7 @@ export default function LA() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -2663,6 +2664,7 @@ export default function LA() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -2673,6 +2675,7 @@ export default function LA() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                 },
               ]}

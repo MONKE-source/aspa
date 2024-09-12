@@ -1738,6 +1738,9 @@ export default function Anaphylaxis() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
+                  lineHeight: 25,
+
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -1783,6 +1786,8 @@ export default function Anaphylaxis() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                   marginTop: "-1%",
                 },

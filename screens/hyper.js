@@ -1612,6 +1612,7 @@ export default function Hyper() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -1656,6 +1657,7 @@ export default function Hyper() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                   marginBottom: "1%",
                 },
@@ -1699,6 +1701,7 @@ export default function Hyper() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                   marginBottom: "1%",
                 },
@@ -1853,6 +1856,7 @@ export default function Hyper() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                   marginBottom: "1%",
                 },
@@ -1889,6 +1893,7 @@ export default function Hyper() {
               style={[
                 styles.checklistText,
                 {
+                  lineHeight: 25,
                   color: isDarkMode ? "white" : "black",
                   marginBottom: "1%",
                 },
