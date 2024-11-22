@@ -1734,6 +1734,7 @@ export default function Hyper() {
                     borderBottomWidth: 1,
                     borderColor: isDarkMode ? "white" : "black",
                     paddingBottom: 8,
+                    flexWrap: "wrap",
                   }}
                 >
                   <Text
@@ -1749,6 +1750,7 @@ export default function Hyper() {
                     style={{
                       width: "25%",
                       color: isDarkMode ? "white" : "black",
+                      flexWrap: "wrap",
                     }}
                   >
                     {row.range}
@@ -1766,6 +1768,7 @@ export default function Hyper() {
                     style={{
                       width: "25%",
                       color: isDarkMode ? "white" : "black",
+                      flexWrap: "wrap",
                     }}
                   >
                     {row.initialTreatment}
@@ -1778,6 +1781,7 @@ export default function Hyper() {
                     borderBottomWidth: 1,
                     borderColor: isDarkMode ? "white" : "black",
                     paddingBottom: 8,
+                    flexWrap: "wrap",
                   }}
                 >
                   <Text
@@ -1793,12 +1797,13 @@ export default function Hyper() {
                     style={{
                       width: "50%",
                       color: isDarkMode ? "white" : "black",
+                      flexWrap: "wrap",
                     }}
                   >
                     {row.improving}
                   </Text>
                 </View>
-                <View style={{ flexDirection: "row" }}>
+                <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
                   <Text
                     style={{
                       fontWeight: "bold",
@@ -1812,6 +1817,7 @@ export default function Hyper() {
                     style={{
                       width: "50%",
                       color: isDarkMode ? "white" : "black",
+                      flexWrap: "wrap",
                     }}
                   >
                     {row.notImproving}

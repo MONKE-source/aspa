@@ -697,56 +697,6 @@ export default function Hypertermina() {
               alignItems: "center",
               alignContent: "center",
             }}
-            onPress={() => setCollapsed2(!collapsed2)}
-          >
-            <Text
-              style={[
-                styles.title,
-                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
-              ]}
-            >
-              Box
-            </Text>
-            <FontAwesome5
-              name="chevron-down"
-              style={{
-                fontSize: 25,
-                color: isDarkMode ? "#F3EDC8" : "black",
-                marginLeft: "auto",
-                transform: [
-                  {
-                    rotate: collapsed2 ? "0deg" : "180deg",
-                  },
-                ],
-              }}
-            />
-          </TouchableOpacity>
-          <Collapsible collapsed={collapsed2}>
-            <Text
-              style={[
-                styles.checklistText,
-                {
-                  lineHeight: 25,
-                  color: isDarkMode ? "white" : "black",
-                  textDecorationLine: "none",
-                },
-              ]}
-            >
-              MH BOX- ORANGE box (containing essential drugs & treatment
-              algorithm) kept in: {`\n`}
-              {"\t"}- MOT: check with your instituition {`\n`}
-              {"\t"}- DSOT- check with your own instituition {`\n`}
-              {"\n"}
-              Please inform AU nurse if MH box has been opened and used.{`\n`}
-              Please return box to respective OT locations if not used.
-            </Text>
-          </Collapsible>
-          <TouchableOpacity
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              alignContent: "center",
-            }}
             onPress={() => setCollapsed3(!collapsed3)}
           >
             <Text

@@ -1364,7 +1364,7 @@ export default function LA() {
         <td></td>
         <td class="s9">consider:</td>
         <td class="s28" colspan="3">
-          <a target="_blank" href="#gid=69382765">IV LIPID EMULSION THERAPY</a>
+          <p>IV LIPID EMULSION THERAPY( Go back to the treatments ) </p>
         </td>
         <td></td>
         <td></td>
@@ -1377,6 +1377,7 @@ export default function LA() {
   </table>
 </div>
 `,
+
     fileName: genName("CARDIOTOXICITY"),
     directory: Platform.OS === "android" ? "Downloads" : "Documents",
   };
@@ -2727,7 +2728,7 @@ export default function LA() {
                   }
                 />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => createPDF(PDFOptions2)}>
+              <TouchableOpacity onPress={() => createPDF(PDFOptions3)}>
                 <IconButton
                   bgHex="#72A8DA"
                   title="Intraplid Therapy"
