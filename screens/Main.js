@@ -177,6 +177,7 @@ const data = [
         text: "Post Adenotonsillectomy Bleeding",
         isBookmarked: false,
       },
+      { id: "sub42", text: "Crisis (generic)", isBookmarked: false },
     ],
   },
   {
@@ -184,7 +185,7 @@ const data = [
     title: "Advanced Paediatric Life Support",
     subtitles: [
       {
-        id: "sub42",
+        id: "sub43",
         text: "Advanced Paediatric Life Support",
         isBookmarked: false,
       },
@@ -194,29 +195,29 @@ const data = [
     id: "14",
     title: "Acute Pain Service",
     subtitles: [
-      { id: "sub43", text: "Pain Assessment in Children", isBookmarked: false },
+      { id: "sub44", text: "Pain Assessment in Children", isBookmarked: false },
       {
-        id: "sub44",
+        id: "sub45",
         text: "Pharmagological Approach To Pain Management",
         isBookmarked: false,
       },
       {
-        id: "sub45",
+        id: "sub46",
         text: "PAN Patient Controlled Analgesia",
         isBookmarked: false,
       },
-      { id: "sub46", text: "Post Epidural Care", isBookmarked: false },
+      { id: "sub47", text: "Post Epidural Care", isBookmarked: false },
     ],
   },
   {
     id: "15",
     title: "Chronic Pain Service",
-    subtitles: [{ id: "sub47", text: "Chronic Pain", isBookmarked: false }],
+    subtitles: [{ id: "sub48", text: "Chronic Pain", isBookmarked: false }],
   },
   {
     id: "16",
     title: "Normal Laboratory Data",
-    subtitles: [{ id: "sub48", text: "KKH e-lab book", isBookmarked: false }],
+    subtitles: [{ id: "sub49", text: "KKH e-lab book", isBookmarked: false }],
   },
 ];
 
