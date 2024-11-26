@@ -275,7 +275,7 @@ function openGitPDF(title, subtitles) {
     return words.join("_");
   }
 
-  const url = `https://github.com/MONKE-source/aspa/raw/main/assets/kkh-assets/${formatFileName(
+  const url = `https://github.com/MONKE-source/aspa/raw/new/assets/kkh-assets/${formatFileName(
     title
   )}/${formatFileName(subtitles)}.docx`;
 
