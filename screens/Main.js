@@ -51,7 +51,7 @@ const data = [
       { id: "sub7", text: "Common Medical Conditions", isBookmarked: false },
       { id: "sub8", text: "Equipment", isBookmarked: false },
       { id: "sub9", text: "Premedication", isBookmarked: false },
-      { id: "sub10", text: "Emergence delirium", isBookmarked: false },
+      { id: "sub10", text: "Emergence Delirium", isBookmarked: false },
       { id: "sub11", text: "Fasting Guidelines", isBookmarked: false },
       { id: "sub12", text: "TIVA for children", isBookmarked: false },
     ],
@@ -172,12 +172,8 @@ const data = [
       { id: "sub38", text: "Epiglottitis", isBookmarked: false },
       { id: "sub39", text: "Hypercyanotic Tet Spells", isBookmarked: false },
       { id: "sub40", text: "Malignant Hyperthermia", isBookmarked: false },
-      {
-        id: "sub41",
-        text: "Post Adenotonsillectomy Bleeding",
-        isBookmarked: false,
-      },
-      { id: "sub42", text: "Crisis (generic)", isBookmarked: false },
+
+      { id: "sub41", text: "Crisis (generic)", isBookmarked: false },
     ],
   },
   {
@@ -185,7 +181,7 @@ const data = [
     title: "Advanced Paediatric Life Support",
     subtitles: [
       {
-        id: "sub43",
+        id: "sub42",
         text: "Advanced Paediatric Life Support",
         isBookmarked: false,
       },
@@ -195,29 +191,29 @@ const data = [
     id: "14",
     title: "Acute Pain Service",
     subtitles: [
-      { id: "sub44", text: "Pain Assessment in Children", isBookmarked: false },
+      { id: "sub43", text: "Pain Assessment in Children", isBookmarked: false },
       {
-        id: "sub45",
+        id: "sub44",
         text: "Pharmagological Approach To Pain Management",
         isBookmarked: false,
       },
       {
-        id: "sub46",
+        id: "sub45",
         text: "PAN Patient Controlled Analgesia",
         isBookmarked: false,
       },
-      { id: "sub47", text: "Post Epidural Care", isBookmarked: false },
+      { id: "sub46", text: "Post Epidural Care", isBookmarked: false },
     ],
   },
   {
     id: "15",
     title: "Chronic Pain Service",
-    subtitles: [{ id: "sub48", text: "Chronic Pain", isBookmarked: false }],
+    subtitles: [{ id: "sub47", text: "Chronic Pain", isBookmarked: false }],
   },
   {
     id: "16",
     title: "Normal Laboratory Data",
-    subtitles: [{ id: "sub49", text: "KKH e-lab book", isBookmarked: false }],
+    subtitles: [{ id: "sub48", text: "KKH e-lab book", isBookmarked: false }],
   },
 ];
 
@@ -278,7 +274,7 @@ function openGitPDF(title, subtitles) {
 
   const url = `https://github.com/MONKE-source/aspa/raw/new/assets/kkh_assets/${formatFileName(
     title
-  )}/${formatFileName(subtitles)}.docx`;
+  )}/${formatFileName(subtitles)}.pdf`;
 
   function getUrlExtension(url) {
     return url.split(/[#?]/)[0].split(".").pop().trim();
