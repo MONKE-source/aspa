@@ -31,7 +31,7 @@ const data = [
     subtitles: [
       {
         id: "sub2",
-        text: "Guidelines for the provision of the Anaesthesia for Paediatric patients",
+        text: "Guidelines for the Provision of Anaesthesia for Paediatric patients",
         isBookmarked: false,
       },
       {
@@ -45,14 +45,15 @@ const data = [
     id: "3",
     title: "Paediatric Anaesthesia",
     subtitles: [
-      { id: "sub4", text: "Equipment", isBookmarked: false },
-      { id: "sub5", text: "Dental Injury", isBookmarked: false },
-      { id: "sub6", text: "Nausea Vomitting", isBookmarked: false },
+      { id: "sub4", text: "Perioperative Evaluation", isBookmarked: false },
+      { id: "sub5", text: "Dental injury", isBookmarked: false },
+      { id: "sub6", text: "Nausea & Vomitting", isBookmarked: false },
       { id: "sub7", text: "Common Medical Conditions", isBookmarked: false },
-      { id: "sub8", text: "Preoperative Evaluation", isBookmarked: false },
+      { id: "sub8", text: "Equipment", isBookmarked: false },
       { id: "sub9", text: "Premedication", isBookmarked: false },
       { id: "sub10", text: "Emergence delirium", isBookmarked: false },
       { id: "sub11", text: "Fasting Guidelines", isBookmarked: false },
+      { id: "sub12", text: "TIVA for children", isBookmarked: false },
     ],
   },
   {
@@ -60,8 +61,8 @@ const data = [
     title: "Fluid Guidelines",
     subtitles: [
       {
-        id: "sub48",
-        text: "Fluid Guidelines in children",
+        id: "sub13",
+        text: "Fluid Management",
         isBookmarked: false,
       },
     ],
@@ -70,7 +71,7 @@ const data = [
     id: "5",
     title: "Neonatal Anaesthesia",
     subtitles: [
-      { id: "sub12", text: "Nenotal Anaesthesia", isBookmarked: false },
+      { id: "sub14", text: "Neonatal Anesthesia", isBookmarked: false },
     ],
   },
   {
@@ -78,20 +79,20 @@ const data = [
     title: "Cardiac Guidelines",
     subtitles: [
       {
-        id: "sub13",
+        id: "sub15",
         text: "Prophylaxis for Infective Endocarditis",
         isBookmarked: false,
       },
-      { id: "sub14", text: "ROTEM Algoritihm", isBookmarked: false },
+      { id: "sub16", text: "ROTEM Algoritihm", isBookmarked: false },
       {
-        id: "sub15",
+        id: "sub17",
         text: "Paediatric Cardiac Anaesthesia",
         isBookmarked: false,
       },
-      { id: "sub16", text: "Common Cardiac Conditions", isBookmarked: false },
+      { id: "sub18", text: "Common Cardiac Conditions", isBookmarked: false },
       {
-        id: "sub17",
-        text: "Cardiac Catheterization Tracy",
+        id: "sub19",
+        text: "Cardiac Catheterization",
         isBookmarked: false,
       },
     ],
@@ -100,8 +101,12 @@ const data = [
     id: "7",
     title: "Diagnostic Imaging",
     subtitles: [
-      { id: "sub18", text: "Diagnostic Imaging", isBookmarked: false },
-      { id: "sub49", text: "Oncology Radiotherapy", isBookmarked: false },
+      { id: "sub20", text: "Diagnostic Imaging", isBookmarked: false },
+      {
+        id: "sub21",
+        text: "PAN Anaesthesia for Paediatric Oncology Radiotherapy",
+        isBookmarked: false,
+      },
     ],
   },
   {
@@ -109,8 +114,8 @@ const data = [
     title: "Sedation For Oncology Patients",
     subtitles: [
       {
-        id: "sub19",
-        text: "Sedation for Oncology Patients",
+        id: "sub22",
+        text: "Sedation for Oncology Children",
         isBookmarked: false,
       },
     ],
@@ -119,97 +124,99 @@ const data = [
     id: "9",
     title: "Regional Anaesthesia",
     subtitles: [
-      { id: "sub20", text: "Central Neraxial Block", isBookmarked: false },
+      { id: "sub23", text: "Central Neraxial Block", isBookmarked: false },
       {
-        id: "sub21",
+        id: "sub24",
         text: "Regional Anaesthesia Workflow",
         isBookmarked: false,
       },
-      { id: "sub22", text: "Current Trends", isBookmarked: false },
-      { id: "sub23", text: "Peripheral Nerve Block", isBookmarked: false },
-      { id: "sub24", text: "Local Anaesthetic Toxicity", isBookmarked: false },
-      { id: "sub25", text: "Ultrasound Guided Blocks", isBookmarked: false },
+      { id: "sub25", text: "Current Trends", isBookmarked: false },
+      { id: "sub26", text: "Peripheral Nerve Block", isBookmarked: false },
+      { id: "sub27", text: "Local Anaesthetic Toxicity", isBookmarked: false },
+      { id: "sub28", text: "Ultrasound Guided Blocks", isBookmarked: false },
+    ],
+  },
+  {
+    id: "10",
+    title: "Drug Doses in Paediatric Anaesthesia",
+    subtitles: [
+      { id: "sub29", text: "Miscellaneous Drugs", isBookmarked: false },
+      { id: "sub30", text: "Antibiotics", isBookmarked: false },
     ],
   },
   {
     id: "11",
-    title: "Drug Doses in Paediatric Anaesthesia",
+    title: "Transfusion in Children",
     subtitles: [
-      { id: "sub27", text: "Miscellaneous Drugs", isBookmarked: false },
-      { id: "sub28", text: "Antibiotics", isBookmarked: false },
+      {
+        id: "sub31",
+        text: "Paediatric Massive Transfusion Protocol",
+        isBookmarked: false,
+      },
+      { id: "sub32", text: "Transfusion Guidelines", isBookmarked: false },
     ],
   },
   {
     id: "12",
-    title: "Transfusion in Children",
+    title: "Common Crisis",
     subtitles: [
       {
-        id: "sub29",
-        text: "Paediatric Massive Transfusion Protocol",
+        id: "sub33",
+        text: "Post Adenotonsillectomy Bleeding",
         isBookmarked: false,
       },
-      { id: "sub30", text: "Transfusion Guidelines", isBookmarked: false },
+      { id: "sub34", text: "Latex allergy", isBookmarked: false },
+      { id: "sub35", text: "Suspected Anaphylaxis", isBookmarked: false },
+      { id: "sub36", text: "Local Anaesthetic Toxicity", isBookmarked: false },
+      { id: "sub37", text: "Laryngospasm", isBookmarked: false },
+      { id: "sub38", text: "Epiglottitis", isBookmarked: false },
+      { id: "sub39", text: "Hypercyanotic Tet Spells", isBookmarked: false },
+      { id: "sub40", text: "Malignant Hyperthermia", isBookmarked: false },
+      {
+        id: "sub41",
+        text: "Post Adenotonsillectomy Bleeding",
+        isBookmarked: false,
+      },
     ],
   },
   {
     id: "13",
-    title: "Common Crisis",
-    subtitles: [
-      {
-        id: "sub31",
-        text: "Post Adenotonsillectomy Bleeding",
-        isBookmarked: false,
-      },
-      { id: "sub32", text: "Latex Allergy", isBookmarked: false },
-      { id: "sub34", text: "Suspected Anaphylaxis", isBookmarked: false },
-      { id: "sub35", text: "Local Anaesthetic Toxicity", isBookmarked: false },
-      { id: "sub36", text: "Laryngospasm", isBookmarked: false },
-      { id: "sub37", text: "Acute Epiglottitis", isBookmarked: false },
-      { id: "sub38", text: "Malignant Hyperthermia", isBookmarked: false },
-      { id: "sub39", text: "Hypercyanotic Tet Spells", isBookmarked: false },
-    ],
-  },
-  {
-    id: "14",
     title: "Advanced Paediatric Life Support",
     subtitles: [
       {
-        id: "sub40",
+        id: "sub42",
         text: "Advanced Paediatric Life Support",
         isBookmarked: false,
       },
     ],
   },
   {
-    id: "15",
+    id: "14",
     title: "Acute Pain Service",
     subtitles: [
-      { id: "sub41", text: "Pain Assessment in Children", isBookmarked: false },
+      { id: "sub43", text: "Pain Assessment in Children", isBookmarked: false },
       {
-        id: "sub42",
+        id: "sub44",
         text: "Pharmagological Approach To Pain Management",
         isBookmarked: false,
       },
       {
-        id: "sub43",
-        text: "Patient Controlled Analgesia",
+        id: "sub45",
+        text: "PAN Patient Controlled Analgesia",
         isBookmarked: false,
       },
-      { id: "sub44", text: "Post Epidural Care", isBookmarked: false },
-      { id: "sub45", text: "Childrens Pain Service", isBookmarked: false },
+      { id: "sub46", text: "Post Epidural Care", isBookmarked: false },
     ],
+  },
+  {
+    id: "15",
+    title: "Chronic Pain Service",
+    subtitles: [{ id: "sub47", text: "Chronic Pain", isBookmarked: false }],
   },
   {
     id: "16",
-    title: "Chronic Pain Service",
-    subtitles: [{ id: "sub46", text: "Chronic Pain", isBookmarked: false }],
-  },
-  {
-    id: "17",
     title: "Normal Laboratory Data",
-    subtitles: [
-      { id: "sub47", text: "Normal Laboratory", isBookmarked: false },
-    ],
+    subtitles: [{ id: "sub48", text: "KKH e-lab book", isBookmarked: false }],
   },
 ];
 
@@ -270,7 +277,7 @@ function openGitPDF(title, subtitles) {
 
   const url = `https://github.com/MONKE-source/aspa/raw/main/assets/kkh-assets/${formatFileName(
     title
-  )}/${formatFileName(subtitles)}.pdf`;
+  )}/${formatFileName(subtitles)}.docx`;
 
   function getUrlExtension(url) {
     return url.split(/[#?]/)[0].split(".").pop().trim();
