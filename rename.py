@@ -9,9 +9,9 @@ def format_file_name(text):
     return "_".join(words)
 
 
-# recursive 😱😱😱😱😱😱😱😱
+# recursive 😱😱😱
 def rename_files_in_folder(folder_path):
-    # i have no clue how this works 😝😝😝😝😝😝😝😝😝😝😝
+    # i have no clue how this works 😝😝
     try:
         for root, dirs, files in os.walk(folder_path):
             for file_name in files:
