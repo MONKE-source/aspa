@@ -263,7 +263,7 @@ const BookmarkedItemsScreen = ({ route, navigation }) => {
     </SafeAreaView>
   );
 };
-4;
+
 function openGitPDF(title, subtitles) {
   function formatFileName(text) {
     const text1 = text.toString();

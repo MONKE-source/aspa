@@ -73,7 +73,7 @@ function MyTabs() {
           }}
         />
         <Tab.Screen
-          name="Logo"
+          name="Credits"
           component={Info}
           options={{
             headerShown: false,
