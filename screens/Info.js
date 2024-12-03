@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useDarkMode } from "../components/DarkModeContext";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { openGitPDF } from "./Main"; // function to open the pdfs
 import Settings from "./Settings";
 
 const Info = ({ navigation }) => {
@@ -29,6 +30,7 @@ const Info = ({ navigation }) => {
       style={{
         backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "white",
         flex: 1,
+        marginBottom: 50,
       }}
     >
       <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
@@ -101,6 +103,70 @@ const Info = ({ navigation }) => {
             }}
           >
             Settings
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => openGitPDF("Acknowledgement", "Acknowledgement")}
+          style={{
+            backgroundColor: isDarkMode ? "white" : "#45454A",
+            width: "90%",
+            alignSelf: "center",
+            height: "5%",
+            justifyContent: "center",
+            borderRadius: 10,
+            marginTop: 5,
+            shadowColor: "#000000",
+            shadowOffset: {
+              width: 0,
+              height: 5,
+            },
+            shadowOpacity: 0.5,
+            shadowRadius: 3.84,
+
+            elevation: 5,
+          }}
+        >
+          <Text
+            style={{
+              marginLeft: 15,
+              color: isDarkMode ? "black" : "white",
+              fontWeight: "bold",
+            }}
+          >
+            Acknowledgments
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => openGitPDF("Preface", "Preface")}
+          style={{
+            backgroundColor: isDarkMode ? "white" : "#45454A",
+            width: "90%",
+            alignSelf: "center",
+            height: "5%",
+            justifyContent: "center",
+            borderRadius: 10,
+            marginTop: 5,
+            shadowColor: "#000000",
+            shadowOffset: {
+              width: 0,
+              height: 5,
+            },
+            shadowOpacity: 0.5,
+            shadowRadius: 3.84,
+
+            elevation: 5,
+          }}
+        >
+          <Text
+            style={{
+              marginLeft: 15,
+              color: isDarkMode ? "black" : "white",
+              fontWeight: "bold",
+            }}
+          >
+            Preface
           </Text>
         </TouchableOpacity>
         <Text

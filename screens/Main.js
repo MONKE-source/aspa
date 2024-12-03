@@ -26,6 +26,17 @@ import Settings from "./Settings";
 
 const data = [
   {
+    id: "1",
+    title: "Content Page",
+    subtitles: [
+      {
+        id: "sub1",
+        text: "App Content",
+        isBookmarked: false,
+      },
+    ],
+  },
+  {
     id: "2",
     title: "Guidelines for Paediatric Anaesthesia",
     subtitles: [
@@ -266,7 +277,14 @@ const BookmarkedItemsScreen = ({ route, navigation }) => {
 
 function openGitPDF(title, subtitles) {
   function formatFileName(text) {
-    const text1 = text.toString();
+    let text1; // in info.js have to pass argumment as a string directly
+    // never mind im stupid
+    // ill just keep that part in for extra validation oopsies
+    if (typeof text !== "string") {
+      text1 = text.toString();
+    } else {
+      text1 = text;
+    }
     const lowercaseText = text1.toLowerCase();
     const words = lowercaseText.split(" ");
     return words.join("_");
@@ -684,4 +702,5 @@ const styles = StyleSheet.create({
   },
 });
 
+export { openGitPDF };
 export default MainStack;
