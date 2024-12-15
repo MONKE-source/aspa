@@ -246,8 +246,10 @@ function SetWeight({ navigation }) {
           marginBottom: 20,
           width: windowWidth * 0.925,
           height: windowHeight * 0.5,
-          backgroundColor: "#72A8DA",
+          backgroundColor: "transparent",
           borderRadius: windowHeight * 0.04739336 * 0.94594595,
+          borderWidth: 2,
+          borderColor: "hsv(240, 2%, 18%)",
         }}
       >
         <Text
@@ -261,6 +263,30 @@ function SetWeight({ navigation }) {
         >
           Enter patient's weight
         </Text>
+        {/*         <View
+          style={{
+            position: "relative",
+            top: "26%",
+            backgroundColor: "#313135",
+            height: "15%",
+            borderRadius: 12,
+            width: "38.55%",
+          }}
+        >
+          <TextInput
+            style={{
+              height: "100%",
+              width: "100%",
+              fontSize: 20,
+              textAlign: "center",
+            }}
+            keyboardType="numeric"
+            onChangeText={(x) => {
+              setDisplayWeight(false);
+              setWeight(x);
+            }}
+          ></TextInput>
+        </View> */}
         <View style={{ position: "relative", top: "26%" }}>
           <TextInputButton
             title="Weight"
