@@ -4,7 +4,7 @@
             "outputFile": "com.kkh_rn.app-mergeDebugResources-35:/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
-                    "source": "/Users/arthaggarwal/.gradle/caches/transforms-3/f150f74d51d5a6544b03fae36fafe644/transformed/material-1.6.1/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "source": "/Users/tedgoh/.gradle/caches/transforms-3/f150f74d51d5a6544b03fae36fafe644/transformed/material-1.6.1/res/values-ldrtl-v17/values-ldrtl-v17.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

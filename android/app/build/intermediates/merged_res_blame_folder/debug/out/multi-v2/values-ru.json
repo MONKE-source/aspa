@@ -4,7 +4,7 @@
             "outputFile": "com.kkh_rn.app-mergeDebugResources-35:/values-ru/values-ru.xml",
             "map": [
                 {
-                    "source": "/Users/arthaggarwal/.gradle/caches/transforms-3/f150f74d51d5a6544b03fae36fafe644/transformed/material-1.6.1/res/values-ru/values-ru.xml",
+                    "source": "/Users/tedgoh/.gradle/caches/transforms-3/f150f74d51d5a6544b03fae36fafe644/transformed/material-1.6.1/res/values-ru/values-ru.xml",
                     "from": {
                         "startLines": "2,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/arthaggarwal/.gradle/caches/transforms-3/b3627ca143232ec2ceb6e319eb18971d/transformed/appcompat-1.6.1/res/values-ru/values-ru.xml",
+                    "source": "/Users/tedgoh/.gradle/caches/transforms-3/b3627ca143232ec2ceb6e319eb18971d/transformed/appcompat-1.6.1/res/values-ru/values-ru.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -40,7 +40,7 @@
                     }
                 },
                 {
-                    "source": "/Users/arthaggarwal/.gradle/caches/transforms-3/428c9d6f7a3cb90c0b40b7d2aa1e310f/transformed/jetified-react-android-0.73.8-debug/res/values-ru/values-ru.xml",
+                    "source": "/Users/tedgoh/.gradle/caches/transforms-3/428c9d6f7a3cb90c0b40b7d2aa1e310f/transformed/jetified-react-android-0.73.8-debug/res/values-ru/values-ru.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -57,7 +57,7 @@
                     }
                 },
                 {
-                    "source": "/Users/arthaggarwal/.gradle/caches/transforms-3/37090c8cbd1dedc6ee2ba619cf52b6bb/transformed/core-1.12.0/res/values-ru/values-ru.xml",
+                    "source": "/Users/tedgoh/.gradle/caches/transforms-3/37090c8cbd1dedc6ee2ba619cf52b6bb/transformed/core-1.12.0/res/values-ru/values-ru.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
