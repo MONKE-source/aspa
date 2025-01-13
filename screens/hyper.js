@@ -1756,11 +1756,14 @@ export default function Hyper() {
                     {row.range}
                   </Text>
                   <Text
-                    style={{
-                      fontWeight: "bold",
-                      width: "25%",
-                      color: isDarkMode ? "white" : "black",
-                    }}
+                    style={[
+                      styles.minorText,
+                      {
+                        fontWeight: "bold",
+                        width: "25%",
+                        color: isDarkMode ? "white" : "black",
+                      },
+                    ]}
                   >
                     Initial Treatment
                   </Text>
@@ -1974,7 +1977,7 @@ const styles = StyleSheet.create({
     paddingBottom: "100",
   },
   title: {
-    fontSize: 25 * (Dimensions.get("window").width / 375),
+    fontSize: 23 * (Dimensions.get("window").width / 375),
     marginBottom: 20,
     fontWeight: "bold",
   },
@@ -2000,5 +2003,8 @@ const styles = StyleSheet.create({
   checklistText: {
     flex: 1,
     fontSize: 18,
+  },
+  minorText: {
+    fontSize: 13.5 * (Dimensions.get("window").width / 375),
   },
 });
