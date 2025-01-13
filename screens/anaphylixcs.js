@@ -1887,7 +1887,7 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   title: {
-    fontSize: 28,
+    fontSize: 25 * (Dimensions.get("window").width / 375),
     marginBottom: 20,
     fontWeight: "bold",
   },

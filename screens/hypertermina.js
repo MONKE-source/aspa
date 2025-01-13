@@ -1003,7 +1003,7 @@ const styles = StyleSheet.create({
     paddingBottom: "100",
   },
   title: {
-    fontSize: 30,
+    fontSize: 25 * (Dimensions.get("window").width / 375),
     marginBottom: 20,
     fontWeight: "bold",
   },

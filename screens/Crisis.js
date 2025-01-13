@@ -245,7 +245,7 @@ function SetWeight({ navigation }) {
           alignItems: "center",
           marginBottom: 20,
           width: windowWidth * 0.925,
-          height: windowHeight * 0.5,
+          height: windowHeight * 0.575,
           backgroundColor: "transparent",
           borderRadius: windowHeight * 0.04739336 * 0.94594595,
           borderWidth: 2,
