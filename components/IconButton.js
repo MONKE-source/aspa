@@ -20,6 +20,8 @@ function IconButton({
           backgroundColor: bgHex,
           borderColor: borderColor,
           borderWidth: borderWidth,
+          justifyContent: "center",
+          alignItems: "center",
         },
       ]}
     >
@@ -44,7 +46,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontWeight: "bold",
-    marginRight: 10,
   },
 });
 

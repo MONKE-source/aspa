@@ -2740,7 +2740,7 @@ export default function LA() {
                   textSize={
                     Platform.isPad
                       ? Dimensions.get("window").height * 0.04739336 * 0.45
-                      : 17
+                      : 16.5
                   }
                 />
               </TouchableOpacity>
