@@ -2136,7 +2136,7 @@ export default function LA() {
         <td class="s22"></td>
         <td class="s23">BOLUS</td>
         <td class="s24">IV</td>
-        <td class="s25">%{roundToOneDecimalPlace(weight*1.5)}</td>
+        <td class="s25">${roundToOneDecimalPlace(weight * 1.5)}</td>
         <td class="s26">ML</td>
         <td class="s27">Over 1 Minute</td>
         <td></td>
