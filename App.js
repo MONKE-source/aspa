@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // import { StatusBar } from "expo-status-bar";
 import CalcScreen from "./screens/CalcScreen";
@@ -18,6 +18,7 @@ import Logo from "./screens/logo";
 
 function MyTabs() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+
   return (
     <DarkModeProvider>
       <Tab.Navigator

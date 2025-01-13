@@ -26,6 +26,7 @@ import IconButton from "../components/IconButton";
 import Bmi from "./Bmi";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNHTMLtoPDF from "react-native-html-to-pdf";
+import AcknowledgementsModal from "../components/Acknowledgements";
 
 function CalcScreen({ navigation }) {
   // Reference dimension : iPhone 14
@@ -35,6 +36,8 @@ function CalcScreen({ navigation }) {
   const [weight, setWeight] = useState(0);
   const { isDarkMode } = useDarkMode();
   const [files, setFileArray] = useState([]);
+  const [isFirstLaunch, setIsFirstLaunch] = useState(null);
+  const [modalVisible, setModalVisible] = useState(true);
   const getFilePaths = async () => {
     try {
       const savedValue = await AsyncStorage.getItem("files");
@@ -61,6 +64,21 @@ function CalcScreen({ navigation }) {
     }
   };
   useEffect(() => {
+    const checkFirstLaunch = async () => {
+      try {
+        const hasLaunched = await AsyncStorage.getItem("hasLaunched");
+        if (hasLaunched === null) {
+          await AsyncStorage.setItem("hasLaunched", "true");
+          setIsFirstLaunch(true);
+        } else {
+          setIsFirstLaunch(false);
+        }
+      } catch (error) {
+        console.error("Error checking first launch: ", error);
+      }
+    };
+
+    checkFirstLaunch();
     getFilePaths();
   }, []);
   function genName(type) {
@@ -5064,7 +5082,6 @@ function CalcScreen({ navigation }) {
       console.log("Failed to generate pdf", error.message);
     }
   };
-
   return (
     <SafeAreaView
       style={[
@@ -5072,6 +5089,12 @@ function CalcScreen({ navigation }) {
         { backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB" },
       ]}
     >
+      {isFirstLaunch && (
+        <AcknowledgementsModal
+          visible={modalVisible}
+          onClose={() => setModalVisible(false)}
+        />
+      )}
       <View
         style={{
           flexDirection: "row",

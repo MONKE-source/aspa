@@ -105,7 +105,37 @@ const Info = ({ navigation }) => {
             Settings
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => openGitPDF("Preface", "Preface")}
+          style={{
+            backgroundColor: isDarkMode ? "white" : "#45454A",
+            width: "90%",
+            alignSelf: "center",
+            height: "5%",
+            justifyContent: "center",
+            borderRadius: 10,
+            marginTop: 5,
+            shadowColor: "#000000",
+            shadowOffset: {
+              width: 0,
+              height: 5,
+            },
+            shadowOpacity: 0.5,
+            shadowRadius: 3.84,
 
+            elevation: 5,
+          }}
+        >
+          <Text
+            style={{
+              marginLeft: 15,
+              color: isDarkMode ? "black" : "white",
+              fontWeight: "bold",
+            }}
+          >
+            Preface
+          </Text>
+        </TouchableOpacity>
         <TouchableOpacity
           onPress={() => openGitPDF("Acknowledgement", "Acknowledgement")}
           style={{
@@ -138,37 +168,6 @@ const Info = ({ navigation }) => {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => openGitPDF("Preface", "Preface")}
-          style={{
-            backgroundColor: isDarkMode ? "white" : "#45454A",
-            width: "90%",
-            alignSelf: "center",
-            height: "5%",
-            justifyContent: "center",
-            borderRadius: 10,
-            marginTop: 5,
-            shadowColor: "#000000",
-            shadowOffset: {
-              width: 0,
-              height: 5,
-            },
-            shadowOpacity: 0.5,
-            shadowRadius: 3.84,
-
-            elevation: 5,
-          }}
-        >
-          <Text
-            style={{
-              marginLeft: 15,
-              color: isDarkMode ? "black" : "white",
-              fontWeight: "bold",
-            }}
-          >
-            Preface
-          </Text>
-        </TouchableOpacity>
         <Text
           style={{
             padding: 25,
