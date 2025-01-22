@@ -55,8 +55,4 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## About me
 
-I'm Caleb Han, a passionate Software Engineer specialising in the React framework. You can check me out [here](https://calebhan.vercel.app/). Currently a Secondary 4 student in the School of Science and Technology, Singapore studying for the GCE O-level examinations.
-
-NOTE: All information correct as per time of writing (9 January 2024).
