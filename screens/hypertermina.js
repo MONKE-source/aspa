@@ -320,7 +320,7 @@ export default function Hypertermina() {
               class="row-headers-background"
             ></th>
             <td></td>
-            <td class="s5" colspan="2">DANROLENE:</td>
+            <td class="s5" colspan="2">DANTROLENE:</td>
             <td></td>
             <td></td>
             <td></td>
@@ -973,7 +973,7 @@ export default function Hypertermina() {
               <TouchableOpacity onPress={createPDF}>
                 <IconButton
                   bgHex="#72A8DA"
-                  title="DANROLENE"
+                  title="DANTROLENE"
                   iconPath="folder-outline"
                   contentHex="white"
                   borderColor={"rgb(30, 30, 32)"}
