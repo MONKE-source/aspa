@@ -38,7 +38,7 @@ function IconButton({
 const styles = StyleSheet.create({
   buttonContainer: {
     borderRadius: 17.5,
-    width: Dimensions.get("window").width * 0.4,
+    width: Dimensions.get("window").width * 0.43,
     height: Dimensions.get("window").height * 0.06516588,
     flexDirection: "row",
     justifyContent: "center",

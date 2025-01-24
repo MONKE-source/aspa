@@ -183,6 +183,7 @@ export default function Basiclifesupport() {
                   color: isDarkMode ? "white" : "black",
                   marginTop: "1%",
                   marginBottom: "1%",
+                  fontSize: 22 * (Dimensions.get("window").width / 375),
                 },
               ]}
             >
