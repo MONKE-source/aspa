@@ -5422,6 +5422,17 @@ const FileScreen = () => {
         <FlatList
           data={displayFiles}
           style={{ marginBottom: 150 }}
+          ListEmptyComponent={() => (
+            <Text
+              style={{
+                textAlign: "center",
+                marginTop: 20,
+                color: isDarkMode ? "white" : "black",
+              }}
+            >
+              No files available
+            </Text>
+          )}
           renderItem={({ item }) => (
             <FileItem
               item={item}
