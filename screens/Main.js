@@ -82,7 +82,7 @@ const data = [
     id: "5",
     title: "Neonatal Anaesthesia",
     subtitles: [
-      { id: "sub14", text: "Neonatal Anesthesia", isBookmarked: false },
+      { id: "sub14", text: "Neonatal Anaesthesia", isBookmarked: false },
     ],
   },
   {
