@@ -254,7 +254,7 @@ function SetWeight({ navigation }) {
       >
         <Text
           style={{
-            color: "white",
+            color: isDarkMode ? "white" : "black",
             fontWeight: "700",
             fontSize: Platform.isPad ? windowHeight * 0.04739336 * 0.45 : 25,
             position: "relative",
