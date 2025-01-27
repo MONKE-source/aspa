@@ -15,6 +15,7 @@ const Tab = createBottomTabNavigator();
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Settings from "./screens/Settings";
 import Logo from "./screens/logo";
+import AcknowledgementsScreen from "./screens/credits";
 
 function MyTabs() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -81,6 +82,19 @@ function MyTabs() {
             tabBarIcon: () => (
               <FontAwesome5
                 name="hospital"
+                style={{ fontSize: 30, color: "#F3EDC8" }}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Acknowledgements"
+          component={AcknowledgementsScreen}
+          options={{
+            headerShown: false,
+            tabBarIcon: () => (
+              <FontAwesome5
+                name="clipboard-check"
                 style={{ fontSize: 30, color: "#F3EDC8" }}
               />
             ),
