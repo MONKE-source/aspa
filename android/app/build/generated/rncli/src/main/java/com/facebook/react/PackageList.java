@@ -23,6 +23,8 @@ import com.rnfs.RNFSPackage;
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
 // react-native-html-to-pdf
 import com.christopherdro.htmltopdf.RNHTMLtoPDFPackage;
+// react-native-linear-gradient
+import com.BV.LinearGradient.LinearGradientPackage;
 // react-native-pdf
 import org.wonday.pdf.RNPDFPackage;
 // react-native-safe-area-context
@@ -82,6 +84,7 @@ public class PackageList {
       new RNFSPackage(),
       new RNGestureHandlerPackage(),
       new RNHTMLtoPDFPackage(),
+      new LinearGradientPackage(),
       new RNPDFPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),

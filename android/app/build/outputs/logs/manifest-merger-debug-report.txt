@@ -12,6 +12,7 @@ MERGED from [:react-native-file-viewer] /Users/arthaggarwal/Desktop/aspa/node_mo
 MERGED from [:react-native-fs] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-fs/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-gesture-handler] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-html-to-pdf] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-html-to-pdf/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-linear-gradient] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-pdf] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-pdf/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-safe-area-context] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-screens] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
@@ -225,6 +226,8 @@ MERGED from [:react-native-gesture-handler] /Users/arthaggarwal/Desktop/aspa/nod
 MERGED from [:react-native-gesture-handler] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-html-to-pdf] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-html-to-pdf/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-html-to-pdf] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-html-to-pdf/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-linear-gradient] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-linear-gradient] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-pdf] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-pdf/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-pdf] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-pdf/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-safe-area-context] /Users/arthaggarwal/Desktop/aspa/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
