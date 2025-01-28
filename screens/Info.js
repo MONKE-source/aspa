@@ -136,7 +136,7 @@ const Info = ({ navigation }) => {
             Preface
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity
+        {/*         <TouchableOpacity
           onPress={() => openGitPDF("Acknowledgement", "Acknowledgement")}
           style={{
             backgroundColor: isDarkMode ? "white" : "#45454A",
@@ -166,7 +166,7 @@ const Info = ({ navigation }) => {
           >
             Acknowledgments
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <Text
           style={{
