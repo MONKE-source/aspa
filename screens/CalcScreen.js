@@ -5128,7 +5128,7 @@ function CalcScreen({ navigation }) {
                   styles.one,
                   {
                     fontWeight: isDarkMode ? "700" : "800",
-                    color: isDarkMode ? "#72A8DA" : "#3289d9",
+                    color: isDarkMode ? "white" : "black",
                   },
                 ]}
               >
