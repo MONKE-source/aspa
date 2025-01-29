@@ -14,41 +14,41 @@ import {
   KeyboardAvoidingView,
   Image,
 } from "react-native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import LinearGradient from "react-native-linear-gradient";
-import { useDarkMode } from "../../components/DarkModeContext";
-import TextInputButton from "../../components/TextInputButton";
-import TextButton from "../../components/TextButton";
-import IconButton from "../../components/IconButton";
+
+const imageWidth = Dimensions.get("window").width * 0.63;
+const imageLength = Dimensions.get("window").height * 0.35;
+const gapLength = Dimensions.get("window").width * 0.25;
 
 export default function WelcomeScreen({ navigation }) {
   return (
-    <LinearGradient colors={["#b3e5fc", "#4fc3f7"]} style={styles.container}>
-      <Text style={styles.subText}>Welcome to</Text>
-      <Text style={styles.appNam}>ASPA App</Text>
-      <TouchableOpacity onPress={() => navigation.navigate("Terms")}>
-        <TextButton
-          title="Continue"
-          width={Dimensions.get("window").width * 0.56153846}
-          height={Dimensions.get("window").height * 0.06812796}
-          bgHex="transparent"
-          contentHex={"black"}
-          borderRadius={
-            Dimensions.get("window").height * 0.06812796 * 0.30434783
-          }
-          borderColor={"black"}
-          borderWidth={1}
-          fontWeight={"700"}
-          textSize={
-            Platform.isPad
-              ? Dimensions.get("window").width * 0.46153846 * 0.08
-              : Dimensions.get("window").width * 0.46153846 * 0.10555556
-          }
+    <View style={styles.container}>
+      <View style={{ alignItems: "center" }}>
+        <Image
+          source={require("../../assets/ASPA_logo.png")}
+          resizeMode="cover"
+          style={styles.image}
         />
+        <Text style={[styles.subText, { marginTop: "2.25%" }]}>
+          Welcome to ASPA App!
+        </Text>
+        <Text
+          style={[styles.subText, { marginTop: "1.5%", fontWeight: "400" }]}
+        >
+          Your all-in-one guide to help you through {"\n"}nursing!
+        </Text>
+      </View>
+      <TouchableOpacity
+        style={styles.nextButton}
+        onPress={() => navigation.navigate("Terms")}
+      >
+        <Text style={[styles.subText, { color: "#FFF" }]}>Proceed</Text>
+        <View style={styles.iconContainer}>
+          <AntDesign name="right" size={20} color="#FFF" />
+        </View>
       </TouchableOpacity>
-    </LinearGradient>
+    </View>
   );
 }
 
@@ -56,18 +56,35 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    backgroundColor: "#EFEFF0",
     justifyContent: "center",
   },
   subText: {
-    fontSize: 25,
-    fontWeight: "bold",
+    fontSize: 18,
+    fontWeight: "700",
     color: "black",
+    textAlign: "center",
   },
-  appNam: {
-    fontSize: 50,
-    fontWeight: "600",
-    color: "black",
+  image: {
+    height: imageLength,
+    width: imageWidth,
+  },
+  nextButton: {
+    display: "flex",
+    flexDirection: "row",
+    paddingRight: "4%",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    gap: gapLength,
+    borderRadius: 300,
+    backgroundColor: "#5092CD",
+    width: "86%",
     marginTop: "20%",
-    marginBottom: "70%",
+    top: "25%",
+    height: "7%",
+  },
+  iconContainer: {
+    height: "50%",
+    justifyContent: "center",
   },
 });
