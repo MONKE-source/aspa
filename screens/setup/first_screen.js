@@ -28,7 +28,7 @@ export default function WelcomeScreen({ navigation }) {
     <LinearGradient colors={["#b3e5fc", "#4fc3f7"]} style={styles.container}>
       <Text style={styles.subText}>Welcome to</Text>
       <Text style={styles.appNam}>ASPA App</Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Terms")}>
         <TextButton
           title="Continue"
           width={Dimensions.get("window").width * 0.56153846}

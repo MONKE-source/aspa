@@ -10,6 +10,7 @@ import CrisisNavigator from "./screens/Crisis";
 import Info from "./screens/Info";
 import AcknowledgementsScreen from "./screens/credits";
 import WelcomeScreen from "./screens/setup/first_screen";
+import Terms from "./screens/setup/terms";
 import { DarkModeProvider, useDarkMode } from "./components/DarkModeContext";
 
 const Tab = createBottomTabNavigator();
@@ -111,6 +112,11 @@ export default function App() {
           <Stack.Screen
             name="Main"
             component={MyTabs}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Terms"
+            component={Terms}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
