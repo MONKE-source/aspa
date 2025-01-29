@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import CalcScreen from "./screens/CalcScreen";
 import Main from "./screens/Main";
@@ -100,10 +101,38 @@ function MyTabs() {
 }
 
 export default function App() {
+  const [initialRoute, setInitialRoute] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const checkFirstLaunch = async () => {
+      try {
+        const hasLaunched = await AsyncStorage.getItem("hasLaunched");
+        if (hasLaunched === null) {
+          await AsyncStorage.setItem("hasLaunched", "true");
+          setInitialRoute("Welcome");
+        } else {
+          setInitialRoute("Main");
+        }
+      } catch (error) {
+        console.error("Error checking first launch: ", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkFirstLaunch();
+  }, []);
+
+  if (isLoading) {
+    // You can return a loading screen or null while determining the initial route
+    return null;
+  }
+
   return (
     <DarkModeProvider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName={initialRoute}>
           <Stack.Screen
             name="Welcome"
             component={WelcomeScreen}

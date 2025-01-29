@@ -36,7 +36,6 @@ function CalcScreen({ navigation }) {
   const [weight, setWeight] = useState(0);
   const { isDarkMode } = useDarkMode();
   const [files, setFileArray] = useState([]);
-  const [isFirstLaunch, setIsFirstLaunch] = useState(null);
   const [modalVisible, setModalVisible] = useState(true);
   const getFilePaths = async () => {
     try {
@@ -64,21 +63,6 @@ function CalcScreen({ navigation }) {
     }
   };
   useEffect(() => {
-    const checkFirstLaunch = async () => {
-      try {
-        const hasLaunched = await AsyncStorage.getItem("hasLaunched");
-        if (hasLaunched === null) {
-          await AsyncStorage.setItem("hasLaunched", "true");
-          setIsFirstLaunch(true);
-        } else {
-          setIsFirstLaunch(false);
-        }
-      } catch (error) {
-        console.error("Error checking first launch: ", error);
-      }
-    };
-
-    checkFirstLaunch();
     getFilePaths();
   }, []);
   function genName(type) {
@@ -5089,12 +5073,6 @@ function CalcScreen({ navigation }) {
         { backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB" },
       ]}
     >
-      {isFirstLaunch && (
-        <AcknowledgementsModal
-          visible={modalVisible}
-          onClose={() => setModalVisible(false)}
-        />
-      )}
       <View
         style={{
           flexDirection: "row",
