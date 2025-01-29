@@ -17,13 +17,9 @@ const Info = ({ navigation }) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [fontSize, setFontSize] = useState(18);
 
-  const increaseFontSize = () => {
-    setFontSize((prevSize) => prevSize + 2);
-  };
-
-  const decreaseFontSize = () => {
-    setFontSize((prevSize) => Math.max(12, prevSize - 2));
-  };
+  const imageURI = isDarkMode
+    ? require("../assets/aspaImage.png")
+    : require("../assets/blackaspa.png");
 
   return (
     <SafeAreaView
@@ -35,11 +31,7 @@ const Info = ({ navigation }) => {
     >
       <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
         <View>
-          <Image
-            source={require("../assets/aspaImage.png")}
-            style={styles.Image}
-            resizeMode="contain"
-          />
+          <Image source={imageURI} style={styles.Image} resizeMode="contain" />
         </View>
         <Text
           style={{

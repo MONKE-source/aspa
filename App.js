@@ -27,7 +27,7 @@ function MyTabs() {
           height: 90,
           paddingHorizontal: 5,
           paddingTop: 0,
-          backgroundColor: isDarkMode ? "rgba(34,36,40,1)" : "#F2EDEB",
+          backgroundColor: "rgba(34,36,40,1)",
           position: "absolute",
           borderTopWidth: 0,
         },
@@ -70,7 +70,7 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="Credits"
+        name="Disclaimer"
         component={Info}
         options={{
           headerShown: false,
@@ -83,7 +83,7 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="Acknowledgements"
+        name="Credits"
         component={AcknowledgementsScreen}
         options={{
           headerShown: false,
