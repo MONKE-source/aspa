@@ -1,20 +1,13 @@
-# KKH-Paediatrics
+# Aspa App 
 
-## What I did?
+## App Functions 
 
-1. Transitioned the project from the Expo CLI to React Native CLI due to compatibility issues.
-2. Implemented the PDF viewer feature using the [react-native-pdf](https://www.npmjs.com/package/react-native-pdf) library.
-   - Managed iOS Permissions, PodFile and Android packagingOptions.
-   - Renamed 90+ files to suite the naming convention of accessing PDFs
-3. Added RN Vector Icons to project using the [react-native-vectors-icons](https://www.npmjs.com/package/react-native-vector-icons) library.
-   - Added fonts to Info.plist (iOS).
-   - Integrated fonts by editing build.gradle (Android).
-4. Setup Android Emulator and environment for the FIRST time on my MacBook.
-   - Figured out Java environment variables and SDK, downloaded Android Studio for the firs time. Great experience trying out new things.
+This app has multiple functions to assist the doctors of the [ASPA](https://aspa-2000.com). The functions and features in the app will make their everyday work easier.Some of the features includes
 
-## The "Who is it for?"
+- Documents for reference
+- Calculation for drug doses
+- Reference for crisis management
 
-#### App was built for the doctors and nurses of the KKH Womens and Childrens hospital. Reduced the hassle of carrying around a physical handbook and doing manual calculations all by themselves.
 
 # Getting Started
 
@@ -62,8 +55,4 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## About me
 
-I'm Caleb Han, a passionate Software Engineer specialising in the React framework. You can check me out [here](https://calebhan.vercel.app/). Currently a Secondary 4 student in the School of Science and Technology, Singapore studying for the GCE O-level examinations.
-
-NOTE: All information correct as per time of writing (9 January 2024).
