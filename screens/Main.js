@@ -135,7 +135,7 @@ const data = [
     id: "9",
     title: "Regional Anaesthesia",
     subtitles: [
-      { id: "sub23", text: "Central Neraxial Block", isBookmarked: false }, // no worky
+      { id: "sub23", text: "Central Neuraxial Block", isBookmarked: false }, // no worky
       {
         id: "sub24",
         text: "Regional Anaesthesia Workflow",
@@ -223,7 +223,7 @@ const data = [
   {
     id: "16",
     title: "Normal Laboratory Data",
-    subtitles: [{ id: "sub48", text: "KKH e-lab book", isBookmarked: false }],
+    subtitles: [{ id: "sub48", text: "e-lab book", isBookmarked: false }],
   },
 ];
 

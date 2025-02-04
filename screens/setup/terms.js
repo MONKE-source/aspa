@@ -52,7 +52,7 @@ const Terms = ({ navigation }) => {
           This app is a resource for doctors working under the Asian Society of
           Paediatric Anaesthesiologists. The guidelines presented are based on
           department and international practice guidelines. They are not meant
-          to be comprehensive but may not be all inclusive. The use of these
+          to be comprehensive and may not be all inclusive. The use of these
           guidelines must be individualized to the patient's needs. {"\n"}The
           authors of each chapter have ensured that the information is current
           and correct at the time of writing. Asian Society of Paediatric
