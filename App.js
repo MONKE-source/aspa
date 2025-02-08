@@ -125,7 +125,6 @@ export default function App() {
   }, []);
 
   if (isLoading) {
-    // You can return a loading screen or null while determining the initial route
     return null;
   }
 

@@ -36,7 +36,8 @@ export default function WelcomeScreen({ navigation }) {
         <Text
           style={[styles.subText, { marginTop: "1.5%", fontWeight: "400" }]}
         >
-          Your all-in-one guide to help you through {"\n"}nursing!
+          Your all-in-one guide to help you through {"\n"}paediatric
+          anaesthesia!
         </Text>
       </View>
       <TouchableOpacity
