@@ -30,7 +30,7 @@ export default function WelcomeScreen({ navigation }) {
           resizeMode="cover"
           style={styles.image}
         />
-        <Text style={[styles.subText, { marginTop: "2.25%" }]}>
+        <Text style={[styles.subText, { marginTop: "2.25%", fontSize: 20 }]}>
           Welcome to ASPA App!
         </Text>
         <Text
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "black",
     textAlign: "center",
+    padding: 5,
   },
   image: {
     height: imageLength,

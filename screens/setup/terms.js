@@ -61,44 +61,57 @@ const Terms = ({ navigation }) => {
           The user is advised to check drug dosages and protocols carefully and
           refer to the latest updates posted by the relevant anesthesia bodies.
         </Text>
-
-        <TouchableOpacity
-          onPress={() => openGitPDF("Preface", "Preface")}
+        <View style={styles.linebreak}></View>
+        <Text
           style={{
-            backgroundColor: "#45454A",
-            width: "90%",
+            fontWeight: "bold",
+            color: "black",
+            fontSize: 30,
+            padding: 25,
             alignSelf: "center",
-            height: "5%",
-            justifyContent: "center",
-            borderRadius: 10,
-            marginTop: 5,
-            shadowColor: "#000000",
-            shadowOffset: {
-              width: 0,
-              height: 5,
-            },
-            shadowOpacity: 0.5,
-            shadowRadius: 3.84,
-
-            elevation: 5,
+            marginTop: "1%",
           }}
         >
+          Preface
+        </Text>
+        <Text
+          style={{
+            color: "black",
+            paddingLeft: 25,
+            paddingRight: 25,
+            fontSize: fontSize,
+          }}
+        >
+          Asian Society of Paediatric Anaesthesia (ASPA) is about sharing.
+          {"\n"}
+          The ASPA app is created with the vision to share knowledge and
+          practical tips on perioperative management of children in Asia.
+          {"\n"}
+          There may be differences in resources and workflow but the broad
+          principles will be similar in all countries.
+          {"\n"}
+          We hope this app will help to provide better, safer care for all the
+          children.
+          {"\n"}
+          {"\n"}~
           <Text
             style={{
-              marginLeft: 15,
-              color: "white",
-              fontWeight: "bold",
+              color: "black",
+              paddingLeft: 25,
+              paddingRight: 25,
+              fontSize: fontSize,
+              fontStyle: "italic",
             }}
           >
-            Preface
+            Agnes Ng
           </Text>
-        </TouchableOpacity>
-
+        </Text>
         <Text
           style={{
             padding: 25,
             color: "black",
             fontWeight: "bold",
+            marginTop: "5%",
           }}
         >
           2024 © Caleb Han, Aathithya Jegatheesan, Ted Goh, Arth Aggarwal,
@@ -155,6 +168,12 @@ const styles = StyleSheet.create({
   Image: {
     width: "90%",
     alignSelf: "center",
+  },
+  linebreak: {
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+    marginTop: "7.5%",
+    marginHorizontal: 25,
   },
 });
 

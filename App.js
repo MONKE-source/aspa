@@ -117,6 +117,7 @@ export default function App() {
       } catch (error) {
         console.error("Error checking first launch: ", error);
       } finally {
+        setInitialRoute("Welcome");
         setIsLoading(false);
       }
     };
