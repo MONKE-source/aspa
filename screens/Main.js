@@ -287,7 +287,7 @@ function openGitPDF(title, subtitles) {
     }
     const lowercaseText = text1.toLowerCase();
     const words = lowercaseText.split(" ");
-    return words.join("_");
+    return words.join(" ");
   }
 
   const url = `https://github.com/MONKE-source/aspa/raw/new/assets/kkh-assets/${formatFileName(
