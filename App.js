@@ -117,7 +117,6 @@ export default function App() {
       } catch (error) {
         console.error("Error checking first launch: ", error);
       } finally {
-        setInitialRoute("Welcome");
         setIsLoading(false);
       }
     };
@@ -126,6 +125,7 @@ export default function App() {
   }, []);
 
   if (isLoading) {
+    // You can return a loading screen or null while determining the initial route
     return null;
   }
 
