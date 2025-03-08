@@ -94,7 +94,7 @@ const data = [
         text: "Prophylaxis for Infective Endocarditis",
         isBookmarked: false,
       },
-      { id: "sub16", text: "ROTEM Algoritihm", isBookmarked: false }, // no worky
+      { id: "sub16", text: "ROTEM Algorithm", isBookmarked: false }, // no worky
       {
         id: "sub17",
         text: "Paediatric Cardiac Anaesthesia",
@@ -115,7 +115,7 @@ const data = [
       { id: "sub20", text: "Diagnostic Imaging", isBookmarked: false },
       {
         id: "sub21",
-        text: "PAN Anaesthesia for Paediatric Oncology Radiotherapy",
+        text: "Anaesthesia for Paediatric Oncology Radiotherapy",
         isBookmarked: false,
       },
     ],
@@ -176,7 +176,7 @@ const data = [
         text: "Post Adenotonsillectomy Bleeding",
         isBookmarked: false,
       },
-      { id: "sub34", text: "Latex allergy", isBookmarked: false },
+      { id: "sub34", text: "Latex Allergy", isBookmarked: false },
       { id: "sub35", text: "Suspected Anaphylaxis", isBookmarked: false },
       { id: "sub36", text: "Local Anaesthetic Toxicity", isBookmarked: false },
       { id: "sub37", text: "Laryngospasm", isBookmarked: false }, // no worky
@@ -209,7 +209,7 @@ const data = [
       },
       {
         id: "sub45",
-        text: "PAN Patient Controlled Analgesia",
+        text: "Patient Controlled Analgesia",
         isBookmarked: false,
       },
       { id: "sub46", text: "Post Epidural Care", isBookmarked: false },
