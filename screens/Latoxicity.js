@@ -2620,13 +2620,13 @@ export default function LA() {
                 },
               ]}
             >
-              Sudden altertaion in mental status: {"\n"}
+              Sudden alteration in mental status: {"\n"}
               {"\t"} 1. Severe Agitation {"\n"}
-              {"\t"} 2. loss of consciousness {"\n"}
+              {"\t"} 2. Loss of consciousness {"\n"}
               Cardiovascular Collapse: {"\n"}
-              {"\t"} 1. sinus bradycardia {"\n"}
-              {"\t"} 2. conduction block {"\n"}
-              {"\t"} 3. ventricular Tachyarrhythmias {"\n"}
+              {"\t"} 1. Sinus bradycardia {"\n"}
+              {"\t"} 2. Conduction block {"\n"}
+              {"\t"} 3. Ventricular Tachyarrhythmias {"\n"}
               {"\t"} 4. Asystole {"\n"}
             </Text>
           </Collapsible>
@@ -2715,7 +2715,7 @@ export default function LA() {
               <TouchableOpacity onPress={() => createPDF(PDFOptions2)}>
                 <IconButton
                   bgHex="#72A8DA"
-                  title="CARDIOTOXICITY"
+                  title="Cardiotoxicity"
                   iconPath="folder-outline"
                   contentHex="white"
                   borderColor={"rgb(30, 30, 32)"}
@@ -2731,7 +2731,7 @@ export default function LA() {
               <TouchableOpacity onPress={() => createPDF(PDFOptions3)}>
                 <IconButton
                   bgHex="#72A8DA"
-                  title="Intraplid Therapy"
+                  title="Intralipid Therapy"
                   iconPath="folder-outline"
                   contentHex="white"
                   borderColor={"rgb(30, 30, 32)"}

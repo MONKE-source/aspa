@@ -151,8 +151,8 @@ export default function Basiclifesupport() {
             >
               1. One breath 1 breath every 3 seconds
               {"\n"}
-              {"\t"} - breathe a thousand, 2 a thousand, 3 a {"\t"} thousand
-              then repeat cycle
+              {"\t"} - breathe a thousand, 2 a thousand, 3 a thousand then
+              repeat cycle
             </Text>
             <Text
               style={[
@@ -222,7 +222,7 @@ export default function Basiclifesupport() {
               {"\t"}b. Advanced airway (LMA/ ETT)- provide 100 compressions & 10
               ventilations per minute
               {"\n"}
-              {"\t"}c. Push Hard Push Fast
+              {"\t"}c. Push hard push fast
               {"\n"}
               {"\t"}d. Minimise interruptions to compressions
               {"\n"}

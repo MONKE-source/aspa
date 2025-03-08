@@ -346,13 +346,8 @@ function Crisis({ navigation }) {
   const [isBlurred, setIsBlurred] = useState([
     {
       id: "1",
-      title: "Basic Life Support(BLS)",
+      title: "Cardiac Arrest", // Changed to Cardiac arrest since doctor asked, no more section for cardiac arrest instructions currently
       navigation: "Basic Life Support",
-    },
-    {
-      id: "2",
-      title: "Cardiac Arrest",
-      navigation: "Cardiac Arrest",
     },
     {
       id: "3",
