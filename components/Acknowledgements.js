@@ -18,8 +18,10 @@ const AcknowledgementsModal = ({ visible, onClose }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-          <Text style={styles.modalTitle}>Preface</Text>
-          <Text style={styles.modalText}>
+          <Text style={styles.modalTitle} allowFontScaling={false}>
+            Preface
+          </Text>
+          <Text style={styles.modalText} allowFontScaling={false}>
             Asian Society of Paediatric Anaesthesia (ASPA) is about sharing. The
             ASPA app is created with the vision to share knowledge and practical
             tips on perioperative management of children in Asia. There may be

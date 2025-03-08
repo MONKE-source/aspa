@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import React from "react";
+import { View, StyleSheet, Text } from "react-native";
 
 function TextButton({
   title,
@@ -16,9 +16,9 @@ function TextButton({
   // Calculate dynamic styles based on the screen width
   const dynamicStyles = StyleSheet.create({
     buttonContainer: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
       marginBottom: 20,
     },
   });
@@ -35,9 +35,16 @@ function TextButton({
           borderColor: borderColor,
           borderWidth: borderWidth,
         },
-      ]}>
+      ]}
+    >
       <Text
-        style={{color: contentHex, fontWeight: fontWeight, fontSize: textSize}}>
+        style={{
+          color: contentHex,
+          fontWeight: fontWeight,
+          fontSize: textSize,
+        }}
+        allowFontScaling={false}
+      >
         {title}
       </Text>
     </View>

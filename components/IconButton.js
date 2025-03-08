@@ -27,6 +27,7 @@ function IconButton({
     >
       <Text
         style={[styles.buttonText, { color: contentHex, fontSize: textSize }]}
+        allowFontScaling={false}
       >
         {title}
       </Text>

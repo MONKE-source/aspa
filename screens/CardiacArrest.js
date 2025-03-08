@@ -40,6 +40,7 @@ export default function CardiacArrest({ navigation }) {
         <View style={styles.container}>
           <Text
             style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+            allowFontScaling={false}
           >
             Cardiac Arrest
           </Text>
@@ -62,6 +63,7 @@ export default function CardiacArrest({ navigation }) {
                       : "none",
                   },
                 ]}
+                allowFontScaling={false}
               >
                 {item.text}
               </Text>

@@ -14,7 +14,6 @@ import {
   Platform,
 } from "react-native";
 import FileViewer from "react-native-file-viewer";
-import TextInputButton from "../components/TextInputButton";
 import IconButton from "../components/IconButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNHTMLtoPDF from "react-native-html-to-pdf";
@@ -2537,6 +2536,7 @@ export default function LA() {
           >
             <Text
               style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+              allowFontScaling={false}
             >
               LA Toxicity Management
             </Text>
@@ -2574,6 +2574,7 @@ export default function LA() {
                         : "none",
                     },
                   ]}
+                  allowFontScaling={false}
                 >
                   {item.text}
                 </Text>
@@ -2593,6 +2594,7 @@ export default function LA() {
                 styles.title,
                 { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
               ]}
+              allowFontScaling={false}
             >
               Signs
             </Text>
@@ -2619,6 +2621,7 @@ export default function LA() {
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
+              allowFontScaling={false}
             >
               Sudden alteration in mental status: {"\n"}
               {"\t"} 1. Severe Agitation {"\n"}
@@ -2643,6 +2646,7 @@ export default function LA() {
                 styles.title,
                 { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
               ]}
+              allowFontScaling={false}
             >
               Treatment
             </Text>
@@ -2669,6 +2673,7 @@ export default function LA() {
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
+              allowFontScaling={false}
             >
               CARDIOTOXICITY - with circulatory arrest
             </Text>
@@ -2680,6 +2685,7 @@ export default function LA() {
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
+              allowFontScaling={false}
             >
               {"\t"} 1. start CPR {"\n"}
               {"\t"} 2. Administer Intraplid therapy (take reference to below

@@ -31,7 +31,10 @@ function TextInputButton({
   return (
     <TouchableWithoutFeedback onPress={handleTextInputBlur}>
       <View style={styles.buttonContainer}>
-        <Text style={[styles.title, { color: isDarkMode ? "white" : "black" }]}>
+        <Text
+          style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+          allowFontScaling={false}
+        >
           {title}
         </Text>
         <View style={styles.buttonRow}>
@@ -52,9 +55,11 @@ function TextInputButton({
             onSubmitEditing={handleTextInputBlur}
             onChangeText={handleInputChange}
             value={store}
+            allowFontScaling={false}
           />
           <Text
             style={[styles.unit, { color: isDarkMode ? "white" : "black" }]}
+            allowFontScaling={false}
           >
             {unit}
           </Text>

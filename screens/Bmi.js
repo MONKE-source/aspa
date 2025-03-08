@@ -224,6 +224,7 @@ export default function Bmi() {
               fontSize: (Dimensions.get("window").height / 844) * 18,
               color: isDarkMode ? "white" : "black",
             }}
+            allowFontScaling={false}
           >
             {result}
           </Text>

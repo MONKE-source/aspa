@@ -11,7 +11,7 @@ import {
 } from "react-native";
 // import { TouchableOpacity } from "react-native-gesture-handler";
 
-function TopBar({navigation}) {
+function TopBar({ navigation }) {
   const windowWidth = useWindowDimensions().width;
 
   const dynamicStyles = StyleSheet.create({
@@ -64,10 +64,13 @@ function TopBar({navigation}) {
         width: Dimensions.get("window").width,
         marginTop: 5,
         alignItems: "center",
-        alignContent: "center"
+        alignContent: "center",
       }}
     >
-      <TouchableOpacity style={dynamicStyles.settingsView} onPress={() => navigation.navigate("")}>
+      <TouchableOpacity
+        style={dynamicStyles.settingsView}
+        onPress={() => navigation.navigate("")}
+      >
         <Image
           source={require("../assets/setting.png")}
           style={dynamicStyles.settingIcon}
@@ -82,6 +85,7 @@ function TopBar({navigation}) {
           style={dynamicStyles.searchInput}
           placeholder="Search..."
           placeholderTextColor="#818188"
+          allowFontScaling={false}
         />
       </View>
     </View>

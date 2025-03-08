@@ -14,7 +14,6 @@ import {
   Platform,
 } from "react-native";
 import FileViewer from "react-native-file-viewer";
-import TextInputButton from "../components/TextInputButton";
 import IconButton from "../components/IconButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNHTMLtoPDF from "react-native-html-to-pdf";
@@ -1660,6 +1659,7 @@ export default function Anaphylaxis() {
                 styles.title,
                 { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
               ]}
+              allowFontScaling={false}
             >
               Anaphylaxis Management
             </Text>
@@ -1697,6 +1697,7 @@ export default function Anaphylaxis() {
                         : "none",
                     },
                   ]}
+                  allowFontScaling={false}
                 >
                   {item.text}
                 </Text>
@@ -1716,6 +1717,7 @@ export default function Anaphylaxis() {
                 styles.title,
                 { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
               ]}
+              allowFontScaling={false}
             >
               Signs
             </Text>
@@ -1744,6 +1746,7 @@ export default function Anaphylaxis() {
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
+              allowFontScaling={false}
             >
               1.Erythema{"\n"}
               2.Urticaria{"\n"}
@@ -1764,6 +1767,7 @@ export default function Anaphylaxis() {
           >
             <Text
               style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+              allowFontScaling={false}
             >
               Symptoms
             </Text>
@@ -1792,6 +1796,7 @@ export default function Anaphylaxis() {
                   marginTop: "-1%",
                 },
               ]}
+              allowFontScaling={false}
             >
               1.Dyspnoea{"\n"}
               2.Wheezing
@@ -1807,6 +1812,7 @@ export default function Anaphylaxis() {
           >
             <Text
               style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+              allowFontScaling={false}
             >
               Calculators
             </Text>

@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 // import { StatusBar } from "expo-status-bar";
-import {SafeAreaView, Switch, StyleSheet, Text, View} from 'react-native';
+import { SafeAreaView, Switch, StyleSheet, Text, View } from "react-native";
 // import AsyncStorage/ from "@react-native-async-storage/async-storage";
-import {useDarkMode} from '../components/DarkModeContext';
+import { useDarkMode } from "../components/DarkModeContext";
 export default function Settings() {
-  const {isDarkMode, toggleDarkMode} = useDarkMode();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   // useEffect(() => {
   //   // Retrieve the stored isDarkMode value from AsyncStorage when the component mounts
   //   retrieveDarkMode();
@@ -41,12 +41,15 @@ export default function Settings() {
       style={[
         styles.container,
         isDarkMode ? styles.darkMode : styles.lightMode,
-      ]}>
+      ]}
+    >
       <Text
         style={[
           styles.settingsTitle,
           isDarkMode ? styles.darkText : styles.lightText,
-        ]}>
+        ]}
+        allowFontScaling={false}
+      >
         Settings
       </Text>
       <View style={styles.toggleContainer}>
@@ -54,13 +57,15 @@ export default function Settings() {
           style={[
             styles.label,
             isDarkMode ? styles.darkText : styles.lightText,
-          ]}>
-          {isDarkMode ? 'Dark Mode' : 'Light Mode'}
+          ]}
+          allowFontScaling={false}
+        >
+          {isDarkMode ? "Dark Mode" : "Light Mode"}
         </Text>
         <Switch
           value={isDarkMode}
           onValueChange={toggleDarkMode}
-          trackColor={{false: 'red', true: 'green'}}
+          trackColor={{ false: "red", true: "green" }}
           thumbColor="white"
         />
       </View>
@@ -71,24 +76,24 @@ export default function Settings() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgb(30, 30, 32)',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "rgb(30, 30, 32)",
+    alignItems: "center",
+    justifyContent: "center",
   },
   lightMode: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
   darkMode: {
-    backgroundColor: 'rgb(30, 30, 32)',
+    backgroundColor: "rgb(30, 30, 32)",
   },
   settingsTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
   },
   toggleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 20,
   },
   label: {
@@ -96,9 +101,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   lightText: {
-    color: 'black',
+    color: "black",
   },
   darkText: {
-    color: 'white',
+    color: "white",
   },
 });

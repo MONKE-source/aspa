@@ -38,6 +38,7 @@ const Terms = ({ navigation }) => {
             alignSelf: "center",
             marginTop: "-8%",
           }}
+          allowFontScaling={false}
         >
           DISCLAIMER
         </Text>
@@ -48,6 +49,7 @@ const Terms = ({ navigation }) => {
             paddingRight: 25,
             fontSize: fontSize,
           }}
+          allowFontScaling={false}
         >
           This app is a resource for doctors working under the Asian Society of
           Paediatric Anaesthesiologists. The guidelines presented are based on
@@ -71,6 +73,7 @@ const Terms = ({ navigation }) => {
             alignSelf: "center",
             marginTop: "1%",
           }}
+          allowFontScaling={false}
         >
           Preface
         </Text>
@@ -81,6 +84,7 @@ const Terms = ({ navigation }) => {
             paddingRight: 25,
             fontSize: fontSize,
           }}
+          allowFontScaling={false}
         >
           Asian Society of Paediatric Anaesthesia (ASPA) is about sharing.
           {"\n"}
@@ -102,6 +106,7 @@ const Terms = ({ navigation }) => {
               fontSize: fontSize,
               fontStyle: "italic",
             }}
+            allowFontScaling={false}
           >
             Agnes Ng
           </Text>
@@ -113,6 +118,7 @@ const Terms = ({ navigation }) => {
             fontWeight: "bold",
             marginTop: "5%",
           }}
+          allowFontScaling={false}
         >
           2024 © Caleb Han, Aathithya Jegatheesan, Ted Goh, Arth Aggarwal,
           Darryan Lim

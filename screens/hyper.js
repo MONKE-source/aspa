@@ -14,7 +14,6 @@ import {
   Platform,
 } from "react-native";
 import FileViewer from "react-native-file-viewer";
-import TextInputButton from "../components/TextInputButton";
 import IconButton from "../components/IconButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNHTMLtoPDF from "react-native-html-to-pdf";
@@ -1574,6 +1573,7 @@ export default function Hyper() {
         <View style={styles.container}>
           <Text
             style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+            allowFontScaling={false}
           >
             Hyperkalemia
           </Text>
@@ -1590,6 +1590,7 @@ export default function Hyper() {
                 styles.title,
                 { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
               ]}
+              allowFontScaling={false}
             >
               Inclusion Criteria
             </Text>
@@ -1616,6 +1617,7 @@ export default function Hyper() {
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
+              allowFontScaling={false}
             >
               Term NEONATE ({">"} 1 month age): serum K+ {">"} 6 mmol/L {"\n"}
               Children {">"} 1 month age: serum K+ {">"}5.5 mmol/L
@@ -1635,6 +1637,7 @@ export default function Hyper() {
                 styles.title,
                 { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
               ]}
+              allowFontScaling={false}
             >
               Exclusion Criteria
             </Text>
@@ -1662,6 +1665,7 @@ export default function Hyper() {
                   marginBottom: "1%",
                 },
               ]}
+              allowFontScaling={false}
             >
               Premature Neonates
             </Text>
@@ -1679,6 +1683,7 @@ export default function Hyper() {
                 styles.title,
                 { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
               ]}
+              allowFontScaling={false}
             >
               Management Algoritihm
             </Text>
@@ -1706,6 +1711,7 @@ export default function Hyper() {
                   marginBottom: "1%",
                 },
               ]}
+              allowFontScaling={false}
             >
               Perform ECG immediately when possible {"\n"}
               Review all medications/ infusions {"\n"}
@@ -1743,6 +1749,7 @@ export default function Hyper() {
                       width: "25%",
                       color: isDarkMode ? "white" : "black",
                     }}
+                    allowFontScaling={false}
                   >
                     serum K+ (mmol/L)
                   </Text>
@@ -1752,6 +1759,7 @@ export default function Hyper() {
                       color: isDarkMode ? "white" : "black",
                       flexWrap: "wrap",
                     }}
+                    allowFontScaling={false}
                   >
                     {row.range}
                   </Text>
@@ -1764,6 +1772,7 @@ export default function Hyper() {
                         color: isDarkMode ? "white" : "black",
                       },
                     ]}
+                    allowFontScaling={false}
                   >
                     Initial Treatment
                   </Text>
@@ -1773,6 +1782,7 @@ export default function Hyper() {
                       color: isDarkMode ? "white" : "black",
                       flexWrap: "wrap",
                     }}
+                    allowFontScaling={false}
                   >
                     {row.initialTreatment}
                   </Text>
@@ -1793,6 +1803,7 @@ export default function Hyper() {
                       width: "50%",
                       color: isDarkMode ? "white" : "black",
                     }}
+                    allowFontScaling={false}
                   >
                     Review: K+ improving
                   </Text>
@@ -1802,6 +1813,7 @@ export default function Hyper() {
                       color: isDarkMode ? "white" : "black",
                       flexWrap: "wrap",
                     }}
+                    allowFontScaling={false}
                   >
                     {row.improving}
                   </Text>
@@ -1813,6 +1825,7 @@ export default function Hyper() {
                       width: "50%",
                       color: isDarkMode ? "white" : "black",
                     }}
+                    allowFontScaling={false}
                   >
                     Review: K+ NOT improving
                   </Text>
@@ -1822,6 +1835,7 @@ export default function Hyper() {
                       color: isDarkMode ? "white" : "black",
                       flexWrap: "wrap",
                     }}
+                    allowFontScaling={false}
                   >
                     {row.notImproving}
                   </Text>
@@ -1843,6 +1857,7 @@ export default function Hyper() {
                 styles.title,
                 { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
               ]}
+              allowFontScaling={false}
             >
               Emergency Management
             </Text>
@@ -1870,6 +1885,7 @@ export default function Hyper() {
                   marginBottom: "1%",
                 },
               ]}
+              allowFontScaling={false}
             >
               1. DO:
             </Text>
@@ -1893,6 +1909,7 @@ export default function Hyper() {
                         : "none",
                     },
                   ]}
+                  allowFontScaling={false}
                 >
                   {item.text}
                 </Text>
@@ -1907,6 +1924,7 @@ export default function Hyper() {
                   marginBottom: "1%",
                 },
               ]}
+              allowFontScaling={false}
             >
               2. without delaying therapy, consider:
             </Text>
@@ -1930,6 +1948,7 @@ export default function Hyper() {
                         : "none",
                     },
                   ]}
+                  allowFontScaling={false}
                 >
                   {item.text}
                 </Text>

@@ -30,11 +30,12 @@ export default function WelcomeScreen({ navigation }) {
           resizeMode="cover"
           style={styles.image}
         />
-        <Text style={[styles.subText, { marginTop: "2.25%", fontSize: 20 }]}>
+        <Text style={[styles.subText, { marginTop: "2.25%", fontSize: 20 }]} allowFontScaling={false}>
           Welcome to ASPA App!
         </Text>
         <Text
           style={[styles.subText, { marginTop: "1.5%", fontWeight: "400" }]}
+          allowFontScaling={false}
         >
           Your all-in-one guide to help you through {"\n"}paediatric
           anaesthesia!
@@ -44,7 +45,7 @@ export default function WelcomeScreen({ navigation }) {
         style={styles.nextButton}
         onPress={() => navigation.navigate("Terms")}
       >
-        <Text style={[styles.subText, { color: "#FFF" }]}>Proceed</Text>
+        <Text style={[styles.subText, { color: "#FFF" }]} allowFontScaling={false}>Proceed</Text>
         <View style={styles.iconContainer}>
           <AntDesign name="right" size={20} color="#FFF" />
         </View>

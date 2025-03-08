@@ -42,6 +42,7 @@ const Info = ({ navigation }) => {
             alignSelf: "center",
             marginTop: "-8%",
           }}
+          allowFontScaling={false}
         >
           DISCLAIMER
         </Text>
@@ -52,6 +53,7 @@ const Info = ({ navigation }) => {
             paddingRight: 25,
             fontSize: fontSize,
           }}
+          allowFontScaling={false}
         >
           This app is a resource for doctors working under the Asian Society of
           Paediatric Anaesthesiologists. The guidelines presented are based on
@@ -93,6 +95,7 @@ const Info = ({ navigation }) => {
               color: isDarkMode ? "black" : "white",
               fontWeight: "bold",
             }}
+            allowFontScaling={false}
           >
             Settings
           </Text>
@@ -124,6 +127,7 @@ const Info = ({ navigation }) => {
               color: isDarkMode ? "black" : "white",
               fontWeight: "bold",
             }}
+            allowFontScaling={false}
           >
             Preface
           </Text>
@@ -168,6 +172,7 @@ const Info = ({ navigation }) => {
             // position: 'absolute',
             // bottom: 80,
           }}
+          allowFontScaling={false}
         >
           2024 © Caleb Han, Aathithya Jegatheesan, Ted Goh, arth, Darryan Lim
         </Text>

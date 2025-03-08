@@ -5099,6 +5099,7 @@ function CalcScreen({ navigation }) {
           <View style={styles.buttonColumn2}>
             <Text
               style={[styles.select, { color: isDarkMode ? "white" : "black" }]}
+              allowFontScaling={false}
             >
               Select{" "}
               <Text
@@ -5109,6 +5110,7 @@ function CalcScreen({ navigation }) {
                     color: isDarkMode ? "white" : "black",
                   },
                 ]}
+                allowFontScaling={false}
               >
                 one
               </Text>
@@ -5345,6 +5347,7 @@ const FileItem = ({ item, setDisplayFiles, displayFiles, files, setFiles }) => {
             onChangeText={(text) => {
               setNewName(text);
             }}
+            allowFontScaling={false}
           >
             {title}
           </TextInput>
@@ -5407,6 +5410,7 @@ const FileScreen = () => {
                 marginTop: 20,
                 color: isDarkMode ? "white" : "black",
               }}
+              allowFontScaling={false}
             >
               No files available
             </Text>

@@ -260,6 +260,7 @@ function SetWeight({ navigation }) {
             position: "relative",
             top: "10%",
           }}
+          allowFontScaling={false}
         >
           Enter patient's weight
         </Text>
@@ -326,6 +327,7 @@ function SetWeight({ navigation }) {
                   ? Dimensions.get("window").height * 0.04739336 * 0.45
                   : 20,
               }}
+              allowFontScaling={false}
             >
               Next
             </Text>
@@ -442,7 +444,9 @@ function Crisis({ navigation }) {
           style={styles.rectangle}
           onPress={() => navigation.navigate(item.navigation)}
         >
-          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.title} allowFontScaling={false}>
+            {item.title}
+          </Text>
           <AntDesign name="right" style={{ color: "grey", fontSize: 20 }} />
         </TouchableOpacity>
       </View>
@@ -476,6 +480,7 @@ function Crisis({ navigation }) {
               style={dynamicStyles.searchIcon}
             />
             <TextInput
+              allowFontScaling={false}
               style={dynamicStyles.searchInput}
               placeholder="Search..."
               placeholderTextColor="#818188"
@@ -512,6 +517,7 @@ function Crisis({ navigation }) {
                 ? Dimensions.get("window").height * 0.04739336 * 0.45
                 : 20,
             }}
+            allowFontScaling={false}
           >
             Patient's Weight:{" "}
             <Text
@@ -522,6 +528,7 @@ function Crisis({ navigation }) {
                   ? Dimensions.get("window").height * 0.04739336 * 0.45
                   : 25,
               }}
+              allowFontScaling={false}
             >
               {weight}
             </Text>{" "}

@@ -29,7 +29,10 @@ function SegmentedControl({
         activeOpacity={0.8}
         onPress={() => update()}
       >
-        <Text style={[styles.segmentStyle, { fontSize: fontSize }]}>
+        <Text
+          style={[styles.segmentStyle, { fontSize: fontSize }]}
+          allowFontScaling={false}
+        >
           {titleArray[0]}
         </Text>
       </TouchableOpacity>
@@ -41,7 +44,10 @@ function SegmentedControl({
         activeOpacity={0.8}
         onPress={() => update()}
       >
-        <Text style={[styles.segmentStyle, { fontSize: fontSize }]}>
+        <Text
+          style={[styles.segmentStyle, { fontSize: fontSize }]}
+          allowFontScaling={false}
+        >
           {titleArray[1]}
         </Text>
       </TouchableOpacity>

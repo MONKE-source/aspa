@@ -255,14 +255,18 @@ const BookmarkedItemsScreen = ({ route, navigation }) => {
         renderItem={({ item }) => (
           <View>
             <View style={styles.itemContainer}>
-              <Text style={styles.title}>{item.title}</Text>
+              <Text style={styles.title} allowFontScaling={false}>
+                {item.title}
+              </Text>
               {item.subtitles.map((subtitle) => (
                 <TouchableOpacity
                   key={subtitle.id}
                   style={styles.subtitleContainer}
                   onPress={() => openGitPDF(item.title, subtitle.text)}
                 >
-                  <Text style={styles.subtitleText}>{subtitle.text}</Text>
+                  <Text style={styles.subtitleText} allowFontScaling={false}>
+                    {subtitle.text}
+                  </Text>
                 </TouchableOpacity>
               ))}
             </View>
@@ -410,14 +414,18 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
 
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
-      <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.title} allowFontScaling={false}>
+        {item.title}
+      </Text>
       {item.subtitles.map((subtitle) => (
         <TouchableOpacity
           key={subtitle.id}
           style={styles.subtitleContainer}
           onPress={() => openGitPDF(item.title, subtitle.text)}
         >
-          <Text style={styles.subtitleText}>{subtitle.text}</Text>
+          <Text style={styles.subtitleText} allowFontScaling={false}>
+            {subtitle.text}
+          </Text>
           <TouchableOpacity
             style={styles.bookmarkButton}
             onPress={() => toggleSubtitleBookmark(item.id, subtitle.id)}
@@ -494,6 +502,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
               padding: 20,
             },
           ]}
+          allowFontScaling={false}
         >
           Guidelines
         </Text>
@@ -553,6 +562,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
             />
             <TextInput
               style={dynamicStyles.searchInput}
+              allowFontScaling={false}
               placeholder="Search..."
               placeholderTextColor="#818188"
               value={searchQuery}

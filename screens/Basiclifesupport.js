@@ -64,6 +64,7 @@ export default function Basiclifesupport() {
           >
             <Text
               style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+              allowFontScaling={false}
             >
               Basic Life Support Checklist
             </Text>
@@ -101,6 +102,7 @@ export default function Basiclifesupport() {
                         : "none",
                     },
                   ]}
+                  allowFontScaling={false}
                 >
                   {item.text}
                 </Text>
@@ -122,6 +124,7 @@ export default function Basiclifesupport() {
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
+              allowFontScaling={false}
             >
               Rescue Breathing
             </Text>
@@ -148,6 +151,7 @@ export default function Basiclifesupport() {
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
+              allowFontScaling={false}
             >
               1. One breath 1 breath every 3 seconds
               {"\n"}
@@ -163,6 +167,7 @@ export default function Basiclifesupport() {
                   marginTop: "2%",
                 },
               ]}
+              allowFontScaling={false}
             >
               2. Recheck pulse every 2 minutes
             </Text>
@@ -186,6 +191,7 @@ export default function Basiclifesupport() {
                   fontSize: 22 * (Dimensions.get("window").width / 375),
                 },
               ]}
+              allowFontScaling={false}
             >
               Cardiopulmonary Resuscitation
             </Text>
@@ -212,6 +218,7 @@ export default function Basiclifesupport() {
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
+              allowFontScaling={false}
             >
               1. SINGLE RESCUER: 30 compressions : 2 breaths
               {"\n"}

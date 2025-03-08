@@ -14,7 +14,6 @@ import {
   Platform,
 } from "react-native";
 import FileViewer from "react-native-file-viewer";
-import TextInputButton from "../components/TextInputButton";
 import IconButton from "../components/IconButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNHTMLtoPDF from "react-native-html-to-pdf";
@@ -648,6 +647,7 @@ export default function Hypertermina() {
           >
             <Text
               style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+              allowFontScaling={false}
             >
               MH Management
             </Text>
@@ -685,6 +685,7 @@ export default function Hypertermina() {
                         : "none",
                     },
                   ]}
+                  allowFontScaling={false}
                 >
                   {item.text}
                 </Text>
@@ -707,6 +708,7 @@ export default function Hypertermina() {
                   marginBottom: "3%",
                 },
               ]}
+              allowFontScaling={false}
             >
               Recognition
             </Text>
@@ -733,6 +735,7 @@ export default function Hypertermina() {
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
+              allowFontScaling={false}
             >
               Previous uneventful GA DOES NOT rule out MH
               {"\n"}
@@ -771,6 +774,7 @@ export default function Hypertermina() {
                 styles.title,
                 { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
               ]}
+              allowFontScaling={false}
             >
               Treatment{" "}
             </Text>
@@ -797,6 +801,7 @@ export default function Hypertermina() {
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
+              allowFontScaling={false}
             >
               Dantrolene
               {"\n"}
@@ -837,6 +842,7 @@ export default function Hypertermina() {
                   marginTop: "2%",
                 },
               ]}
+              allowFontScaling={false}
             >
               Monitor
             </Text>
@@ -864,6 +870,7 @@ export default function Hypertermina() {
                   marginBottom: "5%",
                 },
               ]}
+              allowFontScaling={false}
             >
               1. Core & Peripheral TEMPERATURE{"\n"}
               2. ECG{"\n"}
@@ -890,6 +897,7 @@ export default function Hypertermina() {
                 fontWeight: "bold",
                 color: isDarkMode ? "white" : "black",
               }}
+              allowFontScaling={false}
             >
               DIFFERENTIAL DIAGNOSIS
             </Text>
@@ -917,6 +925,7 @@ export default function Hypertermina() {
                   marginVertical: "3%",
                 },
               ]}
+              allowFontScaling={false}
             >
               1. Inadequate anaesthesia or analgesia{"\n"}
               2. Inappropriate breathing circuit, fresh gas flow or ventilation
@@ -943,6 +952,7 @@ export default function Hypertermina() {
                 fontWeight: "bold",
                 color: isDarkMode ? "white" : "black",
               }}
+              allowFontScaling={false}
             >
               Calculator
             </Text>
