@@ -183,7 +183,7 @@ const data = [
       { id: "sub38", text: "Epiglottitis", isBookmarked: false }, // no worky
       { id: "sub39", text: "Hypercyanotic Tet Spells", isBookmarked: false },
       { id: "sub40", text: "Malignant Hyperthermia", isBookmarked: false },
-      { id: "sub41", text: "Crisis (generic)", isBookmarked: false },
+      { id: "sub41", text: "Crisis Algorithms", isBookmarked: false },
     ],
   },
   {
