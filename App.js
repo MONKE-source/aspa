@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { View, Text, StyleSheet } from "react-native";
 
 import CalcScreen from "./screens/CalcScreen";
 import Main from "./screens/Main";
@@ -107,15 +108,19 @@ export default function App() {
   useEffect(() => {
     const checkFirstLaunch = async () => {
       try {
+        // Check if it's the first launch
         const hasLaunched = await AsyncStorage.getItem("hasLaunched");
         if (hasLaunched === null) {
-          await AsyncStorage.setItem("hasLaunched", "true");
+          // First launch - show welcome screen
           setInitialRoute("Welcome");
         } else {
+          // Not first launch - go directly to main app
           setInitialRoute("Main");
         }
       } catch (error) {
         console.error("Error checking first launch: ", error);
+        // Default to welcome screen if there's an error
+        setInitialRoute("Welcome");
       } finally {
         setIsLoading(false);
       }
@@ -125,8 +130,12 @@ export default function App() {
   }, []);
 
   if (isLoading) {
-    // You can return a loading screen or null while determining the initial route
-    return null;
+    // Show loading screen while initializing
+    return (
+      <View style={styles.loadingContainer}>
+        <Text style={styles.loadingText}>Initializing App...</Text>
+      </View>
+    );
   }
 
   return (
@@ -153,3 +162,18 @@ export default function App() {
     </DarkModeProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    padding: 20,
+  },
+  loadingText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+});

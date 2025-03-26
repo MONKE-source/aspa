@@ -23,6 +23,7 @@ import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import RNFS from "react-native-fs";
 import FileViewer from "react-native-file-viewer";
 import Settings from "./Settings";
+import { checkPdfExists, getLocalPdfPath } from "../utils/pdfManager";
 
 const data = [
   {
@@ -279,11 +280,51 @@ const BookmarkedItemsScreen = ({ route, navigation }) => {
   );
 };
 
-function openGitPDF(title, subtitles) {
+async function openGitPDF(title, subtitles) {
   function formatFileName(text) {
     let text1; // in info.js have to pass argumment as a string directly
     // never mind im stupid
     // ill just keep that part in for extra validation oopsies
+    if (typeof text !== "string") {
+      text1 = text.toString();
+    } else {
+      text1 = text;
+    }
+    const lowercaseText = text1.toLowerCase();
+    const words = lowercaseText.split(" ");
+    return words.join(" ");
+  }
+
+  try {
+    // Check if the PDF exists locally
+    const pdfExists = await checkPdfExists(title, subtitles);
+
+    if (pdfExists) {
+      // If the PDF exists locally, open it directly
+      const localPath = getLocalPdfPath(title, subtitles);
+      console.log("Opening locally stored PDF:", localPath);
+
+      FileViewer.open(localPath).catch((e) => {
+        console.log("Error opening local file: ", e);
+        // If there's an error opening the local file, fall back to downloading
+        downloadAndOpenPdf(title, subtitles);
+      });
+    } else {
+      // If the PDF doesn't exist locally, download it
+      console.log("PDF not found locally, downloading...");
+      downloadAndOpenPdf(title, subtitles);
+    }
+  } catch (error) {
+    console.error("Error in openGitPDF:", error);
+    // Fall back to downloading if there's any error
+    downloadAndOpenPdf(title, subtitles);
+  }
+}
+
+// Function to download and open PDF (fallback method)
+function downloadAndOpenPdf(title, subtitles) {
+  function formatFileName(text) {
+    let text1;
     if (typeof text !== "string") {
       text1 = text.toString();
     } else {

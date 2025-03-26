@@ -9,9 +9,11 @@ import {
   Dimensions,
   Image,
   Platform,
+  Alert,
 } from "react-native";
 import { openGitPDF } from "../Main";
 import TextButton from "../../components/TextButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Terms = ({ navigation }) => {
   const [fontSize, setFontSize] = useState(18);
@@ -125,7 +127,19 @@ const Terms = ({ navigation }) => {
         </Text>
         <TouchableOpacity
           style={{ alignSelf: "center" }}
-          onPress={() => navigation.navigate("Main")}
+          onPress={async () => {
+            try {
+              // Set hasLaunched flag to ensure onboarding only happens once
+              await AsyncStorage.setItem("hasLaunched", "true");
+
+              // Navigate to Main app
+              navigation.navigate("Main");
+            } catch (error) {
+              console.error("Error setting hasLaunched flag:", error);
+              // Still navigate to Main even if there's an error
+              navigation.navigate("Main");
+            }
+          }}
         >
           <TextButton
             title="Accept"

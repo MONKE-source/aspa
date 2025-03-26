@@ -13,15 +13,99 @@ import {
   Alert,
   KeyboardAvoidingView,
   Image,
+  ActivityIndicator,
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { downloadAllPdfs } from "../../utils/pdfManager";
 
 const imageWidth = Dimensions.get("window").width * 0.63;
 const imageLength = Dimensions.get("window").height * 0.35;
 const gapLength = Dimensions.get("window").width * 0.25;
 
 export default function WelcomeScreen({ navigation }) {
+  const [downloadProgress, setDownloadProgress] = useState(0);
+  const [totalPdfs, setTotalPdfs] = useState(0);
+  const [isDownloadingPdfs, setIsDownloadingPdfs] = useState(false);
+  const [downloadComplete, setDownloadComplete] = useState(false);
+  const [downloadStarted, setDownloadStarted] = useState(false);
+
+  useEffect(() => {
+    // Check if PDFs have been downloaded before
+    const checkPdfDownloaded = async () => {
+      try {
+        const pdfsDownloaded = await AsyncStorage.getItem("pdfsDownloaded");
+        if (pdfsDownloaded === "true") {
+          setDownloadComplete(true);
+        }
+      } catch (error) {
+        console.error("Error checking if PDFs were downloaded:", error);
+      }
+    };
+
+    checkPdfDownloaded();
+  }, []);
+
+  const handleDownloadPdfs = async () => {
+    if (downloadComplete) {
+      // If PDFs are already downloaded, just navigate to Terms
+      navigation.navigate("Terms");
+      return;
+    }
+
+    if (isDownloadingPdfs) {
+      // If already downloading, do nothing
+      return;
+    }
+
+    try {
+      setIsDownloadingPdfs(true);
+      setDownloadStarted(true);
+
+      const result = await downloadAllPdfs((downloaded, total) => {
+        setDownloadProgress(downloaded);
+        setTotalPdfs(total);
+      });
+
+      if (result.success) {
+        // Mark PDFs as downloaded
+        await AsyncStorage.setItem("pdfsDownloaded", "true");
+        await AsyncStorage.setItem("hasLaunched", "true");
+        setDownloadComplete(true);
+
+        // Navigate to Terms screen
+        navigation.navigate("Terms");
+      } else {
+        console.warn("Some PDFs failed to download:", result.failedDownloads);
+        Alert.alert(
+          "Download Incomplete",
+          "Some resources couldn't be downloaded. You may experience issues in offline mode.",
+          [
+            {
+              text: "Continue Anyway",
+              onPress: () => navigation.navigate("Terms"),
+            },
+          ]
+        );
+      }
+    } catch (error) {
+      console.error("Error downloading PDFs:", error);
+      Alert.alert(
+        "Download Error",
+        "There was an error downloading resources. You may experience issues in offline mode.",
+        [
+          {
+            text: "Continue Anyway",
+            onPress: () => navigation.navigate("Terms"),
+          },
+        ]
+      );
+    } finally {
+      setIsDownloadingPdfs(false);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={{ alignItems: "center" }}>
@@ -30,7 +114,10 @@ export default function WelcomeScreen({ navigation }) {
           resizeMode="cover"
           style={styles.image}
         />
-        <Text style={[styles.subText, { marginTop: "2.25%", fontSize: 20 }]} allowFontScaling={false}>
+        <Text
+          style={[styles.subText, { marginTop: "2.25%", fontSize: 20 }]}
+          allowFontScaling={false}
+        >
           Welcome to ASPA App!
         </Text>
         <Text
@@ -40,12 +127,36 @@ export default function WelcomeScreen({ navigation }) {
           Your all-in-one guide to help you through {"\n"}paediatric
           anaesthesia!
         </Text>
+
+        {downloadStarted && !downloadComplete && (
+          <View style={styles.downloadContainer}>
+            <ActivityIndicator size="large" color="#5092CD" />
+            <Text style={styles.downloadText} allowFontScaling={false}>
+              Downloading resources for offline use: {downloadProgress}/
+              {totalPdfs}
+            </Text>
+          </View>
+        )}
       </View>
+
       <TouchableOpacity
-        style={styles.nextButton}
-        onPress={() => navigation.navigate("Terms")}
+        style={[
+          styles.nextButton,
+          isDownloadingPdfs && { backgroundColor: "#A0A0A0" }, // Gray out button while downloading
+        ]}
+        onPress={handleDownloadPdfs}
+        disabled={isDownloadingPdfs}
       >
-        <Text style={[styles.subText, { color: "#FFF" }]} allowFontScaling={false}>Proceed</Text>
+        <Text
+          style={[styles.subText, { color: "#FFF" }]}
+          allowFontScaling={false}
+        >
+          {downloadComplete
+            ? "Proceed"
+            : downloadStarted
+            ? "Downloading..."
+            : "Download & Proceed"}
+        </Text>
         <View style={styles.iconContainer}>
           <AntDesign name="right" size={20} color="#FFF" />
         </View>
@@ -89,5 +200,16 @@ const styles = StyleSheet.create({
   iconContainer: {
     height: "50%",
     justifyContent: "center",
+  },
+  downloadContainer: {
+    marginTop: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  downloadText: {
+    marginTop: 10,
+    fontSize: 16,
+    textAlign: "center",
+    color: "#333",
   },
 });
