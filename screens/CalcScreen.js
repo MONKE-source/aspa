@@ -76,6 +76,4058 @@ function CalcScreen({ navigation }) {
     return Math.round(value * factor) / factor;
   }
 
+  const drugs = async (weight) => {
+    try {
+      let PDFOptions = {
+        html: `<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link
+  type="text/css"
+  rel="stylesheet"
+  href="resources/sheet.css"
+/>
+<style type="text/css">
+  .ritz .waffle a {
+    color: inherit;
+  }
+  .ritz .waffle .s21 {
+    background-color: #4285f4;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s52 {
+    border-left: none;
+    background-color: #ffffff;
+  }
+  .ritz .waffle .s12 {
+    background-color: #ffff00;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s38 {
+    background-color: #ff0000;
+    text-align: center;
+    font-weight: bold;
+    color: #1155cc;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s42 {
+    background-color: #93c47d;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s16 {
+    background-color: #ffff00;
+    text-align: center;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s32 {
+    background-color: #6aa84f;
+    text-align: center;
+    font-weight: bold;
+    color: #6aa84f;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s40 {
+    background-color: #ff0000;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s20 {
+    background-color: #4285f4;
+    text-align: right;
+    color: #666666;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s36 {
+    background-color: #ff0000;
+    text-align: right;
+    color: #666666;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s48 {
+    background-color: #999999;
+    text-align: center;
+    font-weight: bold;
+    color: #6aa84f;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s27 {
+    background-color: #d9ead3;
+    text-align: center;
+    font-weight: bold;
+    color: #1155cc;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s50 {
+    background-color: #999999;
+    text-align: center;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s4 {
+    background-color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    color: #1155cc;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s22 {
+    background-color: #4285f4;
+    text-align: center;
+    font-weight: bold;
+    color: #1155cc;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s6 {
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s3 {
+    background-color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s15 {
+    background-color: #ffff00;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s51 {
+    border-right: none;
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s45 {
+    background-color: #999999;
+    text-align: right;
+    color: #666666;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s55 {
+    background-color: #9900ff;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s0 {
+    background-color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s10 {
+    background-color: #ffff00;
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s26 {
+    background-color: #d9ead3;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s11 {
+    background-color: #ffff00;
+    text-align: right;
+    color: #666666;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s37 {
+    background-color: #ff0000;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s19 {
+    background-color: #4285f4;
+    text-align: left;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s2 {
+    background-color: #ffffff;
+    text-align: right;
+    font-weight: bold;
+    color: #666666;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s53 {
+    background-color: #9900ff;
+    text-align: left;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s54 {
+    background-color: #9900ff;
+    text-align: right;
+    color: #666666;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s39 {
+    background-color: #ff0000;
+    text-align: center;
+    font-weight: bold;
+    color: #6aa84f;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s46 {
+    background-color: #999999;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s59 {
+    background-color: #9900ff;
+    text-align: center;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s25 {
+    background-color: #4285f4;
+    text-align: center;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s30 {
+    background-color: #6aa84f;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s44 {
+    background-color: #999999;
+    text-align: left;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s56 {
+    background-color: #9900ff;
+    text-align: center;
+    font-weight: bold;
+    color: #1155cc;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s29 {
+    background-color: #6aa84f;
+    text-align: right;
+    color: #666666;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s58 {
+    background-color: #9900ff;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s14 {
+    background-color: #ffff00;
+    text-align: center;
+    font-weight: bold;
+    color: #6aa84f;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s28 {
+    background-color: #6aa84f;
+    text-align: left;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s35 {
+    background-color: #ff0000;
+    text-align: left;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s41 {
+    background-color: #ff0000;
+    text-align: center;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s34 {
+    background-color: #6aa84f;
+    text-align: center;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s17 {
+    background-color: #ffffff;
+    text-align: right;
+    color: #666666;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s7 {
+    background-color: #ffffff;
+    text-align: center;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s18 {
+    background-color: #ffffff;
+    text-align: right;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s33 {
+    background-color: #6aa84f;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s47 {
+    background-color: #999999;
+    text-align: center;
+    font-weight: bold;
+    color: #1155cc;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s9 {
+    background-color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s23 {
+    background-color: #4285f4;
+    text-align: center;
+    font-weight: bold;
+    color: #6aa84f;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s31 {
+    background-color: #6aa84f;
+    text-align: center;
+    font-weight: bold;
+    color: #1155cc;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s57 {
+    background-color: #9900ff;
+    text-align: center;
+    font-weight: bold;
+    color: #6aa84f;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s43 {
+    background-color: #ea9999;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s5 {
+    background-color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    color: #6aa84f;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s24 {
+    background-color: #4285f4;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s13 {
+    background-color: #ffff00;
+    text-align: center;
+    font-weight: bold;
+    color: #1155cc;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s1 {
+    background-color: #cfe2f3;
+    text-align: right;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 15pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s8 {
+    background-color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s49 {
+    background-color: #999999;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+</style>
+
+<div class="ritz grid-container" dir="ltr">
+  <table class="waffle" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr style="height: 20px">
+        <th id="0R0" style="height: 20px" class="row-headers-background"></th>
+        <td class="s0" dir="ltr">Key in weight</td>
+        <td class="freezebar-cell"></td>
+        <td class="s1" dir="ltr">${roundOff(weight, 2)}</td>
+        <td class="s2" dir="ltr">kg</td>
+        <td class="s3" dir="ltr"></td>
+        <td class="s4" dir="ltr"></td>
+        <td class="s5"></td>
+        <td class="s6"></td>
+        <td class="s7"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R1" style="height: 20px" class="row-headers-background"></th>
+        <td class="s8"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s2" dir="ltr">mg/kg per dose</td>
+        <td class="s2" dir="ltr">upper limit</td>
+        <td class="s3" dir="ltr">dose (mg)</td>
+        <td class="s4" dir="ltr">upper limit</td>
+        <td class="s5" dir="ltr">volume (ml)</td>
+        <td class="s8" dir="ltr">notes/ route</td>
+        <td class="s9" dir="ltr">max mg/ dose</td>
+        <td class="s8" dir="ltr">notes</td>
+        <td class="s8" dir="ltr">mg/ml</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th
+          style="height: 3px"
+          class="freezebar-cell freezebar-horizontal-handle"
+        ></th>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R2" style="height: 20px" class="row-headers-background"></th>
+        <td class="s10" dir="ltr">Induction</td>
+        <td class="freezebar-cell"></td>
+        <td class="s11"></td>
+        <td class="s11"></td>
+        <td class="s12"></td>
+        <td class="s13"></td>
+        <td class="s14"></td>
+        <td class="s15"></td>
+        <td class="s16"></td>
+        <td class="s15"></td>
+        <td class="s15"></td>
+        <td class="s15"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R3" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">4</div>
+        </th>
+        <td class="s6" dir="ltr">Propofol</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">3</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 3, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 3) / 10, 2)}</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">10</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R4" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Etomidate</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.3</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 0.3, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 0.3) / 2, 2)}</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">2</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R5" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">6</div>
+        </th>
+        <td class="s6" dir="ltr">Ketamine</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">2</td>
+        <td class="s17" dir="ltr">3</td>
+        <td class="s3">${roundOff(weight * 2, 2)}</td>
+        <td class="s4">${roundOff(weight * 3, 2)}</td>
+        <td class="s5">${roundOff((weight * 3) / 10, 2)}</td>
+        <td class="s6" dir="ltr">IV induction</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">10</td>
+        <td class="s6" dir="ltr">(diluted to 10ml)</td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R6" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">5</td>
+        <td class="s17" dir="ltr">10</td>
+        <td class="s3">${roundOff(weight * 5, 2)}</td>
+        <td class="s4">${roundOff(weight * 10, 2)}</td>
+        <td class="s5">${roundOff((weight * 5) / 10, 2)}</td>
+        <td class="s6" dir="ltr">IM induction</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">10</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R7" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">4</td>
+        <td class="s17" dir="ltr">12</td>
+        <td class="s3">${roundOff(weight * 4, 2)}</td>
+        <td class="s4">${roundOff(weight * 12, 2)}</td>
+        <td class="s5">${roundOff((weight * 4) / 10, 2)}</td>
+        <td class="s6" dir="ltr">Analgesia</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">10</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R8" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Midazolam</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.5</td>
+        <td class="s17" dir="ltr">1</td>
+        <td class="s3">${roundOff(weight * 0.5, 2)}</td>
+        <td class="s4">${roundOff(weight * 1, 2)}</td>
+        <td class="s5"></td>
+        <td class="s6" dir="ltr">PO</td>
+        <td class="s7"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R9" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s17" dir="ltr">0.3</td>
+        <td class="s3">${roundOff(weight * 0.3, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 0.3) / 5, 2)}</td>
+        <td class="s6" dir="ltr">Intranasal</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s6" dir="ltr"></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R10" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.1</td>
+        <td class="s17" dir="ltr">0.2</td>
+        <td class="s3">${roundOff(weight * 0.1, 2)}</td>
+        <td class="s4">${roundOff(weight * 0.2, 2)}</td>
+        <td class="s5">${roundOff((weight * 0.1) / 10, 2)}</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">1</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R11" style="height: 20px" class="row-headers-background"></th>
+        <td class="s19" dir="ltr">Opioids</td>
+        <td class="freezebar-cell"></td>
+        <td class="s20" dir="ltr"></td>
+        <td class="s20" dir="ltr"></td>
+        <td class="s21"></td>
+        <td class="s22"></td>
+        <td class="s23"></td>
+        <td class="s24"></td>
+        <td class="s25"></td>
+        <td class="s24"></td>
+        <td class="s24"></td>
+        <td class="s24"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R12" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">
+          Fentanyl <span style="font-weight: bold">(mcg)</span>
+        </td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">1</td>
+        <td></td>
+        <td class="s26">${roundOff(weight, 2)} mcg</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff(weight / 50, 2)} mL</td>
+        <td class="s6" dir="ltr">IV neat</td>
+        <td class="s7"></td>
+        <td class="s6 softmerge" dir="ltr">
+          <div class="softmerge-inner" style="width: 97px; left: -1px">
+            analgesic: consider 50% dose reduction for age &lt;6 mo
+          </div>
+        </td>
+        <td class="s18" dir="ltr">50</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R13" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s26">${roundOff(weight, 2)} mcg</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff(weight / 10, 2)} mL</td>
+        <td class="s6" dir="ltr">IV diluted to 10ml</td>
+        <td class="s7" dir="ltr"></td>
+        <td></td>
+        <td class="s18" dir="ltr">10</td>
+        <td class="s6" dir="ltr"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R14" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Morphine</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.1</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 0.1, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff(weight * 0.1, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7" dir="ltr"></td>
+        <td></td>
+        <td class="s18" dir="ltr">1</td>
+        <td class="s6" dir="ltr">(diluted to 10ml)</td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R15" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">16</div>
+        </th>
+        <td class="s6" dir="ltr">Oxycodone</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.2</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 0.2, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff(weight * 0.2, 2)} mL</td>
+        <td class="s6" dir="ltr">PO</td>
+        <td class="s7" dir="ltr"></td>
+        <td></td>
+        <td class="s18" dir="ltr">1</td>
+        <td class="s6" dir="ltr">(diluted to 10ml)</td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R16" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Remifentanil</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.01</td>
+        <td class="s17" dir="ltr">1</td>
+        <td class="s26">${roundOff(weight * 0.01, 2)} mcg</td>
+        <td class="s27">${roundOff(weight, 2)} mcg</td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">mcg/kg/min</td>
+        <td class="s7" dir="ltr"></td>
+        <td></td>
+        <td class="s6" dir="ltr"></td>
+        <td class="s6" dir="ltr"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R17" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Naloxone (mcg)</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.5</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 0.5, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td class="s6" dir="ltr">0.5-1mcg/kg</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R18" style="height: 20px" class="row-headers-background"></th>
+        <td class="s28" dir="ltr">Analgesics</td>
+        <td class="freezebar-cell"></td>
+        <td class="s29"></td>
+        <td class="s29"></td>
+        <td class="s30"></td>
+        <td class="s31"></td>
+        <td class="s32"></td>
+        <td class="s33"></td>
+        <td class="s34"></td>
+        <td class="s33"></td>
+        <td class="s33"></td>
+        <td class="s33"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R19" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Paracetamol</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">${roundOff(weight * 7.5, 2)}</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">7.5</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff((weight * 7.5) / 10, 2)} mL</td>
+        <td class="s6" dir="ltr">IV/PO</td>
+        <td class="s7" dir="ltr">40mg/kg/ day</td>
+        <td class="s6" dir="ltr">&lt;1 mo</td>
+        <td class="s18" dir="ltr">10</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R20" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">10</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 10, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff(weight * 1, 2)} mL</td>
+        <td class="s6" dir="ltr">IV/PO</td>
+        <td class="s7" dir="ltr">40mg/kg/ day</td>
+        <td class="s6" dir="ltr">1 - 6 mo</td>
+        <td class="s18" dir="ltr">10</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R21" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">15</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 15, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff((weight * 15) / 10, 2)} mL</td>
+        <td class="s6" dir="ltr">IV/PO</td>
+        <td class="s7" dir="ltr">4g/ day</td>
+        <td class="s6" dir="ltr">&gt;6 mo</td>
+        <td class="s18" dir="ltr">10</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R22" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Ibuprofen</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">10</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 10, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff((weight * 10) / 4, 2)} mL</td>
+        <td class="s6" dir="ltr">IV/PO</td>
+        <td class="s7" dir="ltr">400</td>
+        <td class="s6 softmerge" dir="ltr">
+          <div class="softmerge-inner" style="width: 97px; left: -1px">
+            &gt;6 mo. dilution min. 3mg/ml
+          </div>
+        </td>
+        <td class="s18" dir="ltr">4</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R23" style="height: 20px" class="row-headers-background"></th>
+        <td class="s35" dir="ltr">NMBs/ Reversal agents</td>
+        <td class="freezebar-cell"></td>
+        <td class="s36" dir="ltr"></td>
+        <td class="s36" dir="ltr"></td>
+        <td class="s37"></td>
+        <td class="s38"></td>
+        <td class="s39"></td>
+        <td class="s40"></td>
+        <td class="s41"></td>
+        <td class="s40"></td>
+        <td class="s40"></td>
+        <td class="s40"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R24" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Atracurium</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.5</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">%{roundOff(weight *0.5,2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 0.5) / 10, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">10</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R25" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Mivacurium</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.15</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 0.15, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 0.15) / 2, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">2</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R26" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Cisatracurium</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.1</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 0.1, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 0.1) / 2, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">2</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R27" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Vecuronium</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.1</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 0.1, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff(weight * 0.1, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td class="s6 softmerge" dir="ltr">
+          <div class="softmerge-inner" style="width: 97px; left: -1px">
+            reconstitute as 1 mg/ml
+          </div>
+        </td>
+        <td class="s18" dir="ltr">1</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R28" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Rocuronium</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.6</td>
+        <td class="s17" dir="ltr">1.2</td>
+        <td class="s3">${roundOff(weight * 0.6, 2)}</td>
+        <td class="s4">${roundOff(weight * 1.2, 2)}</td>
+        <td class="s5">${roundOff((weight * 0.6) / 10, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">10</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R29" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Suxamethonium</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">2</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 2, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 2) / 50, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">50</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R30" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">4</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 4, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 4) / 50, 2)} mL</td>
+        <td class="s6" dir="ltr">IM</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">50</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R31" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">32</div>
+        </th>
+        <td class="s42" dir="ltr">Neostigmine (mcg)</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">50</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s26">${roundOff(weight * 50, 2)} mcg</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 50) / 2500, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">2500</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R32" style="height: 20px" class="row-headers-background"></th>
+        <td class="s43" dir="ltr">Atropine (mcg)</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">20</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s26">${roundOff(weight * 20, 2)} mcg</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 20) / 600, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">600</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R33" style="height: 20px" class="row-headers-background"></th>
+        <td class="s43" dir="ltr">Glycopyrrolate (mcg)</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">10</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s26">${roundOff(weight * 10, 2)} mcg</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 10) / 200, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">200</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R34" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Sugammadex</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">2</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 2, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 2) / 20, 2)} mL</td>
+        <td class="s6" dir="ltr">mod block (T2)</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">100</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R35" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">4</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 4, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 4) / 100, 2)} mL</td>
+        <td class="s6" dir="ltr">deep block</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">100</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R36" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">16</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 16, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 16) / 100, 2)} mL</td>
+        <td class="s6" dir="ltr">emergent reversal</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">100</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R37" style="height: 20px" class="row-headers-background"></th>
+        <td class="s44" dir="ltr">Others</td>
+        <td class="freezebar-cell"></td>
+        <td class="s45" dir="ltr"></td>
+        <td class="s45" dir="ltr"></td>
+        <td class="s46"></td>
+        <td class="s47"></td>
+        <td class="s48"></td>
+        <td class="s49"></td>
+        <td class="s50"></td>
+        <td class="s49"></td>
+        <td class="s49"></td>
+        <td class="s49"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R38" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Dexamethasone</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.15</td>
+        <td class="s17" dir="ltr">0.25</td>
+        <td class="s3">${roundOff(weight * 0.15, 2)}</td>
+        <td class="s4">${roundOff(weight * 0.25, 2)}</td>
+        <td class="s5">${roundOff((weight * 0.15) / 4, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">4</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R39" style="height: 20px" class="row-headers-background">\</th>
+        <td class="s6" dir="ltr">Hydrocortisone</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">1</td>
+        <td class="s17" dir="ltr">2</td>
+        <td class="s3">${roundOff(weight * 1, 2)}</td>
+        <td class="s4">${roundOff(weight * 2, 2)}</td>
+        <td class="s5">${roundOff(weight * 1, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s6" dir="ltr"></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R40" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Methyl Prednisone</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">1</td>
+        <td class="s17"></td>
+        <td class="s3">${roundOff(weight * 1, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff(weight * 1, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s6" dir="ltr"></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R41" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Ranitidine</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.5</td>
+        <td class="s17"></td>
+        <td class="s3">${roundOff(weight * 0.5, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 0.5) / 25, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">25</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R42" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Pantoprazole/Omeprazole</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">1</td>
+        <td class="s17"></td>
+        <td class="s3">${roundOff(weight * 1, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td class="s6" dir="ltr">&gt; 1 yr</td>
+        <td class="s6" dir="ltr"></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R43" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Ondansetron</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.15</td>
+        <td class="s17"></td>
+        <td class="s3">${roundOff(weight * 0.15, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 0.15) / 2, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">2</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R44" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Metoclopramide</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.1</td>
+        <td class="s17"></td>
+        <td class="s3">${roundOff(weight * 0.1, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5">${roundOff((weight * 0.1) / 5, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td class="s6" dir="ltr">&gt; 2 yr</td>
+        <td class="s18" dir="ltr">5</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R45" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">MgSO4</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">25</td>
+        <td class="s17" dir="ltr">50</td>
+        <td class="s3">${roundOff(weight * 25, 2)}</td>
+        <td class="s4">${roundOff(weight * 50, 2)}</td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R46" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Ca gluconate</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">30</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 30, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7" dir="ltr">3g/ dose</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R47" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Ca chloride</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">5</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 5, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td class="s6" dir="ltr">5-10mg/kg</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R48" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Frusemide</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.5</td>
+        <td class="s17" dir="ltr">2</td>
+        <td class="s3">${roundOff(weight * 0.5, 2)}</td>
+        <td class="s4">${roundOff(weight * 2, 2)}</td>
+        <td class="s5">${roundOff((weight * 0.5) / 10, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">10</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R49" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Mannitol</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">250</td>
+        <td class="s17" dir="ltr">1000</td>
+        <td class="s3">${roundOff(weight * 250, 2)}</td>
+        <td class="s4">${roundOff(weight * 1000, 2)}</td>
+        <td class="s5" dir="ltr">${roundOff((weight * 250) / 200, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td class="s6" dir="ltr"></td>
+        <td class="s18" dir="ltr">200</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R50" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Levetiracetam</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">20</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 20, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td class="s51 softmerge" dir="ltr">
+          <div class="softmerge-inner" style="width: 198px; left: -1px">
+            loading: 2-5mg/kg/min
+          </div>
+        </td>
+        <td class="s52"></td>
+        <td class="s52"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R51" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Phenytoin</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">20</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 20, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff((weight * 20) / 50, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">50</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R52" style="height: 20px" class="row-headers-background"></th>
+        <td class="s53" dir="ltr">BP/ resus</td>
+        <td class="freezebar-cell"></td>
+        <td class="s54" dir="ltr"></td>
+        <td class="s54" dir="ltr"></td>
+        <td class="s55"></td>
+        <td class="s56"></td>
+        <td class="s57"></td>
+        <td class="s58"></td>
+        <td class="s59"></td>
+        <td class="s58"></td>
+        <td class="s58"></td>
+        <td class="s58"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R53" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Phenylephrine (mcg)</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.5</td>
+        <td class="s17" dir="ltr">1</td>
+        <td class="s26">${roundOff(weight * 0.5, 2)} mcg</td>
+        <td class="s27">${roundOff(weight * 1, 2)} mcg</td>
+        <td class="s5" dir="ltr">${roundOff((weight * 0.5) / 100, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">100</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R54" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Ephedrine</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.1</td>
+        <td class="s17" dir="ltr">0.2</td>
+        <td class="s3">${roundOff(weight * 0.1, 2)}</td>
+        <td class="s4">${roundOff(weight * 0.2, 2)}</td>
+        <td class="s5" dir="ltr">${roundOff((weight * 0.1) / 3, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">3</td>
+        <td class="s6" dir="ltr">(10ml syringe)</td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R55" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Atropine (mcg)</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">20</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s26">${roundOff(weight * 20, 2)} mcg</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff((weight * 20) / 600, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">600</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R56" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Adenosine</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.1</td>
+        <td class="s17" dir="ltr">0.2</td>
+        <td class="s3">${roundOff(weight * 0.1, 2)}</td>
+        <td class="s4">${roundOff(weight * 0.2, 2)}</td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R57" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Esmolol</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.5</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 0.5, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff((weight * 0.5) / 10, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">10</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R58" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Labetalol</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.1</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 0.1, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr">${roundOff((weight * 0.1) / 5, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">5</td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R59" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Adenosine</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.2</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 0.2, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7" dir="ltr">12</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R60" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Amiodarone</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">5</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 5, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7" dir="ltr">150mg</td>
+        <td class="s6" dir="ltr">loading</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R61" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">5</td>
+        <td class="s17" dir="ltr">10</td>
+        <td class="s26" dir="ltr">${roundOff(weight * 5, 2)} mcg/kg/min</td>
+        <td class="s27" dir="ltr">${roundOff(weight * 10, 2)} mcg/kg/min</td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7" dir="ltr"></td>
+        <td class="s6" dir="ltr">infusion</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R62" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">63</div>
+        </th>
+        <td class="s6" dir="ltr">Adrenaline (mcg)</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">0.5</td>
+        <td class="s17" dir="ltr">1</td>
+        <td class="s26">${roundOff(weight * 0.5, 2)} mcg</td>
+        <td class="s27">${roundOff(weight * 1, 2)} mcg</td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">vasopressor</td>
+        <td class="s7"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R63" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">10</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s26">${roundOff(weight * 10, 2)} mcg</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV bolus</td>
+        <td class="s7"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R64" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">65</div>
+        </th>
+        <td class="s6"></td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">100</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s26">${roundOff(weight * 100, 2)} mcg</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">ETT</td>
+        <td class="s7"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R65" style="height: 20px" class="row-headers-background"></th>
+        <td class="s44" dir="ltr">ABx</td>
+        <td class="freezebar-cell"></td>
+        <td class="s45" dir="ltr"></td>
+        <td class="s45" dir="ltr"></td>
+        <td class="s46"></td>
+        <td class="s47"></td>
+        <td class="s48"></td>
+        <td class="s49"></td>
+        <td class="s50"></td>
+        <td class="s49"></td>
+        <td class="s49"></td>
+        <td class="s49"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R66" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Cefazolin</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">30</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 30, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R67" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Augmentin</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">40</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 40, 2)}</td>
+        <td class="s4" dir="ltr">1200</td>
+        <td class="s5" dir="ltr">${roundOff((weight * 40) / 1000, 2)} mL</td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td class="s18" dir="ltr">100</td>
+        <td class="s6" dir="ltr">(diluted to 12ml)</td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R68" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Ceftriaxone</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">50</td>
+        <td class="s17" dir="ltr">75</td>
+        <td class="s3">${roundOff(weight * 50, 2)}</td>
+        <td class="s4">${roundOff(weight * 75, 2)}</td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7" dir="ltr">2000</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R69" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Ciprofloxacin</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">10</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 10, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7" dir="ltr">400</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R70" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Metronidazole</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">15</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 15, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R71" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">72</div>
+        </th>
+        <td class="s6" dir="ltr">Tazocin</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">100</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 100, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th id="0R72" style="height: 20px" class="row-headers-background"></th>
+        <td class="s6" dir="ltr">Vancomycin</td>
+        <td class="freezebar-cell"></td>
+        <td class="s17" dir="ltr">15</td>
+        <td class="s17" dir="ltr"></td>
+        <td class="s3">${roundOff(weight * 15, 2)}</td>
+        <td class="s4"></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6" dir="ltr">IV</td>
+        <td class="s7" dir="ltr">1000</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`,
+        fileName: genName("drugs"),
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
+      };
+      let file = await RNHTMLtoPDF.convert(PDFOptions);
+      if (!file.filePath) return;
+      const updatedFiles = [...files, file.filePath];
+      setFileArray(updatedFiles);
+      saveFiles(updatedFiles).then(() =>
+        console.log(
+          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
+          updatedFiles
+        )
+      );
+      FileViewer.open(file.filePath);
+    } catch (error) {
+      console.log("Failed to generate pdf", error.message);
+    }
+  };
+
+  const ett_vitals = async (weight) => {
+    try {
+      let PDFOptions = {
+        html: `
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link
+  type="text/css"
+  rel="stylesheet"
+  href="resources/sheet.css"
+/>
+<style type="text/css">
+  .ritz .waffle a {
+    color: inherit;
+  }
+  .ritz .waffle .s0 {
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s4 {
+    background-color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s3 {
+    background-color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s1 {
+    background-color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+    font-family: Arial;
+    font-size: 15pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s2 {
+    background-color: #ffffff;
+    text-align: center;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+</style>
+<div class="ritz grid-container" dir="ltr">
+  <table class="waffle" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr style="height: 20px">
+        <th
+          id="616017813R0"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Key in age</td>
+        <td class="s1" dir="ltr">${weight}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R1"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td class="s2"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R2"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Uncuffed ETT</td>
+        <td class="s3">${weight / 4 + 4}</td>
+        <td class="s0" dir="ltr">(age/4) + 4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R3"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Cuffed ETT</td>
+        <td class="s3">${weight / 4 + 3}</td>
+        <td class="s0" dir="ltr">(age/4) + 3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R4"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R5"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">ETT depth</td>
+        <td class="s3">${weight / 2 + 12}</td>
+        <td class="s0" dir="ltr">(age/2) + 12</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R6"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td class="s4"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R7"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td class="s4"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R8"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R9"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R10"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R11"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R12"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R13"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R14"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R15"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R16"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R17"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R18"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R19"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R20"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R21"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R22"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R23"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R24"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R25"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R26"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R27"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R28"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R29"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R30"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R31"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R32"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R33"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R34"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="616017813R35"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div
+  id="embed_1328711887"
+  class="waffle-embedded-object-overlay"
+  style="width: 742px; height: 568px; display: block"
+>
+  <img
+    src="https://lh7-rt.googleusercontent.com/sheetsz/AHOq17H3NnWRFjSLSbhT4Np8PrOzVdnk-I-EZ8RYnEiCiEsWg3vXlKS0ObtEOZ09-VlTd7L3woSdixSJbXFcVahQ-ZRB4bv8DD3smZaMKewyaHuvKM6iXdk9WYkhLlUuN_FXNI26J55mPQ?key=VtDPs3KdCU3_v3SpqAGctDUj"
+    style="display: block"
+    height="568"
+    width="742"
+  />
+</div>
+<script>
+  function posObj(sheet, id, row, col, x, y) {
+    var rtl = false;
+    var sheetElement = document.getElementById(sheet);
+    if (!sheetElement) {
+      sheetElement = document.getElementById(sheet + "-grid-container");
+    }
+    if (sheetElement) {
+      rtl = sheetElement.getAttribute("dir") == "rtl";
+    }
+    var r = document.getElementById(sheet + "R" + row);
+    var c = document.getElementById(sheet + "C" + col);
+    if (r && c) {
+      var objElement = document.getElementById(id);
+      var s = objElement.style;
+      var t = y;
+      while (r && r != sheetElement) {
+        t += r.offsetTop;
+        r = r.offsetParent;
+      }
+      var offsetX = x;
+      while (c && c != sheetElement) {
+        offsetX += c.offsetLeft;
+        c = c.offsetParent;
+      }
+      if (rtl) {
+        offsetX -= objElement.offsetWidth;
+      }
+      s.left = offsetX + "px";
+      s.top = t + "px";
+      s.display = "block";
+      s.border = "1px solid #000000";
+    }
+  }
+
+  function posObjs() {
+    posObj("616017813", "embed_1328711887", 8, 0, 0, 16);
+  }
+  posObjs();
+</script>
+`,
+        fileName: genName("ett_vitals"),
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
+      };
+      let file = await RNHTMLtoPDF.convert(PDFOptions);
+      if (!file.filePath) return;
+      const updatedFiles = [...files, file.filePath];
+      setFileArray(updatedFiles);
+      saveFiles(updatedFiles).then(() =>
+        console.log(
+          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
+          updatedFiles
+        )
+      );
+      FileViewer.open(file.filePath);
+    } catch (error) {
+      console.log("Failed to generate pdf", error.message);
+    }
+  };
+
+  const pain = async (weight) => {
+    try {
+      let PDFOptions = {
+        html: `
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link
+  type="text/css"
+  rel="stylesheet"
+  href="resources/sheet.css"
+/>
+<style type="text/css">
+  .ritz .waffle a {
+    color: inherit;
+  }
+  .ritz .waffle .s0 {
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s17 {
+    background-color: #999999;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s3 {
+    background-color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s6 {
+    background-color: #4285f4;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s11 {
+    border-left: none;
+    background-color: #ffffff;
+  }
+  .ritz .waffle .s1 {
+    background-color: #ffffff;
+    text-align: right;
+    font-weight: bold;
+    color: #980000;
+    font-family: Arial;
+    font-size: 15pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s9 {
+    border-right: none;
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s5 {
+    background-color: #4285f4;
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s14 {
+    background-color: #6aa84f;
+    text-align: center;
+    font-weight: bold;
+    color: #4a86e8;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s8 {
+    background-color: #ffffff;
+    text-align: right;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s18 {
+    border-left: none;
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s13 {
+    background-color: #6aa84f;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s10 {
+    border-left: none;
+    border-right: none;
+    background-color: #ffffff;
+  }
+  .ritz .waffle .s15 {
+    background-color: #999999;
+    text-align: left;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s12 {
+    background-color: #6aa84f;
+    text-align: left;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s7 {
+    background-color: #4285f4;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s2 {
+    background-color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s4 {
+    background-color: #4285f4;
+    text-align: left;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+  .ritz .waffle .s16 {
+    background-color: #999999;
+    text-align: left;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 2px 3px 2px 3px;
+  }
+</style>
+<div class="ritz grid-container" dir="ltr">
+  <table class="waffle" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R0"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Key in weight</td>
+        <td class="s1" dir="ltr">${weight}</td>
+        <td class="s0" dir="ltr">kg</td>
+        <td class="s0" dir="ltr"></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R1"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td class="s2 softmerge" dir="ltr">
+          <div class="softmerge-inner" style="width: 43px; left: -1px">
+            mg/kg per dose
+          </div>
+        </td>
+        <td class="s3" dir="ltr">dose</td>
+        <td class="s2" dir="ltr">age</td>
+        <td class="s2" dir="ltr">route</td>
+        <td class="s2" dir="ltr">Freq</td>
+        <td class="s2" dir="ltr">max mg/ dose</td>
+        <td class="s2" dir="ltr">formulation</td>
+        <td class="s2" dir="ltr">notes</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th
+          style="height: 3px"
+          class="freezebar-cell freezebar-horizontal-handle"
+        ></th>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+        <td class="freezebar-cell"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R2"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s4" dir="ltr">Opioids</td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s6"></td>
+        <td class="s5"></td>
+        <td class="s5"></td>
+        <td class="s5"></td>
+        <td class="s5"></td>
+        <td class="s5"></td>
+        <td class="s5"></td>
+        <td class="s7"></td>
+        <td class="s7"></td>
+        <td class="s7"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R3"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Fentanyl (mcg)</td>
+        <td class="s8" dir="ltr">1</td>
+        <td class="s3">${weight} mcg</td>
+        <td></td>
+        <td class="s0" dir="ltr">IV</td>
+        <td></td>
+        <td class="s0"></td>
+        <td class="s0" dir="ltr"></td>
+        <td class="s9 softmerge" dir="ltr">
+          <div class="softmerge-inner" style="width: 298px; left: -1px">
+            consider 50% dose reduction for age &lt;6 mo
+          </div>
+        </td>
+        <td class="s10"></td>
+        <td class="s11"></td>
+        <td class="s11"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R4"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R5"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Morphine</td>
+        <td class="s8" dir="ltr">0.4</td>
+        <td class="s3">${weight * 0.4}</td>
+        <td></td>
+        <td class="s0" dir="ltr">PO</td>
+        <td class="s0" dir="ltr">Q6H</td>
+        <td class="s0" dir="ltr">10</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R6"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td class="s8" dir="ltr">0.1</td>
+        <td class="s3">${weight * 0.1}</td>
+        <td></td>
+        <td class="s0" dir="ltr">IV</td>
+        <td></td>
+        <td class="s0"></td>
+        <td class="s0" dir="ltr"></td>
+        <td class="s9 softmerge" dir="ltr">
+          <div class="softmerge-inner" style="width: 198px; left: -1px">
+            IV infusion: 20mcg/kg/h
+          </div>
+        </td>
+        <td class="s11"></td>
+        <td class="s11"></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R7"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Oxycodone</td>
+        <td class="s8" dir="ltr">0.2</td>
+        <td class="s3">${weight * 0.2}</td>
+        <td></td>
+        <td class="s0" dir="ltr">PO</td>
+        <td class="s0" dir="ltr">Q6H</td>
+        <td class="s0" dir="ltr">10</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R8"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s12" dir="ltr">Analgesics</td>
+        <td class="s13"></td>
+        <td class="s14"></td>
+        <td class="s13"></td>
+        <td class="s13"></td>
+        <td class="s13"></td>
+        <td class="s13"></td>
+        <td class="s13"></td>
+        <td class="s13"></td>
+        <td class="s13"></td>
+        <td class="s13"></td>
+        <td class="s13"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R9"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Paracetamol</td>
+        <td class="s8" dir="ltr">7.5</td>
+        <td class="s3">${weight * 7.5}</td>
+        <td class="s0" dir="ltr">&lt;1 mo</td>
+        <td class="s0" dir="ltr">IV/ PO</td>
+        <td class="s0" dir="ltr">Q6H</td>
+        <td class="s0" dir="ltr">40mg/kg/ day</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R10"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td class="s8" dir="ltr">10</td>
+        <td class="s3">${weight * 10}</td>
+        <td class="s0" dir="ltr">1 - 6 mo</td>
+        <td class="s0" dir="ltr">IV/ PO</td>
+        <td class="s0" dir="ltr">Q6H</td>
+        <td class="s0" dir="ltr">40mg/kg/ day</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R11"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td class="s8" dir="ltr">15</td>
+        <td class="s3">${weight * 15}</td>
+        <td class="s0" dir="ltr">&gt;6 mo</td>
+        <td class="s0" dir="ltr">IV/ PO/ PR</td>
+        <td class="s0" dir="ltr">Q6H</td>
+        <td class="s0" dir="ltr">4g/ day</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R12"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Ibuprofen</td>
+        <td class="s8" dir="ltr">10</td>
+        <td class="s3">${weight * 10}</td>
+        <td class="s0" dir="ltr">&gt;6 mo</td>
+        <td class="s0" dir="ltr">IV/ PO</td>
+        <td class="s0" dir="ltr">Q6-8H</td>
+        <td class="s0" dir="ltr">400</td>
+        <td class="s0" dir="ltr"></td>
+        <td class="s9 softmerge" dir="ltr">
+          <div class="softmerge-inner" style="width: 198px; left: -1px">
+            dilution min. 3mg/ml
+          </div>
+        </td>
+        <td class="s11"></td>
+        <td class="s11"></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R13"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Celecoxib</td>
+        <td class="s8" dir="ltr">3</td>
+        <td class="s3">${weight * 3}</td>
+        <td class="s0" dir="ltr">&gt;2 y</td>
+        <td class="s0" dir="ltr">PO</td>
+        <td class="s0" dir="ltr">BD</td>
+        <td class="s0" dir="ltr">200</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R14"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Diclofenac</td>
+        <td class="s8" dir="ltr">1</td>
+        <td class="s3">${weight}</td>
+        <td class="s0" dir="ltr">&gt;6 y</td>
+        <td class="s0" dir="ltr">PR</td>
+        <td class="s0" dir="ltr">Q8H</td>
+        <td class="s0" dir="ltr">50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R15"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Etoricoxib</td>
+        <td></td>
+        <td class="s3" dir="ltr">60-90</td>
+        <td></td>
+        <td class="s0" dir="ltr">PO</td>
+        <td class="s0" dir="ltr">OD</td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R16"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Ketorolac</td>
+        <td class="s8" dir="ltr">0.5</td>
+        <td class="s3"></td>
+        <td class="s0" dir="ltr">&gt;2 y</td>
+        <td class="s0" dir="ltr">IV</td>
+        <td class="s0" dir="ltr">BD</td>
+        <td class="s0" dir="ltr"></td>
+        <td class="s0" dir="ltr"></td>
+        <td class="s0" dir="ltr"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R17"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Tramadol</td>
+        <td class="s8" dir="ltr">2</td>
+        <td class="s3">${weight * 2}</td>
+        <td class="s0" dir="ltr">&gt;12 y</td>
+        <td class="s0" dir="ltr">IV/ PO</td>
+        <td class="s0" dir="ltr">Q8H</td>
+        <td class="s0" dir="ltr">400mg/ day</td>
+        <td class="s0" dir="ltr"></td>
+        <td class="s9 softmerge" dir="ltr">
+          <div class="softmerge-inner" style="width: 198px; left: -1px">
+            start 50mg/ dose max
+          </div>
+        </td>
+        <td class="s11"></td>
+        <td class="s11"></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R18"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s15" dir="ltr">Adjuvants</td>
+        <td class="s16"></td>
+        <td class="s17"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+        <td class="s16"></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R19"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Clonidine (mcg)</td>
+        <td class="s8" dir="ltr">2</td>
+        <td class="s3">${weight * 2} mcg</td>
+        <td></td>
+        <td class="s0" dir="ltr">IV/ PO</td>
+        <td class="s9 softmerge" dir="ltr">
+          <div class="softmerge-inner" style="width: 160px; left: -1px">
+            ON up to Q6H
+          </div>
+        </td>
+        <td class="s18"></td>
+        <td class="s11"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R20"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Gabapentin</td>
+        <td class="s8" dir="ltr">10</td>
+        <td class="s3">${weight * 10}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R21"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0" dir="ltr">Amitryptiline</td>
+        <td></td>
+        <td class="s3" dir="ltr">5-10</td>
+        <td></td>
+        <td></td>
+        <td class="s0" dir="ltr">ON</td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R22"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R23"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R24"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R25"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R26"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R27"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R28"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R29"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R30"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R31"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R32"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R33"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R34"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R35"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R36"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R37"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R38"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R39"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R40"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R41"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R42"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R43"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R44"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R45"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R46"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R47"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R48"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R49"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R50"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R51"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R52"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R53"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R54"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R55"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R56"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R57"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style="height: 20px">
+        <th
+          id="1626070742R58"
+          style="height: 20px"
+          class="row-headers-background"
+        ></th>
+        <td class="s0"></td>
+        <td></td>
+        <td class="s3"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s0"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div
+  id="embed_1220364968"
+  class="waffle-embedded-object-overlay"
+  style="width: 563px; height: 291px; display: block"
+>
+  <img
+    src="https://lh7-rt.googleusercontent.com/sheetsz/AHOq17EkvGZESi00dzuwgrDzGhJrxL3dCbpxYJ4UXOo_6UgfY8aq00OVaJBuzV-GT5Vn0gg5xsOfc-5jAVKt198n197x-vrzgp7vAkR-Rt4ZVQ5qVVk9tZkj9jnWGxFI9qTFj2NZhxmOJg?key=VtDPs3KdCU3_v3SpqAGctDUj"
+    style="display: block"
+    height="291"
+    width="563"
+  />
+</div>
+<div
+  id="embed_1002053002"
+  class="waffle-embedded-object-overlay"
+  style="width: 912px; height: 460px; display: block"
+>
+  <img
+    src="https://lh7-rt.googleusercontent.com/sheetsz/AHOq17FhpLSHmqde68Co_1Q8biq9bR60hc30ijtbVLYW7SUZrSdQXJ1Oz4GVFtgrKAs6N7GYW355YxOJJpMPatI3jydeslt_Xm10AxcYmZa6jnm7MHaqY2CrYcVaCIy0yfg4I-ViZaOt?key=VtDPs3KdCU3_v3SpqAGctDUj"
+    style="display: block"
+    height="460"
+    width="912"
+  />
+</div>
+<div
+  id="embed_178729205"
+  class="waffle-embedded-object-overlay"
+  style="width: 370px; height: 210px; display: block"
+>
+  <img
+    src="https://lh7-rt.googleusercontent.com/sheetsz/AHOq17GeXJ5WpKZzcBRxDiJPM48M1ALzjDys84uJH5cZNH9IRVvXRHGeN5zw4PcHf_Zsp4u2GBYYmOwDdPgDirx660hF55g4gdo6JwqMJh6U62B9f9rcAVa3XgCIUUjZX-Wh4KbFXf5aMw?key=VtDPs3KdCU3_v3SpqAGctDUj"
+    style="display: block"
+    height="210"
+    width="370"
+  />
+</div>
+<script>
+  function posObj(sheet, id, row, col, x, y) {
+    var rtl = false;
+    var sheetElement = document.getElementById(sheet);
+    if (!sheetElement) {
+      sheetElement = document.getElementById(sheet + "-grid-container");
+    }
+    if (sheetElement) {
+      rtl = sheetElement.getAttribute("dir") == "rtl";
+    }
+    var r = document.getElementById(sheet + "R" + row);
+    var c = document.getElementById(sheet + "C" + col);
+    if (r && c) {
+      var objElement = document.getElementById(id);
+      var s = objElement.style;
+      var t = y;
+      while (r && r != sheetElement) {
+        t += r.offsetTop;
+        r = r.offsetParent;
+      }
+      var offsetX = x;
+      while (c && c != sheetElement) {
+        offsetX += c.offsetLeft;
+        c = c.offsetParent;
+      }
+      if (rtl) {
+        offsetX -= objElement.offsetWidth;
+      }
+      s.left = offsetX + "px";
+      s.top = t + "px";
+      s.display = "block";
+      s.border = "1px solid #000000";
+    }
+  }
+
+  function posObjs() {
+    posObj("1626070742", "embed_1220364968", 22, 0, 21, 16);
+    posObj("1626070742", "embed_1002053002", 36, 0, 53, 19);
+    posObj("1626070742", "embed_178729205", 23, 7, 68, 13);
+  }
+  posObjs();
+</script>
+`,
+        fileName: genName("pain"),
+        directory: Platform.OS === "android" ? "Downloads" : "Documents",
+      };
+      let file = await RNHTMLtoPDF.convert(PDFOptions);
+      if (!file.filePath) return;
+      const updatedFiles = [...files, file.filePath];
+      setFileArray(updatedFiles);
+      saveFiles(updatedFiles).then(() =>
+        console.log(
+          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
+          updatedFiles
+        )
+      );
+      FileViewer.open(file.filePath);
+    } catch (error) {
+      console.log("Failed to generate pdf", error.message);
+    }
+  };
+
   const scoliosis = async (weight) => {
     try {
       let PDFOptions = {
@@ -768,7 +4820,6 @@ body { margin-left: 0.74803149606299in; margin-right: 0.74803149606299in; margin
         )
       );
       FileViewer.open(file.filePath);
-      Alert.alert("File path: ", file.filePath);
     } catch (error) {
       console.log("Failed to generate pdf", error.message);
     }
@@ -1681,7 +5732,6 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
         )
       );
       FileViewer.open(file.filePath);
-      Alert.alert("File path: ", file.filePath);
     } catch (error) {
       console.log("Failed to generate pdf", error.message);
     }
@@ -2203,7 +6253,6 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
         )
       );
       FileViewer.open(file.filePath);
-      Alert.alert("File path: ", file.filePath);
     } catch (error) {
       console.log("Failed to generate pdf", error.message);
     }
@@ -3623,7 +7672,6 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
         )
       );
       FileViewer.open(file.filePath);
-      Alert.alert("File path: ", file.filePath);
     } catch (error) {
       console.log("Failed to generate pdf", error.message);
     }
@@ -4584,7 +8632,6 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
         )
       );
       FileViewer.open(file.filePath);
-      Alert.alert("File path: ", file.filePath);
     } catch (error) {
       console.log("Failed to generate pdf", error.message);
     }
@@ -4611,7 +8658,7 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
         <View style={styles.buttonRow}>
           <View style={styles.buttonColumn1}>
             <TextInputButton
-              title="Weight"
+              title="Weight / Age"
               unit="kg"
               action={(prop) => setWeight(prop)}
               backgroundColor={"#313135"}
@@ -4682,6 +8729,70 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
                 }
               />
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => setButtonState("drugs")}>
+              <TextButton
+                title="Drugs"
+                width={Dimensions.get("window").width * 0.46153846}
+                height={Dimensions.get("window").height * 0.06812796}
+                bgHex="#313135"
+                contentHex={"white"}
+                borderColor={
+                  buttonState === "drugs" ? "#72A8DA" : "transparent"
+                }
+                borderWidth={1}
+                borderRadius={
+                  Dimensions.get("window").height * 0.06812796 * 0.30434783
+                }
+                fontWeight={"700"}
+                textSize={
+                  Platform.isPad
+                    ? Dimensions.get("window").width * 0.46153846 * 0.08
+                    : Dimensions.get("window").width * 0.46153846 * 0.10555556
+                }
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => setButtonState("ett_vitals")}>
+              <TextButton
+                title="ETT Vitals"
+                width={Dimensions.get("window").width * 0.46153846}
+                height={Dimensions.get("window").height * 0.06812796}
+                bgHex="#313135"
+                contentHex={"white"}
+                borderColor={
+                  buttonState === "ett_vitals" ? "#72A8DA" : "transparent"
+                }
+                borderWidth={1}
+                borderRadius={
+                  Dimensions.get("window").height * 0.06812796 * 0.30434783
+                }
+                fontWeight={"700"}
+                textSize={
+                  Platform.isPad
+                    ? Dimensions.get("window").width * 0.46153846 * 0.08
+                    : Dimensions.get("window").width * 0.46153846 * 0.10555556
+                }
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => setButtonState("pain")}>
+              <TextButton
+                title="Pain"
+                width={Dimensions.get("window").width * 0.46153846}
+                height={Dimensions.get("window").height * 0.06812796}
+                bgHex="#313135"
+                contentHex={"white"}
+                borderColor={buttonState === "pain" ? "#72A8DA" : "transparent"}
+                borderWidth={1}
+                borderRadius={
+                  Dimensions.get("window").height * 0.06812796 * 0.30434783
+                }
+                fontWeight={"700"}
+                textSize={
+                  Platform.isPad
+                    ? Dimensions.get("window").width * 0.46153846 * 0.08
+                    : Dimensions.get("window").width * 0.46153846 * 0.10555556
+                }
+              />
+            </TouchableOpacity>
           </View>
         </View>
         <View style={{ top: 50 }}>
@@ -4693,6 +8804,15 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
                 }
                 if (buttonState === "cardiac") {
                   cardiac(weight);
+                }
+                if (buttonState === "pain") {
+                  pain(weight);
+                }
+                if (buttonState === "ett_vitals") {
+                  ett_vitals(weight);
+                }
+                if (buttonState === "drugs") {
+                  drugs(weight);
                 }
                 if (buttonState === "MH") {
                   MH(weight);
