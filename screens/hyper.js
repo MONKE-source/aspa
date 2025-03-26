@@ -28,23 +28,17 @@ export default function Hyper() {
       if (savedValue !== null) {
         const filesArray = JSON.parse(savedValue);
         setFileArray(filesArray);
-        console.log("Files retrieved (CalcScreen): ", files);
       }
     } catch (e) {
-      console.error("Error retrieving files (CalcScreen): ", e);
+      Alert.alert("Error retrieving files: ", e);
     }
   };
   const saveFiles = async (filesArray) => {
     try {
       const jsonValue = JSON.stringify(filesArray);
-      await AsyncStorage.setItem("files", jsonValue).then(() =>
-        console.log(
-          "Successfully saved to AsyncStorage (saveFiles - CalcScreen): ",
-          jsonValue
-        )
-      );
+      await AsyncStorage.setItem("files", jsonValue);
     } catch (e) {
-      console.error("Error saving files (saveFiles - CalcScreen): ", e);
+      Alert.alert("Error saving files: ", e);
     }
   };
   useEffect(() => {
@@ -1472,16 +1466,10 @@ export default function Hyper() {
       if (!file.filePath) return;
       const updatedFiles = [...files, file.filePath];
       setFileArray(updatedFiles);
-      saveFiles(updatedFiles).then(() =>
-        console.log(
-          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
-          updatedFiles
-        )
-      );
+      saveFiles(updatedFiles);
       FileViewer.open(file.filePath);
-      Alert.alert("File path: ", file.filePath);
     } catch (error) {
-      console.log("Failed to generate pdf", error.message);
+      Alert.alert("Failed to generate pdf: ", error);
     }
   };
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -1571,12 +1559,7 @@ export default function Hyper() {
     >
       <ScrollView style={{ marginBottom: "20%" }}>
         <View style={styles.container}>
-          <Text
-            style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
-            allowFontScaling={false}
-          >
-            Hyperkalemia
-          </Text>
+
           <TouchableOpacity
             style={{
               flexDirection: "row",

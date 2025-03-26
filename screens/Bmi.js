@@ -38,23 +38,17 @@ export default function Bmi() {
       if (savedValue !== null) {
         const filesArray = JSON.parse(savedValue);
         setFileArray(filesArray);
-        console.log("Files retrieved (CalcScreen): ", files);
       }
     } catch (e) {
-      console.error("Error retrieving files (CalcScreen): ", e);
+      Alert.alert("Error retrieving files: ", e);
     }
   };
   const saveFiles = async (filesArray) => {
     try {
       const jsonValue = JSON.stringify(filesArray);
-      await AsyncStorage.setItem("files", jsonValue).then(() =>
-        console.log(
-          "Successfully saved to AsyncStorage (saveFiles - CalcScreen): ",
-          jsonValue
-        )
-      );
+      await AsyncStorage.setItem("files", jsonValue);
     } catch (e) {
-      console.error("Error saving files (saveFiles - CalcScreen): ", e);
+      Alert.alert("Error saving files: ", e);
     }
   };
   function bmiAgeSexCheck(bmi) {
@@ -132,17 +126,10 @@ export default function Bmi() {
       };
       let file = await RNHTMLtoPDF.convert(PDFOptions);
       if (!file.filePath) return;
-      Alert.alert("File path: ", file.filePath);
-      console.log("successful: ", file.filePath);
-
       FileViewer.open(file.filePath)
         .then(() => setFileArray([...files, file.filePath]))
-        .catch((e) => {
-          console.log("Error: ", e);
-        });
-    } catch (error) {
-      console.log("Failed to generate pdf", error.message);
-    }
+        .catch((e) => {});
+    } catch (error) {}
   };
 
   return (
@@ -249,7 +236,7 @@ export default function Bmi() {
         </View>
         <View style={styles.divider} />
         {/* <View style={styles.selectionRow}>
-          <TouchableOpacity onPress={() => console.log(isMale)}>
+          
             <TextButton
               title="Drug"
               width={(Dimensions.get("window").width * 156) / 390}

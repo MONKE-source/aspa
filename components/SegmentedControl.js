@@ -15,8 +15,7 @@ function SegmentedControl({
   function update() {
     setSegIndex(!segmentIndex);
     optionUpdate(!optionStore);
-    console.log(optionStore);
-    console.log(segmentIndex);
+
     return;
   }
   return (

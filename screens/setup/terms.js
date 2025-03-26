@@ -135,7 +135,7 @@ const Terms = ({ navigation }) => {
               // Navigate to Main app
               navigation.navigate("Main");
             } catch (error) {
-              console.error("Error setting hasLaunched flag:", error);
+              Alert.alert("Error setting hasLaunched flag:", error);
               // Still navigate to Main even if there's an error
               navigation.navigate("Main");
             }

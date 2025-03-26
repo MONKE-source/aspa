@@ -71,7 +71,7 @@ export default function Basiclifesupport() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -188,7 +188,7 @@ export default function Basiclifesupport() {
                   color: isDarkMode ? "white" : "black",
                   marginTop: "1%",
                   marginBottom: "1%",
-                  fontSize: 22 * (Dimensions.get("window").width / 375),
+                  fontSize: 23 * (Dimensions.get("window").width / 375),
                 },
               ]}
               allowFontScaling={false}

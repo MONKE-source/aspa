@@ -118,7 +118,7 @@ export default function App() {
           setInitialRoute("Main");
         }
       } catch (error) {
-        console.error("Error checking first launch: ", error);
+        Alert.alert("Error checking first launch: ", error);
         // Default to welcome screen if there's an error
         setInitialRoute("Welcome");
       } finally {

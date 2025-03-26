@@ -302,20 +302,17 @@ async function openGitPDF(title, subtitles) {
     if (pdfExists) {
       // If the PDF exists locally, open it directly
       const localPath = getLocalPdfPath(title, subtitles);
-      console.log("Opening locally stored PDF:", localPath);
 
       FileViewer.open(localPath).catch((e) => {
-        console.log("Error opening local file: ", e);
         // If there's an error opening the local file, fall back to downloading
         downloadAndOpenPdf(title, subtitles);
       });
     } else {
       // If the PDF doesn't exist locally, download it
-      console.log("PDF not found locally, downloading...");
       downloadAndOpenPdf(title, subtitles);
     }
   } catch (error) {
-    console.error("Error in openGitPDF:", error);
+    Alert.alert("Error in openGitPDF: ", error);
     // Fall back to downloading if there's any error
     downloadAndOpenPdf(title, subtitles);
   }
@@ -357,12 +354,11 @@ function downloadAndOpenPdf(title, subtitles) {
       const exists = await RNFS.exists(pdfPath);
       if (exists) {
         await RNFS.unlink(pdfPath);
-        console.log("PDF cache cleared at: ", pdfPath);
       } else {
-        console.log("File does not exist: ", pdfPath);
+        Alert.alert("File does not exist: ", pdfPath);
       }
     } catch (error) {
-      console.error("Error clearing PDF cache: ", error);
+      Alert.alert("Error clearing PDF cache: ", error);
     }
   };
 
@@ -374,11 +370,11 @@ function downloadAndOpenPdf(title, subtitles) {
         .then(() => delay(5000))
         .then(() => clearPDFCache(localFile))
         .catch((e) => {
-          console.log("Error opening file: ", e);
+          Alert.alert("Error opening file: ", e);
         })
     )
     .catch((e) => {
-      console.log("Error downloading file: ", e);
+      Alert.alert("Error downloading file: ", e);
     });
 }
 
@@ -398,15 +394,12 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
     const loadItems = async () => {
       try {
         const savedItems = await AsyncStorage.getItem("@itemkey");
-        console.log("Items loaded from AsyncStorage");
-        console.log("----- " + JSON.parse(savedItems) + " -----");
         savedItems !== null
           ? setFilteredData(JSON.parse(savedItems))
           : setFilteredData(data);
         savedItems !== null ? setItems(JSON.parse(savedItems)) : setItems(data);
       } catch (error) {
         Alert.alert("Error: ", error);
-        console.error("Failed to load items from AsyncStorage", error);
       }
     };
 
@@ -418,12 +411,10 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
     } else {
       const saveItems = async () => {
         try {
-          console.log("Items saved to AsyncStorage");
-          console.log("----- " + filteredData + " -----");
           const dataToBeSaved = JSON.stringify(filteredData);
           await AsyncStorage.setItem("@itemkey", dataToBeSaved);
         } catch (error) {
-          console.error("Failed to save items to AsyncStorage", error);
+          Alert.alert("Failed to save items", error);
         }
       };
       saveItems();
@@ -586,7 +577,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
         <View style={{ flexDirection: "row", gap: 5 }}>
           <TouchableOpacity
             style={{ marginTop: 3, marginLeft: 15 }}
-            onPress={() => navigation.navigate("Info")}
+            onPress={() => navigation.navigate("Settings")}
           >
             <SimpleLineIcons
               name="settings"
@@ -679,6 +670,24 @@ function MainStack() {
         component={BookmarkedItemsScreen}
         options={{
           headerTitle: "Items",
+          headerStyle: {
+            backgroundColor: "rgb(30, 30, 32)",
+            color: "white",
+          },
+          headerTitleStyle: {
+            color: "white",
+          },
+          headerBackTitleStyle: {
+            color: "white",
+          },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Settings"
+        component={Settings} // Add this line to include the Info screen
+        options={{
+          headerTitle: "Settings",
           headerStyle: {
             backgroundColor: "rgb(30, 30, 32)",
             color: "white",

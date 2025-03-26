@@ -30,8 +30,6 @@ import AcknowledgementsModal from "../components/Acknowledgements";
 
 function CalcScreen({ navigation }) {
   // Reference dimension : iPhone 14
-  // console.log(Dimensions.get("window").width);  390
-  // console.log(Dimensions.get("window").height);  844
   const [buttonState, setButtonState] = useState("");
   const [weight, setWeight] = useState(0);
   const { isDarkMode } = useDarkMode();
@@ -43,23 +41,17 @@ function CalcScreen({ navigation }) {
       if (savedValue !== null) {
         const filesArray = JSON.parse(savedValue);
         setFileArray(filesArray);
-        console.log("Files retrieved (CalcScreen): ", files);
       }
     } catch (e) {
-      console.error("Error retrieving files (CalcScreen): ", e);
+      Alert.alert("Something went wrong", `Error retrieving files: ${e}`);
     }
   };
   const saveFiles = async (filesArray) => {
     try {
       const jsonValue = JSON.stringify(filesArray);
-      await AsyncStorage.setItem("files", jsonValue).then(() =>
-        console.log(
-          "Successfully saved to AsyncStorage (saveFiles - CalcScreen): ",
-          jsonValue
-        )
-      );
+      await AsyncStorage.setItem("files", jsonValue);
     } catch (e) {
-      console.error("Error saving files (saveFiles - CalcScreen): ", e);
+      Alert.alert("Something went wrong", `Error saving files: ${e}`);
     }
   };
   useEffect(() => {
@@ -1937,15 +1929,10 @@ function CalcScreen({ navigation }) {
       if (!file.filePath) return;
       const updatedFiles = [...files, file.filePath];
       setFileArray(updatedFiles);
-      saveFiles(updatedFiles).then(() =>
-        console.log(
-          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
-          updatedFiles
-        )
-      );
+      saveFiles(updatedFiles);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log("Failed to generate pdf", error.message);
+      Alert.alert("Something went wrong", `Error: ${error}`);
     }
   };
 
@@ -2627,15 +2614,10 @@ function CalcScreen({ navigation }) {
       if (!file.filePath) return;
       const updatedFiles = [...files, file.filePath];
       setFileArray(updatedFiles);
-      saveFiles(updatedFiles).then(() =>
-        console.log(
-          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
-          updatedFiles
-        )
-      );
+      saveFiles(updatedFiles);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log("Failed to generate pdf", error.message);
+      Alert.alert("Something went wrong", `Error: ${e}`);
     }
   };
 
@@ -4116,15 +4098,10 @@ function CalcScreen({ navigation }) {
       if (!file.filePath) return;
       const updatedFiles = [...files, file.filePath];
       setFileArray(updatedFiles);
-      saveFiles(updatedFiles).then(() =>
-        console.log(
-          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
-          updatedFiles
-        )
-      );
+      saveFiles(updatedFiles);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log("Failed to generate pdf", error.message);
+      Alert.alert("Something went wrong", `Error: ${e}`);
     }
   };
 
@@ -4813,15 +4790,10 @@ body { margin-left: 0.74803149606299in; margin-right: 0.74803149606299in; margin
       if (!file.filePath) return;
       const updatedFiles = [...files, file.filePath];
       setFileArray(updatedFiles);
-      saveFiles(updatedFiles).then(() =>
-        console.log(
-          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
-          updatedFiles
-        )
-      );
+      saveFiles(updatedFiles);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log("Failed to generate pdf", error.message);
+      Alert.alert("Something went wrong", `Error: ${e}`);
     }
   };
 
@@ -5725,15 +5697,10 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
       if (!file.filePath) return;
       const updatedFiles = [...files, file.filePath];
       setFileArray(updatedFiles);
-      saveFiles(updatedFiles).then(() =>
-        console.log(
-          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
-          updatedFiles
-        )
-      );
+      saveFiles(updatedFiles);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log("Failed to generate pdf", error.message);
+      Alert.alert("Something went wrong", `Error: ${e}`);
     }
   };
   const MH = async (weight) => {
@@ -6246,15 +6213,10 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
       if (!file.filePath) return;
       const updatedFiles = [...files, file.filePath];
       setFileArray(updatedFiles);
-      saveFiles(updatedFiles).then(() =>
-        console.log(
-          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
-          updatedFiles
-        )
-      );
+      saveFiles(updatedFiles);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log("Failed to generate pdf", error.message);
+      Alert.alert("Something went wrong", `Error: ${e}`);
     }
   };
 
@@ -7665,15 +7627,10 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
       if (!file.filePath) return;
       const updatedFiles = [...files, file.filePath];
       setFileArray(updatedFiles);
-      saveFiles(updatedFiles).then(() =>
-        console.log(
-          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
-          updatedFiles
-        )
-      );
+      saveFiles(updatedFiles);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log("Failed to generate pdf", error.message);
+      Alert.alert("Something went wrong", `Error: ${e}`);
     }
   };
 
@@ -8625,15 +8582,10 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
       if (!file.filePath) return;
       const updatedFiles = [...files, file.filePath];
       setFileArray(updatedFiles);
-      saveFiles(updatedFiles).then(() =>
-        console.log(
-          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
-          updatedFiles
-        )
-      );
+      saveFiles(updatedFiles);
       FileViewer.open(file.filePath);
     } catch (error) {
-      console.log("Failed to generate pdf", error.message);
+      Alert.alert("Something went wrong", `Error: ${e}`);
     }
   };
   return (
@@ -8902,14 +8854,9 @@ const FileItem = ({ item, setDisplayFiles, displayFiles, files, setFiles }) => {
   const saveFiles = async (filesArray) => {
     try {
       const jsonValue = JSON.stringify(filesArray);
-      await AsyncStorage.setItem("files", jsonValue).then(() =>
-        console.log(
-          "Successfully saved to AsyncStorage (saveFiles - FileItem): ",
-          jsonValue
-        )
-      );
+      await AsyncStorage.setItem("files", jsonValue);
     } catch (e) {
-      console.error("Error saving files (saveFiles - FileItem): ", e);
+      Alert.alert("Something went wrong", `Error saving files: ${e}`);
     }
   };
   // for deleting the files
@@ -8918,17 +8865,16 @@ const FileItem = ({ item, setDisplayFiles, displayFiles, files, setFiles }) => {
     RNFS.unlink(item)
       .then(() => {
         Alert.alert("Success", "File Deleted");
-        console.log("FILE DELETED");
+
         setFiles((currentFiles) => {
           const updatedFiles = currentFiles.filter((file) => file !== item);
           setDisplayFiles(updatedFiles);
           saveFiles(updatedFiles);
           return updatedFiles;
         });
-        console.log("Files after deletion: ", files);
       })
       .catch((err) => {
-        console.log(err.message);
+        Alert.alert("Something went wrong", `Error: ${err}`);
       });
   };
 
@@ -8950,7 +8896,7 @@ const FileItem = ({ item, setDisplayFiles, displayFiles, files, setFiles }) => {
     RNFS.moveFile(item, newPath)
       .then(() => {
         Alert.alert("Success", "File Renamed");
-        console.log("FILE RENAMED");
+
         setFiles((currentFiles) => {
           const updatedFiles = currentFiles.map((file) =>
             file === item ? newPath : file
@@ -8959,10 +8905,8 @@ const FileItem = ({ item, setDisplayFiles, displayFiles, files, setFiles }) => {
           saveFiles(updatedFiles);
           return updatedFiles;
         });
-        console.log("Files after renaming: ", files);
       })
       .catch((err) => {
-        console.log(err.message);
         Alert.alert("Error", "Failed to rename the file.");
       });
   };
@@ -9025,10 +8969,9 @@ const FileScreen = () => {
         const filesArray = JSON.parse(savedValue);
         setFileArray(filesArray);
         setDisplayFiles(filesArray);
-        console.log("Files retrieved (FileScreen): ", filesArray);
       }
     } catch (e) {
-      console.error("Error retrieving files (FileScreen): ", e);
+      Alert.alert("Something went wrong", `Error retrieving files: ${e}`);
     }
   };
   useEffect(() => {
@@ -9039,10 +8982,15 @@ const FileScreen = () => {
     <SafeAreaView
       style={[
         styles.treeTop,
-        { backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB" },
+        {
+          backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB",
+        },
       ]}
     >
-      <KeyboardAvoidingView behavior="height" style={{ flex: 1 }}>
+      <KeyboardAvoidingView
+        behavior="height"
+        style={{ flex: 1, marginTop: "5%" }}
+      >
         <FlatList
           data={displayFiles}
           style={{ marginBottom: 150 }}

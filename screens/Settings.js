@@ -20,7 +20,7 @@ export default function Settings() {
   //     const darkModeValue = await AsyncStorage.getItem("isDarkMode");
   //     setIsDarkMode(JSON.parse(darkModeValue) || false);
   //   } catch (error) {
-  //     console.error("Error retrieving dark mode value:", error);
+  //     Alert.alert("Error retrieving dark mode value:", error);
   //   }
   // };
 
@@ -28,7 +28,7 @@ export default function Settings() {
   //   try {
   //     await AsyncStorage.setItem("isDarkMode", JSON.stringify(isDarkMode));
   //   } catch (error) {
-  //     console.error("Error storing dark mode value:", error);
+  //     Alert.alert("Error storing dark mode value:", error);
   //   }
   // };
 

@@ -5,10 +5,6 @@ import { useDarkMode } from "../components/DarkModeContext";
 const AcknowledgementsScreen = () => {
   const { isDarkMode } = useDarkMode();
 
-  const handlePress = () => {
-    console.log(isDarkMode);
-  };
-
   return (
     <ScrollView
       contentContainerStyle={[

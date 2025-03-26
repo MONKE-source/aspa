@@ -40,7 +40,7 @@ export default function WelcomeScreen({ navigation }) {
           setDownloadComplete(true);
         }
       } catch (error) {
-        console.error("Error checking if PDFs were downloaded:", error);
+        Alert.alert("Error checking if PDFs were downloaded:", error);
       }
     };
 
@@ -90,7 +90,7 @@ export default function WelcomeScreen({ navigation }) {
         );
       }
     } catch (error) {
-      console.error("Error downloading PDFs:", error);
+      Alert.alert("Error downloading PDFs:", error);
       Alert.alert(
         "Download Error",
         "There was an error downloading resources. You may experience issues in offline mode.",

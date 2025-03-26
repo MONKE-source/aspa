@@ -28,23 +28,17 @@ export default function Hypertermina() {
       if (savedValue !== null) {
         const filesArray = JSON.parse(savedValue);
         setFileArray(filesArray);
-        console.log("Files retrieved (CalcScreen): ", files);
       }
     } catch (e) {
-      console.error("Error retrieving files (CalcScreen): ", e);
+      Alert.alert("Error retrieving files: ", e);
     }
   };
   const saveFiles = async (filesArray) => {
     try {
       const jsonValue = JSON.stringify(filesArray);
-      await AsyncStorage.setItem("files", jsonValue).then(() =>
-        console.log(
-          "Successfully saved to AsyncStorage (saveFiles - CalcScreen): ",
-          jsonValue
-        )
-      );
+      await AsyncStorage.setItem("files", jsonValue);
     } catch (e) {
-      console.error("Error saving files (saveFiles - CalcScreen): ", e);
+      Alert.alert("Error saving files: ", e);
     }
   };
   useEffect(() => {
@@ -575,16 +569,10 @@ export default function Hypertermina() {
       if (!file.filePath) return;
       const updatedFiles = [...files, file.filePath];
       setFileArray(updatedFiles);
-      saveFiles(updatedFiles).then(() =>
-        console.log(
-          "successfully saved to AsyncStorage (CalcScreen_PDF): ",
-          updatedFiles
-        )
-      );
+      saveFiles(updatedFiles);
       FileViewer.open(file.filePath);
-      Alert.alert("File path: ", file.filePath);
     } catch (error) {
-      console.log("Failed to generate pdf", error.message);
+      Alert.alert("Failed to generate pdf: ", error);
     }
   };
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -705,7 +693,7 @@ export default function Hypertermina() {
                 styles.title,
                 {
                   color: isDarkMode ? "white" : "black",
-                  marginBottom: "3%",
+                  marginTop: "2%",
                 },
               ]}
               allowFontScaling={false}
@@ -772,7 +760,7 @@ export default function Hypertermina() {
             <Text
               style={[
                 styles.title,
-                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+                { color: isDarkMode ? "white" : "black", marginTop: "2%" },
               ]}
               allowFontScaling={false}
             >
@@ -892,14 +880,16 @@ export default function Hypertermina() {
             onPress={() => setCollapsed6(!collapsed6)}
           >
             <Text
-              style={{
-                fontSize: 28,
-                fontWeight: "bold",
-                color: isDarkMode ? "white" : "black",
-              }}
+              style={[
+                styles.title,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginTop: "2%",
+                },
+              ]}
               allowFontScaling={false}
             >
-              DIFFERENTIAL DIAGNOSIS
+              Differential Diagnosis
             </Text>
             <FontAwesome5
               name="chevron-down"
@@ -947,11 +937,13 @@ export default function Hypertermina() {
             onPress={() => setCollapsed7(!collapsed7)}
           >
             <Text
-              style={{
-                fontSize: 28,
-                fontWeight: "bold",
-                color: isDarkMode ? "white" : "black",
-              }}
+              style={[
+                styles.title,
+                {
+                  color: isDarkMode ? "white" : "black",
+                  marginTop: "2%",
+                },
+              ]}
               allowFontScaling={false}
             >
               Calculator
@@ -1013,7 +1005,7 @@ const styles = StyleSheet.create({
     paddingBottom: "100",
   },
   title: {
-    fontSize: 23 * (Dimensions.get("window").width / 375),
+    fontSize: 26 * (Dimensions.get("window").width / 375),
     marginBottom: 20,
     fontWeight: "bold",
   },

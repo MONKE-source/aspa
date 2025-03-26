@@ -225,7 +225,7 @@ export const checkPdfExists = async (title, subtitle) => {
   try {
     return await RNFS.exists(localPath);
   } catch (error) {
-    console.error(`Error checking if PDF exists: ${error}`);
+    Alert.alert(`Error checking if PDF exists: ${error}`);
     return false;
   }
 };
@@ -255,7 +255,7 @@ const downloadSinglePdf = async (title, subtitle) => {
     const result = await RNFS.downloadFile(options).promise;
     return result.statusCode === 200;
   } catch (error) {
-    console.error(`Error downloading PDF ${title}/${subtitle}: ${error}`);
+    Alert.alert(`Error downloading PDF ${title}/${subtitle}: ${error}`);
     return false;
   }
 };
@@ -302,7 +302,7 @@ export const downloadAllPdfs = async (progressCallback = null) => {
       failedDownloads,
     };
   } catch (error) {
-    console.error(`Error downloading all PDFs: ${error}`);
+    Alert.alert(`Error downloading all PDFs: ${error}`);
     return {
       success: false,
       error: error.message,
@@ -320,7 +320,7 @@ export const clearAllPdfs = async () => {
     }
     return false;
   } catch (error) {
-    console.error(`Error clearing PDF cache: ${error}`);
+    Alert.alert(`Error clearing PDF cache: ${error}`);
     return false;
   }
 };

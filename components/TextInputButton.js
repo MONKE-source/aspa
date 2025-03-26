@@ -21,7 +21,6 @@ function TextInputButton({
   const inputRef = useRef(null);
   const handleInputChange = (text) => {
     action(text);
-    console.log(store);
   };
 
   const handleTextInputBlur = () => {
