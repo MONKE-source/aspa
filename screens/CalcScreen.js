@@ -838,7 +838,6 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R3" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">4</div>
         </th>
         <td class="s6" dir="ltr">Propofol</td>
         <td class="freezebar-cell"></td>
@@ -870,7 +869,6 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R5" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">6</div>
         </th>
         <td class="s6" dir="ltr">Ketamine</td>
         <td class="freezebar-cell"></td>
@@ -990,7 +988,7 @@ function CalcScreen({ navigation }) {
         <td class="s7"></td>
         <td class="s6 softmerge" dir="ltr">
           <div class="softmerge-inner" style="width: 97px; left: -1px">
-            analgesic: consider 50% dose reduction for age &lt;6 mo
+            analgesic: consider 50% dose <br> reduction for age &lt;6 mo
           </div>
         </td>
         <td class="s18" dir="ltr">50</td>
@@ -1028,7 +1026,6 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R15" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">16</div>
         </th>
         <td class="s6" dir="ltr">Oxycodone</td>
         <td class="freezebar-cell"></td>
@@ -1173,7 +1170,7 @@ function CalcScreen({ navigation }) {
         <td class="freezebar-cell"></td>
         <td class="s17" dir="ltr">0.5</td>
         <td class="s17" dir="ltr"></td>
-        <td class="s3">%{roundOff(weight *0.5,2)}</td>
+        <td class="s3">${roundOff(weight * 0.5, 2)}</td>
         <td class="s4"></td>
         <td class="s5">${roundOff((weight * 0.5) / 10, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
@@ -1278,7 +1275,6 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R31" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">32</div>
         </th>
         <td class="s42" dir="ltr">Neostigmine (mcg)</td>
         <td class="freezebar-cell"></td>
@@ -1749,7 +1745,6 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R62" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">63</div>
         </th>
         <td class="s6" dir="ltr">Adrenaline (mcg)</td>
         <td class="freezebar-cell"></td>
@@ -1781,7 +1776,6 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R64" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">65</div>
         </th>
         <td class="s6"></td>
         <td class="freezebar-cell"></td>
@@ -1888,7 +1882,6 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R71" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">72</div>
         </th>
         <td class="s6" dir="ltr">Tazocin</td>
         <td class="freezebar-cell"></td>
@@ -2874,7 +2867,7 @@ function CalcScreen({ navigation }) {
         <td class="s0"></td>
         <td class="s2 softmerge" dir="ltr">
           <div class="softmerge-inner" style="width: 43px; left: -1px">
-            mg/kg per dose
+            mg/kg
           </div>
         </td>
         <td class="s3" dir="ltr">dose</td>
@@ -8650,7 +8643,7 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
                 borderColor={
                   buttonState === "cardiac" ? "#72A8DA" : "transparent"
                 }
-                borderWidth={1}
+                borderWidth={2}
                 fontWeight={"700"}
                 textSize={
                   Platform.isPad
@@ -8669,7 +8662,7 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
                 borderColor={
                   buttonState === "scoliosis" ? "#72A8DA" : "transparent"
                 }
-                borderWidth={1}
+                borderWidth={2}
                 borderRadius={
                   Dimensions.get("window").height * 0.06812796 * 0.30434783
                 }
@@ -8691,7 +8684,7 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
                 borderColor={
                   buttonState === "drugs" ? "#72A8DA" : "transparent"
                 }
-                borderWidth={1}
+                borderWidth={2}
                 borderRadius={
                   Dimensions.get("window").height * 0.06812796 * 0.30434783
                 }
@@ -8713,7 +8706,7 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
                 borderColor={
                   buttonState === "ett_vitals" ? "#72A8DA" : "transparent"
                 }
-                borderWidth={1}
+                borderWidth={2}
                 borderRadius={
                   Dimensions.get("window").height * 0.06812796 * 0.30434783
                 }
@@ -8733,7 +8726,7 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
                 bgHex="#313135"
                 contentHex={"white"}
                 borderColor={buttonState === "pain" ? "#72A8DA" : "transparent"}
-                borderWidth={1}
+                borderWidth={2}
                 borderRadius={
                   Dimensions.get("window").height * 0.06812796 * 0.30434783
                 }
@@ -8812,7 +8805,7 @@ body { margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: 0in;
               bgHex="#313135"
               contentHex={"white"}
               borderColor={"#72A8DA"}
-              borderWidth={1}
+              borderWidth={2}
               borderRadius={
                 Dimensions.get("window").height * 0.04739336 * 0.94594595
               }

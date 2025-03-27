@@ -193,7 +193,7 @@ export default function Basiclifesupport() {
               ]}
               allowFontScaling={false}
             >
-              Cardiopulmonary Resuscitation
+              Cardiopulmonary {"\n"}Resuscitation
             </Text>
             <FontAwesome5
               name="chevron-down"
