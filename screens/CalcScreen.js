@@ -80,6 +80,14 @@ function CalcScreen({ navigation }) {
   .ritz .waffle a {
     color: inherit;
   }
+  .ritz .waffle table {
+    border-collapse: separate;
+    border-spacing: 2px;
+  }
+  .ritz .waffle td {
+    border: 1px solid #e0e0e0;
+    padding: 4px 6px;
+  }
   .ritz .waffle .s21 {
     background-color: #4285f4;
     text-align: center;
@@ -90,7 +98,7 @@ function CalcScreen({ navigation }) {
     vertical-align: bottom;
     white-space: nowrap;
     direction: ltr;
-    padding: 2px 3px 2px 3px;
+    padding: 4px 6px;
   }
   .ritz .waffle .s52 {
     border-left: none;
@@ -378,7 +386,7 @@ function CalcScreen({ navigation }) {
     background-color: #4285f4;
     text-align: left;
     font-weight: bold;
-    color: #ffffff;
+    color:rgb(0, 0, 0);
     font-family: Arial;
     font-size: 10pt;
     vertical-align: bottom;
@@ -402,7 +410,7 @@ function CalcScreen({ navigation }) {
     background-color: #9900ff;
     text-align: left;
     font-weight: bold;
-    color: #ffffff;
+    color:rgb(0, 0, 0);
     font-family: Arial;
     font-size: 10pt;
     vertical-align: bottom;
@@ -483,7 +491,7 @@ function CalcScreen({ navigation }) {
     background-color: #999999;
     text-align: left;
     font-weight: bold;
-    color: #ffffff;
+    color:rgb(0, 0, 0);
     font-family: Arial;
     font-size: 10pt;
     vertical-align: bottom;
@@ -541,7 +549,7 @@ function CalcScreen({ navigation }) {
     background-color: #6aa84f;
     text-align: left;
     font-weight: bold;
-    color: #ffffff;
+    color:rgb(0, 0, 0);
     font-family: Arial;
     font-size: 10pt;
     vertical-align: bottom;
@@ -553,7 +561,7 @@ function CalcScreen({ navigation }) {
     background-color: #ff0000;
     text-align: left;
     font-weight: bold;
-    color: #ffffff;
+    color:rgb(0, 0, 0);
     font-family: Arial;
     font-size: 10pt;
     vertical-align: bottom;
@@ -771,7 +779,7 @@ function CalcScreen({ navigation }) {
 </style>
 
 <div class="ritz grid-container" dir="ltr">
-  <table class="waffle" cellspacing="0" cellpadding="0">
+  <table class="waffle">
     <tbody>
       <tr style="height: 20px">
         <th id="0R0" style="height: 20px" class="row-headers-background"></th>
@@ -838,6 +846,7 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R3" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">4</div>
         </th>
         <td class="s6" dir="ltr">Propofol</td>
         <td class="freezebar-cell"></td>
@@ -869,6 +878,7 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R5" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">6</div>
         </th>
         <td class="s6" dir="ltr">Ketamine</td>
         <td class="freezebar-cell"></td>
@@ -988,7 +998,7 @@ function CalcScreen({ navigation }) {
         <td class="s7"></td>
         <td class="s6 softmerge" dir="ltr">
           <div class="softmerge-inner" style="width: 97px; left: -1px">
-            analgesic: consider 50% dose <br> reduction for age &lt;6 mo
+            analgesic: consider 50% dose reduction for age &lt;6 mo
           </div>
         </td>
         <td class="s18" dir="ltr">50</td>
@@ -1026,6 +1036,7 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R15" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">16</div>
         </th>
         <td class="s6" dir="ltr">Oxycodone</td>
         <td class="freezebar-cell"></td>
@@ -1275,6 +1286,7 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R31" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">32</div>
         </th>
         <td class="s42" dir="ltr">Neostigmine (mcg)</td>
         <td class="freezebar-cell"></td>
@@ -1745,6 +1757,7 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R62" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">63</div>
         </th>
         <td class="s6" dir="ltr">Adrenaline (mcg)</td>
         <td class="freezebar-cell"></td>
@@ -1776,6 +1789,7 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R64" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">65</div>
         </th>
         <td class="s6"></td>
         <td class="freezebar-cell"></td>
@@ -1882,6 +1896,7 @@ function CalcScreen({ navigation }) {
       </tr>
       <tr style="height: 20px">
         <th id="0R71" style="height: 20px" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 20px">72</div>
         </th>
         <td class="s6" dir="ltr">Tazocin</td>
         <td class="freezebar-cell"></td>
@@ -1914,6 +1929,7 @@ function CalcScreen({ navigation }) {
     </tbody>
   </table>
 </div>
+
 `,
         fileName: genName("drugs"),
         directory: Platform.OS === "android" ? "Downloads" : "Documents",
@@ -2627,6 +2643,14 @@ function CalcScreen({ navigation }) {
   .ritz .waffle a {
     color: inherit;
   }
+  .ritz .waffle table {
+    border-collapse: separate;
+    border-spacing: 2px;
+  }
+  .ritz .waffle td {
+    border: 1px solid #e0e0e0;
+    padding: 4px 6px;
+  }
   .ritz .waffle .s0 {
     background-color: #ffffff;
     text-align: left;
@@ -2636,7 +2660,7 @@ function CalcScreen({ navigation }) {
     vertical-align: bottom;
     white-space: nowrap;
     direction: ltr;
-    padding: 2px 3px 2px 3px;
+    padding: 4px 6px;
   }
   .ritz .waffle .s17 {
     background-color: #999999;
@@ -2769,7 +2793,7 @@ function CalcScreen({ navigation }) {
     background-color: #999999;
     text-align: left;
     font-weight: bold;
-    color: #ffffff;
+    color:rgb(0, 0, 0);
     font-family: Arial;
     font-size: 10pt;
     vertical-align: bottom;
@@ -2781,7 +2805,7 @@ function CalcScreen({ navigation }) {
     background-color: #6aa84f;
     text-align: left;
     font-weight: bold;
-    color: #ffffff;
+    color:rgb(0, 0, 0);
     font-family: Arial;
     font-size: 10pt;
     vertical-align: bottom;
@@ -2816,7 +2840,7 @@ function CalcScreen({ navigation }) {
     background-color: #4285f4;
     text-align: left;
     font-weight: bold;
-    color: #ffffff;
+    color:rgb(0, 0, 0);
     font-family: Arial;
     font-size: 10pt;
     vertical-align: bottom;
@@ -2837,7 +2861,7 @@ function CalcScreen({ navigation }) {
   }
 </style>
 <div class="ritz grid-container" dir="ltr">
-  <table class="waffle" cellspacing="0" cellpadding="0">
+  <table class="waffle">
     <tbody>
       <tr style="height: 20px">
         <th
@@ -2867,7 +2891,7 @@ function CalcScreen({ navigation }) {
         <td class="s0"></td>
         <td class="s2 softmerge" dir="ltr">
           <div class="softmerge-inner" style="width: 43px; left: -1px">
-            mg/kg
+            mg/kg per dose
           </div>
         </td>
         <td class="s3" dir="ltr">dose</td>
@@ -2968,7 +2992,7 @@ function CalcScreen({ navigation }) {
         ></th>
         <td class="s0" dir="ltr">Morphine</td>
         <td class="s8" dir="ltr">0.4</td>
-        <td class="s3">${weight * 0.4}</td>
+        <td class="s3">${roundOff(weight * 0.4, 2)}</td>
         <td></td>
         <td class="s0" dir="ltr">PO</td>
         <td class="s0" dir="ltr">Q6H</td>
@@ -2987,7 +3011,7 @@ function CalcScreen({ navigation }) {
         ></th>
         <td class="s0"></td>
         <td class="s8" dir="ltr">0.1</td>
-        <td class="s3">${weight * 0.1}</td>
+        <td class="s3">${roundOff(weight * 0.1, 2)}</td>
         <td></td>
         <td class="s0" dir="ltr">IV</td>
         <td></td>
@@ -3010,7 +3034,7 @@ function CalcScreen({ navigation }) {
         ></th>
         <td class="s0" dir="ltr">Oxycodone</td>
         <td class="s8" dir="ltr">0.2</td>
-        <td class="s3">${weight * 0.2}</td>
+        <td class="s3">${roundOff(weight * 0.2, 2)}</td>
         <td></td>
         <td class="s0" dir="ltr">PO</td>
         <td class="s0" dir="ltr">Q6H</td>
@@ -4083,6 +4107,7 @@ function CalcScreen({ navigation }) {
   }
   posObjs();
 </script>
+
 `,
         fileName: genName("pain"),
         directory: Platform.OS === "android" ? "Downloads" : "Documents",
@@ -4094,7 +4119,7 @@ function CalcScreen({ navigation }) {
       saveFiles(updatedFiles);
       FileViewer.open(file.filePath);
     } catch (error) {
-      Alert.alert("Something went wrong", `Error: ${e}`);
+      Alert.alert("Something went wrong", `Error: ${error}`);
     }
   };
 
