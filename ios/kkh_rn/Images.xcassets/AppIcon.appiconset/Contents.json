@@ -1,73 +1,73 @@
 {
   "images" : [
     {
-      "filename" : "ic_launcher 9.png",
+      "filename" : "og 5.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "ic_launcher 8.png",
+      "filename" : "og 6.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "ic_launcher 10.png",
+      "filename" : "og 8.png",
       "idiom" : "iphone",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "ic_launcher 11.png",
+      "filename" : "og 7.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "ic_launcher 7.png",
+      "filename" : "og 9.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "ic_launcher 6.png",
+      "filename" : "og 11.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "ic_launcher 5.png",
+      "filename" : "og 10.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "ic_launcher 4.png",
+      "filename" : "og 4.png",
       "idiom" : "iphone",
       "scale" : "1x",
       "size" : "57x57"
     },
     {
-      "filename" : "ic_launcher 3.png",
+      "filename" : "og 3.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "57x57"
     },
     {
-      "filename" : "ic_launcher 2.png",
+      "filename" : "og 2.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "ic_launcher 1.png",
+      "filename" : "og 1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "ic_launcher.png",
+      "filename" : "og.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
