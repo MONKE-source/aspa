@@ -1604,7 +1604,7 @@ export default function Anaphylaxis() {
     { id: 7, text: "Turn OFF anaesthetic agents", completed: false },
     { id: 8, text: "Elevate legs if there is hypotension", completed: false },
     { id: 9, text: "Start CPR if necessary", completed: false },
-    { id: 10, text: "Remove possible Triggers", completed: false },
+    { id: 10, text: "Remove Possible Triggers", completed: false },
     { id: 11, text: "Latex", completed: false },
     { id: 12, text: "NMB", completed: false },
     { id: 13, text: "Chlorhexidine", completed: false },
@@ -1612,6 +1612,7 @@ export default function Anaphylaxis() {
     { id: 15, text: "Antibiotics", completed: false },
     // Add more checklist items here
   ]);
+  const [collapsedTriggers, setCollapsedTriggers] = useState(true);
 
   const handleToggleComplete = (itemId) => {
     setChecklistItems((prevItems) =>
@@ -1666,31 +1667,156 @@ export default function Anaphylaxis() {
             />
           </TouchableOpacity>
           <Collapsible collapsed={collapsed1} style={{ marginVertical: "3%" }}>
-            {checklistItems.map((item) => (
-              <TouchableOpacity
-                key={item.id}
-                onPress={() => handleToggleComplete(item.id)}
-                style={styles.checklistItem}
-              >
-                <View style={styles.checkbox}>
-                  {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
-                </View>
-                <Text
-                  style={[
-                    styles.checklistText,
-                    {
-                      color: isDarkMode ? "white" : "black",
-                      textDecorationLine: item.completed
-                        ? "line-through"
-                        : "none",
-                    },
-                  ]}
-                  allowFontScaling={false}
-                >
-                  {item.text}
-                </Text>
-              </TouchableOpacity>
-            ))}
+            {checklistItems
+              .filter((subItem) =>
+                [
+                  "Declare an emergency",
+                  "Call for HELP",
+                  "Increase FiO2 to 100%",
+                  "Assess AIRWAY, BREATHING, CIRCULATION",
+                  "Intubate if necessary",
+                  "Obtain IV/IO access",
+                  "Turn OFF anaesthetic agents",
+                  "Elevate legs if there is hypotension",
+                  "Start CPR if necessary",
+                  "Remove Possible Triggers",
+                ].includes(subItem.text)
+              )
+              .map((item) => {
+                if (item.text === "Remove Possible Triggers") {
+                  return (
+                    <View key={item.id}>
+                      <TouchableOpacity
+                        onPress={() => handleToggleComplete(item.id)}
+                        style={styles.checklistItem}
+                      >
+                        <View style={styles.checkbox}>
+                          {item.completed && (
+                            <Text style={styles.tick}>&#x2713;</Text>
+                          )}
+                        </View>
+                        <Text
+                          style={[
+                            styles.checklistText,
+                            {
+                              color: isDarkMode ? "white" : "black",
+                              textDecorationLine: item.completed
+                                ? "line-through"
+                                : "none",
+                            },
+                          ]}
+                          allowFontScaling={false}
+                        >
+                          {item.text}
+                        </Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          alignContent: "center",
+                        }}
+                        onPress={() => setCollapsedTriggers(!collapsedTriggers)}
+                      >
+                        <Text
+                          style={[
+                            styles.title,
+                            {
+                              color: isDarkMode ? "white" : "black",
+                              fontSize: 18,
+                            },
+                          ]}
+                          allowFontScaling={false}
+                        >
+                          Possible Triggers
+                        </Text>
+                        <FontAwesome5
+                          name="chevron-down"
+                          style={{
+                            fontSize: 20,
+                            color: isDarkMode ? "#F3EDC8" : "black",
+                            marginLeft: "auto",
+                            transform: [
+                              {
+                                rotate: collapsedTriggers ? "0deg" : "180deg",
+                              },
+                            ],
+                          }}
+                        />
+                      </TouchableOpacity>
+                      <Collapsible collapsed={collapsedTriggers}>
+                        {checklistItems
+                          .filter((subItem) =>
+                            [
+                              "Latex",
+                              "NMB",
+                              "Chlorhexidine",
+                              "IV Colloids",
+                              "Antibiotics",
+                            ].includes(subItem.text)
+                          )
+                          .map((subItem) => (
+                            <TouchableOpacity
+                              key={subItem.id}
+                              onPress={() => handleToggleComplete(subItem.id)}
+                              style={[
+                                styles.checklistItem,
+                                { marginLeft: 40, marginBottom: "7.5%" },
+                              ]}
+                            >
+                              <View style={styles.checkbox}>
+                                {subItem.completed && (
+                                  <Text style={styles.tick}>&#x2713;</Text>
+                                )}
+                              </View>
+                              <Text
+                                style={[
+                                  styles.checklistText,
+                                  {
+                                    color: isDarkMode ? "white" : "black",
+                                    textDecorationLine: subItem.completed
+                                      ? "line-through"
+                                      : "none",
+                                  },
+                                ]}
+                                allowFontScaling={false}
+                              >
+                                {subItem.text}
+                              </Text>
+                            </TouchableOpacity>
+                          ))}
+                      </Collapsible>
+                    </View>
+                  );
+                }
+                return (
+                  <TouchableOpacity
+                    key={item.id}
+                    onPress={() => handleToggleComplete(item.id)}
+                    style={styles.checklistItem}
+                  >
+                    <View style={styles.checkbox}>
+                      {item.completed && (
+                        <Text style={styles.tick}>&#x2713;</Text>
+                      )}
+                    </View>
+                    <Text
+                      style={[
+                        styles.checklistText,
+                        {
+                          color: isDarkMode ? "white" : "black",
+                          textDecorationLine: item.completed
+                            ? "line-through"
+                            : "none",
+                        },
+                      ]}
+                      allowFontScaling={false}
+                    >
+                      {item.text}
+                    </Text>
+                  </TouchableOpacity>
+                );
+              })}
           </Collapsible>
           <TouchableOpacity
             style={{
