@@ -119,6 +119,7 @@ export default function Bmi() {
               <td>${bmi}</td>\
           </tr>\
       </table>\
+      <h2>Result: ${result}</h2>\
   </body>\
   </html>`,
         fileName: genName("BMI"),
