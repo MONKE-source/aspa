@@ -271,6 +271,7 @@ export const downloadAllPdfs = async (progressCallback = null) => {
 
     // Count total PDFs for progress tracking
     let totalPdfs = 0;
+    let totalSize = 0; // Track total size of all PDFs
     data.forEach((item) => {
       totalPdfs += item.subtitles.length;
     });
@@ -281,6 +282,16 @@ export const downloadAllPdfs = async (progressCallback = null) => {
     // Download each PDF
     for (const item of data) {
       for (const subtitle of item.subtitles) {
+        const url = getPdfUrl(item.title, subtitle.text);
+
+        // Fetch the file size from the server
+        const response = await fetch(url, { method: "HEAD" });
+        const contentLength = parseInt(
+          response.headers.get("Content-Length"),
+          10
+        );
+        totalSize += contentLength || 0;
+
         const success = await downloadSinglePdf(item.title, subtitle.text);
         downloadedPdfs++;
 
@@ -289,7 +300,7 @@ export const downloadAllPdfs = async (progressCallback = null) => {
         }
 
         if (progressCallback) {
-          progressCallback(downloadedPdfs, totalPdfs);
+          progressCallback(downloadedPdfs, totalPdfs, totalSize); // Pass total size
         }
       }
     }

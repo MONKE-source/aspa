@@ -30,6 +30,7 @@ export default function WelcomeScreen({ navigation }) {
   const [isDownloadingPdfs, setIsDownloadingPdfs] = useState(false);
   const [downloadComplete, setDownloadComplete] = useState(false);
   const [downloadStarted, setDownloadStarted] = useState(false);
+  const [downloadSize, setDownloadSize] = useState(0); // New state for download size
 
   useEffect(() => {
     // Check if PDFs have been downloaded before
@@ -63,9 +64,10 @@ export default function WelcomeScreen({ navigation }) {
       setIsDownloadingPdfs(true);
       setDownloadStarted(true);
 
-      const result = await downloadAllPdfs((downloaded, total) => {
+      const result = await downloadAllPdfs((downloaded, total, size) => {
         setDownloadProgress(downloaded);
         setTotalPdfs(total);
+        setDownloadSize(size); // Update download size
       });
 
       if (result.success) {
@@ -133,7 +135,7 @@ export default function WelcomeScreen({ navigation }) {
             <ActivityIndicator size="large" color="#5092CD" />
             <Text style={styles.downloadText} allowFontScaling={false}>
               Downloading resources for offline use: {downloadProgress}/
-              {totalPdfs}
+              {totalPdfs} ({(downloadSize / 1024 / 1024).toFixed(2)} MB / 19.5 MB)
             </Text>
           </View>
         )}
@@ -193,7 +195,7 @@ const styles = StyleSheet.create({
     borderRadius: 300,
     backgroundColor: "#5092CD",
     width: "86%",
-    marginTop: "20%",
+    marginTop: "15%",
     top: "25%",
     height: "7%",
   },
