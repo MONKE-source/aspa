@@ -1,238 +1,125 @@
 import React from "react";
-import { ScrollView, Text, StyleSheet, Button, View } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  View,
+  SafeAreaView,
+  FlatList,
+} from "react-native";
 import { useDarkMode } from "../components/DarkModeContext";
+
+const acknowledgments = [
+  {
+    title: "KKH Department of Paediatric Anaesthesia",
+    names: [
+      "Dr Bong, Chooi Looi",
+      "Dr Davies, Lucy",
+      "Dr Fabila, Teddy",
+      "Dr Lee, Shu Ying",
+      "Dr Lim, Evangeline",
+      "Dr Lim, Serene",
+      "A/Prof Lim, Suan Ling",
+      "Dr Long, Melody",
+      "A/Prof Ng, Agnes",
+      "Dr Satish, Reddy",
+      "Dr Shahani, JM",
+      "Dr Siow, Yew Nam",
+      "Dr Tan, Angela",
+      "Dr Tan, Josephine",
+      "Dr Tan, Tracy",
+      "Dr Tham, Shu Qi",
+      "Dr Wijeweera, Olivia",
+      "Dr Yeo, Angela",
+    ],
+  },
+  {
+    title: "Asian Society of Paediatric Anaesthesiologists",
+    names: [
+      "Dr Jacob, Rebecca",
+      "Dr Ponde, Vrushali",
+      "Dr Yuen, Vivian",
+      "Dr Naik, Vibhavari",
+      "Dr Khan, Fauzia",
+      "Dr Lim, Felicia",
+      "Dr Nair, Usha",
+      "Dr Ramian, Andi AdeWijaya",
+    ],
+  },
+  {
+    title: "School of Science and Technology, Singapore",
+    names: [
+      "Aathithya, Jegatheesan",
+      "Arth, Aggarwal",
+      "Goh, Min Wen Ted",
+      "Han, Jeong Seu Caleb",
+      "Lim, Yuan Sheng Darryan",
+      "Yeo, Aurelius",
+    ],
+  },
+];
 
 const AcknowledgementsScreen = () => {
   const { isDarkMode } = useDarkMode();
+  const textColor = isDarkMode ? "white" : "black";
+  const backgroundColor = isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB";
 
-  return (
-    <ScrollView
-      contentContainerStyle={[
-        styles.container,
-        { backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB" },
-      ]}
-    >
+  const renderHeader = () => (
+    <View>
       <Text style={styles.title} allowFontScaling={false}>
         Acknowledgement
       </Text>
-      <Text
-        style={([styles.content], { color: isDarkMode ? "white" : "black" })}
-        allowFontScaling={false}
-      >
+      <Text style={[styles.content, { color: textColor }]} allowFontScaling={false}>
         Special thanks to those who contributed to the content and creation of
         the “ASPA App”
       </Text>
-      <Text
-        style={[styles.subTitle, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        KKH Department of Paediatric Anaesthesia
+    </View>
+  );
+
+  const renderAcknowledgment = ({ item }) => (
+    <View>
+      <Text style={[styles.subTitle, { color: textColor }]} allowFontScaling={false}>
+        {item.title}
       </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Bong, Chooi Looi
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Davies, Lucy
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Fabila, Teddy
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Lee, Shu Ying
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Lim, Evangeline
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Lim, Serene
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        A/Prof Lim, Suan Ling
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Long, Melody
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        A/Prof Ng, Agnes
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Satish, Reddy
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Shahani, JM
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Siow, Yew Nam
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Tan, Angela
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Tan, Josephine
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Tan, Tracy
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Tham, Shu Qi
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Wijeweera, Olivia
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Yeo, Angela
-      </Text>
-      <Text
-        style={[styles.subTitle, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Asian Society of Paediatric Anaesthesiologists
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Jacob, Rebecca
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Ponde, Vrushali
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Yuen, Vivian
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Naik, Vibhavari
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Khan, Fauzia
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Lim, Felicia
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Nair, Usha
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Dr Ramian, Andi AdeWijaya
-      </Text>
-      <Text
-        style={[styles.subTitle, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        School of Science and Technology, Singapore
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Aathithya, Jegatheesan
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Arth, Aggarwal
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Goh, Min Wen Ted
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Han, Jeong Seu Caleb
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Lim, Yuan Sheng Darryan
-      </Text>
-      <Text
-        style={[styles.content, { color: isDarkMode ? "white" : "black" }]}
-        allowFontScaling={false}
-      >
-        Yeo, Aurelius
-      </Text>
-    </ScrollView>
+      {item.names.map((name, index) => (
+        <Text
+          key={index}
+          style={[styles.content, { color: textColor }]}
+          allowFontScaling={false}
+        >
+          {name}
+        </Text>
+      ))}
+    </View>
+  );
+
+  const renderFooter = () => (
+    <Text
+      style={{
+        color: textColor,
+        fontSize: 17.5,
+        fontWeight: "500",
+        marginTop: 15,
+        marginBottom: 5,
+      }}
+      allowFontScaling={false}
+    >
+      All resources and information in this application were provided by the
+      Asian Society of Paediatric Anaesthesiologists and KK Women and
+      Children's Hospital
+    </Text>
+  );
+
+  return (
+    <SafeAreaView style={{ backgroundColor }}>
+      <FlatList
+        data={acknowledgments}
+        renderItem={renderAcknowledgment}
+        keyExtractor={(item, index) => index.toString()}
+        ListHeaderComponent={renderHeader}
+        ListFooterComponent={renderFooter}
+        contentContainerStyle={[styles.container, { backgroundColor }]}
+      />
+    </SafeAreaView>
   );
 };
 
@@ -257,10 +144,6 @@ const styles = StyleSheet.create({
   content: {
     fontSize: 16,
     marginBottom: 5,
-  },
-  buttonContainer: {
-    marginTop: 20,
-    alignItems: "center",
   },
 });
 
