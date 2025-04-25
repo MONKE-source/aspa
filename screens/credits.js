@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Text,
-  StyleSheet,
-  View,
-  SafeAreaView,
-  FlatList,
-} from "react-native";
+import { Text, StyleSheet, View, SafeAreaView, FlatList } from "react-native";
 import { useDarkMode } from "../components/DarkModeContext";
 
 const acknowledgments = [
@@ -68,7 +62,10 @@ const AcknowledgementsScreen = () => {
       <Text style={styles.title} allowFontScaling={false}>
         Acknowledgement
       </Text>
-      <Text style={[styles.content, { color: textColor }]} allowFontScaling={false}>
+      <Text
+        style={[styles.content, { color: textColor }]}
+        allowFontScaling={false}
+      >
         Special thanks to those who contributed to the content and creation of
         the “ASPA App”
       </Text>
@@ -77,7 +74,10 @@ const AcknowledgementsScreen = () => {
 
   const renderAcknowledgment = ({ item }) => (
     <View>
-      <Text style={[styles.subTitle, { color: textColor }]} allowFontScaling={false}>
+      <Text
+        style={[styles.subTitle, { color: textColor }]}
+        allowFontScaling={false}
+      >
         {item.title}
       </Text>
       {item.names.map((name, index) => (
@@ -103,9 +103,8 @@ const AcknowledgementsScreen = () => {
       }}
       allowFontScaling={false}
     >
-      All resources and information in this application were provided by the
-      Asian Society of Paediatric Anaesthesiologists and KK Women and
-      Children's Hospital
+      All resources and medical information in this application were provided by
+      doctors from KKH Department of Paediatric Anaesthesia.
     </Text>
   );
 
