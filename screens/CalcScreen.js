@@ -12934,8 +12934,8 @@ function CalcScreen({ navigation }) {
           <td class="column4 style19 f">${roundOff(weight * 0.3, 2)}</td>
           <td class="column5 style18 s">mg/50mL</td>
           <td class="column6 style40 s">1mL/hr=</td>
-          <td class="column7 style41 n">0.10</td>
-          <td class="column8 style42 s">mcg/kg/min (Wt: ≤ 10kg)</td>
+          <td class="column7 style41 n">${roundOff(60 / 60 / weight, 2)}</td>
+          <td class="column8 style42 s">mcg/kg/min (Wt: > 10kg)</td>
         </tr>
         <tr class="row22">
           <td class="column0 style1 null"></td>
@@ -12945,8 +12945,8 @@ function CalcScreen({ navigation }) {
           <td class="column4 style19 f">${roundOff(weight * 0.3, 2)}</td>
           <td class="column5 style18 s">mg/50mL</td>
           <td class="column6 style40 s">1mL/hr=</td>
-          <td class="column7 style41 n">0.10</td>
-          <td class="column8 style42 s">mcg/kg/min (Wt: ≤ 10kg)</td>
+          <td class="column7 style41 n">${roundOff(60 / 60 / weight, 2)}</td>
+          <td class="column8 style42 s">mcg/kg/min (Wt: > 10kg)</td>
         </tr>
         <tr class="row23">
           <td class="column0 style1 null"></td>
@@ -12988,10 +12988,10 @@ function CalcScreen({ navigation }) {
           <td class="column1 style38 s">Dobutamine</td>
           <td class="column2 style39 null"></td>
           <td class="column3 style18 s">BW x 15 mg/50mL</td>
-          <td class="column4 style19 f">${weight * 15}</td>
+          <td class="column4 style19 f">250</td>
           <td class="column5 style18 s">mg/50mL</td>
           <td class="column6 style40 s">1mL/hr=</td>
-          <td class="column7 style41 n">5.00</td>
+          <td class="column7 style41 n">${roundOff(250 / 3 / weight, 2)}</td>
           <td class="column8 style46 s">mcg/kg/min (Wt: ≤ 16kg)</td>
         </tr>
         <tr class="row25">
@@ -12999,11 +12999,11 @@ function CalcScreen({ navigation }) {
           <td class="column1 style38 s">Dopamine</td>
           <td class="column2 style39 null"></td>
           <td class="column3 style18 s">BW x 30 mg/50mL</td>
-          <td class="column4 style19 f">${weight * 30}</td>
+          <td class="column4 style19 f">200</td>
           <td class="column5 style18 s">mg/50mL</td>
           <td class="column6 style40 s">1mL/hr=</td>
-          <td class="column7 style41 n">10.00</td>
-          <td class="column8 style46 s">mcg/kg/min (≤ 8kg)</td>
+          <td class="column7 style41 n">${roundOff(200 / 3 / weight, 2)}</td>
+          <td class="column8 style46 s">mcg/kg/min (>8kg)</td>
         </tr>
         <tr class="row26">
           <td class="column0 style1 null"></td>
@@ -13019,10 +13019,10 @@ function CalcScreen({ navigation }) {
           <td class="column1 style38 s">GTN</td>
           <td class="column2 style50 null"></td>
           <td class="column3 style32 s">BX X 3 mg/50mL</td>
-          <td class="column4 style33 f">${weight * 3}</td>
+          <td class="column4 style33 f">10</td>
           <td class="column5 style32 s">mg/50mL</td>
           <td class="column6 style51 s">1mL/hr=</td>
-          <td class="column7 style52 n">1.00</td>
+          <td class="column7 style52 n">${roundOff(10 / 3 / weight, 2)}</td>
           <td class="column8 style42 s">
             <span
               style="
@@ -13053,7 +13053,8 @@ function CalcScreen({ navigation }) {
                 font-family: 'Helvetica Neue';
                 font-size: 9pt;
               "
-              >(Wt: ≤ 4kg)</span
+            >
+              (Wt: > 4kg)</span
             >
           </td>
         </tr>
@@ -13062,10 +13063,10 @@ function CalcScreen({ navigation }) {
           <td class="column1 style38 s">Nipride</td>
           <td class="column2 style39 null"></td>
           <td class="column3 style32 s">BW x 3 mg/50mL</td>
-          <td class="column4 style33 f">${weight * 3}</td>
+          <td class="column4 style33 f">10</td>
           <td class="column5 style32 s">mg/50mL</td>
           <td class="column6 style51 s">1mL/hr=</td>
-          <td class="column7 style52 n">1.00</td>
+          <td class="column7 style52 n">${roundOff(10 / 3 / weight, 2)}</td>
           <td class="column8 style42 s">
             <span
               style="
@@ -13098,7 +13099,7 @@ function CalcScreen({ navigation }) {
                 font-family: 'Helvetica Neue';
                 font-size: 9pt;
               "
-              >(Wt: ≤ 4kg)</span
+              >(Wt: > 4kg)</span
             >
           </td>
         </tr>
@@ -13118,11 +13119,11 @@ function CalcScreen({ navigation }) {
           <td class="column1 style38 s">Milrinone</td>
           <td class="column2 style39 null"></td>
           <td class="column3 style18 s">BW x 3 mg/50mL</td>
-          <td class="column4 style19 f">${weight * 3}</td>
+          <td class="column4 style19 f">20</td>
           <td class="column5 style18 s">mg/50mL</td>
           <td class="column6 style40 s">1mL/hr=</td>
-          <td class="column7 style41 n">1.00</td>
-          <td class="column8 style42 s">mcg/kg/min (Wt: ≤ 7kg)</td>
+          <td class="column7 style41 n">${roundOff(20 / 3 / weight, 2)}</td>
+          <td class="column8 style42 s">mcg/kg/min (Wt: > 7kg)</td>
         </tr>
         <tr class="row31">
           <td class="column0 style1 null"></td>
@@ -13139,11 +13140,11 @@ function CalcScreen({ navigation }) {
           <td class="column0 style1 null"></td>
           <td class="column1 style47 s">Vasopressin</td>
           <td class="column2 style17 null"></td>
-          <td class="column3 style18 s">BW x 1 unit/50mL</td>
-          <td class="column4 style19 f">${weight * 1}</td>
+          <td class="column3 style18 s">unit/50mL</td>
+          <td class="column4 style19 f">${roundOff(0.4 / weight, 2)}</td>
           <td class="column5 style18 s">unit/50mL</td>
           <td class="column6 style49 s">1mL/hr=</td>
-          <td class="column7 style56 n">0.020</td>
+          <td class="column7 style56 n">${roundOff(0.4 / weight, 2)}</td>
           <td class="column8 style57 s">
             <span
               style="
@@ -13168,7 +13169,7 @@ function CalcScreen({ navigation }) {
                 font-size: 9pt;
               "
             >
-              (Wt: ≤ 20kg)</span
+              (Wt: > 20kg)</span
             >
           </td>
         </tr>
@@ -13213,7 +13214,7 @@ function CalcScreen({ navigation }) {
                 font-family: 'Helvetica Neue';
                 font-size: 9pt;
               "
-              >(10ml/hr for 1hr then1ml/hr)</span
+              >(10ml/hr for 1hr then 1ml/hr)</span
             ><span
               style="
                 color: #000000;
@@ -13244,7 +13245,7 @@ function CalcScreen({ navigation }) {
           <td class="column4 style61 n">200</td>
           <td class="column5 style60 s">mcg/50mL</td>
           <td class="column6 style62 s">1ml/hr=</td>
-          <td class="column7 style63 f">1.33</td>
+          <td class="column7 style63 f">${roundOff(4 / weight, 2)}</td>
           <td class="column8 style64 s">mcg/kg/hr</td>
         </tr>
         <tr class="row36">
@@ -13252,11 +13253,11 @@ function CalcScreen({ navigation }) {
           <td class="column1 style53 s">Fentanyl</td>
           <td class="column2 style25 null"></td>
           <td class="column3 style18 s">BW x 250 mcg/50mL</td>
-          <td class="column4 style19 f">${weight * 250}</td>
+          <td class="column4 style19 f">2500</td>
           <td class="column5 style18 s">mcg/50mL</td>
-          <td class="column6 style65 s style23" colspan="3">
-            1mL/hr= 5 mcg/kg/hr (Wt: ≤ 10kg)
-          </td>
+          <td class="column6 style40 s">1mL/hr=</td>
+          <td class="column7 style41 n">${roundOff(50 / weight, 2)}</td>
+          <td class="column8 style46 s">mcg/kg/hr</td>
         </tr>
         <tr class="row37">
           <td class="column0 style1 null"></td>
@@ -13299,8 +13300,8 @@ function CalcScreen({ navigation }) {
           <td class="column4 style72 f">${weight * 25}</td>
           <td class="column5 style71 s">mg/50mL</td>
           <td class="column6 style73 s">1ml/hr=</td>
-          <td class="column7 style74 f">0.50</td>
-          <td class="column8 style75 s">mg/kg/hr (Wt: ≤ 20kg)</td>
+          <td class="column7 style74 f">${roundOff(10 / weight, 2)}</td>
+          <td class="column8 style75 s">mg/kg/hr (Wt: > 20kg)</td>
         </tr>
         <tr class="row45">
           <td class="column0 style1 null"></td>
@@ -13451,7 +13452,6 @@ function CalcScreen({ navigation }) {
     </table>
   </body>
 </html>
-
 `,
         fileName: genName("cardiac"),
         directory: Platform.OS === "android" ? "Downloads" : "Documents",
