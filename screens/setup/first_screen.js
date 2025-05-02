@@ -135,7 +135,7 @@ export default function WelcomeScreen({ navigation }) {
             <ActivityIndicator size="large" color="#5092CD" />
             <Text style={styles.downloadText} allowFontScaling={false}>
               Downloading resources for offline use: {downloadProgress}/
-              {totalPdfs} ({(downloadSize / 1024 / 1024).toFixed(2)} MB / 19.5 MB)
+              {totalPdfs} ({(downloadSize / 1024 / 1024).toFixed(2)} MB / 18.35 MB)
             </Text>
           </View>
         )}
