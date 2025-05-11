@@ -789,12 +789,10 @@ function CalcScreen({ navigation }) {
         <td class="s2" dir="ltr">kg</td>
         <td class="s3" dir="ltr"></td>
         <td class="s4" dir="ltr"></td>
-        <td class="s5"></td>
         <td class="s6"></td>
         <td class="s7"></td>
         <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R1" style="height: 20px" class="row-headers-background"></th>
@@ -804,21 +802,15 @@ function CalcScreen({ navigation }) {
         <td class="s2" dir="ltr">upper limit</td>
         <td class="s3" dir="ltr">dose (mg)</td>
         <td class="s4" dir="ltr">upper limit</td>
-        <td class="s5" dir="ltr">volume (ml)</td>
-        <td class="s8" dir="ltr">notes/ route</td>
+        <td class="s8" dir="ltr">route</td>
         <td class="s9" dir="ltr">max mg/ dose</td>
         <td class="s8" dir="ltr">notes</td>
-        <td class="s8" dir="ltr">mg/ml</td>
-        <td></td>
       </tr>
       <tr>
         <th
           style="height: 3px"
           class="freezebar-cell freezebar-horizontal-handle"
         ></th>
-        <td class="freezebar-cell"></td>
-        <td class="freezebar-cell"></td>
-        <td class="freezebar-cell"></td>
         <td class="freezebar-cell"></td>
         <td class="freezebar-cell"></td>
         <td class="freezebar-cell"></td>
@@ -840,13 +832,10 @@ function CalcScreen({ navigation }) {
         <td class="s14"></td>
         <td class="s15"></td>
         <td class="s16"></td>
-        <td class="s15"></td>
-        <td class="s15"></td>
-        <td class="s15"></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R3" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">4</div>
         </th>
         <td class="s6" dir="ltr">Propofol</td>
         <td class="freezebar-cell"></td>
@@ -854,12 +843,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 3, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 3) / 10, 2)}</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">10</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R4" style="height: 20px" class="row-headers-background"></th>
@@ -869,16 +856,13 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 0.3, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 0.3) / 2, 2)}</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">2</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R5" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">6</div>
         </th>
         <td class="s6" dir="ltr">Ketamine</td>
         <td class="freezebar-cell"></td>
@@ -886,12 +870,9 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">3</td>
         <td class="s3">${roundOff(weight * 2, 2)}</td>
         <td class="s4">${roundOff(weight * 3, 2)}</td>
-        <td class="s5">${roundOff((weight * 3) / 10, 2)}</td>
         <td class="s6" dir="ltr">IV induction</td>
         <td class="s7"></td>
-        <td></td>
-        <td class="s18" dir="ltr">10</td>
-        <td class="s6" dir="ltr">(diluted to 10ml)</td>
+        <td>(diluted to 10ml)</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R6" style="height: 20px" class="row-headers-background"></th>
@@ -901,12 +882,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">10</td>
         <td class="s3">${roundOff(weight * 5, 2)}</td>
         <td class="s4">${roundOff(weight * 10, 2)}</td>
-        <td class="s5">${roundOff((weight * 5) / 10, 2)}</td>
         <td class="s6" dir="ltr">IM induction</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">10</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R7" style="height: 20px" class="row-headers-background"></th>
@@ -916,12 +895,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">12</td>
         <td class="s3">${roundOff(weight * 4, 2)}</td>
         <td class="s4">${roundOff(weight * 12, 2)}</td>
-        <td class="s5">${roundOff((weight * 4) / 10, 2)}</td>
         <td class="s6" dir="ltr">Analgesia</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">10</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R8" style="height: 20px" class="row-headers-background"></th>
@@ -931,27 +908,23 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">1</td>
         <td class="s3">${roundOff(weight * 0.5, 2)}</td>
         <td class="s4">${roundOff(weight * 1, 2)}</td>
-        <td class="s5"></td>
         <td class="s6" dir="ltr">PO</td>
         <td class="s7"></td>
         <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R9" style="height: 20px" class="row-headers-background"></th>
         <td class="s6" dir="ltr"></td>
         <td class="freezebar-cell"></td>
-        <td class="s17" dir="ltr"></td>
+        <td class="s17" dir="ltr">0.2</td>
         <td class="s17" dir="ltr">0.3</td>
-        <td class="s3">${roundOff(weight * 0.3, 2)}</td>
-        <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 0.3) / 5, 2)}</td>
+        <td class="s3">${roundOff(weight * 0.2, 2)}</td>
+        <td class="s4">${roundOff(weight * 0.3, 2)}</td>
         <td class="s6" dir="ltr">Intranasal</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s6" dir="ltr"></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R10" style="height: 20px" class="row-headers-background"></th>
@@ -961,12 +934,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">0.2</td>
         <td class="s3">${roundOff(weight * 0.1, 2)}</td>
         <td class="s4">${roundOff(weight * 0.2, 2)}</td>
-        <td class="s5">${roundOff((weight * 0.1) / 10, 2)}</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">1</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R11" style="height: 20px" class="row-headers-background"></th>
@@ -979,9 +950,7 @@ function CalcScreen({ navigation }) {
         <td class="s23"></td>
         <td class="s24"></td>
         <td class="s25"></td>
-        <td class="s24"></td>
-        <td class="s24"></td>
-        <td class="s24"></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R12" style="height: 20px" class="row-headers-background"></th>
@@ -993,32 +962,12 @@ function CalcScreen({ navigation }) {
         <td></td>
         <td class="s26">${roundOff(weight, 2)} mcg</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff(weight / 50, 2)} mL</td>
-        <td class="s6" dir="ltr">IV neat</td>
+        <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td class="s6 softmerge" dir="ltr">
-          <div class="softmerge-inner" style="width: 97px; left: -1px">
-            analgesic: consider 50% dose reduction for age &lt;6 mo
-          </div>
-        </td>
-        <td class="s18" dir="ltr">50</td>
-        <td></td>
+
       </tr>
-      <tr style="height: 20px">
-        <th id="0R13" style="height: 20px" class="row-headers-background"></th>
-        <td class="s6" dir="ltr"></td>
-        <td class="freezebar-cell"></td>
-        <td class="s17" dir="ltr"></td>
-        <td class="s17" dir="ltr"></td>
-        <td class="s26">${roundOff(weight, 2)} mcg</td>
-        <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff(weight / 10, 2)} mL</td>
-        <td class="s6" dir="ltr">IV diluted to 10ml</td>
-        <td class="s7" dir="ltr"></td>
-        <td></td>
-        <td class="s18" dir="ltr">10</td>
-        <td class="s6" dir="ltr"></td>
-      </tr>
+
       <tr style="height: 20px">
         <th id="0R14" style="height: 20px" class="row-headers-background"></th>
         <td class="s6" dir="ltr">Morphine</td>
@@ -1027,16 +976,12 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 0.1, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff(weight * 0.1, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7" dir="ltr"></td>
-        <td></td>
-        <td class="s18" dir="ltr">1</td>
-        <td class="s6" dir="ltr">(diluted to 10ml)</td>
+        <td>(diluted to 10ml)</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R15" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">16</div>
         </th>
         <td class="s6" dir="ltr">Oxycodone</td>
         <td class="freezebar-cell"></td>
@@ -1044,28 +989,11 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 0.2, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff(weight * 0.2, 2)} mL</td>
         <td class="s6" dir="ltr">PO</td>
         <td class="s7" dir="ltr"></td>
-        <td></td>
-        <td class="s18" dir="ltr">1</td>
-        <td class="s6" dir="ltr">(diluted to 10ml)</td>
+        <td>Q6h</td>
       </tr>
-      <tr style="height: 20px">
-        <th id="0R16" style="height: 20px" class="row-headers-background"></th>
-        <td class="s6" dir="ltr">Remifentanil</td>
-        <td class="freezebar-cell"></td>
-        <td class="s17" dir="ltr">0.01</td>
-        <td class="s17" dir="ltr">1</td>
-        <td class="s26">${roundOff(weight * 0.01, 2)} mcg</td>
-        <td class="s27">${roundOff(weight, 2)} mcg</td>
-        <td class="s5" dir="ltr"></td>
-        <td class="s6" dir="ltr">mcg/kg/min</td>
-        <td class="s7" dir="ltr"></td>
-        <td></td>
-        <td class="s6" dir="ltr"></td>
-        <td class="s6" dir="ltr"></td>
-      </tr>
+    
       <tr style="height: 20px">
         <th id="0R17" style="height: 20px" class="row-headers-background"></th>
         <td class="s6" dir="ltr">Naloxone (mcg)</td>
@@ -1074,12 +1002,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 0.5, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td class="s6" dir="ltr">0.5-1mcg/kg</td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R18" style="height: 20px" class="row-headers-background"></th>
@@ -1092,24 +1018,18 @@ function CalcScreen({ navigation }) {
         <td class="s32"></td>
         <td class="s33"></td>
         <td class="s34"></td>
-        <td class="s33"></td>
-        <td class="s33"></td>
-        <td class="s33"></td>
       </tr>
       <tr style="height: 20px">
         <th id="0R19" style="height: 20px" class="row-headers-background"></th>
         <td class="s6" dir="ltr">Paracetamol</td>
         <td class="freezebar-cell"></td>
-        <td class="s17" dir="ltr">${roundOff(weight * 7.5, 2)}</td>
+        <td class="s17" dir="ltr">75</td>
         <td class="s17" dir="ltr"></td>
-        <td class="s3">7.5</td>
+        <td class="s3">${roundOff(weight * 7.5, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff((weight * 7.5) / 10, 2)} mL</td>
         <td class="s6" dir="ltr">IV/PO</td>
         <td class="s7" dir="ltr">40mg/kg/ day</td>
         <td class="s6" dir="ltr">&lt;1 mo</td>
-        <td class="s18" dir="ltr">10</td>
-        <td></td>
       </tr>
       <tr style="height: 20px">
         <th id="0R20" style="height: 20px" class="row-headers-background"></th>
@@ -1119,12 +1039,9 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 10, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff(weight * 1, 2)} mL</td>
         <td class="s6" dir="ltr">IV/PO</td>
         <td class="s7" dir="ltr">40mg/kg/ day</td>
         <td class="s6" dir="ltr">1 - 6 mo</td>
-        <td class="s18" dir="ltr">10</td>
-        <td></td>
       </tr>
       <tr style="height: 20px">
         <th id="0R21" style="height: 20px" class="row-headers-background"></th>
@@ -1134,12 +1051,9 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 15, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff((weight * 15) / 10, 2)} mL</td>
         <td class="s6" dir="ltr">IV/PO</td>
         <td class="s7" dir="ltr">4g/ day</td>
         <td class="s6" dir="ltr">&gt;6 mo</td>
-        <td class="s18" dir="ltr">10</td>
-        <td></td>
       </tr>
       <tr style="height: 20px">
         <th id="0R22" style="height: 20px" class="row-headers-background"></th>
@@ -1149,7 +1063,6 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 10, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff((weight * 10) / 4, 2)} mL</td>
         <td class="s6" dir="ltr">IV/PO</td>
         <td class="s7" dir="ltr">400</td>
         <td class="s6 softmerge" dir="ltr">
@@ -1157,8 +1070,6 @@ function CalcScreen({ navigation }) {
             &gt;6 mo. dilution min. 3mg/ml
           </div>
         </td>
-        <td class="s18" dir="ltr">4</td>
-        <td></td>
       </tr>
       <tr style="height: 20px">
         <th id="0R23" style="height: 20px" class="row-headers-background"></th>
@@ -1171,9 +1082,6 @@ function CalcScreen({ navigation }) {
         <td class="s39"></td>
         <td class="s40"></td>
         <td class="s41"></td>
-        <td class="s40"></td>
-        <td class="s40"></td>
-        <td class="s40"></td>
       </tr>
       <tr style="height: 20px">
         <th id="0R24" style="height: 20px" class="row-headers-background"></th>
@@ -1183,11 +1091,8 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 0.5, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 0.5) / 10, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
-        <td></td>
-        <td class="s18" dir="ltr">10</td>
         <td></td>
       </tr>
       <tr style="height: 20px">
@@ -1198,12 +1103,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 0.15, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 0.15) / 2, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">2</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R26" style="height: 20px" class="row-headers-background"></th>
@@ -1213,12 +1116,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 0.1, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 0.1) / 2, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">2</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R27" style="height: 20px" class="row-headers-background"></th>
@@ -1228,7 +1129,6 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 0.1, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff(weight * 0.1, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td class="s6 softmerge" dir="ltr">
@@ -1236,8 +1136,7 @@ function CalcScreen({ navigation }) {
             reconstitute as 1 mg/ml
           </div>
         </td>
-        <td class="s18" dir="ltr">1</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R28" style="height: 20px" class="row-headers-background"></th>
@@ -1247,12 +1146,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">1.2</td>
         <td class="s3">${roundOff(weight * 0.6, 2)}</td>
         <td class="s4">${roundOff(weight * 1.2, 2)}</td>
-        <td class="s5">${roundOff((weight * 0.6) / 10, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">10</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R29" style="height: 20px" class="row-headers-background"></th>
@@ -1262,12 +1159,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 2, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 2) / 50, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">50</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R30" style="height: 20px" class="row-headers-background"></th>
@@ -1277,16 +1172,12 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 4, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 4) / 50, 2)} mL</td>
         <td class="s6" dir="ltr">IM</td>
         <td class="s7"></td>
-        <td></td>
-        <td class="s18" dir="ltr">50</td>
         <td></td>
       </tr>
       <tr style="height: 20px">
         <th id="0R31" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">32</div>
         </th>
         <td class="s42" dir="ltr">Neostigmine (mcg)</td>
         <td class="freezebar-cell"></td>
@@ -1294,12 +1185,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s26">${roundOff(weight * 50, 2)} mcg</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 50) / 2500, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">2500</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R32" style="height: 20px" class="row-headers-background"></th>
@@ -1309,12 +1198,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s26">${roundOff(weight * 20, 2)} mcg</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 20) / 600, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">600</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R33" style="height: 20px" class="row-headers-background"></th>
@@ -1324,12 +1211,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s26">${roundOff(weight * 10, 2)} mcg</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 10) / 200, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">200</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R34" style="height: 20px" class="row-headers-background"></th>
@@ -1339,12 +1224,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 2, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 2) / 20, 2)} mL</td>
         <td class="s6" dir="ltr">mod block (T2)</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">100</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R35" style="height: 20px" class="row-headers-background"></th>
@@ -1354,12 +1237,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 4, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 4) / 100, 2)} mL</td>
         <td class="s6" dir="ltr">deep block</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">100</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R36" style="height: 20px" class="row-headers-background"></th>
@@ -1369,12 +1250,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 16, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 16) / 100, 2)} mL</td>
         <td class="s6" dir="ltr">emergent reversal</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">100</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R37" style="height: 20px" class="row-headers-background"></th>
@@ -1388,8 +1267,7 @@ function CalcScreen({ navigation }) {
         <td class="s49"></td>
         <td class="s50"></td>
         <td class="s49"></td>
-        <td class="s49"></td>
-        <td class="s49"></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R38" style="height: 20px" class="row-headers-background"></th>
@@ -1398,13 +1276,11 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">0.15</td>
         <td class="s17" dir="ltr">0.25</td>
         <td class="s3">${roundOff(weight * 0.15, 2)}</td>
-        <td class="s4">${roundOff(weight * 0.25, 2)}</td>
-        <td class="s5">${roundOff((weight * 0.15) / 4, 2)} mL</td>
+        <td class="s4"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">4</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R39" style="height: 20px" class="row-headers-background">\</th>
@@ -1412,14 +1288,12 @@ function CalcScreen({ navigation }) {
         <td class="freezebar-cell"></td>
         <td class="s17" dir="ltr">1</td>
         <td class="s17" dir="ltr">2</td>
-        <td class="s3">${roundOff(weight * 1, 2)}</td>
-        <td class="s4">${roundOff(weight * 2, 2)}</td>
-        <td class="s5">${roundOff(weight * 1, 2)} mL</td>
+        <td class="s3"></td>
+        <td class="s4"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s6" dir="ltr"></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R40" style="height: 20px" class="row-headers-background"></th>
@@ -1427,14 +1301,12 @@ function CalcScreen({ navigation }) {
         <td class="freezebar-cell"></td>
         <td class="s17" dir="ltr">1</td>
         <td class="s17"></td>
-        <td class="s3">${roundOff(weight * 1, 2)}</td>
+        <td class="s3"></td>
         <td class="s4"></td>
-        <td class="s5">${roundOff(weight * 1, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s6" dir="ltr"></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R41" style="height: 20px" class="row-headers-background"></th>
@@ -1444,12 +1316,10 @@ function CalcScreen({ navigation }) {
         <td class="s17"></td>
         <td class="s3">${roundOff(weight * 0.5, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 0.5) / 25, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">25</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R42" style="height: 20px" class="row-headers-background"></th>
@@ -1459,12 +1329,10 @@ function CalcScreen({ navigation }) {
         <td class="s17"></td>
         <td class="s3">${roundOff(weight * 1, 2)}</td>
         <td class="s4"></td>
-        <td class="s5"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td class="s6" dir="ltr">&gt; 1 yr</td>
-        <td class="s6" dir="ltr"></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R43" style="height: 20px" class="row-headers-background"></th>
@@ -1474,12 +1342,10 @@ function CalcScreen({ navigation }) {
         <td class="s17"></td>
         <td class="s3">${roundOff(weight * 0.15, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 0.15) / 2, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">2</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R44" style="height: 20px" class="row-headers-background"></th>
@@ -1489,12 +1355,10 @@ function CalcScreen({ navigation }) {
         <td class="s17"></td>
         <td class="s3">${roundOff(weight * 0.1, 2)}</td>
         <td class="s4"></td>
-        <td class="s5">${roundOff((weight * 0.1) / 5, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td class="s6" dir="ltr">&gt; 2 yr</td>
-        <td class="s18" dir="ltr">5</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R45" style="height: 20px" class="row-headers-background"></th>
@@ -1504,12 +1368,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">50</td>
         <td class="s3">${roundOff(weight * 25, 2)}</td>
         <td class="s4">${roundOff(weight * 50, 2)}</td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R46" style="height: 20px" class="row-headers-background"></th>
@@ -1519,12 +1381,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 30, 2)}</td>
         <td class="s4"></td>
-        <td class="s5"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7" dir="ltr">3g/ dose</td>
         <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R47" style="height: 20px" class="row-headers-background"></th>
@@ -1534,12 +1394,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 5, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td class="s6" dir="ltr">5-10mg/kg</td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R48" style="height: 20px" class="row-headers-background"></th>
@@ -1548,13 +1406,11 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">0.5</td>
         <td class="s17" dir="ltr">2</td>
         <td class="s3">${roundOff(weight * 0.5, 2)}</td>
-        <td class="s4">${roundOff(weight * 2, 2)}</td>
-        <td class="s5">${roundOff((weight * 0.5) / 10, 2)} mL</td>
+        <td class="s4"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">10</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R49" style="height: 20px" class="row-headers-background"></th>
@@ -1563,13 +1419,11 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">250</td>
         <td class="s17" dir="ltr">1000</td>
         <td class="s3">${roundOff(weight * 250, 2)}</td>
-        <td class="s4">${roundOff(weight * 1000, 2)}</td>
-        <td class="s5" dir="ltr">${roundOff((weight * 250) / 200, 2)} mL</td>
+        <td class="s4"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td class="s6" dir="ltr"></td>
-        <td class="s18" dir="ltr">200</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R50" style="height: 20px" class="row-headers-background"></th>
@@ -1579,7 +1433,6 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 20, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td class="s51 softmerge" dir="ltr">
@@ -1587,8 +1440,7 @@ function CalcScreen({ navigation }) {
             loading: 2-5mg/kg/min
           </div>
         </td>
-        <td class="s52"></td>
-        <td class="s52"></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R51" style="height: 20px" class="row-headers-background"></th>
@@ -1598,12 +1450,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 20, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff((weight * 20) / 50, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">50</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R52" style="height: 20px" class="row-headers-background"></th>
@@ -1616,9 +1466,6 @@ function CalcScreen({ navigation }) {
         <td class="s57"></td>
         <td class="s58"></td>
         <td class="s59"></td>
-        <td class="s58"></td>
-        <td class="s58"></td>
-        <td class="s58"></td>
       </tr>
       <tr style="height: 20px">
         <th id="0R53" style="height: 20px" class="row-headers-background"></th>
@@ -1628,12 +1475,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">1</td>
         <td class="s26">${roundOff(weight * 0.5, 2)} mcg</td>
         <td class="s27">${roundOff(weight * 1, 2)} mcg</td>
-        <td class="s5" dir="ltr">${roundOff((weight * 0.5) / 100, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">100</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R54" style="height: 20px" class="row-headers-background"></th>
@@ -1643,12 +1488,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">0.2</td>
         <td class="s3">${roundOff(weight * 0.1, 2)}</td>
         <td class="s4">${roundOff(weight * 0.2, 2)}</td>
-        <td class="s5" dir="ltr">${roundOff((weight * 0.1) / 3, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">3</td>
-        <td class="s6" dir="ltr">(10ml syringe)</td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R55" style="height: 20px" class="row-headers-background"></th>
@@ -1658,12 +1501,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s26">${roundOff(weight * 20, 2)} mcg</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff((weight * 20) / 600, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">600</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R56" style="height: 20px" class="row-headers-background"></th>
@@ -1673,11 +1514,8 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">0.2</td>
         <td class="s3">${roundOff(weight * 0.1, 2)}</td>
         <td class="s4">${roundOff(weight * 0.2, 2)}</td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
@@ -1688,12 +1526,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 0.5, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff((weight * 0.5) / 10, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">10</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R58" style="height: 20px" class="row-headers-background"></th>
@@ -1703,12 +1539,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 0.1, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr">${roundOff((weight * 0.1) / 5, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
         <td></td>
-        <td class="s18" dir="ltr">5</td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R59" style="height: 20px" class="row-headers-background"></th>
@@ -1718,12 +1552,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 0.2, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7" dir="ltr">12</td>
         <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R60" style="height: 20px" class="row-headers-background"></th>
@@ -1733,12 +1565,10 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 5, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7" dir="ltr">150mg</td>
         <td class="s6" dir="ltr">loading</td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R61" style="height: 20px" class="row-headers-background"></th>
@@ -1748,16 +1578,13 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">10</td>
         <td class="s26" dir="ltr">${roundOff(weight * 5, 2)} mcg/kg/min</td>
         <td class="s27" dir="ltr">${roundOff(weight * 10, 2)} mcg/kg/min</td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7" dir="ltr"></td>
         <td class="s6" dir="ltr">infusion</td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th id="0R62" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">63</div>
         </th>
         <td class="s6" dir="ltr">Adrenaline (mcg)</td>
         <td class="freezebar-cell"></td>
@@ -1765,11 +1592,8 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">1</td>
         <td class="s26">${roundOff(weight * 0.5, 2)} mcg</td>
         <td class="s27">${roundOff(weight * 1, 2)} mcg</td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">vasopressor</td>
         <td class="s7"></td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
@@ -1780,16 +1604,12 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s26">${roundOff(weight * 10, 2)} mcg</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV bolus</td>
         <td class="s7"></td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
         <th id="0R64" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">65</div>
         </th>
         <td class="s6"></td>
         <td class="freezebar-cell"></td>
@@ -1797,11 +1617,8 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s26">${roundOff(weight * 100, 2)} mcg</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">ETT</td>
         <td class="s7"></td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
@@ -1815,9 +1632,6 @@ function CalcScreen({ navigation }) {
         <td class="s48"></td>
         <td class="s49"></td>
         <td class="s50"></td>
-        <td class="s49"></td>
-        <td class="s49"></td>
-        <td class="s49"></td>
       </tr>
       <tr style="height: 20px">
         <th id="0R66" style="height: 20px" class="row-headers-background"></th>
@@ -1827,11 +1641,8 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 30, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
@@ -1842,12 +1653,9 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 40, 2)}</td>
         <td class="s4" dir="ltr">1200</td>
-        <td class="s5" dir="ltr">${roundOff((weight * 40) / 1000, 2)} mL</td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
-        <td></td>
-        <td class="s18" dir="ltr">100</td>
-        <td class="s6" dir="ltr">(diluted to 12ml)</td>
+        <td>(diluted to 12ml</td>
       </tr>
       <tr style="height: 20px">
         <th id="0R68" style="height: 20px" class="row-headers-background"></th>
@@ -1857,11 +1665,8 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr">75</td>
         <td class="s3">${roundOff(weight * 50, 2)}</td>
         <td class="s4">${roundOff(weight * 75, 2)}</td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7" dir="ltr">2000</td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
@@ -1872,11 +1677,8 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 10, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7" dir="ltr">400</td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
@@ -1887,16 +1689,12 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 15, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
         <th id="0R71" style="height: 20px" class="row-headers-background">
-          <div class="row-header-wrapper" style="line-height: 20px">72</div>
         </th>
         <td class="s6" dir="ltr">Tazocin</td>
         <td class="freezebar-cell"></td>
@@ -1904,11 +1702,8 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 100, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
         <td class="s6" dir="ltr">IV</td>
         <td class="s7"></td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
@@ -1919,11 +1714,9 @@ function CalcScreen({ navigation }) {
         <td class="s17" dir="ltr"></td>
         <td class="s3">${roundOff(weight * 15, 2)}</td>
         <td class="s4"></td>
-        <td class="s5" dir="ltr"></td>
-        <td class="s6" dir="ltr">IV</td>
-        <td class="s7" dir="ltr">1000</td>
-        <td></td>
-        <td></td>
+        <td class="s5" dir="ltr">IV</td>
+        <td class="s6" dir="ltr">1000</td>
+        <td class="s7" dir="ltr"></td>
         <td></td>
       </tr>
     </tbody>
@@ -2399,9 +2192,6 @@ function CalcScreen({ navigation }) {
         <td class="s0"></td>
         <td class="s0" dir="ltr"></td>
         <td class="s9 softmerge" dir="ltr">
-          <div class="softmerge-inner" style="width: 298px; left: -1px">
-            consider 50% dose reduction for age &lt;6 mo
-          </div>
         </td>
         <td class="s10"></td>
         <td class="s11"></td>
@@ -7592,8 +7382,7 @@ function CalcScreen({ navigation }) {
           <td class="column8">&nbsp;</td>
         </tr>
         <tr class="row6">
-          <td class="column0 style97 s">BWT in kg =</td>
-          <td class="column1 style98 n">${weight}</td>
+          <td class="column0 style97 s">BWT in kg = ${weight}</td>
           <td class="column2 style61 null"></td>
           <td class="column3 style96 null"></td>
           <td class="column4 style2 null"></td>
