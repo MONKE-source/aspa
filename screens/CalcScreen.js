@@ -2113,9 +2113,6 @@ function CalcScreen({ navigation }) {
         <td class="s0"></td>
         <td></td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
       </tr>
       <tr style="height: 20px">
         <th
@@ -2126,7 +2123,7 @@ function CalcScreen({ navigation }) {
         <td class="s0"></td>
         <td class="s2 softmerge" dir="ltr">
           <div class="softmerge-inner" style="width: 43px; left: -1px">
-            mg/kg per dose
+            mg/kg
           </div>
         </td>
         <td class="s3" dir="ltr">dose</td>
@@ -2134,11 +2131,8 @@ function CalcScreen({ navigation }) {
         <td class="s2" dir="ltr">route</td>
         <td class="s2" dir="ltr">Freq</td>
         <td class="s2" dir="ltr">max mg/ dose</td>
-        <td class="s2" dir="ltr">formulation</td>
         <td class="s2" dir="ltr">notes</td>
-        <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr>
         <th
@@ -2153,10 +2147,7 @@ function CalcScreen({ navigation }) {
         <td class="freezebar-cell"></td>
         <td class="freezebar-cell"></td>
         <td class="freezebar-cell"></td>
-        <td class="freezebar-cell"></td>
-        <td class="freezebar-cell"></td>
-        <td class="freezebar-cell"></td>
-        <td class="freezebar-cell"></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2172,10 +2163,7 @@ function CalcScreen({ navigation }) {
         <td class="s5"></td>
         <td class="s5"></td>
         <td class="s5"></td>
-        <td class="s5"></td>
-        <td class="s7"></td>
-        <td class="s7"></td>
-        <td class="s7"></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2190,12 +2178,9 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">IV</td>
         <td></td>
         <td class="s0"></td>
-        <td class="s0" dir="ltr"></td>
-        <td class="s9 softmerge" dir="ltr">
+        <td class="s9 softmerge" dir="ltr"> consider 50% dose reduction for age <6 mo		
         </td>
-        <td class="s10"></td>
-        <td class="s11"></td>
-        <td class="s11"></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2211,10 +2196,7 @@ function CalcScreen({ navigation }) {
         <td></td>
         <td class="s0"></td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2230,10 +2212,7 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">Q6H</td>
         <td class="s0" dir="ltr">10</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2248,15 +2227,12 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">IV</td>
         <td></td>
         <td class="s0"></td>
-        <td class="s0" dir="ltr"></td>
         <td class="s9 softmerge" dir="ltr">
           <div class="softmerge-inner" style="width: 198px; left: -1px">
             IV infusion: 20mcg/kg/h
           </div>
         </td>
-        <td class="s11"></td>
-        <td class="s11"></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2272,10 +2248,7 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">Q6H</td>
         <td class="s0" dir="ltr">10</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2291,10 +2264,7 @@ function CalcScreen({ navigation }) {
         <td class="s13"></td>
         <td class="s13"></td>
         <td class="s13"></td>
-        <td class="s13"></td>
-        <td class="s13"></td>
-        <td class="s13"></td>
-        <td class="s13"></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2310,10 +2280,7 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">Q6H</td>
         <td class="s0" dir="ltr">40mg/kg/ day</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2329,10 +2296,7 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">Q6H</td>
         <td class="s0" dir="ltr">40mg/kg/ day</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2348,10 +2312,7 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">Q6H</td>
         <td class="s0" dir="ltr">4g/ day</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2366,15 +2327,12 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">IV/ PO</td>
         <td class="s0" dir="ltr">Q6-8H</td>
         <td class="s0" dir="ltr">400</td>
-        <td class="s0" dir="ltr"></td>
         <td class="s9 softmerge" dir="ltr">
           <div class="softmerge-inner" style="width: 198px; left: -1px">
             dilution min. 3mg/ml
           </div>
         </td>
-        <td class="s11"></td>
-        <td class="s11"></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2389,10 +2347,6 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">PO</td>
         <td class="s0" dir="ltr">BD</td>
         <td class="s0" dir="ltr">200</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
@@ -2409,10 +2363,6 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">Q8H</td>
         <td class="s0" dir="ltr">50</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
       </tr>
       <tr style="height: 20px">
         <th
@@ -2425,12 +2375,8 @@ function CalcScreen({ navigation }) {
         <td class="s3" dir="ltr">60-90</td>
         <td></td>
         <td class="s0" dir="ltr">PO</td>
-        <td class="s0" dir="ltr">OD</td>
+        <td class="s0" dir="ltr">once daily</td>
         <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
@@ -2447,10 +2393,6 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">BD</td>
         <td class="s0" dir="ltr"></td>
         <td class="s0" dir="ltr"></td>
-        <td class="s0" dir="ltr"></td>
-        <td></td>
-        <td></td>
-        <td></td>
       </tr>
       <tr style="height: 20px">
         <th
@@ -2465,15 +2407,11 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">IV/ PO</td>
         <td class="s0" dir="ltr">Q8H</td>
         <td class="s0" dir="ltr">400mg/ day</td>
-        <td class="s0" dir="ltr"></td>
         <td class="s9 softmerge" dir="ltr">
           <div class="softmerge-inner" style="width: 198px; left: -1px">
             start 50mg/ dose max
           </div>
         </td>
-        <td class="s11"></td>
-        <td class="s11"></td>
-        <td></td>
       </tr>
       <tr style="height: 20px">
         <th
@@ -2484,10 +2422,6 @@ function CalcScreen({ navigation }) {
         <td class="s15" dir="ltr">Adjuvants</td>
         <td class="s16"></td>
         <td class="s17"></td>
-        <td class="s16"></td>
-        <td class="s16"></td>
-        <td class="s16"></td>
-        <td class="s16"></td>
         <td class="s16"></td>
         <td class="s16"></td>
         <td class="s16"></td>
@@ -2507,14 +2441,10 @@ function CalcScreen({ navigation }) {
         <td class="s0" dir="ltr">IV/ PO</td>
         <td class="s9 softmerge" dir="ltr">
           <div class="softmerge-inner" style="width: 160px; left: -1px">
-            ON up to Q6H
+            ON or Q12H or Q6H	
           </div>
         </td>
         <td class="s18"></td>
-        <td class="s11"></td>
-        <td></td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
       <tr style="height: 20px">
@@ -2531,10 +2461,7 @@ function CalcScreen({ navigation }) {
         <td></td>
         <td class="s0"></td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
       <tr style="height: 20px">
         <th
@@ -2543,719 +2470,12 @@ function CalcScreen({ navigation }) {
           class="row-headers-background"
         ></th>
         <td class="s0" dir="ltr">Amitryptiline</td>
-        <td></td>
-        <td class="s3" dir="ltr">5-10</td>
+        <td>0.5</td>
+        <td class="s3" dir="ltr">${weight / 2}</td>
         <td></td>
         <td></td>
         <td class="s0" dir="ltr">ON</td>
         <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R22"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R23"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R24"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R25"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R26"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R27"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R28"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R29"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R30"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R31"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R32"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R33"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R34"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R35"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R36"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R37"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R38"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R39"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R40"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R41"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R42"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R43"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R44"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R45"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R46"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R47"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R48"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R49"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R50"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R51"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R52"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R53"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R54"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R55"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R56"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R57"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr style="height: 20px">
-        <th
-          id="1626070742R58"
-          style="height: 20px"
-          class="row-headers-background"
-        ></th>
-        <td class="s0"></td>
-        <td></td>
-        <td class="s3"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="s0"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
         <td></td>
       </tr>
     </tbody>
