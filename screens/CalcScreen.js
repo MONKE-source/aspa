@@ -11939,8 +11939,8 @@ function CalcScreen({ navigation }) {
           <td class="column0 style1 null"></td>
           <td class="column1 style38 s">Adrenaline</td>
           <td class="column2 style39 null"></td>
-          <td class="column3 style18 s">BW x 0.3 mg/50mL</td>
-          <td class="column4 style19 f">${roundOff(weight * 0.3, 2)}</td>
+          <td class="column3 style18 s">3mg/50mL</td>
+          <td class="column4 style19 f">3</td>
           <td class="column5 style18 s">mg/50mL</td>
           <td class="column6 style40 s">1mL/hr=</td>
           <td class="column7 style41 n">${roundOff(60 / 60 / weight, 2)}</td>
@@ -11950,7 +11950,7 @@ function CalcScreen({ navigation }) {
           <td class="column0 style1 null"></td>
           <td class="column1 style38 s">Noradrenaline</td>
           <td class="column2 style39 null"></td>
-          <td class="column3 style18 s">BW x 0.3 mg/50mL</td>
+          <td class="column3 style18 s">3mg/50mL</td>
           <td class="column4 style19 f">${roundOff(weight * 0.3, 2)}</td>
           <td class="column5 style18 s">mg/50mL</td>
           <td class="column6 style40 s">1mL/hr=</td>
@@ -11996,7 +11996,7 @@ function CalcScreen({ navigation }) {
           <td class="column0 style1 null"></td>
           <td class="column1 style38 s">Dobutamine</td>
           <td class="column2 style39 null"></td>
-          <td class="column3 style18 s">BW x 15 mg/50mL</td>
+          <td class="column3 style18 s">250mg/50mL</td>
           <td class="column4 style19 f">250</td>
           <td class="column5 style18 s">mg/50mL</td>
           <td class="column6 style40 s">1mL/hr=</td>
@@ -12007,7 +12007,7 @@ function CalcScreen({ navigation }) {
           <td class="column0 style1 null"></td>
           <td class="column1 style38 s">Dopamine</td>
           <td class="column2 style39 null"></td>
-          <td class="column3 style18 s">BW x 30 mg/50mL</td>
+          <td class="column3 style18 s">200mg/50mL/td>
           <td class="column4 style19 f">200</td>
           <td class="column5 style18 s">mg/50mL</td>
           <td class="column6 style40 s">1mL/hr=</td>
@@ -12027,7 +12027,7 @@ function CalcScreen({ navigation }) {
           <td class="column0 style4 null"></td>
           <td class="column1 style38 s">GTN</td>
           <td class="column2 style50 null"></td>
-          <td class="column3 style32 s">BX X 3 mg/50mL</td>
+          <td class="column3 style32 s">10 mg/50 mL</td>
           <td class="column4 style33 f">10</td>
           <td class="column5 style32 s">mg/50mL</td>
           <td class="column6 style51 s">1mL/hr=</td>
@@ -12071,7 +12071,7 @@ function CalcScreen({ navigation }) {
           <td class="column0 style4 null"></td>
           <td class="column1 style38 s">Nipride</td>
           <td class="column2 style39 null"></td>
-          <td class="column3 style32 s">BW x 3 mg/50mL</td>
+          <td class="column3 style32 s">10 mg/50 mL</td>
           <td class="column4 style33 f">10</td>
           <td class="column5 style32 s">mg/50mL</td>
           <td class="column6 style51 s">1mL/hr=</td>
@@ -12127,7 +12127,7 @@ function CalcScreen({ navigation }) {
           <td class="column0 style1 null"></td>
           <td class="column1 style38 s">Milrinone</td>
           <td class="column2 style39 null"></td>
-          <td class="column3 style18 s">BW x 3 mg/50mL</td>
+          <td class="column3 style18 s">20 mg/50 mL</td>
           <td class="column4 style19 f">20</td>
           <td class="column5 style18 s">mg/50mL</td>
           <td class="column6 style40 s">1mL/hr=</td>
@@ -12149,7 +12149,7 @@ function CalcScreen({ navigation }) {
           <td class="column0 style1 null"></td>
           <td class="column1 style47 s">Vasopressin</td>
           <td class="column2 style17 null"></td>
-          <td class="column3 style18 s">unit/50mL</td>
+          <td class="column3 style18 s">20 unit/50mL</td>
           <td class="column4 style19 f">${roundOff(0.4 / weight, 2)}</td>
           <td class="column5 style18 s">unit/50mL</td>
           <td class="column6 style49 s">1mL/hr=</td>
@@ -12205,8 +12205,11 @@ function CalcScreen({ navigation }) {
             >
           </td>
           <td class="column4 style19 f">${weight * 50}</td>
-          <td class="column5 style18 s">mg/20mL</td>
-          <td class="column6 style40 s">1mL/hr=</td>
+          <td class="column5 style18 s">3000 mg/30 mL</td>
+          <td class="column6 style40 s"> ${roundOff(
+            (25 * weight) / 1000,
+            2
+          )} 1mL/hr=</td>
           <td class="column7 style41 n">2.50</td>
           <td class="column8 style46 s">
             <span
@@ -12242,7 +12245,7 @@ function CalcScreen({ navigation }) {
           <td class="column3 style44 s">BW x 10 mcg/50mL</td>
           <td class="column4 style19 f">${weight * 10}</td>
           <td class="column5 style44 s">mcg/50mL</td>
-          <td class="column6 style40 s">1mL/hr=</td>
+          <td class="column6 style40 s"> 1mL/hr=</td>
           <td class="column7 style41 n">0.20</td>
           <td class="column8 style46 s">mcg/kg/hr</td>
         </tr>
@@ -12261,7 +12264,7 @@ function CalcScreen({ navigation }) {
           <td class="column0 style1 null"></td>
           <td class="column1 style53 s">Fentanyl</td>
           <td class="column2 style25 null"></td>
-          <td class="column3 style18 s">BW x 250 mcg/50mL</td>
+          <td class="column3 style18 s">2500mcg in 50ml</td>
           <td class="column4 style19 f">2500</td>
           <td class="column5 style18 s">mcg/50mL</td>
           <td class="column6 style40 s">1mL/hr=</td>
@@ -12305,7 +12308,7 @@ function CalcScreen({ navigation }) {
           <td class="column0 style1 null"></td>
           <td class="column1 style69 s">Rocuronium</td>
           <td class="column2 style70 null"></td>
-          <td class="column3 style71 s">BW x 25mg/50mL</td>
+          <td class="column3 style71 s">500mg/ 50mL</td>
           <td class="column4 style72 f">${weight * 25}</td>
           <td class="column5 style71 s">mg/50mL</td>
           <td class="column6 style73 s">1ml/hr=</td>
