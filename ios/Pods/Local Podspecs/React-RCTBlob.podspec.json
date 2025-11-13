@@ -29,29 +29,13 @@
     "RCT-Folly": [
       "2022.05.16.00"
     ],
-    "React-jsi": [
-
-    ],
-    "React-Core/RCTBlobHeaders": [
-
-    ],
-    "React-Core/RCTWebSocket": [
-
-    ],
-    "React-RCTNetwork": [
-
-    ],
-    "React-Codegen": [
-
-    ],
-    "React-NativeModulesApple": [
-
-    ],
-    "ReactCommon": [
-
-    ],
-    "hermes-engine": [
-
-    ]
+    "React-jsi": [],
+    "React-Core/RCTBlobHeaders": [],
+    "React-Core/RCTWebSocket": [],
+    "React-RCTNetwork": [],
+    "React-Codegen": [],
+    "React-NativeModulesApple": [],
+    "ReactCommon": [],
+    "hermes-engine": []
   }
 }

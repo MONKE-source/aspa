@@ -14,14 +14,19 @@ import {
   KeyboardAvoidingView,
   Image,
   ActivityIndicator,
+  PlatformColor,
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { downloadAllPdfs } from "../../utils/pdfManager";
 
-const imageWidth = Dimensions.get("window").width * 0.63;
-const imageLength = Dimensions.get("window").height * 0.35;
+const imageWidth = Platform.isPad
+  ? Dimensions.get("window").width * 0.8
+  : Dimensions.get("window").width * 0.63;
+const imageLength = Platform.isPad
+  ? Dimensions.get("window").height * 0.6
+  : Dimensions.get("window").height * 0.35;
 const gapLength = Dimensions.get("window").width * 0.25;
 
 export default function WelcomeScreen({ navigation }) {
@@ -135,7 +140,8 @@ export default function WelcomeScreen({ navigation }) {
             <ActivityIndicator size="large" color="#5092CD" />
             <Text style={styles.downloadText} allowFontScaling={false}>
               Downloading resources for offline use: {downloadProgress}/
-              {totalPdfs} ({(downloadSize / 1024 / 1024).toFixed(2)} MB / 18.35 MB)
+              {totalPdfs} ({(downloadSize / 1024 / 1024).toFixed(2)} MB / 18.35
+              MB)
             </Text>
           </View>
         )}
@@ -195,8 +201,8 @@ const styles = StyleSheet.create({
     borderRadius: 300,
     backgroundColor: "#5092CD",
     width: "86%",
-    marginTop: "15%",
-    top: "25%",
+    marginTop: Platform.isPad ? "5%" : "15%",
+    top: Platform.isPad ? "5%" : "25%",
     height: "7%",
   },
   iconContainer: {

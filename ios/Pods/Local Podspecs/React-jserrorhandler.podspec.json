@@ -24,14 +24,8 @@
     "RCT-Folly/Fabric": [
       "2022.05.16.00"
     ],
-    "React-jsi": [
-
-    ],
-    "React-debug": [
-
-    ],
-    "React-Mapbuffer": [
-
-    ]
+    "React-jsi": [],
+    "React-debug": [],
+    "React-Mapbuffer": []
   }
 }

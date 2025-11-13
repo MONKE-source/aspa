@@ -2531,7 +2531,7 @@ export default function LA() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -2589,7 +2589,7 @@ export default function LA() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -2605,7 +2605,8 @@ export default function LA() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -2641,7 +2642,7 @@ export default function LA() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -2657,7 +2658,8 @@ export default function LA() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -2669,7 +2671,8 @@ export default function LA() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -2776,11 +2779,11 @@ const styles = StyleSheet.create({
     borderColor: useDarkMode ? "#D3D3D3" : "black",
   },
   tick: {
-    fontSize: 20,
+    fontSize: Platform.isPad ? 30 : 20,
     color: "green",
   },
   checklistText: {
     flex: 1,
-    fontSize: 18,
+    fontSize: Platform.isPad ? 30 : 18,
   },
 });

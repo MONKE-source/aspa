@@ -6,6 +6,7 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  Platform,
   Image,
 } from "react-native";
 import { useDarkMode } from "../components/DarkModeContext";
@@ -15,7 +16,7 @@ import Settings from "./Settings";
 
 const Info = ({ navigation }) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  const [fontSize, setFontSize] = useState(18);
+  const [fontSize, setFontSize] = useState(Platform.isPad ? 25 : 18);
 
   const imageURI = isDarkMode
     ? require("../assets/aspaImage.png")
@@ -37,10 +38,10 @@ const Info = ({ navigation }) => {
           style={{
             fontWeight: "bold",
             color: isDarkMode ? "white" : "black",
-            fontSize: 30,
+            fontSize: Platform.isPad ? 50 : 30,
             padding: 25,
             alignSelf: "center",
-            marginTop: "-8%",
+            marginTop: Platform.isPad ? 0 : "-8%",
           }}
           allowFontScaling={false}
         >
@@ -74,7 +75,7 @@ const Info = ({ navigation }) => {
             backgroundColor: isDarkMode ? "white" : "#45454A",
             width: "90%",
             alignSelf: "center",
-            height: "5%",
+            height: Platform.isPad ? "8%" : "5%",
             justifyContent: "center",
             borderRadius: 10,
             marginTop: 20,
@@ -85,7 +86,6 @@ const Info = ({ navigation }) => {
             },
             shadowOpacity: 0.5,
             shadowRadius: 3.84,
-
             elevation: 5,
           }}
         >
@@ -94,6 +94,7 @@ const Info = ({ navigation }) => {
               marginLeft: 15,
               color: isDarkMode ? "black" : "white",
               fontWeight: "bold",
+              fontSize: Platform.isPad ? 24 : 16,
             }}
             allowFontScaling={false}
           >
@@ -106,7 +107,7 @@ const Info = ({ navigation }) => {
             backgroundColor: isDarkMode ? "white" : "#45454A",
             width: "90%",
             alignSelf: "center",
-            height: "5%",
+            height: Platform.isPad ? "8%" : "5%",
             justifyContent: "center",
             borderRadius: 10,
             marginTop: 5,
@@ -124,6 +125,7 @@ const Info = ({ navigation }) => {
           <Text
             style={{
               marginLeft: 15,
+              fontSize: Platform.isPad ? 24 : 16,
               color: isDarkMode ? "black" : "white",
               fontWeight: "bold",
             }}

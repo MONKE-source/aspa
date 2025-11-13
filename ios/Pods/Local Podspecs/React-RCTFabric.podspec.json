@@ -31,57 +31,25 @@
     "CLANG_CXX_LANGUAGE_STANDARD": "c++20"
   },
   "dependencies": {
-    "React-Core": [
-
-    ],
-    "React-RCTImage": [
-
-    ],
+    "React-Core": [],
+    "React-RCTImage": [],
     "RCT-Folly/Fabric": [
       "2022.05.16.00"
     ],
-    "glog": [
-
-    ],
-    "Yoga": [
-
-    ],
-    "React-RCTText": [
-
-    ],
-    "React-jsi": [
-
-    ],
-    "React-FabricImage": [
-
-    ],
-    "React-Fabric": [
-
-    ],
-    "React-nativeconfig": [
-
-    ],
-    "React-graphics": [
-
-    ],
-    "React-ImageManager": [
-
-    ],
-    "React-debug": [
-
-    ],
-    "React-utils": [
-
-    ],
-    "React-rendererdebug": [
-
-    ],
-    "React-runtimescheduler": [
-
-    ],
-    "hermes-engine": [
-
-    ]
+    "glog": [],
+    "Yoga": [],
+    "React-RCTText": [],
+    "React-jsi": [],
+    "React-FabricImage": [],
+    "React-Fabric": [],
+    "React-nativeconfig": [],
+    "React-graphics": [],
+    "React-ImageManager": [],
+    "React-debug": [],
+    "React-utils": [],
+    "React-rendererdebug": [],
+    "React-runtimescheduler": [],
+    "hermes-engine": []
   },
   "testspecs": [
     {

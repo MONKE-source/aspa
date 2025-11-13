@@ -10,6 +10,7 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 
 export default function Basiclifesupport() {
@@ -49,7 +50,7 @@ export default function Basiclifesupport() {
     <SafeAreaView
       style={{
         backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB",
-        flexGrow: 1,
+        flex: 1,
       }}
     >
       <ScrollView style={{ marginBottom: "20%" }}>
@@ -131,7 +132,7 @@ export default function Basiclifesupport() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -142,12 +143,12 @@ export default function Basiclifesupport() {
               }}
             />
           </TouchableOpacity>
-          <Collapsible collapsed={collapsed2}>
+          <Collapsible collapsed={collapsed2} style={{}}>
             <Text
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -162,7 +163,8 @@ export default function Basiclifesupport() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                   marginTop: "2%",
                 },
@@ -198,7 +200,7 @@ export default function Basiclifesupport() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -214,7 +216,8 @@ export default function Basiclifesupport() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -249,7 +252,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
     marginBottom: 50,
-    height: "100%",
     paddingBottom: "100",
   },
   title: {
@@ -273,15 +275,15 @@ const styles = StyleSheet.create({
     borderColor: useDarkMode ? "#D3D3D3" : "black",
   },
   tick: {
-    fontSize: 20,
+    fontSize: Platform.isPad ? 30 : 20,
     color: "green",
   },
   checklistText: {
     flex: 1,
-    fontSize: 18,
+    fontSize: Platform.isPad ? 30 : 18,
   },
   subText: {
-    fontSize: 14,
+    fontSize: Platform.isPad ? 24 : 14,
     marginLeft: "4%",
   },
 });

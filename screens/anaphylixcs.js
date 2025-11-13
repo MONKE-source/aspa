@@ -1655,7 +1655,7 @@ export default function Anaphylaxis() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1690,7 +1690,12 @@ export default function Anaphylaxis() {
                         onPress={() => handleToggleComplete(item.id)}
                         style={styles.checklistItem}
                       >
-                        <View style={styles.checkbox}>
+                        <View
+                          style={[
+                            styles.checkbox,
+                            { borderColor: isDarkMode ? "#D3D3D3" : "black" },
+                          ]}
+                        >
                           {item.completed && (
                             <Text style={styles.tick}>&#x2713;</Text>
                           )}
@@ -1710,82 +1715,7 @@ export default function Anaphylaxis() {
                           {item.text}
                         </Text>
                       </TouchableOpacity>
-                      <TouchableOpacity
-                        style={{
-                          flexDirection: "row",
-                          alignItems: "center",
-                          alignContent: "center",
-                        }}
-                        onPress={() => setCollapsedTriggers(!collapsedTriggers)}
-                      >
-                        <Text
-                          style={[
-                            styles.title,
-                            {
-                              color: isDarkMode ? "white" : "black",
-                              fontSize: 18,
-                            },
-                          ]}
-                          allowFontScaling={false}
-                        >
-                          Possible Triggers
-                        </Text>
-                        <FontAwesome5
-                          name="chevron-down"
-                          style={{
-                            fontSize: 20,
-                            color: isDarkMode ? "#F3EDC8" : "black",
-                            marginLeft: "auto",
-                            transform: [
-                              {
-                                rotate: collapsedTriggers ? "0deg" : "180deg",
-                              },
-                            ],
-                          }}
-                        />
-                      </TouchableOpacity>
-                      <Collapsible collapsed={collapsedTriggers}>
-                        {checklistItems
-                          .filter((subItem) =>
-                            [
-                              "Latex",
-                              "NMB",
-                              "Chlorhexidine",
-                              "IV Colloids",
-                              "Antibiotics",
-                            ].includes(subItem.text)
-                          )
-                          .map((subItem) => (
-                            <TouchableOpacity
-                              key={subItem.id}
-                              onPress={() => handleToggleComplete(subItem.id)}
-                              style={[
-                                styles.checklistItem,
-                                { marginLeft: 40, marginBottom: "7.5%" },
-                              ]}
-                            >
-                              <View style={styles.checkbox}>
-                                {subItem.completed && (
-                                  <Text style={styles.tick}>&#x2713;</Text>
-                                )}
-                              </View>
-                              <Text
-                                style={[
-                                  styles.checklistText,
-                                  {
-                                    color: isDarkMode ? "white" : "black",
-                                    textDecorationLine: subItem.completed
-                                      ? "line-through"
-                                      : "none",
-                                  },
-                                ]}
-                                allowFontScaling={false}
-                              >
-                                {subItem.text}
-                              </Text>
-                            </TouchableOpacity>
-                          ))}
-                      </Collapsible>
+                      {/* removed inline small Possible Triggers header here; moved to its own top-level collapsible */}
                     </View>
                   );
                 }
@@ -1795,7 +1725,12 @@ export default function Anaphylaxis() {
                     onPress={() => handleToggleComplete(item.id)}
                     style={styles.checklistItem}
                   >
-                    <View style={styles.checkbox}>
+                    <View
+                      style={[
+                        styles.checkbox,
+                        { borderColor: isDarkMode ? "#D3D3D3" : "black" },
+                      ]}
+                    >
                       {item.completed && (
                         <Text style={styles.tick}>&#x2713;</Text>
                       )}
@@ -1818,6 +1753,88 @@ export default function Anaphylaxis() {
                 );
               })}
           </Collapsible>
+
+          {/* Top-level Possible Triggers header (matches other section headers) */}
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              alignContent: "center",
+              marginTop: Platform.isPad ? 12 : 8,
+            }}
+            onPress={() => setCollapsedTriggers(!collapsedTriggers)}
+          >
+            <Text
+              style={[
+                styles.title,
+                { color: isDarkMode ? "white" : "black", marginBottom: "1%" },
+              ]}
+              allowFontScaling={false}
+            >
+              Possible Triggers
+            </Text>
+            <FontAwesome5
+              name="chevron-down"
+              style={{
+                fontSize: 25 * (Dimensions.get("window").width / 375),
+                color: isDarkMode ? "#F3EDC8" : "black",
+                marginLeft: "auto",
+                transform: [
+                  {
+                    rotate: collapsedTriggers ? "0deg" : "180deg",
+                  },
+                ],
+              }}
+            />
+          </TouchableOpacity>
+
+          <Collapsible collapsed={collapsedTriggers}>
+            {checklistItems
+              .filter((subItem) =>
+                [
+                  "Latex",
+                  "NMB",
+                  "Chlorhexidine",
+                  "IV Colloids",
+                  "Antibiotics",
+                ].includes(subItem.text)
+              )
+              .map((subItem) => (
+                <TouchableOpacity
+                  key={subItem.id}
+                  onPress={() => handleToggleComplete(subItem.id)}
+                  style={[
+                    styles.checklistItem,
+                    { marginLeft: 24, marginBottom: 8 },
+                  ]}
+                >
+                  <View
+                    style={[
+                      styles.checkbox,
+                      { borderColor: isDarkMode ? "#D3D3D3" : "black" },
+                    ]}
+                  >
+                    {subItem.completed && (
+                      <Text style={styles.tick}>&#x2713;</Text>
+                    )}
+                  </View>
+                  <Text
+                    style={[
+                      styles.checklistText,
+                      {
+                        color: isDarkMode ? "white" : "black",
+                        textDecorationLine: subItem.completed
+                          ? "line-through"
+                          : "none",
+                      },
+                    ]}
+                    allowFontScaling={false}
+                  >
+                    {subItem.text}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+          </Collapsible>
           <TouchableOpacity
             style={{
               flexDirection: "row",
@@ -1838,7 +1855,7 @@ export default function Anaphylaxis() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1854,8 +1871,9 @@ export default function Anaphylaxis() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
+                  lineHeight: Platform.isPad ? 30 : 25,
 
                   color: isDarkMode ? "white" : "black",
                 },
@@ -1888,7 +1906,7 @@ export default function Anaphylaxis() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1904,10 +1922,8 @@ export default function Anaphylaxis() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
                   color: isDarkMode ? "white" : "black",
-                  marginTop: "-1%",
                 },
               ]}
               allowFontScaling={false}
@@ -1933,7 +1949,7 @@ export default function Anaphylaxis() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -2024,7 +2040,6 @@ const styles = StyleSheet.create({
     marginRight: 15,
     justifyContent: "center",
     alignItems: "center",
-    borderColor: useDarkMode ? "#D3D3D3" : "black",
   },
   tick: {
     fontSize: 20,
@@ -2032,6 +2047,6 @@ const styles = StyleSheet.create({
   },
   checklistText: {
     flex: 1,
-    fontSize: 18,
+    fontSize: Platform.isPad ? 30 : 18,
   },
 });

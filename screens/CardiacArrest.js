@@ -10,6 +10,7 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 
 export default function CardiacArrest({ navigation }) {
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     paddingBottom: "100",
   },
   title: {
-    fontSize: 25 * (Dimensions.get("window").width / 375),
+    fontSize: Platform.isPad ? 40 : 25 * (Dimensions.get("window").width / 375),
     marginBottom: 20,
     fontWeight: "bold",
   },
@@ -109,6 +110,6 @@ const styles = StyleSheet.create({
   },
   checklistText: {
     flex: 1,
-    fontSize: 18,
+    fontSize: Platform.isPad ? 25 : 18,
   },
 });

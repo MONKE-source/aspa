@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, StyleSheet, View, SafeAreaView, FlatList } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  View,
+  SafeAreaView,
+  FlatList,
+  Platform,
+} from "react-native";
 import { useDarkMode } from "../components/DarkModeContext";
 
 const acknowledgments = [
@@ -96,7 +103,7 @@ const AcknowledgementsScreen = () => {
     <Text
       style={{
         color: textColor,
-        fontSize: 17.5,
+        fontSize: Platform.isPad ? 25 : 17.5,
         fontWeight: "500",
         marginTop: 15,
         marginBottom: 5,
@@ -128,20 +135,20 @@ const styles = StyleSheet.create({
     paddingBottom: 100,
   },
   title: {
-    fontSize: 24,
+    fontSize: Platform.isPad ? 40 : 24,
     fontWeight: "bold",
     color: "#3366ff",
     textAlign: "center",
     marginBottom: 10,
   },
   subTitle: {
-    fontSize: 20,
+    fontSize: Platform.isPad ? 30 : 20,
     fontWeight: "600",
     marginTop: 15,
     marginBottom: 5,
   },
   content: {
-    fontSize: 16,
+    fontSize: Platform.isPad ? 24 : 16,
     marginBottom: 5,
   },
 });

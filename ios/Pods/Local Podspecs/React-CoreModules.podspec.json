@@ -37,20 +37,12 @@
     "React-jsi": [
       "0.73.8"
     ],
-    "React-RCTBlob": [
-
-    ],
+    "React-RCTBlob": [],
     "SocketRocket": [
       "0.6.1"
     ],
-    "React-Codegen": [
-
-    ],
-    "ReactCommon": [
-
-    ],
-    "React-NativeModulesApple": [
-
-    ]
+    "React-Codegen": [],
+    "ReactCommon": [],
+    "React-NativeModulesApple": []
   }
 }

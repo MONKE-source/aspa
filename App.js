@@ -5,7 +5,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { View, Text, StyleSheet } from "react-native";
-
 import CalcScreen from "./screens/CalcScreen";
 import Main from "./screens/Main";
 import CrisisNavigator from "./screens/Crisis";

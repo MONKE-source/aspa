@@ -23,57 +23,25 @@
     "RCT-Folly/Fabric": [
       "2022.05.16.00"
     ],
-    "React-jsiexecutor": [
-
-    ],
-    "RCTRequired": [
-
-    ],
-    "RCTTypeSafety": [
-
-    ],
-    "ReactCommon/turbomodule/core": [
-
-    ],
-    "React-jsi": [
-
-    ],
-    "React-logger": [
-
-    ],
-    "glog": [
-
-    ],
-    "DoubleConversion": [
-
-    ],
+    "React-jsiexecutor": [],
+    "RCTRequired": [],
+    "RCTTypeSafety": [],
+    "ReactCommon/turbomodule/core": [],
+    "React-jsi": [],
+    "React-logger": [],
+    "glog": [],
+    "DoubleConversion": [],
     "fmt": [
       "~> 6.2.1"
     ],
-    "React-Core": [
-
-    ],
-    "React-debug": [
-
-    ],
-    "React-utils": [
-
-    ],
-    "React-runtimescheduler": [
-
-    ],
-    "React-cxxreact": [
-
-    ],
-    "React-rendererdebug": [
-
-    ],
-    "React-graphics": [
-
-    ],
-    "hermes-engine": [
-
-    ]
+    "React-Core": [],
+    "React-debug": [],
+    "React-utils": [],
+    "React-runtimescheduler": [],
+    "React-cxxreact": [],
+    "React-rendererdebug": [],
+    "React-graphics": [],
+    "hermes-engine": []
   },
   "subspecs": [
     {
@@ -268,9 +236,7 @@
             "RCT-Folly/Fabric": [
               "2022.05.16.00"
             ],
-            "Yoga": [
-
-            ]
+            "Yoga": []
           },
           "compiler_flags": "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_CFG_NO_COROUTINES=1 -Wno-comma -Wno-shorten-64-to-32 -Wno-gnu-zero-variadic-macro-arguments",
           "source_files": "react/renderer/components/view/**/*.{m,mm,cpp,h}",
@@ -337,9 +303,7 @@
         "RCT-Folly/Fabric": [
           "2022.05.16.00"
         ],
-        "React-Fabric/uimanager": [
-
-        ]
+        "React-Fabric/uimanager": []
       },
       "compiler_flags": "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_CFG_NO_COROUTINES=1 -Wno-comma -Wno-shorten-64-to-32 -Wno-gnu-zero-variadic-macro-arguments",
       "source_files": [

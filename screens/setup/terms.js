@@ -16,7 +16,7 @@ import TextButton from "../../components/TextButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Terms = ({ navigation }) => {
-  const [fontSize, setFontSize] = useState(18);
+  const [fontSize, setFontSize] = useState(Platform.isPad ? 25 : 18);
 
   return (
     <SafeAreaView
@@ -38,7 +38,7 @@ const Terms = ({ navigation }) => {
             fontSize: 30,
             padding: 25,
             alignSelf: "center",
-            marginTop: "-8%",
+            marginTop: Platform.isPad ? "-2%" : "-8%",
           }}
           allowFontScaling={false}
         >

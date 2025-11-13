@@ -404,8 +404,8 @@ function Crisis({ navigation }) {
       justifyContent: "flex-start",
       alignItems: "center",
       paddingHorizontal: windowWidth * 0.035,
-      marginTop: 30,
-      marginBottom: -25,
+      marginTop: Platform.isPad ? 20 : 30,
+      marginBottom: Platform.isPad ? 0 : -25,
     },
     searchIcon: {
       height: windowWidth * 0.04,
@@ -469,7 +469,7 @@ function Crisis({ navigation }) {
             <SimpleLineIcons
               name="settings"
               style={{
-                fontSize: 30,
+                fontSize: Platform.isPad ? 50 : 30,
                 color: isDarkMode ? "white" : "black",
               }}
             />
@@ -577,7 +577,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "white",
-    fontSize: 20,
+    fontSize: Platform.isPad ? 30 : 20,
     fontWeight: "700",
   },
   eyeview: {

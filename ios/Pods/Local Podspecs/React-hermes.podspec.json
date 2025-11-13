@@ -41,23 +41,15 @@
     "RCT-Folly": [
       "2022.05.16.00"
     ],
-    "DoubleConversion": [
-
-    ],
+    "DoubleConversion": [],
     "fmt": [
       "~> 6.2.1"
     ],
-    "glog": [
-
-    ],
+    "glog": [],
     "RCT-Folly/Futures": [
       "2022.05.16.00"
     ],
-    "hermes-engine": [
-
-    ],
-    "React-jsi": [
-
-    ]
+    "hermes-engine": [],
+    "React-jsi": []
   }
 }

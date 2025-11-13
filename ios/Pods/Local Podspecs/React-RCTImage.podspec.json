@@ -34,26 +34,12 @@
     "RCT-Folly": [
       "2022.05.16.00"
     ],
-    "RCTTypeSafety": [
-
-    ],
-    "React-jsi": [
-
-    ],
-    "React-Core/RCTImageHeaders": [
-
-    ],
-    "React-RCTNetwork": [
-
-    ],
-    "React-Codegen": [
-
-    ],
-    "ReactCommon": [
-
-    ],
-    "React-NativeModulesApple": [
-
-    ]
+    "RCTTypeSafety": [],
+    "React-jsi": [],
+    "React-Core/RCTImageHeaders": [],
+    "React-RCTNetwork": [],
+    "React-Codegen": [],
+    "ReactCommon": [],
+    "React-NativeModulesApple": []
   }
 }

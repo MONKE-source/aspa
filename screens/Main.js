@@ -11,6 +11,7 @@ import {
   Image,
   TextInput,
   Dimensions,
+  Platform,
   Alert,
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -464,7 +465,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
           >
             <Ionicons
               name={subtitle.isBookmarked ? "bookmark" : "bookmark-outline"}
-              size={20}
+              size={Platform.isPad ? 30 : 20}
               color={subtitle.isBookmarked ? "gold" : "black"}
             />
           </TouchableOpacity>
@@ -530,7 +531,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
             isDarkMode ? styles.darkModeText : styles.lightModeText,
             {
               fontWeight: "bold",
-              fontSize: 40,
+              fontSize: Platform.isPad ? 60 : 40,
               padding: 20,
             },
           ]}
@@ -540,7 +541,11 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
         </Text>
         {/* Touchable Opacity to view bookmarked  */}
         <TouchableOpacity
-          style={{ marginLeft: "23%", marginTop: 10, padding: 10 }}
+          style={{
+            marginLeft: Platform.isPad ? "45%" : "23%",
+            marginTop: 10,
+            padding: 10,
+          }}
           onPress={() => {
             const bookmarkedItems = items.reduce((acc, item) => {
               const bookmarkedSubtitles = item.subtitles.filter(
@@ -561,7 +566,11 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
             });
           }}
         >
-          <Ionicons name="bookmark" size={28} color="gold" />
+          <Ionicons
+            name="bookmark"
+            size={Platform.isPad ? 50 : 28}
+            color="gold"
+          />
         </TouchableOpacity>
         {/*  */}
       </View>
@@ -582,7 +591,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
             <SimpleLineIcons
               name="settings"
               style={{
-                fontSize: 30,
+                fontSize: 70,
                 color: isDarkMode ? "white" : "black",
               }}
             />
@@ -749,7 +758,7 @@ const styles = StyleSheet.create({
   subtitleText: {
     flex: 1,
     marginRight: 10,
-    fontSize: 18,
+    fontSize: Platform.isPad ? 25 : 18,
     color: "black",
   },
   bookmarkButton: {

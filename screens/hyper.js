@@ -1559,7 +1559,6 @@ export default function Hyper() {
     >
       <ScrollView style={{ marginBottom: "20%" }}>
         <View style={styles.container}>
-
           <TouchableOpacity
             style={{
               flexDirection: "row",
@@ -1580,7 +1579,7 @@ export default function Hyper() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1596,7 +1595,8 @@ export default function Hyper() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -1627,7 +1627,7 @@ export default function Hyper() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1643,7 +1643,8 @@ export default function Hyper() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                   marginBottom: "1%",
                 },
@@ -1673,7 +1674,7 @@ export default function Hyper() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1689,7 +1690,8 @@ export default function Hyper() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                   marginBottom: "1%",
                 },
@@ -1731,16 +1733,20 @@ export default function Hyper() {
                       fontWeight: "bold",
                       width: "25%",
                       color: isDarkMode ? "white" : "black",
+                      fontSize: Platform.isPad ? 20 : 14,
+                      lineHeight: Platform.isPad ? 28 : 20,
                     }}
                     allowFontScaling={false}
                   >
                     serum K+ (mmol/L)
                   </Text>
+
                   <Text
                     style={{
                       width: "25%",
                       color: isDarkMode ? "white" : "black",
                       flexWrap: "wrap",
+                      fontSize: Platform.isPad ? 20 : 14,
                     }}
                     allowFontScaling={false}
                   >
@@ -1753,6 +1759,8 @@ export default function Hyper() {
                         fontWeight: "bold",
                         width: "25%",
                         color: isDarkMode ? "white" : "black",
+                        fontSize: Platform.isPad ? 18 : 14,
+                        lineHeight: Platform.isPad ? 26 : 20,
                       },
                     ]}
                     allowFontScaling={false}
@@ -1764,6 +1772,8 @@ export default function Hyper() {
                       width: "25%",
                       color: isDarkMode ? "white" : "black",
                       flexWrap: "wrap",
+                      fontSize: Platform.isPad ? 18 : 14,
+                      lineHeight: Platform.isPad ? 26 : 20,
                     }}
                     allowFontScaling={false}
                   >
@@ -1785,16 +1795,21 @@ export default function Hyper() {
                       fontWeight: "bold",
                       width: "50%",
                       color: isDarkMode ? "white" : "black",
+                      fontSize: Platform.isPad ? 18 : 14,
+                      lineHeight: Platform.isPad ? 26 : 20,
                     }}
                     allowFontScaling={false}
                   >
                     Review: K+ improving
                   </Text>
+
                   <Text
                     style={{
                       width: "50%",
                       color: isDarkMode ? "white" : "black",
                       flexWrap: "wrap",
+                      fontSize: Platform.isPad ? 18 : 14,
+                      lineHeight: Platform.isPad ? 26 : 20,
                     }}
                     allowFontScaling={false}
                   >
@@ -1807,16 +1822,21 @@ export default function Hyper() {
                       fontWeight: "bold",
                       width: "50%",
                       color: isDarkMode ? "white" : "black",
+                      fontSize: Platform.isPad ? 18 : 14,
+                      lineHeight: Platform.isPad ? 26 : 20,
                     }}
                     allowFontScaling={false}
                   >
                     Review: K+ NOT improving
                   </Text>
+
                   <Text
                     style={{
                       width: "50%",
                       color: isDarkMode ? "white" : "black",
                       flexWrap: "wrap",
+                      fontSize: Platform.isPad ? 18 : 14,
+                      lineHeight: Platform.isPad ? 26 : 20,
                     }}
                     allowFontScaling={false}
                   >
@@ -1847,7 +1867,7 @@ export default function Hyper() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1863,7 +1883,8 @@ export default function Hyper() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                   marginBottom: "1%",
                 },
@@ -1879,7 +1900,12 @@ export default function Hyper() {
                 style={styles.checklistItem}
               >
                 <View style={{ marginRight: "5%" }} />
-                <View style={styles.checkbox}>
+                <View
+                  style={[
+                    styles.checkbox,
+                    { borderColor: isDarkMode ? "#D3D3D3" : "black" },
+                  ]}
+                >
                   {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
                 </View>
                 <Text
@@ -1902,7 +1928,8 @@ export default function Hyper() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                   marginBottom: "1%",
                 },
@@ -1918,7 +1945,12 @@ export default function Hyper() {
                 style={styles.checklistItem}
               >
                 <View style={{ marginRight: "5%" }} />
-                <View style={styles.checkbox}>
+                <View
+                  style={[
+                    styles.checkbox,
+                    { borderColor: isDarkMode ? "#D3D3D3" : "black" },
+                  ]}
+                >
                   {item.completed && <Text style={styles.tick}>&#x2713;</Text>}
                 </View>
                 <Text
@@ -1975,8 +2007,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
     marginBottom: 50,
-    height: "100%",
-    paddingBottom: "100",
+    // let content determine height; use numeric padding
+    paddingBottom: 20,
   },
   title: {
     fontSize: 23 * (Dimensions.get("window").width / 375),
@@ -1996,7 +2028,6 @@ const styles = StyleSheet.create({
     marginRight: 15,
     justifyContent: "center",
     alignItems: "center",
-    borderColor: useDarkMode ? "#D3D3D3" : "black",
   },
   tick: {
     fontSize: 20,
@@ -2004,9 +2035,11 @@ const styles = StyleSheet.create({
   },
   checklistText: {
     flex: 1,
-    fontSize: 18,
+    fontSize: Platform.isPad ? 30 : 18,
   },
   minorText: {
-    fontSize: 13.5 * (Dimensions.get("window").width / 375),
+    fontSize: Platform.isPad
+      ? 20
+      : 13.5 * (Dimensions.get("window").width / 375),
   },
 });

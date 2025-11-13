@@ -642,7 +642,7 @@ export default function Hypertermina() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -703,7 +703,7 @@ export default function Hypertermina() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -719,7 +719,8 @@ export default function Hypertermina() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -769,7 +770,7 @@ export default function Hypertermina() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -785,7 +786,8 @@ export default function Hypertermina() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                 },
               ]}
@@ -837,7 +839,7 @@ export default function Hypertermina() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -853,7 +855,8 @@ export default function Hypertermina() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                   marginBottom: "5%",
                 },
@@ -894,7 +897,7 @@ export default function Hypertermina() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -910,7 +913,8 @@ export default function Hypertermina() {
               style={[
                 styles.checklistText,
                 {
-                  lineHeight: 25,
+                  lineHeight: Platform.isPad ? 30 : 25,
+
                   color: isDarkMode ? "white" : "black",
                   marginVertical: "3%",
                 },
@@ -951,7 +955,7 @@ export default function Hypertermina() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25,
+                fontSize: 25 * (Dimensions.get("window").width / 375),
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1030,6 +1034,10 @@ const styles = StyleSheet.create({
   },
   checklistText: {
     flex: 1,
-    fontSize: 18,
+    fontSize: Platform.isPad ? 30 : 18,
+  },
+  subText: {
+    fontSize: Platform.isPad ? 24 : 14,
+    marginLeft: "4%",
   },
 });
