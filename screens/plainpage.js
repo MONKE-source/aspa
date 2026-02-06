@@ -1,5 +1,5 @@
 // plain page template
-import {SafeAreaView, StyleSheet, Dimensions} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {useDarkMode} from '../components/DarkModeContext';
 
 export default function PlainPage() {
@@ -12,8 +12,6 @@ export default function PlainPage() {
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        height: Dimensions.get('window').height,
-        width: Dimensions.get('window').width,
       }}></SafeAreaView>
   );
 }

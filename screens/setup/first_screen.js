@@ -3,7 +3,6 @@ import {
   SafeAreaView,
   View,
   StyleSheet,
-  Dimensions,
   TextInput,
   Text,
   Platform,
@@ -15,19 +14,13 @@ import {
   Image,
   ActivityIndicator,
   PlatformColor,
+  useWindowDimensions,
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { downloadAllPdfs } from "../../utils/pdfManager";
-
-const imageWidth = Platform.isPad
-  ? Dimensions.get("window").width * 0.8
-  : Dimensions.get("window").width * 0.63;
-const imageLength = Platform.isPad
-  ? Dimensions.get("window").height * 0.6
-  : Dimensions.get("window").height * 0.35;
-const gapLength = Dimensions.get("window").width * 0.25;
+import useResponsive from "../../components/useResponsive";
 
 export default function WelcomeScreen({ navigation }) {
   const [downloadProgress, setDownloadProgress] = useState(0);
@@ -35,7 +28,18 @@ export default function WelcomeScreen({ navigation }) {
   const [isDownloadingPdfs, setIsDownloadingPdfs] = useState(false);
   const [downloadComplete, setDownloadComplete] = useState(false);
   const [downloadStarted, setDownloadStarted] = useState(false);
-  const [downloadSize, setDownloadSize] = useState(0); // New state for download size
+  const [downloadSize, setDownloadSize] = useState(0);
+  const { width, height, isLandscape, isTablet, wp, hp, ms, fs } = useResponsive();
+
+  const imageWidth = isLandscape
+    ? Math.min(width * 0.35, 400)
+    : (isTablet ? width * 0.8 : width * 0.63);
+  const imageLength = isLandscape
+    ? Math.min(height * 0.45, 350)
+    : (isTablet ? height * 0.6 : height * 0.35);
+  const gapLength = isLandscape
+    ? Math.min(width * 0.15, 150)
+    : width * 0.25;
 
   useEffect(() => {
     // Check if PDFs have been downloaded before
@@ -115,14 +119,22 @@ export default function WelcomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        keyboardShouldPersistTaps="handled"
+      >
       <View style={{ alignItems: "center" }}>
         <Image
           source={require("../../assets/ASPA_logo.png")}
           resizeMode="cover"
-          style={styles.image}
+          style={{ height: imageLength, width: imageWidth }}
         />
         <Text
-          style={[styles.subText, { marginTop: "2.25%", fontSize: 20 }]}
+          style={[styles.subText, { marginTop: "2.25%", fontSize: fs(20) }]}
           allowFontScaling={false}
         >
           Welcome to ASPA App!
@@ -150,7 +162,13 @@ export default function WelcomeScreen({ navigation }) {
       <TouchableOpacity
         style={[
           styles.nextButton,
-          isDownloadingPdfs && { backgroundColor: "#A0A0A0" }, // Gray out button while downloading
+          {
+            width: isLandscape ? Math.min(wp(60), 500) : "86%",
+            marginTop: isLandscape ? "3%" : (isTablet ? "5%" : "15%"),
+            top: isLandscape ? "3%" : (isTablet ? "5%" : "25%"),
+            height: isLandscape ? Math.min(hp(12), 60) : "7%",
+          },
+          isDownloadingPdfs && { backgroundColor: "#A0A0A0" },
         ]}
         onPress={handleDownloadPdfs}
         disabled={isDownloadingPdfs}
@@ -169,6 +187,7 @@ export default function WelcomeScreen({ navigation }) {
           <AntDesign name="right" size={20} color="#FFF" />
         </View>
       </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 }
@@ -187,23 +206,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
     padding: 5,
   },
-  image: {
-    height: imageLength,
-    width: imageWidth,
-  },
   nextButton: {
     display: "flex",
     flexDirection: "row",
-    paddingRight: "4%",
-    justifyContent: "flex-end",
+    paddingHorizontal: 20,
+    justifyContent: "center",
     alignItems: "center",
-    gap: gapLength,
     borderRadius: 300,
     backgroundColor: "#5092CD",
-    width: "86%",
-    marginTop: Platform.isPad ? "5%" : "15%",
-    top: Platform.isPad ? "5%" : "25%",
-    height: "7%",
+    alignSelf: "center",
+    gap: 12,
   },
   iconContainer: {
     height: "50%",

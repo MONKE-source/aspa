@@ -11,7 +11,6 @@ import {
   useWindowDimensions,
   Image,
   TextInput,
-  Dimensions,
   Pressable,
   Alert,
 } from "react-native";
@@ -37,6 +36,7 @@ import Basiclifesupport from "./Basiclifesupport";
 import Hypertermina from "./hypertermina";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import useResponsive from "../components/useResponsive";
 
 export default function CrisisNavigator() {
   const Stack = createNativeStackNavigator();
@@ -44,7 +44,7 @@ export default function CrisisNavigator() {
     <WeightProvider>
       <Stack.Navigator initialRouteName="Set Weight">
         <Stack.Screen
-          name="Crisis"
+          name="CrisisHome"
           component={Crisis}
           options={{
             headerShown: false,
@@ -183,15 +183,22 @@ export default function CrisisNavigator() {
 function SetWeight({ navigation }) {
   const [displayWeight, setDisplayWeight] = useState(true);
   const { weight, setWeight } = useContext(WeightContext);
-  const windowWidth = Dimensions.get("window").width;
-  const windowHeight = Dimensions.get("window").height;
+  const { width, height, isLandscape, isTablet, wp, hp, ms, fs } = useResponsive();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+
+  const containerWidth = isLandscape ? Math.min(wp(60), 500) : wp(92.5);
+  const containerHeight = isLandscape ? hp(70) : hp(57.5);
+  const inputWidth = isLandscape ? Math.min(wp(25), 250) : wp(40);
+  const inputHeight = isLandscape ? Math.min(hp(12), 60) : hp(9);
+  const nextBtnWidth = isLandscape ? Math.min(wp(50), 400) : wp(80);
+  const nextBtnHeight = isLandscape ? Math.min(hp(10), 55) : hp(6.3);
+  const titleFontSize = isTablet ? ms(25, 0.45) : 25;
 
   const dynamicStyles = StyleSheet.create({
     settingsView: {
-      height: windowWidth * 0.1,
-      width: windowWidth * 0.1,
-      borderRadius: (windowWidth * 0.1) / 2,
+      height: isLandscape ? Math.min(width * 0.06, 50) : width * 0.1,
+      width: isLandscape ? Math.min(width * 0.06, 50) : width * 0.1,
+      borderRadius: (width * 0.1) / 2,
       overflow: "hidden",
       backgroundColor: "rgb(49, 49, 53)",
       justifyContent: "center",
@@ -199,35 +206,35 @@ function SetWeight({ navigation }) {
       // left: 5,
     },
     settingIcon: {
-      height: windowWidth * 0.055,
-      width: windowWidth * 0.055,
+      height: width * 0.055,
+      width: width * 0.055,
       tintColor: "#EAEAEB",
     },
     searchContainer: {
       backgroundColor: "rgb(49, 49, 53)",
-      borderRadius: windowWidth * 0.05,
+      borderRadius: width * 0.05,
       marginHorizontal: 7.5,
-      width: windowWidth * 0.85,
-      height: windowWidth * 0.1,
+      width: isLandscape ? Math.min(width * 0.65, 600) : width * 0.85,
+      height: isLandscape ? Math.min(width * 0.06, 50) : width * 0.1,
       flexDirection: "row",
       overflow: "hidden",
       justifyContent: "flex-start",
       alignItems: "center",
-      paddingHorizontal: windowWidth * 0.035,
-      marginTop: 30,
-      marginBottom: -25,
+      paddingHorizontal: width * 0.035,
+      marginTop: isLandscape ? 15 : 30,
+      marginBottom: isLandscape ? 0 : -25,
     },
     searchIcon: {
-      height: windowWidth * 0.04,
-      width: windowWidth * 0.04,
+      height: Math.min(width * 0.04, 20),
+      width: Math.min(width * 0.04, 20),
       tintColor: "#818188",
     },
     searchInput: {
-      paddingHorizontal: windowWidth * 0.03,
+      paddingHorizontal: width * 0.03,
       fontWeight: "600",
-      fontSize: windowWidth * 0.045,
+      fontSize: isLandscape ? Math.min(width * 0.025, 18) : width * 0.045,
       color: "white",
-      width: windowWidth * 0.65,
+      width: isLandscape ? Math.min(width * 0.5, 500) : width * 0.65,
     },
     clearButton: {},
   });
@@ -244,10 +251,10 @@ function SetWeight({ navigation }) {
           flexDirection: "column",
           alignItems: "center",
           marginBottom: 20,
-          width: windowWidth * 0.925,
-          height: windowHeight * 0.575,
+          width: containerWidth,
+          height: containerHeight,
           backgroundColor: "transparent",
-          borderRadius: windowHeight * 0.04739336 * 0.94594595,
+          borderRadius: hp(4.7) * 0.945,
           borderWidth: 2,
           borderColor: "hsv(240, 2%, 18%)",
         }}
@@ -256,7 +263,7 @@ function SetWeight({ navigation }) {
           style={{
             color: isDarkMode ? "white" : "black",
             fontWeight: "700",
-            fontSize: Platform.isPad ? windowHeight * 0.04739336 * 0.45 : 25,
+            fontSize: titleFontSize,
             position: "relative",
             top: "10%",
           }}
@@ -264,30 +271,6 @@ function SetWeight({ navigation }) {
         >
           Enter patient's weight
         </Text>
-        {/*         <View
-          style={{
-            position: "relative",
-            top: "26%",
-            backgroundColor: "#313135",
-            height: "15%",
-            borderRadius: 12,
-            width: "38.55%",
-          }}
-        >
-          <TextInput
-            style={{
-              height: "100%",
-              width: "100%",
-              fontSize: 20,
-              textAlign: "center",
-            }}
-            keyboardType="numeric"
-            onChangeText={(x) => {
-              setDisplayWeight(false);
-              setWeight(x);
-            }}
-          ></TextInput>
-        </View> */}
         <View style={{ position: "relative", top: "26%" }}>
           <TextInputButton
             title="Weight"
@@ -297,24 +280,24 @@ function SetWeight({ navigation }) {
               setDisplayWeight(false);
             }}
             backgroundColor={"#313135"}
-            width={Dimensions.get("window").width * 0.4}
-            height={Dimensions.get("window").height * 0.09}
+            width={inputWidth}
+            height={inputHeight}
           />
         </View>
         {displayWeight === false && (
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Crisis");
+              navigation.navigate("CrisisHome");
             }}
             style={{
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
               marginBottom: 20,
-              width: Dimensions.get("window").width * 0.8,
-              height: Dimensions.get("window").height * 0.063,
+              width: nextBtnWidth,
+              height: nextBtnHeight,
               backgroundColor: "black",
-              borderRadius: Dimensions.get("window").height * 0.04739336 * 0.5,
+              borderRadius: hp(4.7) * 0.5,
               position: "relative",
               top: "55%",
             }}
@@ -323,9 +306,7 @@ function SetWeight({ navigation }) {
               style={{
                 color: "white",
                 fontWeight: "700",
-                fontSize: Platform.isPad
-                  ? Dimensions.get("window").height * 0.04739336 * 0.45
-                  : 20,
+                fontSize: titleFontSize,
               }}
               allowFontScaling={false}
             >
@@ -343,7 +324,7 @@ function Crisis({ navigation }) {
   const { weight, setWeight } = useContext(WeightContext);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [searchQuery, setSearchQuery] = useState("");
-  const windowWidth = useWindowDimensions().width;
+  const { width, height, isLandscape, isTablet, wp, hp, ms, fs } = useResponsive();
   const [filteredData, setFilteredData] = useState([]);
   const [isBlurred, setIsBlurred] = useState([
     {
@@ -379,9 +360,9 @@ function Crisis({ navigation }) {
 
   const dynamicStyles = StyleSheet.create({
     settingsView: {
-      height: windowWidth * 0.1,
-      width: windowWidth * 0.1,
-      borderRadius: (windowWidth * 0.1) / 2,
+      height: isLandscape ? Math.min(width * 0.06, 50) : width * 0.1,
+      width: isLandscape ? Math.min(width * 0.06, 50) : width * 0.1,
+      borderRadius: (width * 0.1) / 2,
       overflow: "hidden",
       backgroundColor: "rgb(49, 49, 53)",
       justifyContent: "center",
@@ -389,35 +370,35 @@ function Crisis({ navigation }) {
       // left: 5,
     },
     settingIcon: {
-      height: windowWidth * 0.055,
-      width: windowWidth * 0.055,
+      height: width * 0.055,
+      width: width * 0.055,
       tintColor: "#EAEAEB",
     },
     searchContainer: {
       backgroundColor: "rgb(49, 49, 53)",
-      borderRadius: windowWidth * 0.05,
+      borderRadius: width * 0.05,
       marginHorizontal: 7.5,
-      width: windowWidth * 0.85,
-      height: windowWidth * 0.1,
+      width: isLandscape ? Math.min(width * 0.65, 600) : width * 0.85,
+      height: isLandscape ? Math.min(width * 0.06, 50) : width * 0.1,
       flexDirection: "row",
       overflow: "hidden",
       justifyContent: "flex-start",
       alignItems: "center",
-      paddingHorizontal: windowWidth * 0.035,
-      marginTop: Platform.isPad ? 20 : 30,
-      marginBottom: Platform.isPad ? 0 : -25,
+      paddingHorizontal: width * 0.035,
+      marginTop: isTablet ? 20 : (isLandscape ? 15 : 30),
+      marginBottom: isTablet ? 0 : (isLandscape ? 0 : -25),
     },
     searchIcon: {
-      height: windowWidth * 0.04,
-      width: windowWidth * 0.04,
+      height: Math.min(width * 0.04, 20),
+      width: Math.min(width * 0.04, 20),
       tintColor: "#818188",
     },
     searchInput: {
-      paddingHorizontal: windowWidth * 0.03,
+      paddingHorizontal: width * 0.03,
       fontWeight: "600",
-      fontSize: windowWidth * 0.045,
+      fontSize: isLandscape ? Math.min(width * 0.025, 18) : width * 0.045,
       color: "white",
-      width: windowWidth * 0.65,
+      width: isLandscape ? Math.min(width * 0.5, 500) : width * 0.65,
     },
     clearButton: {},
   });
@@ -427,7 +408,7 @@ function Crisis({ navigation }) {
       style={{
         flexDirection: "column",
         alignItems: "center",
-        width: Dimensions.get("window").width - 10,
+        width: width - 10,
       }}
     >
       <View
@@ -435,16 +416,19 @@ function Crisis({ navigation }) {
           flex: 1,
           flexDirection: "column",
           alignItems: "center",
-          width: Dimensions.get("window").width - 20,
+          width: width - 20,
           // height: Dimensions.get("window").height - 580,
           height: "60%",
         }}
       >
         <TouchableOpacity
-          style={styles.rectangle}
+          style={[styles.rectangle, {
+            width: isLandscape ? Math.min(width * 0.7, 700) : width * 0.95,
+            height: isLandscape ? Math.min(hp(14), 70) : hp(10),
+          }]}
           onPress={() => navigation.navigate(item.navigation)}
         >
-          <Text style={styles.title} allowFontScaling={false}>
+          <Text style={[styles.title, { fontSize: isTablet ? ms(20, 0.4) : 20 }]} allowFontScaling={false}>
             {item.title}
           </Text>
           <AntDesign name="right" style={{ color: "grey", fontSize: 20 }} />
@@ -463,13 +447,13 @@ function Crisis({ navigation }) {
       <>
         <View style={{ flexDirection: "row", gap: 5 }}>
           <TouchableOpacity
-            style={{ marginTop: 34, marginLeft: 15 }}
+            style={{ marginTop: isLandscape ? 18 : 34, marginLeft: 15 }}
             onPress={() => navigation.navigate("Settings")}
           >
             <SimpleLineIcons
               name="settings"
               style={{
-                fontSize: Platform.isPad ? 50 : 30,
+                fontSize: isTablet ? ms(30, 0.4) : (isLandscape ? 24 : 30),
                 color: isDarkMode ? "white" : "black",
               }}
             />
@@ -503,8 +487,8 @@ function Crisis({ navigation }) {
             flexDirection: "row",
             backgroundColor: "#72A8DA",
             marginTop: 15,
-            width: Dimensions.get("window").width,
-            height: Dimensions.get("window").height * 0.08,
+            width: width,
+            height: isLandscape ? Math.min(hp(10), 50) : hp(8),
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -513,9 +497,7 @@ function Crisis({ navigation }) {
             style={{
               color: "white",
               fontWeight: "500",
-              fontSize: Platform.isPad
-                ? Dimensions.get("window").height * 0.04739336 * 0.45
-                : 20,
+              fontSize: isTablet ? ms(20, 0.45) : (isLandscape ? 16 : 20),
             }}
             allowFontScaling={false}
           >
@@ -524,9 +506,7 @@ function Crisis({ navigation }) {
               style={{
                 color: "white",
                 fontWeight: "700",
-                fontSize: Platform.isPad
-                  ? Dimensions.get("window").height * 0.04739336 * 0.45
-                  : 25,
+                fontSize: isTablet ? ms(25, 0.45) : (isLandscape ? 20 : 25),
               }}
               allowFontScaling={false}
             >
@@ -537,10 +517,10 @@ function Crisis({ navigation }) {
         </TouchableOpacity>
         <FlatList
           data={filteredData} // use filteredData here
-          style={{ top: 25, marginBottom: 70 }}
+          style={{ top: isLandscape ? 10 : 25, marginBottom: isLandscape ? 50 : 70 }}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
-          contentContainerStyle={styles.listContainer}
+          contentContainerStyle={[styles.listContainer, { width: width }]}
         />
       </>
     </SafeAreaView>
@@ -552,17 +532,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    width: Dimensions.get("window").width,
   },
   listContainer: {
     alignItems: "center",
     marginVertical: 15,
-    width: Dimensions.get("window").width,
     paddingBottom: 75,
     paddingTop: 10,
   },
   rectangle: {
-    width: Dimensions.get("window").width * 0.95,
     marginBottom: 20,
     backgroundColor: "rgb(69, 69, 74)",
     borderRadius: 20,
@@ -572,7 +549,6 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     paddingVertical: 15,
     marginHorizontal: 15,
-    height: Dimensions.get("window").height * 0.1,
     paddingHorizontal: "5%",
   },
   title: {
@@ -582,7 +558,7 @@ const styles = StyleSheet.create({
   },
   eyeview: {
     position: "relative",
-    left: Dimensions.get("window").width * 0.009,
+    left: 5,
   },
   descview: {
     fontSize: 16.5,

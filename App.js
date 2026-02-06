@@ -12,25 +12,32 @@ import Info from "./screens/Info";
 import AcknowledgementsScreen from "./screens/credits";
 import WelcomeScreen from "./screens/setup/first_screen";
 import Terms from "./screens/setup/terms";
-import { DarkModeProvider, useDarkMode } from "./components/DarkModeContext";
+import { DarkModeProvider, useDarkMode  } from "./components/DarkModeContext";
+import useResponsive from "./components/useResponsive";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 function MyTabs() {
   const { isDarkMode } = useDarkMode();
+  const { tabBarHeight, isLandscape, isTablet, fs } = useResponsive();
+  const iconSize = isLandscape ? (isTablet ? 24 : 22) : 30;
 
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarStyle: {
-          height: 90,
+          height: tabBarHeight,
           paddingHorizontal: 5,
           paddingTop: 0,
+          paddingBottom: isLandscape ? 5 : 0,
           backgroundColor: "rgba(34,36,40,1)",
           position: "absolute",
           borderTopWidth: 0,
+        },
+        tabBarLabelStyle: {
+          fontSize: isLandscape ? (isTablet ? 11 : 10) : 12,
         },
       })}
     >
@@ -42,7 +49,7 @@ function MyTabs() {
           tabBarIcon: () => (
             <FontAwesome5
               name="calculator"
-              style={{ fontSize: 30, color: "#F3EDC8" }}
+              style={{ fontSize: iconSize, color: "#F3EDC8" }}
             />
           ),
         }}
@@ -55,7 +62,7 @@ function MyTabs() {
           tabBarIcon: () => (
             <FontAwesome5
               name="clipboard-list"
-              style={{ fontSize: 30, color: "#5F8670" }}
+              style={{ fontSize: iconSize, color: "#5F8670" }}
             />
           ),
         }}
@@ -66,7 +73,7 @@ function MyTabs() {
         options={{
           headerShown: false,
           tabBarIcon: () => (
-            <FontAwesome5 name="bolt" style={{ fontSize: 30, color: "gold" }} />
+            <FontAwesome5 name="bolt" style={{ fontSize: iconSize, color: "gold" }} />
           ),
         }}
       />
@@ -78,7 +85,7 @@ function MyTabs() {
           tabBarIcon: () => (
             <FontAwesome5
               name="hospital"
-              style={{ fontSize: 30, color: "#F3EDC8" }}
+              style={{ fontSize: iconSize, color: "#F3EDC8" }}
             />
           ),
         }}
@@ -91,7 +98,7 @@ function MyTabs() {
           tabBarIcon: () => (
             <FontAwesome5
               name="clipboard-check"
-              style={{ fontSize: 30, color: "#F3EDC8" }}
+              style={{ fontSize: iconSize, color: "#F3EDC8" }}
             />
           ),
         }}

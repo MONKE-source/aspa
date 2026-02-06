@@ -4,7 +4,6 @@ import {
   SafeAreaView,
   View,
   StyleSheet,
-  Dimensions,
   TextInput,
   Text,
   Platform,
@@ -13,6 +12,7 @@ import {
   ScrollView,
   Alert,
   KeyboardAvoidingView,
+  useWindowDimensions,
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -27,6 +27,7 @@ import Bmi from "./Bmi";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNHTMLtoPDF from "react-native-html-to-pdf";
 import AcknowledgementsModal from "../components/Acknowledgements";
+import useResponsive from "../components/useResponsive";
 
 function CalcScreen({ navigation }) {
   // Reference dimension : iPhone 14
@@ -15370,18 +15371,72 @@ function CalcScreen({ navigation }) {
         { backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB" },
       ]}
     >
+      <CalcScreenContent
+        isDarkMode={isDarkMode}
+        weight={weight}
+        setWeight={setWeight}
+        buttonState={buttonState}
+        setButtonState={setButtonState}
+        scoliosis={scoliosis}
+        cardiac={cardiac}
+        pain={pain}
+        ett_vitals={ett_vitals}
+        drugs={drugs}
+        files={files}
+        setFileArray={setFileArray}
+        saveFiles={saveFiles}
+        navigation={navigation}
+      />
+    </SafeAreaView>
+  );
+}
+
+function CalcScreenContent({ isDarkMode, weight, setWeight, buttonState, setButtonState, scoliosis, cardiac, pain, ett_vitals, drugs, files, setFileArray, saveFiles, navigation }) {
+  const { width, height, isLandscape, isTablet, wp, hp, ms, fs, tabBarHeight } = useResponsive();
+
+  const btnWidth = isTablet ? Math.max(wp(35), 300) : (isLandscape ? Math.min(wp(30), 300) : wp(46));
+  const btnHeight = isTablet ? Math.max(hp(6), 65) : (isLandscape ? Math.min(hp(10), 56) : hp(6.8));
+  const btnTextSize = isTablet ? ms(18, 0.3) : btnWidth * 0.105;
+  const inputWidth = isTablet ? Math.max(wp(25), 250) : (isLandscape ? Math.min(wp(22), 250) : wp(33));
+  const inputHeight = isTablet ? Math.max(hp(6), 65) : (isLandscape ? Math.min(hp(10), 56) : hp(6.6));
+  const viewBtnWidth = isTablet ? Math.max(wp(30), 280) : (isLandscape ? Math.min(wp(28), 280) : wp(43));
+  const viewBtnHeight = isTablet ? Math.max(hp(6), 65) : (isLandscape ? Math.min(hp(10), 56) : hp(6.5));
+  const selBtnWidth = isTablet ? Math.max(wp(28), 260) : (isLandscape ? Math.min(wp(25), 250) : wp(40));
+  const selBtnHeight = isTablet ? Math.max(hp(5), 55) : (isLandscape ? Math.min(hp(8), 48) : hp(4.7));
+
+  return (
+    <ScrollView
+      contentContainerStyle={{
+        flexGrow: 1,
+        alignItems: "center",
+        paddingBottom: tabBarHeight + 20,
+      }}
+      keyboardShouldPersistTaps="handled"
+    >
       <View
         style={{
           flexDirection: "row",
           justifyContent: "space-around",
-          width: Dimensions.get("window").width,
-          marginTop: 25,
+          width: width,
+          marginTop: isLandscape ? 10 : 25,
           alignItems: "center",
           alignContent: "center",
         }}
       ></View>
 
-      <View style={styles.contentContainer}>
+      <View style={{
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        marginHorizontal: 10,
+        marginVertical: isLandscape ? 10 : 20,
+        marginTop: isLandscape ? 10 : 20,
+        paddingHorizontal: isTablet ? 10 : 5,
+        minHeight: isLandscape ? hp(60) : hp(75),
+        width: isTablet ? width : wp(92.5),
+        maxWidth: isLandscape ? wp(80) : undefined,
+        alignSelf: "center",
+      }}>
         <View style={styles.buttonRow}>
           <View style={styles.buttonColumn1}>
             <TextInputButton
@@ -15389,13 +15444,13 @@ function CalcScreen({ navigation }) {
               unit="kg"
               action={(prop) => setWeight(prop)}
               backgroundColor={"#313135"}
-              width={Dimensions.get("window").width * 0.3333333}
-              height={Dimensions.get("window").height * 0.06635071}
+              width={inputWidth}
+              height={inputHeight}
             />
           </View>
           <View style={styles.buttonColumn2}>
             <Text
-              style={[styles.select, { color: isDarkMode ? "white" : "black" }]}
+              style={[styles.select, { color: isDarkMode ? "white" : "black", fontSize: fs(18) }]}
               allowFontScaling={false}
             >
               Select{" "}
@@ -15405,6 +15460,7 @@ function CalcScreen({ navigation }) {
                   {
                     fontWeight: isDarkMode ? "700" : "800",
                     color: isDarkMode ? "white" : "black",
+                    fontSize: fs(18),
                   },
                 ]}
                 allowFontScaling={false}
@@ -15415,115 +15471,93 @@ function CalcScreen({ navigation }) {
             <TouchableOpacity onPress={() => setButtonState("cardiac")}>
               <TextButton
                 title="Cardiac"
-                width={Dimensions.get("window").width * 0.46153846}
-                height={Dimensions.get("window").height * 0.06812796}
+                width={btnWidth}
+                height={btnHeight}
                 bgHex="#313135"
                 contentHex={"white"}
-                borderRadius={
-                  Dimensions.get("window").height * 0.06812796 * 0.30434783
-                }
+                borderRadius={btnHeight * 0.30434783}
                 borderColor={
                   buttonState === "cardiac" ? "#72A8DA" : "transparent"
                 }
                 borderWidth={2}
                 fontWeight={"700"}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").width * 0.46153846 * 0.08
-                    : Dimensions.get("window").width * 0.46153846 * 0.10555556
-                }
+                textSize={btnTextSize}
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setButtonState("scoliosis")}>
               <TextButton
                 title="Scoliosis"
-                width={Dimensions.get("window").width * 0.46153846}
-                height={Dimensions.get("window").height * 0.06812796}
+                width={btnWidth}
+                height={btnHeight}
                 bgHex="#313135"
                 contentHex={"white"}
                 borderColor={
                   buttonState === "scoliosis" ? "#72A8DA" : "transparent"
                 }
                 borderWidth={2}
-                borderRadius={
-                  Dimensions.get("window").height * 0.06812796 * 0.30434783
-                }
+                borderRadius={btnHeight * 0.30434783}
                 fontWeight={"700"}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").width * 0.46153846 * 0.08
-                    : Dimensions.get("window").width * 0.46153846 * 0.10555556
-                }
+                textSize={btnTextSize}
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setButtonState("drugs")}>
               <TextButton
                 title="Drugs"
-                width={Dimensions.get("window").width * 0.46153846}
-                height={Dimensions.get("window").height * 0.06812796}
+                width={btnWidth}
+                height={btnHeight}
                 bgHex="#313135"
                 contentHex={"white"}
                 borderColor={
                   buttonState === "drugs" ? "#72A8DA" : "transparent"
                 }
                 borderWidth={2}
-                borderRadius={
-                  Dimensions.get("window").height * 0.06812796 * 0.30434783
-                }
+                borderRadius={btnHeight * 0.30434783}
                 fontWeight={"700"}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").width * 0.46153846 * 0.08
-                    : Dimensions.get("window").width * 0.46153846 * 0.10555556
-                }
+                textSize={btnTextSize}
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setButtonState("ett_vitals")}>
               <TextButton
                 title="ETT Vitals"
-                width={Dimensions.get("window").width * 0.46153846}
-                height={Dimensions.get("window").height * 0.06812796}
+                width={btnWidth}
+                height={btnHeight}
                 bgHex="#313135"
                 contentHex={"white"}
                 borderColor={
                   buttonState === "ett_vitals" ? "#72A8DA" : "transparent"
                 }
                 borderWidth={2}
-                borderRadius={
-                  Dimensions.get("window").height * 0.06812796 * 0.30434783
-                }
+                borderRadius={btnHeight * 0.30434783}
                 fontWeight={"700"}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").width * 0.46153846 * 0.08
-                    : Dimensions.get("window").width * 0.46153846 * 0.10555556
-                }
+                textSize={btnTextSize}
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setButtonState("pain")}>
               <TextButton
                 title="Pain"
-                width={Dimensions.get("window").width * 0.46153846}
-                height={Dimensions.get("window").height * 0.06812796}
+                width={btnWidth}
+                height={btnHeight}
                 bgHex="#313135"
                 contentHex={"white"}
                 borderColor={buttonState === "pain" ? "#72A8DA" : "transparent"}
                 borderWidth={2}
-                borderRadius={
-                  Dimensions.get("window").height * 0.06812796 * 0.30434783
-                }
+                borderRadius={btnHeight * 0.30434783}
                 fontWeight={"700"}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").width * 0.46153846 * 0.08
-                    : Dimensions.get("window").width * 0.46153846 * 0.10555556
-                }
+                textSize={btnTextSize}
               />
             </TouchableOpacity>
           </View>
         </View>
-        <View style={{ top: 50 }}>
-          <View style={styles.actionRow}>
+        <View style={{ marginTop: isLandscape ? 20 : 50 }}>
+          <View style={{
+            width: isTablet ? width : wp(92.5),
+            maxWidth: isLandscape ? wp(80) : undefined,
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 15,
+            gap: 20,
+          }}>
             <TouchableOpacity
               onPress={() => {
                 if (buttonState === "scoliosis") {
@@ -15562,64 +15596,61 @@ function CalcScreen({ navigation }) {
                 contentHex="white"
                 borderColor={"rgb(30, 30, 32)"}
                 borderWidth={0}
-                size={(Dimensions.get("window").height / 844) * 25}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").height * 0.04739336 * 0.45
-                    : 19
-                }
+                size={ms(25)}
+                textSize={isTablet ? ms(19, 0.45) : 19}
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate("History")}>
               <FontAwesome
                 name="history"
-                size={40}
+                size={isLandscape ? 30 : 40}
                 color={isDarkMode ? "white" : "#313135"}
               />
             </TouchableOpacity>
           </View>
-          <View style={styles.divider} />
-          <View style={styles.selectionRow}>
+          <View style={{
+            height: 1,
+            width: Math.min(width - 20, isLandscape ? wp(78) : width - 20),
+            borderWidth: 1,
+            borderColor: "#6D6D74",
+            marginVertical: isLandscape ? 20 : 35,
+            alignSelf: "center",
+          }} />
+          <View style={{
+            width: isTablet ? width : wp(92.5),
+            maxWidth: isLandscape ? wp(80) : undefined,
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            marginBottom: isLandscape ? "5%" : "15%",
+          }}>
             <TextButton
               title="Drug"
-              width={Dimensions.get("window").width * 0.4}
-              height={Dimensions.get("window").height * 0.04739336}
+              width={selBtnWidth}
+              height={selBtnHeight}
               bgHex="#313135"
               contentHex={"white"}
               borderColor={"#72A8DA"}
               borderWidth={2}
-              borderRadius={
-                Dimensions.get("window").height * 0.04739336 * 0.94594595
-              }
+              borderRadius={selBtnHeight * 0.94594595}
               fontWeight={"700"}
-              textSize={
-                Platform.isPad
-                  ? Dimensions.get("window").height * 0.04739336 * 0.45
-                  : 19
-              }
+              textSize={isTablet ? ms(19, 0.45) : 19}
             />
             <TouchableOpacity onPress={() => navigation.navigate("Bmi")}>
               <TextButton
                 title="BMI"
-                width={Dimensions.get("window").width * 0.4}
-                height={Dimensions.get("window").height * 0.04739336}
+                width={selBtnWidth}
+                height={selBtnHeight}
                 bgHex="#313135"
                 contentHex={"white"}
-                borderRadius={
-                  Dimensions.get("window").height * 0.04739336 * 0.94594595
-                }
+                borderRadius={selBtnHeight * 0.94594595}
                 fontWeight={"700"}
-                textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").height * 0.04739336 * 0.45
-                    : 19
-                }
+                textSize={isTablet ? ms(19, 0.45) : 19}
               />
             </TouchableOpacity>
           </View>
         </View>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
@@ -15691,7 +15722,7 @@ const FileItem = ({ item, setDisplayFiles, displayFiles, files, setFiles }) => {
       style={{
         flexDirection: "column",
         alignItems: "center",
-        width: Dimensions.get("window").width - 10,
+        width: winWidth - 10,
       }}
     >
       <View
@@ -15699,7 +15730,7 @@ const FileItem = ({ item, setDisplayFiles, displayFiles, files, setFiles }) => {
           flex: 1,
           flexDirection: "column",
           alignItems: "center",
-          width: Dimensions.get("window").width - 20,
+          width: winWidth - 20,
           height: "60%",
         }}
       >
@@ -15850,14 +15881,13 @@ function App() {
 
 const styles = StyleSheet.create({
   treeTop: {
+    flex: 1,
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
-    height: Dimensions.get("window").height,
-    width: Dimensions.get("window").width,
   },
   rectangle: {
-    width: Dimensions.get("window").width * 0.95,
+    width: "95%",
     marginBottom: 20,
     backgroundColor: "rgb(69, 69, 74)",
     borderRadius: 20,
@@ -15867,7 +15897,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     paddingVertical: 15,
     marginHorizontal: 15,
-    height: Dimensions.get("window").height * 0.1,
+    minHeight: 60,
     paddingHorizontal: "5%",
   },
   title: {
@@ -15883,10 +15913,6 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     marginTop: 20,
     paddingHorizontal: Platform.isPad ? 10 : 5,
-    height: Dimensions.get("window").height * 0.7582984,
-    width: Platform.isPad
-      ? Dimensions.get("window").width
-      : Dimensions.get("window").width * 0.925,
   },
   buttonRow: {
     flex: 1,
@@ -15913,31 +15939,6 @@ const styles = StyleSheet.create({
   one: {
     fontSize: 18,
     marginBottom: 10,
-  },
-  actionRow: {
-    width: Platform.isPad
-      ? Dimensions.get("window").width
-      : Dimensions.get("window").width * 0.925,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 15,
-    gap: 20,
-  },
-  divider: {
-    height: 1,
-    width: Dimensions.get("window").width - 20,
-    borderWidth: 1,
-    borderColor: "#6D6D74",
-    marginVertical: 35,
-  },
-  selectionRow: {
-    width: Platform.isPad
-      ? Dimensions.get("window").width
-      : Dimensions.get("window").width * 0.925,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    marginBottom: "15%",
   },
 });
 

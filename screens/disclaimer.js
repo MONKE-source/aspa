@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Dimensions,
   Pressable,
   onPress,
 } from "react-native";

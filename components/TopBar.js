@@ -5,20 +5,30 @@ import {
   Image,
   StyleSheet,
   useWindowDimensions,
-  Dimensions,
   Platform,
   TouchableOpacity,
 } from "react-native";
-// import { TouchableOpacity } from "react-native-gesture-handler";
 
 function TopBar({ navigation }) {
-  const windowWidth = useWindowDimensions().width;
+  const { width, height } = useWindowDimensions();
+  const isLandscape = width > height;
+  const isTablet = Platform.isPad || (Platform.OS === "android" && Math.min(width, height) >= 600);
+
+  const barSize = isLandscape
+    ? Math.min(width * 0.06, 50)
+    : (isTablet ? width * 0.085 : width * 0.1);
+  const searchWidth = isLandscape
+    ? Math.min(width * 0.65, 600)
+    : width * 0.85;
+  const searchHeight = isLandscape
+    ? Math.min(width * 0.06, 50)
+    : (isTablet ? width * 0.085 : width * 0.1);
 
   const dynamicStyles = StyleSheet.create({
     settingsView: {
-      height: Platform.isPad ? windowWidth * 0.085 : windowWidth * 0.1,
-      width: Platform.isPad ? windowWidth * 0.085 : windowWidth * 0.1,
-      borderRadius: (windowWidth * 0.1) / 2,
+      height: barSize,
+      width: barSize,
+      borderRadius: barSize / 2,
       overflow: "hidden",
       backgroundColor: "rgb(49, 49, 53)",
       justifyContent: "center",
@@ -26,31 +36,33 @@ function TopBar({ navigation }) {
       marginLeft: 5,
     },
     settingIcon: {
-      height: Platform.isPad ? "52.5%" : windowWidth * 0.055,
-      width: Platform.isPad ? "52.5%" : windowWidth * 0.055,
+      height: isTablet ? "52.5%" : barSize * 0.55,
+      width: isTablet ? "52.5%" : barSize * 0.55,
       tintColor: "#EAEAEB",
     },
     searchContainer: {
       backgroundColor: "rgb(49, 49, 53)",
-      borderRadius: windowWidth * 0.05,
+      borderRadius: searchHeight / 2,
       marginHorizontal: 7.5,
-      width: windowWidth * 0.85,
-      height: Platform.isPad ? windowWidth * 0.085 : windowWidth * 0.1,
+      width: searchWidth,
+      height: searchHeight,
       flexDirection: "row",
       overflow: "hidden",
       justifyContent: "flex-start",
       alignItems: "center",
-      paddingHorizontal: windowWidth * 0.035,
+      paddingHorizontal: width * 0.035,
     },
     searchIcon: {
-      height: Platform.isPad ? windowWidth * 0.03 : windowWidth * 0.04,
-      width: Platform.isPad ? windowWidth * 0.03 : windowWidth * 0.04,
+      height: isTablet ? width * 0.03 : Math.min(width * 0.04, 20),
+      width: isTablet ? width * 0.03 : Math.min(width * 0.04, 20),
       tintColor: "#818188",
     },
     searchInput: {
-      paddingHorizontal: windowWidth * 0.03,
+      paddingHorizontal: width * 0.03,
       fontWeight: "600",
-      fontSize: Platform.isPad ? windowWidth * 0.034 : windowWidth * 0.045,
+      fontSize: isLandscape
+        ? Math.min(width * 0.025, 18)
+        : (isTablet ? width * 0.034 : width * 0.045),
       color: "white",
       width: "100%",
     },
@@ -61,7 +73,7 @@ function TopBar({ navigation }) {
       style={{
         flexDirection: "row",
         justifyContent: "space-around",
-        width: Dimensions.get("window").width,
+        width: width,
         marginTop: 5,
         alignItems: "center",
         alignContent: "center",

@@ -6,8 +6,10 @@ import {
   SafeAreaView,
   FlatList,
   Platform,
+  useWindowDimensions,
 } from "react-native";
 import { useDarkMode } from "../components/DarkModeContext";
+import useResponsive from "../components/useResponsive";
 
 const acknowledgments = [
   {
@@ -61,6 +63,7 @@ const acknowledgments = [
 
 const AcknowledgementsScreen = () => {
   const { isDarkMode } = useDarkMode();
+  const { width, height, isLandscape, isTablet, ms, fs } = useResponsive();
   const textColor = isDarkMode ? "white" : "black";
   const backgroundColor = isDarkMode ? "rgb(30, 30, 32)" : "#F2EDEB";
 
@@ -103,7 +106,7 @@ const AcknowledgementsScreen = () => {
     <Text
       style={{
         color: textColor,
-        fontSize: Platform.isPad ? 25 : 17.5,
+        fontSize: isTablet ? ms(17.5, 0.4) : 17.5,
         fontWeight: "500",
         marginTop: 15,
         marginBottom: 5,
@@ -116,14 +119,19 @@ const AcknowledgementsScreen = () => {
   );
 
   return (
-    <SafeAreaView style={{ backgroundColor }}>
+    <SafeAreaView style={{ backgroundColor, flex: 1 }}>
       <FlatList
         data={acknowledgments}
         renderItem={renderAcknowledgment}
         keyExtractor={(item, index) => index.toString()}
         ListHeaderComponent={renderHeader}
         ListFooterComponent={renderFooter}
-        contentContainerStyle={[styles.container, { backgroundColor }]}
+        contentContainerStyle={[styles.container, {
+          backgroundColor,
+          maxWidth: isLandscape ? Math.min(width * 0.7, 700) : undefined,
+          alignSelf: isLandscape ? "center" : undefined,
+          paddingBottom: isLandscape ? 70 : 100,
+        }]}
       />
     </SafeAreaView>
   );

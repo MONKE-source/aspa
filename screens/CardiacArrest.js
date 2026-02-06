@@ -5,16 +5,20 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import {
   SafeAreaView,
   StyleSheet,
-  Dimensions,
   Text,
   View,
   ScrollView,
   TouchableOpacity,
   Platform,
+  useWindowDimensions,
 } from "react-native";
 
 export default function CardiacArrest({ navigation }) {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { width, height } = useWindowDimensions();
+  const shortDim = Math.min(width, height);
+  const isTablet = Platform.isPad || (Platform.OS === "android" && shortDim >= 600);
+  const scaleFactor = 1 + (shortDim / 375 - 1) * 0.3;
   const [checklistItems, setChecklistItems] = useState([
     { id: 1, text: "Check patient's responsiveness", completed: false },
     { id: 2, text: "Call emergency services", completed: false },
@@ -40,7 +44,7 @@ export default function CardiacArrest({ navigation }) {
       <ScrollView style={{ marginBottom: "20%" }}>
         <View style={styles.container}>
           <Text
-            style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+            style={[styles.title, { color: isDarkMode ? "white" : "black", fontSize: 25 * scaleFactor }]}
             allowFontScaling={false}
           >
             Cardiac Arrest
@@ -81,11 +85,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
     marginBottom: 50,
-    height: "100%",
-    paddingBottom: "100",
+    paddingBottom: 100,
   },
   title: {
-    fontSize: Platform.isPad ? 40 : 25 * (Dimensions.get("window").width / 375),
+    fontSize: Platform.isPad ? 30 : 25,
     marginBottom: 20,
     fontWeight: "bold",
   },
@@ -102,7 +105,7 @@ const styles = StyleSheet.create({
     marginRight: 15,
     justifyContent: "center",
     alignItems: "center",
-    borderColor: useDarkMode ? "#D3D3D3" : "black",
+    borderColor: "#D3D3D3",
   },
   tick: {
     fontSize: 20,

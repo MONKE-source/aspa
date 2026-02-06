@@ -1,6 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, Dimensions } from "react-native";
-// import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { View, StyleSheet, Text, useWindowDimensions, Platform } from "react-native";
 
 function IconButton({
   bgHex,
@@ -12,6 +11,21 @@ function IconButton({
   size,
   textSize,
 }) {
+  const { width, height } = useWindowDimensions();
+  const isLandscape = width > height;
+  const isTablet = Platform.isPad || (Platform.OS === "android" && Math.min(width, height) >= 600);
+
+  const btnWidth = isTablet
+    ? Math.max(width * 0.3, 280)
+    : isLandscape
+      ? Math.min(width * 0.3, 280)
+      : width * 0.43;
+  const btnHeight = isTablet
+    ? Math.max(height * 0.06, 65)
+    : isLandscape
+      ? Math.min(height * 0.1, 56)
+      : height * 0.06516588;
+
   return (
     <View
       style={[
@@ -22,6 +36,8 @@ function IconButton({
           borderWidth: borderWidth,
           justifyContent: "center",
           alignItems: "center",
+          width: btnWidth,
+          height: btnHeight,
         },
       ]}
     >
@@ -31,7 +47,6 @@ function IconButton({
       >
         {title}
       </Text>
-      {/* <MaterialCommunityIcons name={iconPath} color={contentHex} size={size} /> */}
     </View>
   );
 }
@@ -39,8 +54,6 @@ function IconButton({
 const styles = StyleSheet.create({
   buttonContainer: {
     borderRadius: 17.5,
-    width: Dimensions.get("window").width * 0.43,
-    height: Dimensions.get("window").height * 0.06516588,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",

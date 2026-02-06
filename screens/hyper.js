@@ -10,8 +10,8 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
-  Dimensions,
   Platform,
+  useWindowDimensions,
 } from "react-native";
 import FileViewer from "react-native-file-viewer";
 import IconButton from "../components/IconButton";
@@ -20,6 +20,10 @@ import RNHTMLtoPDF from "react-native-html-to-pdf";
 
 export default function Hyper() {
   const { weight, setWeight } = useContext(WeightContext);
+  const { width, height } = useWindowDimensions();
+  const shortDim = Math.min(width, height);
+  const isTablet = Platform.isPad || (Platform.OS === "android" && shortDim >= 600);
+  const scaleFactor = 1 + (shortDim / 375 - 1) * 0.3;
   const [files, setFileArray] = useState([]);
 
   const getFilePaths = async () => {
@@ -1579,7 +1583,7 @@ export default function Hyper() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25 * (Dimensions.get("window").width / 375),
+                fontSize: 25 * scaleFactor,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1627,7 +1631,7 @@ export default function Hyper() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25 * (Dimensions.get("window").width / 375),
+                fontSize: 25 * scaleFactor,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1674,7 +1678,7 @@ export default function Hyper() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25 * (Dimensions.get("window").width / 375),
+                fontSize: 25 * scaleFactor,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1867,7 +1871,7 @@ export default function Hyper() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25 * (Dimensions.get("window").width / 375),
+                fontSize: 25 * scaleFactor,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -1986,10 +1990,10 @@ export default function Hyper() {
                   contentHex="white"
                   borderColor={"rgb(30, 30, 32)"}
                   borderWidth={0}
-                  size={(Dimensions.get("window").height / 844) * 25}
+                  size={(height / 844) * 25}
                   textSize={
                     Platform.isPad
-                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      ? height * 0.04739336 * 0.45
                       : 19
                   }
                 />
@@ -2011,7 +2015,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   title: {
-    fontSize: 23 * (Dimensions.get("window").width / 375),
+    fontSize: Platform.isPad ? 30 : 23,
     marginBottom: 20,
     fontWeight: "bold",
   },
@@ -2035,11 +2039,11 @@ const styles = StyleSheet.create({
   },
   checklistText: {
     flex: 1,
-    fontSize: Platform.isPad ? 30 : 18,
+    fontSize: Platform.isPad ? 24 : 18,
   },
   minorText: {
     fontSize: Platform.isPad
       ? 20
-      : 13.5 * (Dimensions.get("window").width / 375),
+      : 13.5,
   },
 });

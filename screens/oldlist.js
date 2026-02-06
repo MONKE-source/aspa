@@ -7,16 +7,16 @@ import {
   SafeAreaView,
   FlatList,
   TouchableOpacity,
-  Dimensions,
+  useWindowDimensions,
   Animated,
 } from 'react-native';
 import {Swipeable, GestureHandlerRootView} from 'react-native-gesture-handler';
 
-const {width, height} = Dimensions.get('window');
 const ITEM_HEIGHT = 50;
 const DROPDOWN_HEIGHT = 200;
 
 export default function Main() {
+  const { width, height } = useWindowDimensions();
   const data = [
     {id: '1', title: 'Training Programmes', subid: ['Training Programmes']},
     {

@@ -6,17 +6,19 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
-  Dimensions,
   Image,
   Platform,
   Alert,
+  useWindowDimensions,
 } from "react-native";
 import { openGitPDF } from "../Main";
 import TextButton from "../../components/TextButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import useResponsive from "../../components/useResponsive";
 
 const Terms = ({ navigation }) => {
-  const [fontSize, setFontSize] = useState(Platform.isPad ? 25 : 18);
+  const { width, height, isLandscape, isTablet, ms, fs, wp, hp } = useResponsive();
+  const fontSize = isTablet ? ms(18, 0.4) : 18;
 
   return (
     <SafeAreaView
@@ -25,20 +27,24 @@ const Terms = ({ navigation }) => {
         flex: 1,
       }}
     >
-      <ScrollView contentContainerStyle={{ paddingBottom: "0%" }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: "0%", alignItems: isLandscape ? "center" : undefined }}>
+        <View style={{ maxWidth: isLandscape ? Math.min(width * 0.7, 700) : undefined, width: "100%", alignSelf: "center" }}>
         <Image
           source={require("../../assets/blackaspa.png")}
-          style={styles.Image}
+          style={[styles.Image, {
+            maxWidth: isLandscape ? Math.min(width * 0.5, 500) : undefined,
+            alignSelf: "center",
+          }]}
           resizeMode="contain"
         />
         <Text
           style={{
             fontWeight: "bold",
             color: "black",
-            fontSize: 30,
+            fontSize: isTablet ? ms(30, 0.4) : (isLandscape ? 26 : 30),
             padding: 25,
             alignSelf: "center",
-            marginTop: Platform.isPad ? "-2%" : "-8%",
+            marginTop: isTablet ? "-2%" : (isLandscape ? 0 : "-8%"),
           }}
           allowFontScaling={false}
         >
@@ -143,23 +149,24 @@ const Terms = ({ navigation }) => {
         >
           <TextButton
             title="Accept"
-            width={Dimensions.get("window").width * 0.46153846}
-            height={Dimensions.get("window").height * 0.06812796}
+            width={isLandscape ? Math.min(wp(35), 300) : wp(46)}
+            height={isLandscape ? Math.min(hp(10), 56) : hp(6.8)}
             bgHex="#72A8DA"
             contentHex={"white"}
             borderColor={"transparent"}
             borderWidth={1}
             borderRadius={
-              Dimensions.get("window").height * 0.06812796 * 0.30434783
+              (isLandscape ? Math.min(hp(10), 56) : hp(6.8)) * 0.30434783
             }
             fontWeight={"700"}
             textSize={
-              Platform.isPad
-                ? Dimensions.get("window").width * 0.46153846 * 0.08
-                : Dimensions.get("window").width * 0.46153846 * 0.10555556
+              isTablet
+                ? (isLandscape ? Math.min(wp(35), 300) : wp(46)) * 0.08
+                : (isLandscape ? Math.min(wp(35), 300) : wp(46)) * 0.10555556
             }
           />
         </TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

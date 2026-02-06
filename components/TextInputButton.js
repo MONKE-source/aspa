@@ -6,6 +6,8 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   Keyboard,
+  useWindowDimensions,
+  Platform,
 } from "react-native";
 import { DarkModeContext, useDarkMode } from "../components/DarkModeContext";
 
@@ -19,6 +21,9 @@ function TextInputButton({
   action,
 }) {
   const inputRef = useRef(null);
+  const { width: dimW, height: dimH } = useWindowDimensions();
+  const shortDim = Math.min(dimW, dimH);
+  const fontScale = 1 + (shortDim / 375 - 1) * 0.3;
   const handleInputChange = (text) => {
     action(text);
   };
@@ -31,7 +36,7 @@ function TextInputButton({
     <TouchableWithoutFeedback onPress={handleTextInputBlur}>
       <View style={styles.buttonContainer}>
         <Text
-          style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+          style={[styles.title, { color: isDarkMode ? "white" : "black", fontSize: 18 * fontScale }]}
           allowFontScaling={false}
         >
           {title}
@@ -45,6 +50,7 @@ function TextInputButton({
                 width: width,
                 height: height,
                 backgroundColor: backgroundColor,
+                fontSize: 20 * fontScale,
               },
             ]}
             placeholder="0.0"
@@ -57,7 +63,7 @@ function TextInputButton({
             allowFontScaling={false}
           />
           <Text
-            style={[styles.unit, { color: isDarkMode ? "white" : "black" }]}
+            style={[styles.unit, { color: isDarkMode ? "white" : "black", fontSize: 18 * fontScale }]}
             allowFontScaling={false}
           >
             {unit}

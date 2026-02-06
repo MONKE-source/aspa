@@ -5,16 +5,21 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import {
   SafeAreaView,
   StyleSheet,
-  Dimensions,
   Text,
   View,
   ScrollView,
   TouchableOpacity,
   Platform,
+  useWindowDimensions,
 } from "react-native";
 
 export default function Basiclifesupport() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { width, height } = useWindowDimensions();
+  const isLandscape = width > height;
+  const shortDim = Math.min(width, height);
+  const isTablet = Platform.isPad || (Platform.OS === "android" && shortDim >= 600);
+  const scaleFactor = 1 + (shortDim / 375 - 1) * 0.3;
   const [checklistItems, setChecklistItems] = useState([
     { id: 1, text: "Open airway", completed: false },
     { id: 2, text: "Check for spontaneous breathing", completed: false },
@@ -64,7 +69,7 @@ export default function Basiclifesupport() {
             onPress={() => setCollapsed1(!collapsed1)}
           >
             <Text
-              style={[styles.title, { color: isDarkMode ? "white" : "black" }]}
+              style={[styles.title, { color: isDarkMode ? "white" : "black", fontSize: 23 * scaleFactor }]}
               allowFontScaling={false}
             >
               Basic Life Support Checklist
@@ -72,7 +77,7 @@ export default function Basiclifesupport() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25 * (Dimensions.get("window").width / 375),
+                fontSize: 25 * scaleFactor,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -123,6 +128,7 @@ export default function Basiclifesupport() {
                 styles.title,
                 {
                   color: isDarkMode ? "white" : "black",
+                  fontSize: 23 * scaleFactor,
                 },
               ]}
               allowFontScaling={false}
@@ -132,7 +138,7 @@ export default function Basiclifesupport() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25 * (Dimensions.get("window").width / 375),
+                fontSize: 25 * scaleFactor,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -190,7 +196,7 @@ export default function Basiclifesupport() {
                   color: isDarkMode ? "white" : "black",
                   marginTop: "1%",
                   marginBottom: "1%",
-                  fontSize: 23 * (Dimensions.get("window").width / 375),
+                  fontSize: 23 * scaleFactor,
                 },
               ]}
               allowFontScaling={false}
@@ -200,7 +206,7 @@ export default function Basiclifesupport() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25 * (Dimensions.get("window").width / 375),
+                fontSize: 25 * scaleFactor,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -252,10 +258,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
     marginBottom: 50,
-    paddingBottom: "100",
+    paddingBottom: 100,
   },
   title: {
-    fontSize: 23 * (Dimensions.get("window").width / 375),
+    fontSize: Platform.isPad ? 30 : 23,
     marginBottom: 20,
     fontWeight: "bold",
   },
@@ -272,7 +278,7 @@ const styles = StyleSheet.create({
     marginRight: 15,
     justifyContent: "center",
     alignItems: "center",
-    borderColor: useDarkMode ? "#D3D3D3" : "black",
+    borderColor: "#D3D3D3",
   },
   tick: {
     fontSize: Platform.isPad ? 30 : 20,
@@ -280,10 +286,10 @@ const styles = StyleSheet.create({
   },
   checklistText: {
     flex: 1,
-    fontSize: Platform.isPad ? 30 : 18,
+    fontSize: Platform.isPad ? 24 : 18,
   },
   subText: {
-    fontSize: Platform.isPad ? 24 : 14,
+    fontSize: Platform.isPad ? 20 : 14,
     marginLeft: "4%",
   },
 });

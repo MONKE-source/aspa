@@ -8,15 +8,18 @@ import {
   TouchableOpacity,
   Platform,
   Image,
+  useWindowDimensions,
 } from "react-native";
 import { useDarkMode } from "../components/DarkModeContext";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { openGitPDF } from "./Main"; // function to open the pdfs
 import Settings from "./Settings";
+import useResponsive from "../components/useResponsive";
 
 const Info = ({ navigation }) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  const [fontSize, setFontSize] = useState(Platform.isPad ? 25 : 18);
+  const { width, height, isLandscape, isTablet, ms, fs } = useResponsive();
+  const fontSize = isTablet ? ms(18, 0.4) : 18;
 
   const imageURI = isDarkMode
     ? require("../assets/aspaImage.png")
@@ -27,21 +30,25 @@ const Info = ({ navigation }) => {
       style={{
         backgroundColor: isDarkMode ? "rgb(30, 30, 32)" : "white",
         flex: 1,
-        marginBottom: 50,
+        marginBottom: isLandscape ? 40 : 50,
       }}
     >
-      <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 100, alignItems: isLandscape ? "center" : undefined }}>
+        <View style={{ maxWidth: isLandscape ? Math.min(width * 0.7, 700) : undefined, alignSelf: "center", width: "100%" }}>
         <View>
-          <Image source={imageURI} style={styles.Image} resizeMode="contain" />
+          <Image source={imageURI} style={[styles.Image, {
+            maxWidth: isLandscape ? Math.min(width * 0.5, 500) : undefined,
+            alignSelf: "center",
+          }]} resizeMode="contain" />
         </View>
         <Text
           style={{
             fontWeight: "bold",
             color: isDarkMode ? "white" : "black",
-            fontSize: Platform.isPad ? 50 : 30,
+            fontSize: isTablet ? ms(30, 0.4) : (isLandscape ? 26 : 30),
             padding: 25,
             alignSelf: "center",
-            marginTop: Platform.isPad ? 0 : "-8%",
+            marginTop: isTablet ? 0 : (isLandscape ? 0 : "-8%"),
           }}
           allowFontScaling={false}
         >
@@ -74,8 +81,9 @@ const Info = ({ navigation }) => {
           style={{
             backgroundColor: isDarkMode ? "white" : "#45454A",
             width: "90%",
+            maxWidth: isLandscape ? 600 : undefined,
             alignSelf: "center",
-            height: Platform.isPad ? "8%" : "5%",
+            minHeight: 48,
             justifyContent: "center",
             borderRadius: 10,
             marginTop: 20,
@@ -94,7 +102,7 @@ const Info = ({ navigation }) => {
               marginLeft: 15,
               color: isDarkMode ? "black" : "white",
               fontWeight: "bold",
-              fontSize: Platform.isPad ? 24 : 16,
+              fontSize: isTablet ? ms(16, 0.4) : 16,
             }}
             allowFontScaling={false}
           >
@@ -106,8 +114,9 @@ const Info = ({ navigation }) => {
           style={{
             backgroundColor: isDarkMode ? "white" : "#45454A",
             width: "90%",
+            maxWidth: isLandscape ? 600 : undefined,
             alignSelf: "center",
-            height: Platform.isPad ? "8%" : "5%",
+            minHeight: 48,
             justifyContent: "center",
             borderRadius: 10,
             marginTop: 5,
@@ -125,7 +134,7 @@ const Info = ({ navigation }) => {
           <Text
             style={{
               marginLeft: 15,
-              fontSize: Platform.isPad ? 24 : 16,
+              fontSize: isTablet ? ms(16, 0.4) : 16,
               color: isDarkMode ? "black" : "white",
               fontWeight: "bold",
             }}
@@ -178,6 +187,7 @@ const Info = ({ navigation }) => {
         >
           2024 © Caleb Han, Aathithya Jegatheesan, Ted Goh, arth, Darryan Lim
         </Text>
+        </View>
 
         {/* Settings Section */}
         {/*<View style={styles.settingsContainer}>

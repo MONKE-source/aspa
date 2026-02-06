@@ -8,9 +8,9 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Dimensions,
   Platform,
   Alert,
+  useWindowDimensions,
 } from "react-native";
 import TextInputButton from "../components/TextInputButton";
 // import TextButton from '../components/TextButton';
@@ -21,15 +21,22 @@ import { useDarkMode } from "../components/DarkModeContext";
 // import { ScrollView } from "react-native-gesture-handler";
 import FileViewer from "react-native-file-viewer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import useResponsive from "../components/useResponsive";
 
 export default function Bmi() {
   const { isDarkMode } = useDarkMode();
+  const { width: winWidth, height: winHeight } = useWindowDimensions();
+  const shortDim = Math.min(winWidth, winHeight);
+  const isTablet = Platform.isPad || (Platform.OS === "android" && shortDim >= 600);
+  const fontScale = 1 + (shortDim / 375 - 1) * 0.3;
+  // Use moderate scaling for input dimensions on tablet
+  const inputScale = isTablet ? 1 + (shortDim / 390 - 1) * 0.4 : 1;
 
   const [age, setAge] = useState("");
-  const [height, setHeight] = useState(0);
-  const [weight, setWeight] = useState(0);
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
   const [isMale, setGender] = useState(true);
-  const [bmi, setBmi] = useState(0);
+  const [bmi, setBmi] = useState("");
   const [result, setResult] = useState("Input values to get result");
   const [files, setFileArray] = useState([]);
   const getFilePaths = async () => {
@@ -147,8 +154,8 @@ export default function Bmi() {
             <TextInputButton
               title="Patient Age"
               unit=""
-              width={(Dimensions.get("window").width * 125) / 390}
-              height={(Dimensions.get("window").height * 55) / 844}
+              width={isTablet ? 180 * inputScale : (winWidth * 125) / 390}
+              height={isTablet ? 65 * inputScale : (winHeight * 55) / 844}
               backgroundColor={"#313135"}
               store={age}
               action={setAge}
@@ -156,10 +163,10 @@ export default function Bmi() {
           </View>
           <View style={styles.segmentedControlRow}>
             <SegmentedControl
-              width={(Dimensions.get("window").width * 260) / 390}
-              height={(Dimensions.get("window").height * 35) / 844}
+              width={isTablet ? Math.min(winWidth * 0.55, 500) : (winWidth * 260) / 390}
+              height={isTablet ? 50 * inputScale : (winHeight * 35) / 844}
               titleArray={["Male", "Female"]}
-              fontSize={(Dimensions.get("window").height / 844) * 16}
+              fontSize={16 * fontScale}
               color1={"#45454A"}
               color2={"#313135"}
               optionStore={isMale}
@@ -171,8 +178,8 @@ export default function Bmi() {
               <TextInputButton
                 title="Height"
                 unit="cm"
-                width={(Dimensions.get("window").width * 120) / 390}
-                height={(Dimensions.get("window").height * 55) / 844}
+                width={isTablet ? 170 * inputScale : (winWidth * 120) / 390}
+                height={isTablet ? 65 * inputScale : (winHeight * 55) / 844}
                 backgroundColor={"#313135"}
                 store={height}
                 action={setHeight}
@@ -181,8 +188,8 @@ export default function Bmi() {
               <TextInputButton
                 title="Weight"
                 unit="kg"
-                width={(Dimensions.get("window").width * 120) / 390}
-                height={(Dimensions.get("window").height * 55) / 844}
+                width={isTablet ? 170 * inputScale : (winWidth * 120) / 390}
+                height={isTablet ? 65 * inputScale : (winHeight * 55) / 844}
                 backgroundColor={"#313135"}
                 store={weight}
                 action={setWeight}
@@ -197,8 +204,8 @@ export default function Bmi() {
               /> */}
               <TextInputButton
                 title="BMI"
-                width={(Dimensions.get("window").width * 125) / 390}
-                height={(Dimensions.get("window").height * 55) / 844}
+                width={isTablet ? 180 * inputScale : (winWidth * 125) / 390}
+                height={isTablet ? 65 * inputScale : (winHeight * 55) / 844}
                 backgroundColor={"#45454A"}
                 store={bmi}
                 action={setBmi}
@@ -209,7 +216,7 @@ export default function Bmi() {
             style={{
               marginTop: 30,
               fontWeight: "700",
-              fontSize: (Dimensions.get("window").height / 844) * 18,
+              fontSize: 18 * fontScale,
               color: isDarkMode ? "white" : "black",
             }}
             allowFontScaling={false}
@@ -225,10 +232,10 @@ export default function Bmi() {
                 contentHex="white"
                 borderColor={"rgb(30, 30, 32)"}
                 borderWidth={0}
-                size={(Dimensions.get("window").height / 844) * 25}
+                size={25 * fontScale}
                 textSize={
-                  Platform.isPad
-                    ? Dimensions.get("window").height * 0.04739336 * 0.45
+                  isTablet
+                    ? 19 * fontScale
                     : 19
                 }
               />
@@ -240,25 +247,25 @@ export default function Bmi() {
           
             <TextButton
               title="Drug"
-              width={(Dimensions.get("window").width * 156) / 390}
-              height={(Dimensions.get("window").height * 40) / 844}
+              width={(winWidth * 156) / 390}
+              height={(winHeight * 40) / 844}
               bgHex="#313135"
               contentHex={"white"}
               borderRadius={17.5}
               fontWeight={"700"}
-              textSize={(Dimensions.get("window").height / 844) * 18}
+              textSize={(winHeight / 844) * 18}
             />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate("Bmi")}>
             <TextButton
               title="BMI"
-              width={(Dimensions.get("window").width * 156) / 390}
-              height={(Dimensions.get("window").height * 40) / 844}
+              width={(winWidth * 156) / 390}
+              height={(winHeight * 40) / 844}
               bgHex="#313135"
               contentHex={"white"}
               borderRadius={17.5}
               fontWeight={"700"}
-              textSize={(Dimensions.get("window").height / 844) * 18}
+              textSize={(winHeight / 844) * 18}
             />
           </TouchableOpacity>
         </View> */}
@@ -272,18 +279,15 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
-    height: Dimensions.get("window").height,
-    width: Dimensions.get("window").width,
-    // marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   contentContainer: {
     flexDirection: "column",
-    // justifyContent: "center",
     marginHorizontal: 10,
     marginVertical: 30,
-    height: Dimensions.get("window").height * 0.75,
-    width: Dimensions.get("window").width * 0.95,
+    width: "95%",
+    maxWidth: 700,
     paddingBottom: 30,
+    alignSelf: "center",
   },
   mainContent: {
     flexDirection: "column",
@@ -324,7 +328,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     height: 1,
-    width: Dimensions.get("window").width - 20,
+    width: "100%",
     borderWidth: 1,
     borderColor: "#6D6D74",
     marginVertical: 35,

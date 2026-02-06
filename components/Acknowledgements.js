@@ -5,10 +5,17 @@ import {
   Text,
   Button,
   StyleSheet,
-  Dimensions,
+  useWindowDimensions,
+  Platform,
 } from "react-native";
 
 const AcknowledgementsModal = ({ visible, onClose }) => {
+  const { width, height } = useWindowDimensions();
+  const isLandscape = width > height;
+  const isTablet = Platform.isPad || (Platform.OS === "android" && Math.min(width, height) >= 600);
+  const shortDim = Math.min(width, height);
+  const scaledFontSize = (size) => size * (shortDim / 375);
+
   return (
     <Modal
       animationType="slide"
@@ -17,11 +24,14 @@ const AcknowledgementsModal = ({ visible, onClose }) => {
       onRequestClose={onClose}
     >
       <View style={styles.centeredView}>
-        <View style={styles.modalView}>
-          <Text style={styles.modalTitle} allowFontScaling={false}>
+        <View style={[styles.modalView, {
+          maxWidth: isLandscape ? Math.min(width * 0.6, 600) : width * 0.9,
+          maxHeight: isLandscape ? height * 0.85 : undefined,
+        }]}>
+          <Text style={[styles.modalTitle, { fontSize: scaledFontSize(23) }]} allowFontScaling={false}>
             Preface
           </Text>
-          <Text style={styles.modalText} allowFontScaling={false}>
+          <Text style={[styles.modalText, { fontSize: scaledFontSize(17.5) }]} allowFontScaling={false}>
             Asian Society of Paediatric Anaesthesia (ASPA) is about sharing. The
             ASPA app is created with the vision to share knowledge and practical
             tips on perioperative management of children in Asia. There may be
@@ -61,16 +71,13 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center",
-    fontSize: 17.5 * (Dimensions.get("window").width / 375),
     fontWeight: "400",
     lineHeight: 30,
     paddingHorizontal: 10,
   },
   modalTitle: {
-    fontSize: 23 * (Dimensions.get("window").width / 375),
-    marginBottom: 20,
-    fontWeight: "bold",
     marginBottom: 15,
+    fontWeight: "bold",
     textAlign: "center",
   },
 });

@@ -10,8 +10,8 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
-  Dimensions,
   Platform,
+  useWindowDimensions,
 } from "react-native";
 import FileViewer from "react-native-file-viewer";
 import IconButton from "../components/IconButton";
@@ -20,6 +20,10 @@ import RNHTMLtoPDF from "react-native-html-to-pdf";
 
 export default function LA() {
   const { weight, setWeight } = useContext(WeightContext);
+  const { width, height } = useWindowDimensions();
+  const shortDim = Math.min(width, height);
+  const isTablet = Platform.isPad || (Platform.OS === "android" && shortDim >= 600);
+  const scaleFactor = 1 + (shortDim / 375 - 1) * 0.3;
   const [files, setFileArray] = useState([]);
 
   const getFilePaths = async () => {
@@ -2531,7 +2535,7 @@ export default function LA() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25 * (Dimensions.get("window").width / 375),
+                fontSize: 25 * scaleFactor,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -2589,7 +2593,7 @@ export default function LA() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25 * (Dimensions.get("window").width / 375),
+                fontSize: 25 * scaleFactor,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -2642,7 +2646,7 @@ export default function LA() {
             <FontAwesome5
               name="chevron-down"
               style={{
-                fontSize: 25 * (Dimensions.get("window").width / 375),
+                fontSize: 25 * scaleFactor,
                 color: isDarkMode ? "#F3EDC8" : "black",
                 marginLeft: "auto",
                 transform: [
@@ -2701,10 +2705,10 @@ export default function LA() {
                   contentHex="white"
                   borderColor={"rgb(30, 30, 32)"}
                   borderWidth={0}
-                  size={(Dimensions.get("window").height / 844) * 25}
+                  size={(height / 844) * 25}
                   textSize={
                     Platform.isPad
-                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      ? height * 0.04739336 * 0.45
                       : 19
                   }
                 />
@@ -2717,10 +2721,10 @@ export default function LA() {
                   contentHex="white"
                   borderColor={"rgb(30, 30, 32)"}
                   borderWidth={0}
-                  size={(Dimensions.get("window").height / 844) * 25}
+                  size={(height / 844) * 25}
                   textSize={
                     Platform.isPad
-                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      ? height * 0.04739336 * 0.45
                       : 16
                   }
                 />
@@ -2733,10 +2737,10 @@ export default function LA() {
                   contentHex="white"
                   borderColor={"rgb(30, 30, 32)"}
                   borderWidth={0}
-                  size={(Dimensions.get("window").height / 844) * 25}
+                  size={(height / 844) * 25}
                   textSize={
                     Platform.isPad
-                      ? Dimensions.get("window").height * 0.04739336 * 0.45
+                      ? height * 0.04739336 * 0.45
                       : 16.5
                   }
                 />
@@ -2754,12 +2758,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
     marginBottom: 50,
-    height: "100%",
-    paddingBottom: "100",
+    paddingBottom: 100,
     gap: 10,
   },
   title: {
-    fontSize: 23 * (Dimensions.get("window").width / 375),
+    fontSize: Platform.isPad ? 30 : 23,
     marginBottom: 20,
     fontWeight: "bold",
   },
@@ -2776,7 +2779,7 @@ const styles = StyleSheet.create({
     marginRight: 15,
     justifyContent: "center",
     alignItems: "center",
-    borderColor: useDarkMode ? "#D3D3D3" : "black",
+    borderColor: "#D3D3D3",
   },
   tick: {
     fontSize: Platform.isPad ? 30 : 20,
@@ -2784,6 +2787,6 @@ const styles = StyleSheet.create({
   },
   checklistText: {
     flex: 1,
-    fontSize: Platform.isPad ? 30 : 18,
+    fontSize: Platform.isPad ? 24 : 18,
   },
 });

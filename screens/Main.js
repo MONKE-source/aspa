@@ -10,7 +10,6 @@ import {
   useWindowDimensions,
   Image,
   TextInput,
-  Dimensions,
   Platform,
   Alert,
 } from "react-native";
@@ -25,6 +24,7 @@ import RNFS from "react-native-fs";
 import FileViewer from "react-native-file-viewer";
 import Settings from "./Settings";
 import { checkPdfExists, getLocalPdfPath } from "../utils/pdfManager";
+import useResponsive from "../components/useResponsive";
 
 const data = [
   {
@@ -474,45 +474,44 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
     </View>
   );
 
-  const windowWidth = useWindowDimensions().width;
+  const { width, height, isLandscape, isTablet, ms, fs } = useResponsive();
 
   const dynamicStyles = StyleSheet.create({
     settingsView: {
-      height: windowWidth * 0.1,
-      width: windowWidth * 0.1,
-      borderRadius: (windowWidth * 0.1) / 2,
+      height: isLandscape ? Math.min(width * 0.06, 50) : width * 0.1,
+      width: isLandscape ? Math.min(width * 0.06, 50) : width * 0.1,
+      borderRadius: (width * 0.1) / 2,
       overflow: "hidden",
       backgroundColor: "rgb(49, 49, 53)",
       justifyContent: "center",
       alignItems: "center",
-      // left: 5,
     },
     settingIcon: {
-      height: windowWidth * 0.055,
-      width: windowWidth * 0.055,
+      height: width * 0.055,
+      width: width * 0.055,
       tintColor: "#EAEAEB",
     },
     searchContainer: {
       backgroundColor: "rgb(49, 49, 53)",
-      borderRadius: windowWidth * 0.05,
+      borderRadius: width * 0.05,
       marginHorizontal: 7.5,
-      width: windowWidth * 0.85,
-      height: windowWidth * 0.1,
+      width: isLandscape ? Math.min(width * 0.65, 600) : width * 0.85,
+      height: isLandscape ? Math.min(width * 0.06, 50) : width * 0.1,
       flexDirection: "row",
       overflow: "hidden",
       justifyContent: "flex-start",
       alignItems: "center",
-      paddingHorizontal: windowWidth * 0.035,
+      paddingHorizontal: width * 0.035,
     },
     searchIcon: {
-      height: windowWidth * 0.04,
-      width: windowWidth * 0.04,
+      height: Math.min(width * 0.04, 20),
+      width: Math.min(width * 0.04, 20),
       tintColor: "#818188",
     },
     searchInput: {
-      paddingHorizontal: windowWidth * 0.03,
+      paddingHorizontal: width * 0.03,
       fontWeight: "600",
-      fontSize: windowWidth * 0.045,
+      fontSize: isLandscape ? Math.min(width * 0.025, 18) : width * 0.045,
       color: "white",
     },
     clearButton: {},
@@ -531,7 +530,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
             isDarkMode ? styles.darkModeText : styles.lightModeText,
             {
               fontWeight: "bold",
-              fontSize: Platform.isPad ? 60 : 40,
+              fontSize: isTablet ? ms(40, 0.4) : (isLandscape ? 30 : 40),
               padding: 20,
             },
           ]}
@@ -542,9 +541,10 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
         {/* Touchable Opacity to view bookmarked  */}
         <TouchableOpacity
           style={{
-            marginLeft: Platform.isPad ? "45%" : "23%",
+            marginLeft: isLandscape ? "auto" : (isTablet ? "45%" : "23%"),
             marginTop: 10,
             padding: 10,
+            marginRight: isLandscape ? 20 : 0,
           }}
           onPress={() => {
             const bookmarkedItems = items.reduce((acc, item) => {
@@ -591,7 +591,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
             <SimpleLineIcons
               name="settings"
               style={{
-                fontSize: 70,
+                fontSize: isTablet ? ms(28, 0.4) : 28,
                 color: isDarkMode ? "white" : "black",
               }}
             />
@@ -636,7 +636,7 @@ const BookmarkSubtitlesFlatList = ({ navigation }) => {
       </View>
       <FlatList
         data={filteredData}
-        style={{ flex: 1, top: 20, marginBottom: 90 }}
+        style={{ flex: 1, top: 20, marginBottom: isLandscape ? 60 : 90 }}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.flatList}
