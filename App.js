@@ -5,6 +5,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { View, Text, StyleSheet } from "react-native";
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 import CalcScreen from "./screens/CalcScreen";
 import Main from "./screens/Main";
 import CrisisNavigator from "./screens/Crisis";
@@ -12,7 +16,7 @@ import Info from "./screens/Info";
 import AcknowledgementsScreen from "./screens/credits";
 import WelcomeScreen from "./screens/setup/first_screen";
 import Terms from "./screens/setup/terms";
-import { DarkModeProvider, useDarkMode  } from "./components/DarkModeContext";
+import { DarkModeProvider, useDarkMode } from "./components/DarkModeContext";
 import useResponsive from "./components/useResponsive";
 
 const Tab = createBottomTabNavigator();
@@ -21,6 +25,7 @@ const Stack = createNativeStackNavigator();
 function MyTabs() {
   const { isDarkMode } = useDarkMode();
   const { tabBarHeight, isLandscape, isTablet, fs } = useResponsive();
+  const insets = useSafeAreaInsets();
   const iconSize = isLandscape ? (isTablet ? 24 : 22) : 30;
 
   return (
@@ -28,10 +33,10 @@ function MyTabs() {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarStyle: {
-          height: tabBarHeight,
+          height: tabBarHeight + insets.bottom,
           paddingHorizontal: 5,
           paddingTop: 0,
-          paddingBottom: isLandscape ? 5 : 0,
+          paddingBottom: insets.bottom || (isLandscape ? 5 : 0),
           backgroundColor: "rgba(34,36,40,1)",
           position: "absolute",
           borderTopWidth: 0,
@@ -73,7 +78,10 @@ function MyTabs() {
         options={{
           headerShown: false,
           tabBarIcon: () => (
-            <FontAwesome5 name="bolt" style={{ fontSize: iconSize, color: "gold" }} />
+            <FontAwesome5
+              name="bolt"
+              style={{ fontSize: iconSize, color: "gold" }}
+            />
           ),
         }}
       />
@@ -145,27 +153,29 @@ export default function App() {
   }
 
   return (
-    <DarkModeProvider>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName={initialRoute}>
-          <Stack.Screen
-            name="Welcome"
-            component={WelcomeScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Main"
-            component={MyTabs}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Terms"
-            component={Terms}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </DarkModeProvider>
+    <SafeAreaProvider>
+      <DarkModeProvider>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName={initialRoute}>
+            <Stack.Screen
+              name="Welcome"
+              component={WelcomeScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Main"
+              component={MyTabs}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Terms"
+              component={Terms}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </DarkModeProvider>
+    </SafeAreaProvider>
   );
 }
 
